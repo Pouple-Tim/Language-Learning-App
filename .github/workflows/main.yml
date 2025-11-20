@@ -1,0 +1,52 @@
+name: Flutter CI
+
+# Ce workflow se lance à chaque fois que tu push sur la branche 'main'
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # On utilise une machine virtuelle Linux fournie par GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupère ton code
+      - uses: actions/checkout@v4
+
+      # 2. Installe Java (nécessaire pour compiler l'Android)
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # 3. Installe Flutter
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          # flutter-version: '3.19.0' # Tu peux fixer une version si besoin
+
+      # 4. Installe les dépendances
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 5. Lance l'analyse du code (optionnel, pour vérifier la qualité)
+      - name: Analyze code
+        run: flutter analyze
+
+      # 6. Lance les tests unitaires
+      - name: Run tests
+        run: flutter test
+
+      # 7. Compile l'APK Android (Debug ou Release)
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      # 8. Sauvegarde l'APK pour que tu puisses le télécharger depuis GitHub
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
