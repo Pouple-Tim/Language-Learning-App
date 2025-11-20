@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/game_provider.dart';
@@ -71,8 +70,7 @@ class HomeScreen extends StatelessWidget {
             return LayoutBuilder(
               builder: (context, constraints) {
                 final isSmallScreen = constraints.maxWidth < 380;
-                // Détermine si on doit afficher la roue ou le jeu actif
-                final isPlaying = !gameProvider.isCompleted && gameProvider.currentWord != null;
+                // REMOVED: Unused variable 'isPlaying'
 
                 return GestureDetector(
                   onTap: () => FocusScope.of(context).unfocus(),
@@ -86,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               // --- HAUT (Titre + Barre) ---
-                              const SizedBox(height: 12), // Réduit de 16 à 12
+                              const SizedBox(height: 12), 
                               FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: Text(
@@ -97,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                 ),
                               ),
-                              const SizedBox(height: 8), // Réduit de 12 à 8
+                              const SizedBox(height: 8), 
                               _buildProgressBar(context, gameProvider),
 
                               const SizedBox(height: 12),
@@ -124,8 +122,6 @@ class HomeScreen extends StatelessWidget {
                                 // Zone du mot à deviner
                                 _buildWordDisplay(context, gameProvider, isSmallScreen),
                                 
-                                // Le Spacer pousse le contenu suivant vers le bas,
-                                // mais s'écrase si l'espace manque.
                                 const Spacer(), 
 
                                 // --- BAS (Input / Dessin) ---
@@ -133,10 +129,8 @@ class HomeScreen extends StatelessWidget {
                                 if (gameProvider.currentDeck!.inputType == InputType.text)
                                   const TextInputWidget()
                                 else
-                                  // Le widget de dessin gérera lui-même sa hauteur max
                                   const DrawingWidget(),
                                 
-                                // Marge du bas réduite (SafeArea s'en charge déjà en partie)
                                 const SizedBox(height: 16), 
                               ],
                             ],
@@ -154,11 +148,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // ... (Le reste des méthodes _buildProgressBar, _buildWordDisplay, etc. reste inchangé)
-  // Assure-toi juste que _buildWordDisplay est assez compact si possible.
-  
   Widget _buildProgressBar(BuildContext context, GameProvider gameProvider) {
-    // (Code inchangé)
     return Column(
       children: [
         Row(
@@ -191,7 +181,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
   
-  // Copie le reste de tes méthodes helper existantes ici...
   Widget _buildWordDisplay(BuildContext context, GameProvider gameProvider, bool isSmallScreen) {
       final l10n = AppLocalizations.of(context)!;
       
@@ -200,7 +189,6 @@ class HomeScreen extends StatelessWidget {
           Container(
             width: double.infinity,
             constraints: const BoxConstraints(maxWidth: 500),
-            // Réduction du padding vertical pour gagner de la place
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
             decoration: BoxDecoration(
               gradient: AppColors.primaryGradient,
@@ -220,7 +208,7 @@ class HomeScreen extends StatelessWidget {
                   child: Text(
                     gameProvider.currentWord!.prompt,
                     style: const TextStyle(
-                      fontSize: 40, // Légèrement réduit (48 -> 40)
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -235,7 +223,7 @@ class HomeScreen extends StatelessWidget {
             icon: const Icon(Icons.refresh, size: 18),
             label: Text(l10n.changeWord),
             style: TextButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8), // Padding réduit
+              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
             ),
           ),
         ],
@@ -243,7 +231,6 @@ class HomeScreen extends StatelessWidget {
     }
 
     Widget _buildCompletedCard(BuildContext context, GameProvider gameProvider) {
-       // (Ton code existant)
        final l10n = AppLocalizations.of(context)!;
         return Card(
           elevation: 0,
@@ -256,7 +243,7 @@ class HomeScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(24),
             child: Column(
-              mainAxisSize: MainAxisSize.min, // Important pour centrer
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const Icon(Icons.celebration, size: 60, color: AppColors.success),
                 const SizedBox(height: 16),
@@ -296,14 +283,10 @@ class HomeScreen extends StatelessWidget {
     }
 
     void _showRemainingWordsBottomSheet(BuildContext context, GameProvider gameProvider) {
-        // (Ton code existant, inchangé)
-        // ...
         final l10n = AppLocalizations.of(context)!;
         final deck = gameProvider.currentDeck;
         if (deck == null) return;
-        // Reste de la méthode...
-        // Pour la brièveté, je ne recopie pas tout ici, garde ta méthode actuelle.
-        // Juste assure-toi d'avoir les imports nécessaires.
+
         final remainingWords = deck.activeWords;
         final completedWords = deck.words.where((w) => w.removed).toList();
 
@@ -324,7 +307,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      // ... (Header bottom sheet)
                        Center(
                         child: Container(
                           margin: const EdgeInsets.symmetric(vertical: 12),
@@ -413,7 +395,6 @@ class HomeScreen extends StatelessWidget {
     }
     
     Widget _buildWordsList(BuildContext context, List<Word> words, bool isCompleted, ScrollController scrollController) {
-        // (Ton code existant)
         final l10n = AppLocalizations.of(context)!;
         if (words.isEmpty) {
           return Center(child: Text(isCompleted ? l10n.noWordSucceeded : l10n.allWordsSucceeded));
@@ -422,10 +403,10 @@ class HomeScreen extends StatelessWidget {
           controller: scrollController,
           padding: const EdgeInsets.all(16),
           itemCount: words.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 8),
+          separatorBuilder: (context, index) => const SizedBox(height: 8),
           itemBuilder: (context, index) {
              final word = words[index];
-             return ListTile(title: Text(word.prompt)); // Version simplifiée pour l'exemple
+             return ListTile(title: Text(word.prompt));
           }
         );
     }

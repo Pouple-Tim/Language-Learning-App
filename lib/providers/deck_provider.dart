@@ -24,7 +24,7 @@ class DeckProvider extends ChangeNotifier {
   Future<void> loadDecks() async {
 
     if (_isInitialized) {
-      print('✅ Decks déjà chargés (cache)');
+      debugPrint('✅ Decks déjà chargés (cache)');
       return;
     }
 
@@ -49,8 +49,8 @@ class DeckProvider extends ChangeNotifier {
 
       _isInitialized = true;
       
-      print('✅ DeckProvider: ${_baseDecks.length} decks de base chargés');
-      print('✅ Catégories disponibles: ${_repository.getCategories()}');
+      debugPrint('✅ DeckProvider: ${_baseDecks.length} decks de base chargés');
+      debugPrint('✅ Catégories disponibles: ${_repository.getCategories()}');
       
     } catch (e) {
       debugPrint('Erreur lors du chargement des decks: $e');

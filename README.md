@@ -1,27 +1,15 @@
 [![Flutter CI](https://github.com/Pouple-Tim/Language-Learning-App/actions/workflows/main.yml/badge.svg)](https://github.com/Pouple-Tim/Language-Learning-App/actions/workflows/main.yml)
 
-<!-- Badge Version de Flutter utilisée -->
-![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?logo=flutter)
+<!-- Badge Plateforme (Tu l'écris toi-même) -->
+![Platform](https://img.shields.io/badge/Platform-Android_|_Web-gray?logo=android)
 
-<!-- Badge Taille du repo -->
-![Repo Size](https://img.shields.io/github/repo-size/Pouple-Tim/Language-Learning-App)
-
-<!-- Badge Nombre d'étoiles -->
-![Stars](https://img.shields.io/github/stars/Pouple-Tim/Language-Learning-App?style=social)
+<!-- Badge État du projet -->
+![Status](https://img.shields.io/badge/Status-In_Development-yellow)
 
 # language_learning_app
 
 A new Flutter project.
 
-## Getting Started
+## Téléchargements
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Télécharger l'APK Android](lien_vers_releases)

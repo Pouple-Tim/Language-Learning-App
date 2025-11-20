@@ -113,7 +113,7 @@ class SettingsScreen extends StatelessWidget {
   Widget _buildThemeSwitch(BuildContext context, AppLocalizations l10n) {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, _) {
-        return SwitchListTile.adaptive( // .adaptive pour style iOS sur iPhone
+        return SwitchListTile.adaptive(
           title: Text(
             l10n.darkMode,
             style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
@@ -135,13 +135,14 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           value: themeProvider.isDarkMode,
-          activeColor: AppColors.primary,
+          activeTrackColor: AppColors.primary, 
           onChanged: (_) => themeProvider.toggleTheme(),
         );
       },
     );
   }
 
+  // ... (Rest of the file is unchanged, but included for completeness)
   Widget _buildLanguageTile(BuildContext context, AppLocalizations l10n) {
     return Consumer<LocaleProvider>(
       builder: (context, localeProvider, _) {
@@ -208,7 +209,6 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             
-            // Barre de progression intégrée proprement
             Padding(
               padding: const EdgeInsets.fromLTRB(72, 0, 24, 16),
               child: Column(
@@ -293,11 +293,6 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  // ---------------------------------------------------------------------------
-  // DIALOGS & SHEETS
-  // ---------------------------------------------------------------------------
-
-  // Remplacement de l'AlertDialog par un BottomSheet (Plus mobile-friendly)
   void _showLanguageBottomSheet(BuildContext context, LocaleProvider localeProvider) {
     showModalBottomSheet(
       context: context,
@@ -327,13 +322,13 @@ class SettingsScreen extends StatelessWidget {
   Widget _buildLanguageItem(BuildContext context, LocaleProvider provider, String code, String name, String countryCode) {
     final isSelected = provider.locale.languageCode == code;
     return ListTile(
-      leading: SizedBox( // 1. On utilise SizedBox pour la taille
+      leading: SizedBox(
         width: 32,
         height: 24,
         child: CountryFlag.fromCountryCode(
           countryCode,
           theme: const ImageTheme(
-                    shape: RoundedRectangle(4), // Circle
+                    shape: RoundedRectangle(4),
                   ),
         ),
       ),
@@ -368,7 +363,7 @@ class SettingsScreen extends StatelessWidget {
           FilledButton(
             onPressed: () async {
               await gameProvider.resetDeck();
-              await deckProvider.refreshSelectedDeck(); // Force UI update
+              await deckProvider.refreshSelectedDeck();
               if (context.mounted) {
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -401,7 +396,6 @@ class SettingsScreen extends StatelessWidget {
           FilledButton(
             onPressed: () async {
               await StorageHelper.clear();
-              // Idéalement, recharger l'app ou les providers ici
               if (context.mounted) {
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import '../models/settings.dart';
 import '../../core/utils/storage_helper.dart';
 import '../../core/utils/date_helper.dart';
@@ -28,7 +29,7 @@ class SettingsRepository {
       // Paramètres par défaut
       return Settings.defaultSettings();
     } catch (e) {
-      print('Erreur lors du chargement des paramètres: $e');
+      debugPrint('Erreur lors du chargement des paramètres: $e');
       return Settings.defaultSettings();
     }
   }
@@ -38,7 +39,7 @@ class SettingsRepository {
     try {
       await StorageHelper.saveJson(AppConstants.keySettings, settings.toJson());
     } catch (e) {
-      print('Erreur lors de la sauvegarde des paramètres: $e');
+      debugPrint('Erreur lors de la sauvegarde des paramètres: $e');
     }
   }
 

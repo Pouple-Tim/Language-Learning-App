@@ -9,7 +9,6 @@ import 'deck_editor_screen.dart';
 import '../../l10n/app_localizations.dart';
 import '../../core/extensions/deck_extensions.dart';
 
-
 class DecksScreen extends StatefulWidget {
   const DecksScreen({super.key});
 
@@ -33,16 +32,23 @@ class _DecksScreenState extends State<DecksScreen> {
             icon: const Icon(Icons.refresh),
             onPressed: () async {
               final provider = context.read<DeckProvider>();
+              // FIX: Capture the messenger before the async gap
+              final messenger = ScaffoldMessenger.of(context);
+              
               await provider.reloadDecks();
+              
+              // Check if the widget is still in the tree before calling setState
+              if (!mounted) return;
+
               setState(() {
                 _expandedCategories.clear();
                 _expandedSubcategories.clear();
               });
-              if (mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(l10n.decksReloaded)),
-                );
-              }
+              
+              // Use the captured messenger instead of looking it up with context again
+              messenger.showSnackBar(
+                SnackBar(content: Text(l10n.decksReloaded)),
+              );
             },
           ),
         ],
@@ -58,10 +64,12 @@ class _DecksScreenState extends State<DecksScreen> {
           return RefreshIndicator(
             onRefresh: () async {
               await deckProvider.reloadDecks();
-              setState(() {
-                _expandedCategories.clear();
-                _expandedSubcategories.clear();
-              });
+              if (mounted) {
+                setState(() {
+                  _expandedCategories.clear();
+                  _expandedSubcategories.clear();
+                });
+              }
             },
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
@@ -285,9 +293,8 @@ class _DecksScreenState extends State<DecksScreen> {
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
-            // ✅ MODIFICATION ICI
             title: Text(
-              translateCategory(name, context), // Traduction de la catégorie
+              translateCategory(name, context), 
               style: TextStyle(
                 fontSize: level == 0 ? 18 : 16,
                 fontWeight: level == 0 ? FontWeight.bold : FontWeight.w600,

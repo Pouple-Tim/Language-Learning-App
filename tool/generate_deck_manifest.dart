@@ -2,7 +2,8 @@ import 'dart:io';
 import 'dart:convert';
 
 void main() async {
-  print('🔍 Scanning decks...');
+  // Use stdout.writeln instead of print to satisfy the linter
+  stdout.writeln('🔍 Scanning decks...');
 
   final decksDir = Directory('assets/decks');
   final deckFiles = <Map<String, dynamic>>[];
@@ -25,15 +26,14 @@ void main() async {
         pathParts.removeLast(); // Enlever le nom du fichier
         
         // Le path devient la hiérarchie : categories = pathParts
-        // Ex: [] = racine (Autres), ['chinese'] = catégorie, ['chinese', 'hsk1'] = catégorie + sous-cat
         final categories = pathParts.map((part) => _capitalize(part)).toList();
         
-        // 👇 AJOUTER : Si pas de catégorie, mettre dans "Autres"
+        // Si pas de catégorie, mettre dans "Autres"
         if (categories.isEmpty) {
           categories.add('Autres');
         }
         
-        print('  📁 $relativePath → categories: $categories');
+        stdout.writeln('  📁 $relativePath → categories: $categories');
 
         // Déduire la difficulté
         String difficulty = 'beginner';
@@ -48,13 +48,14 @@ void main() async {
 
         deckFiles.add({
           'path': path,
-          'categories': categories, // 👈 Liste de catégories hiérarchiques
+          'categories': categories,
           'difficulty': difficulty,
         });
 
-        print('  ✅ $name → ${categories.join(' > ')}');
+        stdout.writeln('  ✅ $name → ${categories.join(' > ')}');
       } catch (e) {
-        print('  ❌ Error reading ${entity.path}: $e');
+        // Use stderr for errors
+        stderr.writeln('  ❌ Error reading ${entity.path}: $e');
       }
     }
   }
@@ -87,8 +88,8 @@ void main() async {
     JsonEncoder.withIndent('  ').convert(manifest),
   );
 
-  print('\n✨ Manifest généré avec ${deckFiles.length} decks !');
-  print('📄 Fichier: ${manifestFile.path}');
+  stdout.writeln('\n✨ Manifest généré avec ${deckFiles.length} decks !');
+  stdout.writeln('📄 Fichier: ${manifestFile.path}');
 }
 
 String _capitalize(String text) {

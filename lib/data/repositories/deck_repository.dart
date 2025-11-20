@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart'; // Necessary for debugPrint
 import 'package:flutter/services.dart';
 import '../models/deck.dart';
 import '../models/deck_manifest.dart';
@@ -25,8 +26,8 @@ class DeckRepository {
       final manifestData = jsonDecode(manifestJson) as Map<String, dynamic>;
       _manifest = DeckManifest.fromJson(manifestData);
 
-      print('📋 Manifest chargé: v${_manifest!.version} (${_manifest!.lastUpdate})');
-      print('📚 ${_manifest!.decks.length} decks à charger...');
+      debugPrint('📋 Manifest chargé: v${_manifest!.version} (${_manifest!.lastUpdate})');
+      debugPrint('📚 ${_manifest!.decks.length} decks à charger...');
 
       // Charger chaque deck listé dans le manifest
       for (final entry in _manifest!.decks) {
@@ -36,9 +37,9 @@ class DeckRepository {
           final deck = Deck.fromJson(jsonData);
           decks.add(deck);
           
-          print('✅ ${deck.name} (${entry.difficulty})');
+          debugPrint('✅ ${deck.name} (${entry.difficulty})');
         } catch (e) {
-          print('❌ Erreur: ${entry.path} - $e');
+          debugPrint('❌ Erreur: ${entry.path} - $e');
         }
       }
 
@@ -46,10 +47,10 @@ class DeckRepository {
       _organizeDecksByCategory(decks);
       _buildMetadataMap(decks);
 
-      print('🎉 ${decks.length} decks chargés avec succès !');
+      debugPrint('🎉 ${decks.length} decks chargés avec succès !');
       return decks;
     } catch (e) {
-      print('💥 Erreur lors du chargement des decks de base: $e');
+      debugPrint('💥 Erreur lors du chargement des decks de base: $e');
       return [];
     }
   }
@@ -129,7 +130,7 @@ class DeckRepository {
 
       return jsonList.map((json) => Deck.fromJson(json)).toList();
     } catch (e) {
-      print('Erreur lors du chargement des decks personnalisés: $e');
+      debugPrint('Erreur lors du chargement des decks personnalisés: $e');
       return [];
     }
   }
@@ -140,7 +141,7 @@ class DeckRepository {
       final jsonList = decks.map((deck) => deck.toJson()).toList();
       await StorageHelper.saveJsonList(AppConstants.keyCustomDecks, jsonList);
     } catch (e) {
-      print('Erreur lors de la sauvegarde des decks personnalisés: $e');
+      debugPrint('Erreur lors de la sauvegarde des decks personnalisés: $e');
     }
   }
 
@@ -169,7 +170,7 @@ class DeckRepository {
         await StorageHelper.saveJson(key, deck.toJson());
       }
     } catch (e) {
-      print('Erreur lors de la sauvegarde de l\'état du deck: $e');
+      debugPrint('Erreur lors de la sauvegarde de l\'état du deck: $e');
     }
   }
 
@@ -183,7 +184,7 @@ class DeckRepository {
       }
       return null;
     } catch (e) {
-      print('Erreur lors du chargement de l\'état du deck: $e');
+      debugPrint('Erreur lors du chargement de l\'état du deck: $e');
       return null;
     }
   }

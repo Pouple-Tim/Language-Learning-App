@@ -1,4 +1,3 @@
-import 'dart:math'; // Ajout nécessaire pour 'min'
 import 'dart:ui' as ui;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,8 @@ import 'package:provider/provider.dart';
 import '../../../providers/game_provider.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../l10n/app_localizations.dart';
+
+// REMOVED: Unused import 'dart:math'
 
 class DrawingWidget extends StatefulWidget {
   const DrawingWidget({super.key});
@@ -23,7 +24,6 @@ class _DrawingWidgetState extends State<DrawingWidget> {
   double _scrollOffset = 0.0;
   final double _virtualWidth = 2000.0; 
 
-  // ... (Garde tes méthodes _clearDrawing, _showValidationDialog, _handleValidation inchangées)
   void _clearDrawing() {
     setState(() {
       _strokes.clear();
@@ -86,24 +86,18 @@ class _DrawingWidgetState extends State<DrawingWidget> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final strokeColor = isDark ? Colors.white : Colors.black;
     
-    // Récupérer la hauteur totale de l'écran
     final screenHeight = MediaQuery.of(context).size.height;
 
     return LayoutBuilder(
       builder: (context, constraints) {
         final double visibleWidth = constraints.maxWidth;
         
-        // CORRECTION PRINCIPALE :
-        // On calcule une hauteur basée sur la largeur (ratio 0.6 au lieu de 0.75)
-        // MAIS on la borne (clamp) avec un maximum relatif à la hauteur de l'écran (40% max).
-        // Cela empêche le dessin de pousser le reste hors de l'écran.
         final double maxHeightAvailable = screenHeight * 0.40; 
         final double canvasHeight = (visibleWidth * 0.75).clamp(200.0, maxHeightAvailable);
         
         final double maxScroll = (_virtualWidth - visibleWidth).clamp(0.0, double.infinity);
 
         return Padding(
-          // Réduction du padding vertical externe
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -111,7 +105,7 @@ class _DrawingWidgetState extends State<DrawingWidget> {
               // Feedback animé
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                height: _showFeedback ? 40 : 0, // Réduit de 50 à 40
+                height: _showFeedback ? 40 : 0,
                 child: _showFeedback
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -205,10 +199,10 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                 ),
               ),
 
-              // Slider (si nécessaire)
+              // Slider
               if (maxScroll > 0)
                 SizedBox(
-                  height: 30, // Hauteur fixe contrainte
+                  height: 30, 
                   child: Row(
                     children: [
                       const Icon(Icons.keyboard_arrow_left, color: Colors.grey, size: 20),
@@ -264,7 +258,7 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                 ],
               ),
 
-              // Bouton Skip (plus compact)
+              // Bouton Skip
               TextButton(
                 onPressed: gameProvider.currentWord != null && !_showFeedback
                     ? () {
@@ -284,7 +278,6 @@ class _DrawingWidgetState extends State<DrawingWidget> {
   }
 }
 
-// Les classes _DrawingPainter et EagerPanGestureRecognizer restent inchangées
 class _DrawingPainter extends CustomPainter {
   final List<List<Offset>> strokes;
   final List<Offset> currentStroke;
@@ -298,7 +291,10 @@ class _DrawingPainter extends CustomPainter {
     canvas.save();
     canvas.translate(-scrollOffset, 0);
     final paint = Paint()..color = color..strokeWidth = 4.0..strokeCap = StrokeCap.round..style = PaintingStyle.stroke;
-    for (final stroke in strokes) _drawStroke(canvas, stroke, paint);
+    // FIXED: Enclosed statements in block
+    for (final stroke in strokes) {
+      _drawStroke(canvas, stroke, paint);
+    }
     if (currentStroke.isNotEmpty) _drawStroke(canvas, currentStroke, paint);
     canvas.restore();
   }
