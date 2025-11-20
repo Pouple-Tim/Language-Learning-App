@@ -1,3 +1,5 @@
+[![Flutter CI](https://github.com/Pouple-Tim/Language-Learning-App/actions/workflows/main.yml/badge.svg)](https://github.com/Pouple-Tim/Language-Learning-App/actions/workflows/main.yml)
+
 # language_learning_app
 
 A new Flutter project.
