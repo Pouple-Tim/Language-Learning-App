@@ -1,5 +1,14 @@
 [![Flutter CI](https://github.com/Pouple-Tim/Language-Learning-App/actions/workflows/main.yml/badge.svg)](https://github.com/Pouple-Tim/Language-Learning-App/actions/workflows/main.yml)
 
+<!-- Badge Version de Flutter utilisée -->
+![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?logo=flutter)
+
+<!-- Badge Taille du repo -->
+![Repo Size](https://img.shields.io/github/repo-size/Pouple-Tim/Language-Learning-App)
+
+<!-- Badge Nombre d'étoiles -->
+![Stars](https://img.shields.io/github/stars/Pouple-Tim/Language-Learning-App?style=social)
+
 # language_learning_app
 
 A new Flutter project.
