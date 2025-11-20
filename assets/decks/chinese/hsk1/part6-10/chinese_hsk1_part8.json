@@ -1,0 +1,23 @@
+{
+  "id": "chinese_hsk1_part8",
+  "name": "Chinois - HSK1 (Partie 8)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "xiǎng", "answer": "想", "meaning": "vouloir, penser à", "removed": false},
+    {"prompt": "hē", "answer": "喝", "meaning": "boire", "removed": false},
+    {"prompt": "chá", "answer": "茶", "meaning": "thé", "removed": false},
+    {"prompt": "chī", "answer": "吃", "meaning": "manger", "removed": false},
+    {"prompt": "mǐfàn", "answer": "米饭", "meaning": "riz cuit, repas", "removed": false},
+    {"prompt": "xiàwǔ", "answer": "下午", "meaning": "après-midi", "removed": false},
+    {"prompt": "shāngdiàn", "answer": "商店", "meaning": "magasin", "removed": false},
+    {"prompt": "mǎi", "answer": "买", "meaning": "acheter", "removed": false},
+    {"prompt": "gè", "answer": "个", "meaning": "classificateur général", "removed": false},
+    {"prompt": "bēizi", "answer": "杯子", "meaning": "verre, tasse", "removed": false},
+    {"prompt": "zhè", "answer": "这", "meaning": "ce, ceci", "removed": false},
+    {"prompt": "duōshao", "answer": "多少", "meaning": "combien", "removed": false},
+    {"prompt": "qián", "answer": "钱", "meaning": "argent", "removed": false},
+    {"prompt": "kuài", "answer": "块", "meaning": "yuan (monnaie), morceau", "removed": false},
+    {"prompt": "nà", "answer": "那", "meaning": "cela, celui-là", "removed": false}
+  ]
+}

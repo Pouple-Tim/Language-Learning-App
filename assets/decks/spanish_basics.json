@@ -1,0 +1,18 @@
+{
+  "id": "spanish_basics_base",
+  "name": "Espagnol - Basique",
+  "type": "base",
+  "inputType": "text",
+  "words": [
+    {"prompt": "Hola", "answer": "bonjour", "removed": false},
+    {"prompt": "Adiós", "answer": "au revoir", "removed": false},
+    {"prompt": "Gracias", "answer": "merci", "removed": false},
+    {"prompt": "Por favor", "answer": "s'il vous plait", "removed": false},
+    {"prompt": "Sí", "answer": "oui", "removed": false},
+    {"prompt": "No", "answer": "non", "removed": false},
+    {"prompt": "Buenos días", "answer": "bon matin", "removed": false},
+    {"prompt": "Buenas noches", "answer": "bonne nuit", "removed": false},
+    {"prompt": "¿Cómo estás?", "answer": "comment vas-tu", "removed": false},
+    {"prompt": "Bien", "answer": "bien", "removed": false}
+  ]
+}

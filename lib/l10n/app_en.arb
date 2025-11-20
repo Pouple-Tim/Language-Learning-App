@@ -1,0 +1,194 @@
+{
+  "@@locale": "en",
+  "appName": "Language Learning",
+  "homeTitle": "Language Learning",
+  "decksTitle": "My Decks",
+  "settingsTitle": "Settings",
+  
+  "spinWheel": "Spin the wheel",
+  "spinning": "Spinning...",
+  "validate": "Validate",
+  "skip": "Skip this word",
+  "clear": "Clear",
+  "typeAnswer": "Type your answer...",
+  "spinFirst": "Spin the wheel first",
+  "drawCharacter": "Draw the character corresponding to: {answer}",
+  "@drawCharacter": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "wordsRemaining": "{count} words remaining",
+  "@wordsRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "totalWords": "{count} words",
+  "@totalWords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "correct": "Correct! 🎉",
+  "tryAgain": "Try again",
+  "completed": "Congratulations! 🎉",
+  "completedMessage": "You've mastered all the words!",
+  "restart": "Restart",
+  
+  "reset": "Reset",
+  "resetDeck": "Reset deck?",
+  "resetDeckMessage": "Do you want to restart this deck from the beginning? All your progress will be lost.",
+  "cancel": "Cancel",
+  
+  "decksAvailable": "Available Decks",
+  "myDecks": "My Decks",
+  "createDeck": "Create deck",
+  "noCustomDecks": "No custom deck",
+  "createFirstDeck": "Create your first deck to start!",
+  "deck": "deck",
+  "decks": "decks",
+  
+  "editDeck": "Edit deck",
+  "createNewDeck": "Create a deck",
+  "deckName": "Deck name",
+  "deckNameHint": "Ex: Spanish - Vocabulary",
+  "enterName": "Enter a name",
+  "nameMinLength": "Name must be at least {min} characters",
+  "@nameMinLength": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "inputType": "Input type",
+  "text": "Text",
+  "drawing": "Drawing",
+  "words": "Words",
+  "addWord": "Add",
+  "noWords": "No words added",
+  "question": "Question",
+  "answer": "Answer",
+  "enterQuestion": "Enter a question",
+  "enterAnswer": "Enter an answer",
+  "save": "Save",
+  "edit": "Edit",
+  "delete": "Delete",
+  "deleteDeck": "Delete this deck?",
+  "deleteDeckMessage": "Are you sure you want to delete \"{name}\"?\nThis action is irreversible.",
+  "@deleteDeckMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addMinWords": "Add at least {min} words!",
+  "@addMinWords": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "appearance": "Appearance",
+  "darkMode": "Dark mode",
+  "darkModeEnabled": "Dark mode enabled",
+  "lightModeEnabled": "Light mode enabled",
+  "language": "Language",
+  "selectLanguage": "Select language",
+  
+  "currentDeck": "Current deck",
+  "progress": "Progress",
+  "total": "Total",
+  "remaining": "Remaining",
+  "completed_plural": "Completed",
+  
+  "data": "Data",
+  "resetCurrentDeck": "Reset current deck",
+  "restartFromBeginning": "Restart from the beginning",
+  "clearAllData": "Clear all data",
+  "deleteAllProgress": "Delete all progress and settings",
+  "warning": "⚠️ Warning!",
+  "clearDataWarning": "This action will delete:\n• All your custom decks\n• All your progress\n• All your settings\n\nThis action is IRREVERSIBLE!",
+  "clearAll": "Clear all",
+  
+  "about": "About",
+  "version": "Version",
+  "description": "Language learning app with interactive wheel.\n\nLearn new words every day and improve your vocabulary!",
+  "madeWithLove": "Made with passion",
+  
+  "deckSelected": "Deck \"{name}\" selected",
+  "@deckSelected": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deckCreated": "Deck \"{name}\" created!",
+  "@deckCreated": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deckModified": "Deck \"{name}\" modified!",
+  "@deckModified": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deckDeleted": "Deck \"{name}\" deleted",
+  "@deckDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deckReset": "Deck reset!",
+  "decksReloaded": "Decks reloaded!",
+  "allDataCleared": "All data has been cleared.\nRestart the application.",
+  
+  "remainingWordsList": "Remaining words",
+  "toReview": "To review",
+  "succeeded": "Succeeded",
+  "noWordSucceeded": "No word succeeded yet",
+  "allWordsSucceeded": "All words are succeeded! 🎉",
+  "close": "Close",
+  
+  "beginner": "Beginner",
+  "intermediate": "Intermediate",
+  "advanced": "Advanced",
+  
+  "noDeck": "No deck",
+
+  "changeWord": "Change word",
+  "noDecksAvailable": "No decks available",
+  "drawingValidationQuestion": "Did you draw correctly: {word}?",
+  "@drawingValidationQuestion": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "noWrong": "No, wrong",
+  "yesCorrect": "Yes, correct!",
+  "noWordsAvailable": "No words available",
+  "chooseDeckToStart": "Choose a deck to start"
+}

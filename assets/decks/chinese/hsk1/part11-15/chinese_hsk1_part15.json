@@ -1,0 +1,17 @@
+{
+  "id": "chinese_hsk1_part15",
+  "name": "Chinois - HSK1 (Partie 15)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "rènshi", "answer": "认识", "meaning": "connaître (quelqu’un)", "removed": false},
+    {"prompt": "nián", "answer": "年", "meaning": "année", "removed": false},
+    {"prompt": "dàxué", "answer": "大学", "meaning": "université", "removed": false},
+    {"prompt": "fàndiàn", "answer": "饭店", "meaning": "restaurant, hôtel", "removed": false},
+    {"prompt": "chūzūchē", "answer": "出租车", "meaning": "taxi", "removed": false},
+    {"prompt": "yīqǐ", "answer": "一起", "meaning": "ensemble", "removed": false},
+    {"prompt": "gāoxìng", "answer": "高兴", "meaning": "content, heureux", "removed": false},
+    {"prompt": "tīng", "answer": "听", "meaning": "écouter, entendre", "removed": false},
+    {"prompt": "fēijī", "answer": "飞机", "meaning": "avion", "removed": false}
+  ]
+}

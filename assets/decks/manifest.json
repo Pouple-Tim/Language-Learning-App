@@ -1,0 +1,190 @@
+{
+  "version": "1.0.0",
+  "lastUpdate": "2025-11-20",
+  "decks": [
+    {
+      "path": "assets/decks/spanish_basics.json",
+      "categories": [
+        "Autres"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/japanese_hiragana.json",
+      "categories": [
+        "Autres"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/chinese_hsk1_all.json",
+      "categories": [
+        "Chinois",
+        "HSK 1"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1_5.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part4.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part5.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part3.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part2.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part13.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 11 à 15"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part15.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 11 à 15"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part11.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 11 à 15"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part14.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 11 à 15"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part11_15.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 11 à 15"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part12.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 11 à 15"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part6_10.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part8.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part7.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part10.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part6.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part9.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}

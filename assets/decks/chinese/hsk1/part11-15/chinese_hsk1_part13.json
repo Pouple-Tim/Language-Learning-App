@@ -1,0 +1,18 @@
+{
+  "id": "chinese_hsk1_part13",
+  "name": "Chinois - HSK1 (Partie 13)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "wèi", "answer": "喂", "meaning": "allo (au téléphone)", "removed": false},
+    {"prompt": "yě", "answer": "也", "meaning": "aussi", "removed": false},
+    {"prompt": "xuéxí", "answer": "学习", "meaning": "étudier, apprendre", "removed": false},
+    {"prompt": "shàngwǔ", "answer": "上午", "meaning": "matinée", "removed": false},
+    {"prompt": "shuì jiào", "answer": "睡觉", "meaning": "dormir", "removed": false},
+    {"prompt": "diànshì", "answer": "电视", "meaning": "télévision", "removed": false},
+    {"prompt": "xǐhuan", "answer": "喜欢", "meaning": "aimer, apprécier", "removed": false},
+    {"prompt": "gěi", "answer": "给", "meaning": "donner, à (préposition)", "removed": false},
+    {"prompt": "dǎ diànhuà", "answer": "打电话", "meaning": "téléphoner", "removed": false},
+    {"prompt": "ba", "answer": "吧", "meaning": "particule finale (suggestion, affirmation douce)", "removed": false}
+  ]
+}

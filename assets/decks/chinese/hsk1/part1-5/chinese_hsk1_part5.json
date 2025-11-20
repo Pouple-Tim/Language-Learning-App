@@ -1,0 +1,18 @@
+{
+  "id": "chinese_hsk1_part5",
+  "name": "Chinois - HSK1 (Partie 5)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "jiā", "answer": "家", "meaning": "maison, famille", "removed": false},
+    {"prompt": "yǒu", "answer": "有", "meaning": "avoir, il y a", "removed": false},
+    {"prompt": "kǒu", "answer": "口", "meaning": "bouche (classificateur pour les membres de la famille)", "removed": false},
+    {"prompt": "nǚ'ér", "answer": "女儿", "meaning": "fille (enfant)", "removed": false},
+    {"prompt": "jǐ", "answer": "几", "meaning": "combien (petit nombre)", "removed": false},
+    {"prompt": "suì", "answer": "岁", "meaning": "âge, année (pour les personnes)", "removed": false},
+    {"prompt": "le", "answer": "了", "meaning": "particule d'aspect (changement, action accomplie)", "removed": false},
+    {"prompt": "jīnnián", "answer": "今年", "meaning": "cette année", "removed": false},
+    {"prompt": "duō", "answer": "多", "meaning": "beaucoup, combien (devant un adjectif)", "removed": false},
+    {"prompt": "dà", "answer": "大", "meaning": "grand", "removed": false}
+  ]
+}

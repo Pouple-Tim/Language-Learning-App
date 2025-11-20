@@ -1,0 +1,18 @@
+{
+  "id": "chinese_hsk1_part4",
+  "name": "Chinois - HSK1 (Partie 4)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "tā (homme)", "answer": "他", "meaning": "il, lui", "removed": false},
+    {"prompt": "tā (femme)", "answer": "她", "meaning": "elle", "removed": false},
+    {"prompt": "shéi", "answer": "谁", "meaning": "qui", "removed": false},
+    {"prompt": "de", "answer": "的", "meaning": "particule possessive (de)", "removed": false},
+    {"prompt": "Hànyǔ", "answer": "汉语", "meaning": "langue chinoise", "removed": false},
+    {"prompt": "nǎ", "answer": "哪", "meaning": "quel, laquelle", "removed": false},
+    {"prompt": "guó", "answer": "国", "meaning": "pays", "removed": false},
+    {"prompt": "ne", "answer": "呢", "meaning": "particule interrogative (et… ?)", "removed": false},
+    {"prompt": "tóngxué", "answer": "同学", "meaning": "camarade de classe", "removed": false},
+    {"prompt": "péngyou", "answer": "朋友", "meaning": "ami", "removed": false}
+  ]
+}

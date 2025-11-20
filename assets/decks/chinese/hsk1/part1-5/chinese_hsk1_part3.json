@@ -1,0 +1,19 @@
+{
+  "id": "chinese_hsk1_part3",
+  "name": "Chinois - HSK1 (Partie 3)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "jiào", "answer": "叫", "meaning": "s'appeler", "removed": false},
+    {"prompt": "shénme", "answer": "什么", "meaning": "quoi, quel", "removed": false},
+    {"prompt": "míngzi", "answer": "名字", "meaning": "nom (personne)", "removed": false},
+    {"prompt": "wǒ", "answer": "我", "meaning": "je, moi", "removed": false},
+    {"prompt": "shì", "answer": "是", "meaning": "être", "removed": false},
+    {"prompt": "lǎoshī", "answer": "老师", "meaning": "professeur", "removed": false},
+    {"prompt": "ma", "answer": "吗", "meaning": "particule interrogative", "removed": false},
+    {"prompt": "xuésheng", "answer": "学生", "meaning": "étudiant, élève", "removed": false},
+    {"prompt": "rén", "answer": "人", "meaning": "personne, être humain", "removed": false},
+    {"prompt": "Zhōngguó", "answer": "中国", "meaning": "Chine", "removed": false},
+    {"prompt": "Měiguó", "answer": "美国", "meaning": "États-Unis", "removed": false}
+  ]
+}

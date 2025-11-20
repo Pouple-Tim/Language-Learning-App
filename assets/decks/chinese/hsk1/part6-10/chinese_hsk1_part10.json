@@ -1,0 +1,20 @@
+{
+  "id": "chinese_hsk1_part10",
+  "name": "Chinois - HSK1 (Partie 10)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "zhuōzi", "answer": "桌子", "meaning": "table", "removed": false},
+    {"prompt": "shàng", "answer": "上", "meaning": "sur, au-dessus", "removed": false},
+    {"prompt": "diànnǎo", "answer": "电脑", "meaning": "ordinateur", "removed": false},
+    {"prompt": "hé", "answer": "和", "meaning": "et, avec", "removed": false},
+    {"prompt": "běn", "answer": "本", "meaning": "classificateur pour les livres", "removed": false},
+    {"prompt": "lǐ", "answer": "里", "meaning": "dans, à l’intérieur", "removed": false},
+    {"prompt": "qiánmiàn", "answer": "前面", "meaning": "devant", "removed": false},
+    {"prompt": "hòumiàn", "answer": "后面", "meaning": "derrière", "removed": false},
+    {"prompt": "zhèr", "answer": "这儿", "meaning": "ici", "removed": false},
+    {"prompt": "méiyǒu", "answer": "没有", "meaning": "ne pas avoir, il n’y a pas", "removed": false},
+    {"prompt": "néng", "answer": "能", "meaning": "pouvoir, être capable de", "removed": false},
+    {"prompt": "zuò", "answer": "坐", "meaning": "s’asseoir, prendre (un moyen de transport)", "removed": false}
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chinese_hsk1_part14",
+  "name": "Chinois - HSK1 (Partie 14)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "dōngxī", "answer": "东西", "meaning": "chose, objet", "removed": false},
+    {"prompt": "yīdiǎnr", "answer": "一点儿", "meaning": "un peu", "removed": false},
+    {"prompt": "píngguǒ", "answer": "苹果", "meaning": "pomme", "removed": false},
+    {"prompt": "kànjiàn", "answer": "看见", "meaning": "voir, apercevoir", "removed": false},
+    {"prompt": "xiānsheng", "answer": "先生", "meaning": "monsieur", "removed": false},
+    {"prompt": "kāi", "answer": "开", "meaning": "ouvrir, conduire", "removed": false},
+    {"prompt": "chē", "answer": "车", "meaning": "voiture, véhicule", "removed": false},
+    {"prompt": "huílai", "answer": "回来", "meaning": "revenir", "removed": false},
+    {"prompt": "fēnzhōng", "answer": "分钟", "meaning": "minute (durée)", "removed": false},
+    {"prompt": "hòu", "answer": "后", "meaning": "après", "removed": false},
+    {"prompt": "yīfu", "answer": "衣服", "meaning": "vêtements", "removed": false},
+    {"prompt": "piàoliang", "answer": "漂亮", "meaning": "beau, jolie", "removed": false},
+    {"prompt": "a", "answer": "啊", "meaning": "ah, oh (interjection)", "removed": false},
+    {"prompt": "shǎo", "answer": "少", "meaning": "peu, manquer de", "removed": false},
+    {"prompt": "bù shǎo", "answer": "不少", "meaning": "pas mal, beaucoup", "removed": false},
+    {"prompt": "zhèxiē", "answer": "这些", "meaning": "ces, ceux-ci", "removed": false},
+    {"prompt": "dōu", "answer": "都", "meaning": "tous, tout", "removed": false}
+  ]
+}

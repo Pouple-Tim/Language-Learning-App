@@ -1,0 +1,20 @@
+{
+  "id": "chinese_hsk1_part7",
+  "name": "Chinois - HSK1 (Partie 7)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "qǐng", "answer": "请", "meaning": "s'il vous plaît, inviter", "removed": false},
+    {"prompt": "wèn", "answer": "问", "meaning": "demander, poser une question", "removed": false},
+    {"prompt": "jīntiān", "answer": "今天", "meaning": "aujourd’hui", "removed": false},
+    {"prompt": "hào", "answer": "号", "meaning": "numéro, date", "removed": false},
+    {"prompt": "yuè", "answer": "月", "meaning": "mois", "removed": false},
+    {"prompt": "xīngqī", "answer": "星期", "meaning": "semaine", "removed": false},
+    {"prompt": "zuótiān", "answer": "昨天", "meaning": "hier", "removed": false},
+    {"prompt": "míngtiān", "answer": "明天", "meaning": "demain", "removed": false},
+    {"prompt": "qù", "answer": "去", "meaning": "aller", "removed": false},
+    {"prompt": "xuéxiào", "answer": "学校", "meaning": "école", "removed": false},
+    {"prompt": "kàn", "answer": "看", "meaning": "regarder, voir, lire", "removed": false},
+    {"prompt": "shū", "answer": "书", "meaning": "livre", "removed": false}
+  ]
+}

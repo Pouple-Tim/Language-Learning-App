@@ -1,0 +1,14 @@
+{
+  "id": "chinese_hsk1_part1",
+  "name": "Chinois - HSK1 (Partie 1)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "nǐ", "answer": "你", "meaning": "tu, toi", "removed": false},
+    {"prompt": "hǎo", "answer": "好", "meaning": "bon, bien", "removed": false},
+    {"prompt": "nín", "answer": "您", "meaning": "vous (forme polie)", "removed": false},
+    {"prompt": "nǐmen", "answer": "你们", "meaning": "vous (pluriel)", "removed": false},
+    {"prompt": "duìbuqǐ", "answer": "对不起", "meaning": "désolé(e)", "removed": false},
+    {"prompt": "méi guānxi", "answer": "没关系", "meaning": "ce n’est pas grave / de rien", "removed": false}
+  ]
+}

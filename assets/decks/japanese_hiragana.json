@@ -1,0 +1,18 @@
+{
+  "id": "japanese_hiragana_base",
+  "name": "Japonais - Hiragana",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "あ", "answer": "a", "removed": false},
+    {"prompt": "い", "answer": "i", "removed": false},
+    {"prompt": "う", "answer": "u", "removed": false},
+    {"prompt": "え", "answer": "e", "removed": false},
+    {"prompt": "お", "answer": "o", "removed": false},
+    {"prompt": "か", "answer": "ka", "removed": false},
+    {"prompt": "き", "answer": "ki", "removed": false},
+    {"prompt": "く", "answer": "ku", "removed": false},
+    {"prompt": "け", "answer": "ke", "removed": false},
+    {"prompt": "こ", "answer": "ko", "removed": false}
+  ]
+}

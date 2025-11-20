@@ -1,0 +1,20 @@
+{
+  "id": "chinese_hsk1_part6",
+  "name": "Chinois - HSK1 (Partie 6)",
+  "type": "base",
+  "inputType": "draw",
+  "words": [
+    {"prompt": "huì", "answer": "会", "meaning": "savoir faire, pouvoir (capacité)", "removed": false},
+    {"prompt": "shuō", "answer": "说", "meaning": "parler, dire", "removed": false},
+    {"prompt": "māma", "answer": "妈妈", "meaning": "maman", "removed": false},
+    {"prompt": "cài", "answer": "菜", "meaning": "plat, légume", "removed": false},
+    {"prompt": "hěn", "answer": "很", "meaning": "très", "removed": false},
+    {"prompt": "hǎochī", "answer": "好吃", "meaning": "délicieux", "removed": false},
+    {"prompt": "zuò", "answer": "做", "meaning": "faire, préparer", "removed": false},
+    {"prompt": "xiě", "answer": "写", "meaning": "écrire", "removed": false},
+    {"prompt": "Hànzì", "answer": "汉字", "meaning": "caractère chinois", "removed": false},
+    {"prompt": "zì", "answer": "字", "meaning": "caractère, mot", "removed": false},
+    {"prompt": "zěnme", "answer": "怎么", "meaning": "comment", "removed": false},
+    {"prompt": "dú", "answer": "读", "meaning": "lire, étudier", "removed": false}
+  ]
+}
