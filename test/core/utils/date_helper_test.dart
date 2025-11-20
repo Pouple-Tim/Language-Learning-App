@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 // Assurez-vous que le chemin d'importation correspond à votre structure de projet
-import '../../../lib/core/utils/date_helper.dart'; 
+import 'package:language_learning_app/core/utils/date_helper.dart'; 
 
 void main() {
   group('DateHelper Tests', () {

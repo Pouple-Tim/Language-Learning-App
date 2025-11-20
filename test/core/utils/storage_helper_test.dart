@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // Assurez-vous que le chemin d'importation correspond à votre structure de projet
-import '../../../lib/core/utils/storage_helper.dart';
+import 'package:language_learning_app/core/utils/storage_helper.dart';
 
 void main() {
   group('StorageHelper Tests', () {
