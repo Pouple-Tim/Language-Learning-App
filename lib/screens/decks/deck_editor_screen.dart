@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
-import '../../data/models/deck.dart';
-import '../../data/models/word.dart';
-import '../../core/theme/app_colors.dart';
-import '../../core/constants/app_constants.dart';
-import '../../l10n/app_localizations.dart';
+import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/data/models/word.dart';
+import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/core/constants/app_constants.dart';
+import 'package:language_learning_app/l10n/app_localizations.dart';
 
 class DeckEditorScreen extends StatefulWidget {
   final Deck? deck; // null si création, non-null si modification

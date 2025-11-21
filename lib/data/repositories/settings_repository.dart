@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
-import '../models/settings.dart';
-import '../../core/utils/storage_helper.dart';
-import '../../core/utils/date_helper.dart';
-import '../../core/constants/app_constants.dart';
+import 'package:language_learning_app/data/models/settings.dart';
+import 'package:language_learning_app/core/utils/storage_helper.dart';
+import 'package:language_learning_app/core/utils/date_helper.dart';
+import 'package:language_learning_app/core/constants/app_constants.dart';
 
 class SettingsRepository {
   // Charger les paramètres

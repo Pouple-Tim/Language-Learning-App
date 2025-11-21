@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/utils/storage_helper.dart';
+import 'package:language_learning_app/core/utils/storage_helper.dart';
 
 class LocaleProvider extends ChangeNotifier {
   Locale _locale = const Locale('fr'); // Français par défaut

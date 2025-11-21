@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart'; // Necessary for debugPrint
 import 'package:flutter/services.dart';
-import '../models/deck.dart';
-import '../models/deck_manifest.dart';
-import '../../core/utils/storage_helper.dart';
-import '../../core/constants/app_constants.dart';
+import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/data/models/deck_manifest.dart';
+import 'package:language_learning_app/core/utils/storage_helper.dart';
+import 'package:language_learning_app/core/constants/app_constants.dart';
 
 class DeckRepository {
   List<Deck>? _cachedBaseDecks;

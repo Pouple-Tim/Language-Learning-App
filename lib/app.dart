@@ -8,7 +8,7 @@ import 'providers/deck_provider.dart';
 import 'providers/game_provider.dart';
 import 'providers/locale_provider.dart';
 import 'data/repositories/settings_repository.dart';
-import '../../l10n/app_localizations.dart';
+import 'l10n/app_localizations.dart';
 import 'screens/home/home_screen.dart';
 
 class MyApp extends StatefulWidget {

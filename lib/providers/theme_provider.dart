@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../data/repositories/settings_repository.dart';
+import 'package:language_learning_app/data/repositories/settings_repository.dart';
 
 class ThemeProvider extends ChangeNotifier {
   final SettingsRepository _repository = SettingsRepository();

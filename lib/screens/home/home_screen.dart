@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/game_provider.dart';
-import '../../core/theme/app_colors.dart';
+import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'widgets/text_input_widget.dart';
-import '../decks/decks_screen.dart';
+import 'package:language_learning_app/screens/decks/decks_screen.dart';
 import 'widgets/drawing_widget.dart';
-import '../../data/models/deck.dart';
-import '../settings/settings_screen.dart';
+import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/screens/settings/settings_screen.dart';
 import 'widgets/wheel_widget.dart';
-import '../../data/models/word.dart';
-import '../../l10n/app_localizations.dart';
-import '../../core/extensions/deck_extensions.dart';
+import 'package:language_learning_app/data/models/word.dart';
+import 'package:language_learning_app/l10n/app_localizations.dart';
+import 'package:language_learning_app/core/extensions/deck_extensions.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

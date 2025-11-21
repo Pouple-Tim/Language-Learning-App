@@ -2,9 +2,9 @@ import 'dart:ui' as ui;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../providers/game_provider.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../l10n/app_localizations.dart';
+import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/l10n/app_localizations.dart';
 
 // REMOVED: Unused import 'dart:math'
 

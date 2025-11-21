@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../data/models/deck.dart';
-import '../data/repositories/deck_repository.dart';
+import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/data/repositories/deck_repository.dart';
 
 class DeckProvider extends ChangeNotifier {
   final DeckRepository _repository = DeckRepository();

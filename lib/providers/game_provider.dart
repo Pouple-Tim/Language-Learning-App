@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import '../data/models/deck.dart';
-import '../data/models/word.dart';
-import '../data/repositories/deck_repository.dart';
-import '../core/utils/date_helper.dart';
+import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/data/models/word.dart';
+import 'package:language_learning_app/data/repositories/deck_repository.dart';
+import 'package:language_learning_app/core/utils/date_helper.dart';
 
 class GameProvider extends ChangeNotifier {
   final DeckRepository _repository = DeckRepository();

@@ -43,11 +43,11 @@
 library;
 
 import 'package:flutter/material.dart';
-import '../../data/models/deck.dart';
+import 'package:language_learning_app/data/models/deck.dart';
 
-import '../../data/translations/deck_chinese.dart';
-import '../../data/translations/deck_japanese.dart';
-import '../../data/translations/deck_categories.dart';
+import 'package:language_learning_app/data/translations/deck_chinese.dart';
+import 'package:language_learning_app/data/translations/deck_japanese.dart';
+import 'package:language_learning_app/data/translations/deck_categories.dart';
 
 // ═════════════════════════════════════════════════════════════════════════════
 // Map des traductions des decks

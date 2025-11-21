@@ -707,6 +707,7 @@ class DeckPreviewSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final words = deck.words.toList();
+    final l10n = AppLocalizations.of(context)!;
     
     return DraggableScrollableSheet(
       initialChildSize: 0.7,
@@ -721,7 +722,7 @@ class DeckPreviewSheet extends StatelessWidget {
           child: Column(
             children: [
               _buildHandle(),
-              _buildHeader(context),
+              _buildHeader(context, l10n),
               Expanded(
                 child: ListView.builder(
                   controller: scrollController,
@@ -732,7 +733,7 @@ class DeckPreviewSheet extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 20),
             ],
           ),
         );
@@ -752,7 +753,8 @@ class DeckPreviewSheet extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
+  Widget _buildHeader(BuildContext context, AppLocalizations l10n) {
+
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
       decoration: BoxDecoration(
@@ -786,7 +788,7 @@ class DeckPreviewSheet extends StatelessWidget {
               Icon(Icons.style, size: 14, color: Colors.grey.shade600),
               const SizedBox(width: 4),
               Text(
-                '${deck.totalWords} mots',
+                l10n.totalWords(deck.totalWords),
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey.shade600,
@@ -800,7 +802,7 @@ class DeckPreviewSheet extends StatelessWidget {
               ),
               const SizedBox(width: 4),
               Text(
-                deck.inputType == InputType.text ? 'Clavier' : 'Dessin',
+                deck.inputType == InputType.text ? l10n.text : l10n.drawing,
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey.shade600,
@@ -808,17 +810,6 @@ class DeckPreviewSheet extends StatelessWidget {
               ),
             ],
           ),
-          if (deck.words.length > 20) ...[
-            const SizedBox(height: 8),
-            Text(
-              'Affichage des 20 premiers mots',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey.shade500,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-          ],
         ],
       ),
     );

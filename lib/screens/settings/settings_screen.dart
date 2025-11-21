@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:country_flags/country_flags.dart';
-import '../../providers/theme_provider.dart';
-import '../../providers/deck_provider.dart';
-import '../../providers/game_provider.dart';
-import '../../core/theme/app_colors.dart';
-import '../../core/utils/storage_helper.dart';
-import '../../data/models/deck.dart';
-import '../decks/decks_screen.dart';
-import '../../providers/locale_provider.dart';
-import '../../l10n/app_localizations.dart';
-import '../../core/extensions/deck_extensions.dart';
+import 'package:language_learning_app/providers/theme_provider.dart';
+import 'package:language_learning_app/providers/deck_provider.dart';
+import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/core/utils/storage_helper.dart';
+import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/screens/decks/decks_screen.dart';
+import 'package:language_learning_app/providers/locale_provider.dart';
+import 'package:language_learning_app/l10n/app_localizations.dart';
+import 'package:language_learning_app/core/extensions/deck_extensions.dart';
 import 'widgets/settings_section.dart';
 import 'widgets/settings_tile.dart';
 
