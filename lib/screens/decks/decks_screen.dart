@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/deck_provider.dart';
-import '../../providers/game_provider.dart';
-import '../../data/models/deck.dart';
-import '../../data/repositories/deck_repository.dart';
-import '../../core/theme/app_colors.dart';
+import 'package:language_learning_app/providers/deck_provider.dart';
+import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/data/models/word.dart';
+import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'deck_editor_screen.dart';
-import '../../l10n/app_localizations.dart';
-import '../../core/extensions/deck_extensions.dart';
+import 'package:language_learning_app/l10n/app_localizations.dart';
+import 'package:language_learning_app/core/extensions/deck_extensions.dart';
 
 class DecksScreen extends StatefulWidget {
   const DecksScreen({super.key});
@@ -30,26 +30,7 @@ class _DecksScreenState extends State<DecksScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: () async {
-              final provider = context.read<DeckProvider>();
-              // FIX: Capture the messenger before the async gap
-              final messenger = ScaffoldMessenger.of(context);
-              
-              await provider.reloadDecks();
-              
-              // Check if the widget is still in the tree before calling setState
-              if (!mounted) return;
-
-              setState(() {
-                _expandedCategories.clear();
-                _expandedSubcategories.clear();
-              });
-              
-              // Use the captured messenger instead of looking it up with context again
-              messenger.showSnackBar(
-                SnackBar(content: Text(l10n.decksReloaded)),
-              );
-            },
+            onPressed: () => _handleRefresh(context),
           ),
         ],
       ),
@@ -59,18 +40,8 @@ class _DecksScreenState extends State<DecksScreen> {
             return const Center(child: CircularProgressIndicator());
           }
 
-          final repository = deckProvider.repository;
-
           return RefreshIndicator(
-            onRefresh: () async {
-              await deckProvider.reloadDecks();
-              if (mounted) {
-                setState(() {
-                  _expandedCategories.clear();
-                  _expandedSubcategories.clear();
-                });
-              }
-            },
+            onRefresh: () => _handleRefresh(context),
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               child: Padding(
@@ -78,9 +49,9 @@ class _DecksScreenState extends State<DecksScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildBaseDecksByCategory(context, deckProvider, repository),
+                    _buildBaseDecksByCategory(context, deckProvider),
                     const SizedBox(height: 32),
-                    _buildCustomDecksSection(context, deckProvider, repository),
+                    _buildCustomDecksSection(context, deckProvider),
                     const SizedBox(height: 80),
                   ],
                 ),
@@ -97,31 +68,31 @@ class _DecksScreenState extends State<DecksScreen> {
     );
   }
 
-  Widget _buildBaseDecksByCategory(
-    BuildContext context,
-    DeckProvider deckProvider,
-    DeckRepository repository,
-  ) {
+  Future<void> _handleRefresh(BuildContext context) async {
+    final provider = context.read<DeckProvider>();
+    final messenger = ScaffoldMessenger.of(context);
     final l10n = AppLocalizations.of(context)!;
-    final hierarchy = <String, dynamic>{};
     
-    for (final deck in deckProvider.baseDecks) {
-      final metadata = repository.getDeckMetadata(deck.id);
-      
-      List<String> categories;
-      
-      if (metadata == null) {
-        final parts = deck.name.split(' - ');
-        categories = [parts.isNotEmpty ? parts[0] : 'Autres'];
-      } else {
-        categories = metadata.categories;
-      }
-      
-      _addToHierarchy(hierarchy, categories, deck);
-    }
+    await provider.reloadDecks();
+    
+    if (!mounted) return;
+
+    setState(() {
+      _expandedCategories.clear();
+      _expandedSubcategories.clear();
+    });
+    
+    messenger.showSnackBar(
+      SnackBar(content: Text(l10n.decksReloaded)),
+    );
+  }
+
+  Widget _buildBaseDecksByCategory(BuildContext context, DeckProvider deckProvider) {
+    final l10n = AppLocalizations.of(context)!;
+    final hierarchy = _buildHierarchyMap(deckProvider);
 
     if (hierarchy.isEmpty) {
-      return _buildEmptyState(context, l10n.noDecksAvailable);
+      return _buildEmptyState(l10n.noDecksAvailable);
     }
 
     return Column(
@@ -129,16 +100,29 @@ class _DecksScreenState extends State<DecksScreen> {
       children: [
         _buildSectionTitle(context, l10n.decksAvailable, Icons.library_books),
         const SizedBox(height: 12),
-        
-        ..._buildHierarchy(context, hierarchy, [], deckProvider, repository),
+        ..._buildHierarchyWidgets(context, hierarchy, [], deckProvider),
       ],
     );
   }
 
+  Map<String, dynamic> _buildHierarchyMap(DeckProvider deckProvider) {
+    final hierarchy = <String, dynamic>{};
+    final repository = deckProvider.repository;
+    
+    for (final deck in deckProvider.baseDecks) {
+      final metadata = repository.getDeckMetadata(deck.id);
+      final categories = metadata?.categories ?? 
+          [deck.name.split(' - ').firstOrNull ?? 'Autres'];
+      
+      _addToHierarchy(hierarchy, categories, deck);
+    }
+    
+    return hierarchy;
+  }
+
   void _addToHierarchy(Map<String, dynamic> hierarchy, List<String> categories, Deck deck) {
     if (categories.isEmpty) {
-      hierarchy['_decks'] ??= <Deck>[];
-      hierarchy['_decks'].add(deck);
+      (hierarchy['_decks'] ??= <Deck>[]).add(deck);
       return;
     }
     
@@ -146,66 +130,51 @@ class _DecksScreenState extends State<DecksScreen> {
     hierarchy[category] ??= <String, dynamic>{};
     
     if (categories.length == 1) {
-      hierarchy[category]['_decks'] ??= <Deck>[];
-      hierarchy[category]['_decks'].add(deck);
+      (hierarchy[category]['_decks'] ??= <Deck>[]).add(deck);
     } else {
       _addToHierarchy(hierarchy[category], categories.sublist(1), deck);
     }
   }
 
-  List<Widget> _buildHierarchy(
+  List<Widget> _buildHierarchyWidgets(
     BuildContext context,
     Map<String, dynamic> node,
     List<String> path,
     DeckProvider deckProvider,
-    DeckRepository repository,
   ) {
-    final widgets = <Widget>[];
-    
     final keys = node.keys.where((k) => k != '_decks').toList()..sort();
     
-    for (final key in keys) {
+    return keys.map((key) {
       final subNode = node[key] as Map<String, dynamic>;
       final decks = (subNode['_decks'] as List<Deck>?) ?? [];
       final hasSubcategories = subNode.keys.any((k) => k != '_decks');
-      
       final totalDecks = _countDecks(subNode);
-      
       final currentPath = [...path, key];
       final pathKey = 'path_${currentPath.join('_')}';
       
-      widgets.add(
-        _buildCategoryCard(
-          context,
-          key,
-          subNode,
-          decks,
-          totalDecks,
-          hasSubcategories,
-          currentPath,
-          pathKey,
-          path.length,
-          deckProvider,
-          repository,
-        ),
+      return _buildCategoryCard(
+        context,
+        key,
+        subNode,
+        decks,
+        totalDecks,
+        hasSubcategories,
+        currentPath,
+        pathKey,
+        path.length,
+        deckProvider,
       );
-    }
-      
-      return widgets;
-    }
+    }).toList();
+  }
 
-    int _countDecks(Map<String, dynamic> node) {
-      int count = 0;
-      
-      if (node.containsKey('_decks')) {
-        count += (node['_decks'] as List).length;
+  int _countDecks(Map<String, dynamic> node) {
+    int count = (node['_decks'] as List?)?.length ?? 0;
+    
+    for (final key in node.keys) {
+      if (key != '_decks') {
+        count += _countDecks(node[key] as Map<String, dynamic>);
       }
-      
-      for (final key in node.keys) {
-        if (key != '_decks') {
-          count += _countDecks(node[key] as Map<String, dynamic>);
-        }
-      }
+    }
     
     return count;
   }
@@ -221,17 +190,14 @@ class _DecksScreenState extends State<DecksScreen> {
     String pathKey,
     int level,
     DeckProvider deckProvider,
-    DeckRepository repository,
   ) {
     final l10n = AppLocalizations.of(context)!;
     final isExpanded = level == 0 
         ? _expandedCategories.contains(pathKey)
         : _expandedSubcategories.contains(pathKey);
 
-    final leftPadding = level * 12.0;
-
     return Padding(
-      padding: EdgeInsets.only(left: leftPadding, bottom: 8),
+      padding: EdgeInsets.only(left: level * 12.0, bottom: 8),
       child: Card(
         margin: EdgeInsets.zero,
         elevation: isExpanded ? (level == 0 ? 4 : 2) : (level == 0 ? 2 : 1),
@@ -255,44 +221,8 @@ class _DecksScreenState extends State<DecksScreen> {
             ),
             childrenPadding: const EdgeInsets.only(bottom: 8),
             initiallyExpanded: isExpanded,
-            onExpansionChanged: (expanded) {
-              setState(() {
-                if (level == 0) {
-                  if (expanded) {
-                    _expandedCategories.add(pathKey);
-                  } else {
-                    _expandedCategories.remove(pathKey);
-                  }
-                } else {
-                  if (expanded) {
-                    _expandedSubcategories.add(pathKey);
-                  } else {
-                    _expandedSubcategories.remove(pathKey);
-                  }
-                }
-              });
-            },
-            leading: level == 0
-                ? Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: AppColors.primary.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Icon(
-                      _getCategoryIcon(name),
-                      color: AppColors.primary,
-                      size: 28,
-                    ),
-                  )
-                : Container(
-                    width: 4,
-                    height: 24,
-                    decoration: BoxDecoration(
-                      color: AppColors.secondary,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
+            onExpansionChanged: (expanded) => _handleExpansionChanged(expanded, level, pathKey),
+            leading: _buildCategoryLeading(name, level),
             title: Text(
               translateCategory(name, context), 
               style: TextStyle(
@@ -314,20 +244,12 @@ class _DecksScreenState extends State<DecksScreen> {
               size: level == 0 ? 24 : 20,
             ),
             children: [
-              // Sous-catégories D'ABORD
               if (hasSubcategories)
-                ..._buildHierarchy(context, node, path, deckProvider, repository),
+                ..._buildHierarchyWidgets(context, node, path, deckProvider),
               
-              // PUIS les decks directs
               ...directDecks.map((deck) => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: _buildDeckCard(
-                      context,
-                      deck,
-                      deckProvider,
-                      repository,
-                      isBase: true,
-                    ),
+                    child: _buildDeckCard(context, deck, deckProvider, isBase: true),
                   )),
             ],
           ),
@@ -336,11 +258,40 @@ class _DecksScreenState extends State<DecksScreen> {
     );
   }
 
-  Widget _buildCustomDecksSection(
-    BuildContext context,
-    DeckProvider deckProvider,
-    DeckRepository repository,
-  ) {
+  void _handleExpansionChanged(bool expanded, int level, String pathKey) {
+    setState(() {
+      final targetSet = level == 0 ? _expandedCategories : _expandedSubcategories;
+      expanded ? targetSet.add(pathKey) : targetSet.remove(pathKey);
+    });
+  }
+
+  Widget _buildCategoryLeading(String name, int level) {
+    if (level == 0) {
+      return Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: AppColors.primary.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Icon(
+          _getCategoryIcon(name),
+          color: AppColors.primary,
+          size: 28,
+        ),
+      );
+    }
+    
+    return Container(
+      width: 4,
+      height: 24,
+      decoration: BoxDecoration(
+        color: AppColors.secondary,
+        borderRadius: BorderRadius.circular(2),
+      ),
+    );
+  }
+
+  Widget _buildCustomDecksSection(BuildContext context, DeckProvider deckProvider) {
     final l10n = AppLocalizations.of(context)!;
     
     return Column(
@@ -373,13 +324,7 @@ class _DecksScreenState extends State<DecksScreen> {
               padding: const EdgeInsets.all(12),
               child: Column(
                 children: deckProvider.customDecks
-                    .map((deck) => _buildDeckCard(
-                          context,
-                          deck,
-                          deckProvider,
-                          repository,
-                          isBase: false,
-                        ))
+                    .map((deck) => _buildDeckCard(context, deck, deckProvider, isBase: false))
                     .toList(),
               ),
             ),
@@ -391,13 +336,12 @@ class _DecksScreenState extends State<DecksScreen> {
   Widget _buildDeckCard(
     BuildContext context,
     Deck deck,
-    DeckProvider deckProvider,
-    DeckRepository repository, {
+    DeckProvider deckProvider, {
     required bool isBase,
   }) {
     final l10n = AppLocalizations.of(context)!;
     final isSelected = deckProvider.selectedDeck?.id == deck.id;
-    final metadata = isBase ? repository.getDeckMetadata(deck.id) : null;
+    final metadata = isBase ? deckProvider.repository.getDeckMetadata(deck.id) : null;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
@@ -410,132 +354,159 @@ class _DecksScreenState extends State<DecksScreen> {
       ),
       child: InkWell(
         onTap: () => _selectDeck(context, deck, deckProvider),
+        onLongPress: () => _showDeckPreview(context, deck),
         borderRadius: BorderRadius.circular(12),
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Row(
             children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: isSelected
-                      ? AppColors.primary.withValues(alpha: 0.2)
-                      : Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(
-                  deck.inputType == InputType.text ? Icons.keyboard : Icons.draw,
-                  color: isSelected ? AppColors.primary : Colors.grey.shade600,
-                  size: 20,
-                ),
-              ),
+              _buildDeckIcon(deck, isSelected),
               const SizedBox(width: 12),
-
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      deck.localizedName(context),
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 4),
-                    Row(
-                      children: [
-                        Icon(Icons.style, size: 12, color: Colors.grey.shade500),
-                        const SizedBox(width: 4),
-                        Text(
-                          l10n.totalWords(deck.totalWords),
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey.shade600,
-                          ),
-                        ),
-                        if (metadata?.difficulty != null) ...[
-                          const SizedBox(width: 8),
-                          _buildDifficultyChip(context, metadata!.difficulty),
-                        ],
-                      ],
-                    ),
-                    if (deck.progress > 0) ...[
-                      const SizedBox(height: 6),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: LinearProgressIndicator(
-                          value: deck.progress / 100,
-                          minHeight: 4,
-                          backgroundColor: Colors.grey.shade300,
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            deck.isCompleted ? AppColors.success : AppColors.primary,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
+                child: _buildDeckInfo(deck, metadata, isSelected, l10n, context),
               ),
-
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  
-                  if (isSelected)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(Icons.check, color: Colors.white, size: 16),
-                    ),
-
-                  if (!isBase)
-                    PopupMenuButton(
-                      icon: const Icon(Icons.more_vert, size: 20),
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          value: 'edit',
-                          child: Row(
-                            children: [
-                              const Icon(Icons.edit, size: 18),
-                              const SizedBox(width: 12),
-                              Text(l10n.edit),
-                            ],
-                          ),
-                        ),
-                        PopupMenuItem(
-                          value: 'delete',
-                          child: Row(
-                            children: [
-                              const Icon(Icons.delete, color: AppColors.error, size: 18),
-                              const SizedBox(width: 12),
-                              Text(l10n.delete, style: const TextStyle(color: AppColors.error)),
-                            ],
-                          ),
-                        ),
-                      ],
-                      onSelected: (value) {
-                        if (value == 'edit') {
-                          _navigateToEditor(context, deck);
-                        } else if (value == 'delete') {
-                          _showDeleteDialog(context, deck, deckProvider);
-                        }
-                      },
-                    ),
-                ],
-              ),
+              _buildDeckActions(context, deck, deckProvider, isSelected, isBase, l10n),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildDeckIcon(Deck deck, bool isSelected) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: isSelected
+            ? AppColors.primary.withValues(alpha: 0.2)
+            : Colors.grey.shade100,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Icon(
+        deck.inputType == InputType.text ? Icons.keyboard : Icons.draw,
+        color: isSelected ? AppColors.primary : Colors.grey.shade600,
+        size: 20,
+      ),
+    );
+  }
+
+  Widget _buildDeckInfo(Deck deck, dynamic metadata, bool isSelected, AppLocalizations l10n, BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          deck.localizedName(context),
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
+          ),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        const SizedBox(height: 4),
+        Row(
+          children: [
+            Icon(Icons.style, size: 12, color: Colors.grey.shade500),
+            const SizedBox(width: 4),
+            Text(
+              l10n.totalWords(deck.totalWords),
+              style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+            ),
+            if (metadata?.difficulty != null) ...[
+              const SizedBox(width: 8),
+              _buildDifficultyChip(context, metadata.difficulty),
+            ],
+          ],
+        ),
+        if (deck.progress > 0) ...[
+          const SizedBox(height: 6),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: LinearProgressIndicator(
+              value: deck.progress / 100,
+              minHeight: 4,
+              backgroundColor: Colors.grey.shade300,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                deck.isCompleted ? AppColors.success : AppColors.primary,
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildDeckActions(
+    BuildContext context,
+    Deck deck,
+    DeckProvider deckProvider,
+    bool isSelected,
+    bool isBase,
+    AppLocalizations l10n,
+  ) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          icon: const Icon(Icons.visibility, size: 20),
+          onPressed: () => _showDeckPreview(context, deck),
+          tooltip: 'Prévisualiser',
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
+        ),
+        const SizedBox(width: 4),
+        if (isSelected)
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Icon(Icons.check, color: Colors.white, size: 16),
+          ),
+        if (!isBase)
+          PopupMenuButton(
+            icon: const Icon(Icons.more_vert, size: 20),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 'edit',
+                child: Row(
+                  children: [
+                    const Icon(Icons.edit, size: 18),
+                    const SizedBox(width: 12),
+                    Text(l10n.edit),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: 'delete',
+                child: Row(
+                  children: [
+                    const Icon(Icons.delete, color: AppColors.error, size: 18),
+                    const SizedBox(width: 12),
+                    Text(l10n.delete, style: const TextStyle(color: AppColors.error)),
+                  ],
+                ),
+              ),
+            ],
+            onSelected: (value) {
+              if (value == 'edit') {
+                _navigateToEditor(context, deck);
+              } else if (value == 'delete') {
+                _showDeleteDialog(context, deck, deckProvider);
+              }
+            },
+          ),
+      ],
+    );
+  }
+
+  void _showDeckPreview(BuildContext context, Deck deck) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => DeckPreviewSheet(deck: deck),
     );
   }
 
@@ -556,26 +527,12 @@ class _DecksScreenState extends State<DecksScreen> {
 
   Widget _buildDifficultyChip(BuildContext context, String difficulty) {
     final l10n = AppLocalizations.of(context)!;
-    Color color;
-    String label;
-
-    switch (difficulty) {
-      case 'beginner':
-        color = AppColors.success;
-        label = l10n.beginner;
-        break;
-      case 'intermediate':
-        color = AppColors.warning;
-        label = l10n.intermediate;
-        break;
-      case 'advanced':
-        color = AppColors.error;
-        label = l10n.advanced;
-        break;
-      default:
-        color = Colors.grey;
-        label = difficulty;
-    }
+    final (color, label) = switch (difficulty) {
+      'beginner' => (AppColors.success, l10n.beginner),
+      'intermediate' => (AppColors.warning, l10n.intermediate),
+      'advanced' => (AppColors.error, l10n.advanced),
+      _ => (Colors.grey, difficulty),
+    };
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
@@ -630,7 +587,7 @@ class _DecksScreenState extends State<DecksScreen> {
     );
   }
 
-  Widget _buildEmptyState(BuildContext context, String message) {
+  Widget _buildEmptyState(String message) {
     return Container(
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
@@ -644,20 +601,14 @@ class _DecksScreenState extends State<DecksScreen> {
   }
 
   IconData _getCategoryIcon(String category) {
-    switch (category.toLowerCase()) {
-      case 'japonais':
-        return Icons.translate;
-      case 'chinois':
-        return Icons.draw;
-      case 'coréen':
-        return Icons.language;
-      case 'espagnol':
-        return Icons.public;
-      case 'français':
-        return Icons.flag;
-      default:
-        return Icons.book;
-    }
+    return switch (category.toLowerCase()) {
+      'japonais' => Icons.translate,
+      'chinois' => Icons.draw,
+      'coréen' => Icons.language,
+      'espagnol' => Icons.public,
+      'français' => Icons.flag,
+      _ => Icons.book,
+    };
   }
 
   void _selectDeck(BuildContext context, Deck deck, DeckProvider deckProvider) async {
@@ -669,9 +620,7 @@ class _DecksScreenState extends State<DecksScreen> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            l10n.deckSelected(deck.localizedName(context))
-          ),
+          content: Text(l10n.deckSelected(deck.localizedName(context))),
           duration: const Duration(seconds: 1),
         ),
       );
@@ -695,9 +644,7 @@ class _DecksScreenState extends State<DecksScreen> {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                l10n.deckCreated(result.localizedName(context))
-              )
+              content: Text(l10n.deckCreated(result.localizedName(context)))
             ),
           );
         }
@@ -706,9 +653,7 @@ class _DecksScreenState extends State<DecksScreen> {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                l10n.deckModified(result.localizedName(context))
-              )
+              content: Text(l10n.deckModified(result.localizedName(context)))
             ),
           );
         }
@@ -736,9 +681,7 @@ class _DecksScreenState extends State<DecksScreen> {
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(
-                      l10n.deckDeleted(deck.localizedName(context))
-                    )
+                    content: Text(l10n.deckDeleted(deck.localizedName(context)))
                   ),
                 );
               }
@@ -750,6 +693,223 @@ class _DecksScreenState extends State<DecksScreen> {
             child: Text(l10n.delete),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// Widget de prévisualisation
+class DeckPreviewSheet extends StatelessWidget {
+  final Deck deck;
+
+  const DeckPreviewSheet({super.key, required this.deck});
+
+  @override
+  Widget build(BuildContext context) {
+    final words = deck.words.toList();
+    
+    return DraggableScrollableSheet(
+      initialChildSize: 0.7,
+      minChildSize: 0.5,
+      maxChildSize: 0.95,
+      builder: (context, scrollController) {
+        return Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Column(
+            children: [
+              _buildHandle(),
+              _buildHeader(context),
+              Expanded(
+                child: ListView.builder(
+                  controller: scrollController,
+                  padding: const EdgeInsets.all(16),
+                  itemCount: words.length,
+                  itemBuilder: (context, index) {
+                    return _buildWordCard(context, words[index], index + 1);
+                  },
+                ),
+              ),
+              SizedBox(height: 16),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildHandle() {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 12),
+      width: 40,
+      height: 4,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(2),
+      ),
+    );
+  }
+
+  Widget _buildHeader(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Colors.grey.shade200),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  deck.localizedName(context),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Icon(Icons.style, size: 14, color: Colors.grey.shade600),
+              const SizedBox(width: 4),
+              Text(
+                '${deck.totalWords} mots',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey.shade600,
+                ),
+              ),
+              const SizedBox(width: 16),
+              Icon(
+                deck.inputType == InputType.text ? Icons.keyboard : Icons.draw,
+                size: 14,
+                color: Colors.grey.shade600,
+              ),
+              const SizedBox(width: 4),
+              Text(
+                deck.inputType == InputType.text ? 'Clavier' : 'Dessin',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey.shade600,
+                ),
+              ),
+            ],
+          ),
+          if (deck.words.length > 20) ...[
+            const SizedBox(height: 8),
+            Text(
+              'Affichage des 20 premiers mots',
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.grey.shade500,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWordCard(BuildContext context, Word word, int index) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 8),
+      elevation: 1,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(color: Colors.grey.shade200),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          children: [
+            Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                color: AppColors.primary.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                '$index',
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primary,
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Prompt:',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          word.prompt,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Icon(Icons.arrow_forward, size: 12, color: Colors.grey.shade400),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Réponse:',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey.shade600,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          word.answer,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey.shade700,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
