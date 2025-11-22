@@ -88,6 +88,7 @@ class _MyAppState extends State<MyApp> {
             Locale('en'),
             Locale('fr'),
             Locale('es'),
+            Locale('it'),
           ],
           
           // Thèmes

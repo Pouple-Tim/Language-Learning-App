@@ -58,6 +58,7 @@
   "deleteDeck": "¿Eliminar este mazo?",
   "deleteDeckMessage": "¿Seguro que quieres eliminar \"{name}\"?\nEsta acción es irreversible.",
   "addMinWords": "¡Añade al menos {min} palabras!",
+  "wordDeleted": "Palabra eliminada",
   
   "appearance": "Apariencia",
   "darkMode": "Modo oscuro",
@@ -113,5 +114,24 @@
   "noWrong": "No, incorrecto",
   "yesCorrect": "Sí, ¡correcto!",
   "noWordsAvailable": "No hay palabras disponibles",
-  "chooseDeckToStart": "Elige un mazo para empezar"
+  "chooseDeckToStart": "Elige un mazo para empezar",
+
+  "statistics": "Estadísticas",
+  "viewStatistics": "Ver estadísticas",
+  "trackYourProgress": "Sigue tu progreso",
+  "noStatistics": "No hay estadísticas disponibles",
+  "startReviewing": "Comienza a repasar para ver tus estadísticas",
+  "currentStreak": "Racha actual",
+  "days": "días",
+  "totalWords": "Palabras aprendidas",
+  "learned": "aprendidas",
+  "last7Days": "Últimos 7 días",
+  "monthlyActivity": "Actividad mensual",
+  "topDecks": "Top 5 mazos",
+  "reviewsCount": "{count} revisiones",
+
+  "dataWillBeDeleted": "Los datos serán eliminados",
+  "deckProgress": "Progreso de los mazos",
+  "preferences": "Preferencias",
+  "statisticsWillBeKept": "Las estadísticas se conservarán"
 }

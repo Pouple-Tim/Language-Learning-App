@@ -100,6 +100,7 @@
       }
     }
   },
+  "wordDeleted": "Deleted word",
   
   "appearance": "Appearance",
   "darkMode": "Dark mode",
@@ -190,5 +191,31 @@
   "noWrong": "No, wrong",
   "yesCorrect": "Yes, correct!",
   "noWordsAvailable": "No words available",
-  "chooseDeckToStart": "Choose a deck to start"
+  "chooseDeckToStart": "Choose a deck to start",
+
+  "statistics": "Statistics",
+  "viewStatistics": "View statistics",
+  "trackYourProgress": "Track your progress",
+  "noStatistics": "No statistics available",
+  "startReviewing": "Start reviewing to see your statistics",
+  "currentStreak": "Current streak",
+  "days": "days",
+  "totalWords": "Words learned",
+  "learned": "learned",
+  "last7Days": "Last 7 days",
+  "monthlyActivity": "Monthly activity",
+  "topDecks": "Top 5 decks",
+  "reviewsCount": "{count} reviews",
+  "@reviewsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "dataWillBeDeleted": "Data will be deleted",
+  "deckProgress": "Deck progress",
+  "preferences": "Preferences",
+  "statisticsWillBeKept": "Statistics will be kept"
 }

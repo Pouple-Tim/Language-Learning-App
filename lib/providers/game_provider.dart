@@ -4,14 +4,18 @@ import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/word.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
 import 'package:language_learning_app/core/utils/date_helper.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart';
 
 class GameProvider extends ChangeNotifier {
   final DeckRepository _repository = DeckRepository();
+  final StatisticsProvider? statisticsProvider;
   
   Deck? _currentDeck;
   Word? _currentWord;
   bool _isSpinning = false;
   double _wheelRotation = 0.0;
+
+  GameProvider({this.statisticsProvider});
 
   // Getters
   Deck? get currentDeck => _currentDeck;
@@ -71,14 +75,22 @@ class GameProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Vérifier la réponse de l'utilisateur
-  bool checkAnswer(String userAnswer) {
-    if (_currentWord == null) return false;
+  Future<bool> checkAnswer(String userAnswer) async {
+    if (_currentWord == null || _currentDeck == null) return false;
 
     final correctAnswer = _currentWord!.answer.toLowerCase().trim();
     final userAnswerClean = userAnswer.toLowerCase().trim();
 
-    if (correctAnswer == userAnswerClean) {
+    final isCorrect = correctAnswer == userAnswerClean;
+
+    await statisticsProvider?.addReview(
+      wordId: _currentWord!.prompt, // Utiliser le prompt comme ID unique
+      deckId: _currentDeck!.id,
+      wasCorrect: isCorrect,
+      inputType: _currentDeck!.inputType == InputType.text ? 'text' : 'draw',
+    );
+
+    if (isCorrect) {
       // Bonne réponse : retirer le mot
       _currentWord!.removed = true;
       

@@ -53,7 +53,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String totalWords(int count) {
-    return '$count palabras';
+    return 'Palabras aprendidas';
   }
 
   @override
@@ -176,6 +176,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String addMinWords(int min) {
     return '¡Añade al menos $min palabras!';
   }
+
+  @override
+  String get wordDeleted => 'Palabra eliminada';
 
   @override
   String get appearance => 'Apariencia';
@@ -330,4 +333,54 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get chooseDeckToStart => 'Elige un mazo para empezar';
+
+  @override
+  String get statistics => 'Estadísticas';
+
+  @override
+  String get viewStatistics => 'Ver estadísticas';
+
+  @override
+  String get trackYourProgress => 'Sigue tu progreso';
+
+  @override
+  String get noStatistics => 'No hay estadísticas disponibles';
+
+  @override
+  String get startReviewing => 'Comienza a repasar para ver tus estadísticas';
+
+  @override
+  String get currentStreak => 'Racha actual';
+
+  @override
+  String get days => 'días';
+
+  @override
+  String get learned => 'aprendidas';
+
+  @override
+  String get last7Days => 'Últimos 7 días';
+
+  @override
+  String get monthlyActivity => 'Actividad mensual';
+
+  @override
+  String get topDecks => 'Top 5 mazos';
+
+  @override
+  String reviewsCount(int count) {
+    return '$count revisiones';
+  }
+
+  @override
+  String get dataWillBeDeleted => 'Los datos serán eliminados';
+
+  @override
+  String get deckProgress => 'Progreso de los mazos';
+
+  @override
+  String get preferences => 'Preferencias';
+
+  @override
+  String get statisticsWillBeKept => 'Las estadísticas se conservarán';
 }

@@ -5,6 +5,7 @@ import 'providers/theme_provider.dart';
 import 'providers/game_provider.dart';
 import 'providers/deck_provider.dart';
 import 'providers/locale_provider.dart';
+import 'providers/statistics_provider.dart'; // ⭐ NOUVEAU
 import 'app.dart';
 
 void main() async {
@@ -16,9 +17,18 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => GameProvider()),
         ChangeNotifierProvider(create: (_) => DeckProvider()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ChangeNotifierProvider(
+          create: (_) => StatisticsProvider()..loadHistory(),
+        ),
+        ChangeNotifierProxyProvider<StatisticsProvider, GameProvider>(
+          create: (context) => GameProvider(
+            statisticsProvider: context.read<StatisticsProvider>(),
+          ),
+          update: (context, stats, previous) => 
+            previous ?? GameProvider(statisticsProvider: stats),
+        ),
       ],
       child: const MyApp(),
     ),

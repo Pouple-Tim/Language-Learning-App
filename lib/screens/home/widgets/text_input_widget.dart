@@ -26,13 +26,13 @@ class _TextInputWidgetState extends State<TextInputWidget> {
     super.dispose();
   }
 
-  void _checkAnswer() {
+  Future<void> _checkAnswer() async {
     final gameProvider = context.read<GameProvider>();
     final userAnswer = _controller.text.trim().toLowerCase();
 
     if (userAnswer.isEmpty) return;
 
-    final isCorrect = gameProvider.checkAnswer(userAnswer);
+    final isCorrect = await gameProvider.checkAnswer(userAnswer);
 
     setState(() {
       _showFeedback = true;

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:country_flags/country_flags.dart';
 import 'package:language_learning_app/providers/theme_provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/providers/locale_provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
-import 'package:language_learning_app/core/utils/storage_helper.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
-import 'package:language_learning_app/providers/locale_provider.dart';
+import 'package:language_learning_app/screens/stats/statistics_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/core/extensions/deck_extensions.dart';
 import 'widgets/settings_section.dart';
 import 'widgets/settings_tile.dart';
-
+import 'widgets/clear_data_dialog.dart';
+import 'widgets/reset_deck_dialog.dart';
+import 'widgets/language_bottom_sheet.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -60,6 +61,27 @@ class SettingsScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
+                // --- STATISTIQUES ---
+                SettingsSection(
+                  title: l10n.statistics,
+                  icon: Icons.bar_chart,
+                  children: [
+                    SettingsTile(
+                      title: l10n.viewStatistics,
+                      subtitle: l10n.trackYourProgress,
+                      icon: Icons.trending_up,
+                      iconColor: Colors.blue,
+                      showDivider: false,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const StatisticsScreen()),
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 24),
+
                 // --- DONNÉES ---
                 SettingsSection(
                   title: l10n.data,
@@ -70,15 +92,15 @@ class SettingsScreen extends StatelessWidget {
                       subtitle: l10n.restartFromBeginning,
                       icon: Icons.refresh,
                       iconColor: AppColors.warning,
-                      onTap: () => _showResetDeckDialog(context),
+                      onTap: () => ResetDeckDialog.show(context),
                     ),
                     SettingsTile(
                       title: l10n.clearAllData,
                       subtitle: l10n.deleteAllProgress,
                       icon: Icons.delete_forever,
                       iconColor: AppColors.error,
-                      showDivider: false, // Pas de ligne en bas du dernier élément
-                      onTap: () => _showClearDataDialog(context),
+                      showDivider: false,
+                      onTap: () => ClearDataDialog.show(context),
                     ),
                   ],
                 ),
@@ -107,7 +129,7 @@ class SettingsScreen extends StatelessWidget {
   }
 
   // ---------------------------------------------------------------------------
-  // WIDGETS DE CONTENU SPÉCIFIQUES
+  // WIDGETS DE CONTENU
   // ---------------------------------------------------------------------------
 
   Widget _buildThemeSwitch(BuildContext context, AppLocalizations l10n) {
@@ -142,7 +164,6 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  // ... (Rest of the file is unchanged, but included for completeness)
   Widget _buildLanguageTile(BuildContext context, AppLocalizations l10n) {
     return Consumer<LocaleProvider>(
       builder: (context, localeProvider, _) {
@@ -150,6 +171,7 @@ class SettingsScreen extends StatelessWidget {
           'fr': 'Français',
           'en': 'English',
           'es': 'Español',
+          'it': 'Italiano',
         }[localeProvider.locale.languageCode] ?? 'English';
 
         return SettingsTile(
@@ -158,7 +180,7 @@ class SettingsScreen extends StatelessWidget {
           icon: Icons.language,
           iconColor: Colors.blueGrey,
           showDivider: false,
-          onTap: () => _showLanguageBottomSheet(context, localeProvider),
+          onTap: () => LanguageBottomSheet.show(context, localeProvider),
         );
       },
     );
@@ -290,124 +312,6 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  void _showLanguageBottomSheet(BuildContext context, LocaleProvider localeProvider) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 12),
-              width: 40,
-              height: 4,
-              decoration: BoxDecoration(color: Colors.grey.shade300, borderRadius: BorderRadius.circular(2)),
-            ),
-            _buildLanguageItem(context, localeProvider, 'fr', 'Français', 'FR'),
-            _buildLanguageItem(context, localeProvider, 'en', 'English', 'GB'),
-            _buildLanguageItem(context, localeProvider, 'es', 'Español', 'ES'),
-            const SizedBox(height: 20),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLanguageItem(BuildContext context, LocaleProvider provider, String code, String name, String countryCode) {
-    final isSelected = provider.locale.languageCode == code;
-    return ListTile(
-      leading: SizedBox(
-        width: 32,
-        height: 24,
-        child: CountryFlag.fromCountryCode(
-          countryCode,
-          theme: const ImageTheme(
-                    shape: RoundedRectangle(4),
-                  ),
-        ),
-      ),
-      title: Text(
-        name,
-        style: TextStyle(fontWeight: isSelected ? FontWeight.bold : FontWeight.normal),
-      ),
-      trailing: isSelected ? const Icon(Icons.check_circle, color: AppColors.primary) : null,
-      onTap: () {
-        provider.setLocale(Locale(code));
-        Navigator.pop(context);
-      },
-    );
-  }
-
-  void _showResetDeckDialog(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    final gameProvider = context.read<GameProvider>();
-    final deckProvider = context.read<DeckProvider>();
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.resetDeck),
-        content: Text(l10n.resetDeckMessage),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(l10n.cancel, style: const TextStyle(color: Colors.grey)),
-          ),
-          FilledButton(
-            onPressed: () async {
-              await gameProvider.resetDeck();
-              await deckProvider.refreshSelectedDeck();
-              if (context.mounted) {
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(l10n.deckReset), backgroundColor: AppColors.success),
-                );
-              }
-            },
-            style: FilledButton.styleFrom(backgroundColor: AppColors.warning),
-            child: Text(l10n.reset),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showClearDataDialog(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.warning, style: const TextStyle(color: AppColors.error)),
-        content: Text(l10n.clearDataWarning),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(l10n.cancel, style: const TextStyle(color: Colors.grey)),
-          ),
-          FilledButton(
-            onPressed: () async {
-              await StorageHelper.clear();
-              if (context.mounted) {
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(l10n.allDataCleared), backgroundColor: AppColors.error),
-                );
-              }
-            },
-            style: FilledButton.styleFrom(backgroundColor: AppColors.error),
-            child: Text(l10n.clearAll),
-          ),
-        ],
-      ),
     );
   }
 }

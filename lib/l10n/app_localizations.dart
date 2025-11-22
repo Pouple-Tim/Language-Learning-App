@@ -8,6 +8,7 @@ import 'package:intl/intl.dart' as intl;
 import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
+import 'app_localizations_it.dart';
 
 // ignore_for_file: type=lint
 
@@ -98,6 +99,7 @@ abstract class AppLocalizations {
     Locale('en'),
     Locale('es'),
     Locale('fr'),
+    Locale('it'),
   ];
 
   /// No description provided for @appName.
@@ -181,7 +183,7 @@ abstract class AppLocalizations {
   /// No description provided for @totalWords.
   ///
   /// In en, this message translates to:
-  /// **'{count} words'**
+  /// **'Words learned'**
   String totalWords(int count);
 
   /// No description provided for @correct.
@@ -411,6 +413,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add at least {min} words!'**
   String addMinWords(int min);
+
+  /// No description provided for @wordDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted word'**
+  String get wordDeleted;
 
   /// No description provided for @appearance.
   ///
@@ -693,6 +701,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose a deck to start'**
   String get chooseDeckToStart;
+
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// No description provided for @viewStatistics.
+  ///
+  /// In en, this message translates to:
+  /// **'View statistics'**
+  String get viewStatistics;
+
+  /// No description provided for @trackYourProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Track your progress'**
+  String get trackYourProgress;
+
+  /// No description provided for @noStatistics.
+  ///
+  /// In en, this message translates to:
+  /// **'No statistics available'**
+  String get noStatistics;
+
+  /// No description provided for @startReviewing.
+  ///
+  /// In en, this message translates to:
+  /// **'Start reviewing to see your statistics'**
+  String get startReviewing;
+
+  /// No description provided for @currentStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Current streak'**
+  String get currentStreak;
+
+  /// No description provided for @days.
+  ///
+  /// In en, this message translates to:
+  /// **'days'**
+  String get days;
+
+  /// No description provided for @learned.
+  ///
+  /// In en, this message translates to:
+  /// **'learned'**
+  String get learned;
+
+  /// No description provided for @last7Days.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 7 days'**
+  String get last7Days;
+
+  /// No description provided for @monthlyActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly activity'**
+  String get monthlyActivity;
+
+  /// No description provided for @topDecks.
+  ///
+  /// In en, this message translates to:
+  /// **'Top 5 decks'**
+  String get topDecks;
+
+  /// No description provided for @reviewsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} reviews'**
+  String reviewsCount(int count);
+
+  /// No description provided for @dataWillBeDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Data will be deleted'**
+  String get dataWillBeDeleted;
+
+  /// No description provided for @deckProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Deck progress'**
+  String get deckProgress;
+
+  /// No description provided for @preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get preferences;
+
+  /// No description provided for @statisticsWillBeKept.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics will be kept'**
+  String get statisticsWillBeKept;
 }
 
 class _AppLocalizationsDelegate
@@ -706,7 +810,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'es', 'fr'].contains(locale.languageCode);
+      <String>['en', 'es', 'fr', 'it'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -721,6 +825,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsEs();
     case 'fr':
       return AppLocalizationsFr();
+    case 'it':
+      return AppLocalizationsIt();
   }
 
   throw FlutterError(

@@ -3,10 +3,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart'; // ⭐ NOUVEAU
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
-
-// REMOVED: Unused import 'dart:math'
 
 class DrawingWidget extends StatefulWidget {
   const DrawingWidget({super.key});
@@ -59,9 +58,22 @@ class _DrawingWidgetState extends State<DrawingWidget> {
       );
   }
 
-  void _handleValidation(bool isCorrect) {
+  // ⭐ MODIFIÉ: async ajouté et enregistrement des stats
+  Future<void> _handleValidation(bool isCorrect) async {
     final gameProvider = context.read<GameProvider>();
+    final statsProvider = context.read<StatisticsProvider>(); // ⭐ NOUVEAU
+    
     setState(() { _showFeedback = true; _isCorrect = isCorrect; });
+
+    // ⭐ NOUVEAU: Enregistrer la révision dans les statistiques
+    if (gameProvider.currentWord != null && gameProvider.currentDeck != null) {
+      await statsProvider.addReview(
+        wordId: gameProvider.currentWord!.prompt,
+        deckId: gameProvider.currentDeck!.id,
+        wasCorrect: isCorrect,
+        inputType: 'draw',
+      );
+    }
 
     if (isCorrect) {
       if (gameProvider.currentWord != null) gameProvider.currentWord!.removed = true;
@@ -258,7 +270,6 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                 ],
               ),
 
-              // Bouton Skip
               TextButton(
                 onPressed: gameProvider.currentWord != null && !_showFeedback
                     ? () {
@@ -291,7 +302,6 @@ class _DrawingPainter extends CustomPainter {
     canvas.save();
     canvas.translate(-scrollOffset, 0);
     final paint = Paint()..color = color..strokeWidth = 4.0..strokeCap = StrokeCap.round..style = PaintingStyle.stroke;
-    // FIXED: Enclosed statements in block
     for (final stroke in strokes) {
       _drawStroke(canvas, stroke, paint);
     }

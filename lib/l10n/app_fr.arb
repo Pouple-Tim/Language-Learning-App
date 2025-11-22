@@ -58,6 +58,7 @@
   "deleteDeck": "Supprimer ce deck ?",
   "deleteDeckMessage": "Es-tu sûr de vouloir supprimer \"{name}\" ?\nCette action est irréversible.",
   "addMinWords": "Ajoute au moins {min} mots !",
+  "wordDeleted": "Mot supprimé",
   
   "appearance": "Apparence",
   "darkMode": "Thème sombre",
@@ -113,5 +114,24 @@
   "noWrong": "Non, mauvais",
   "yesCorrect": "Oui, correct !",
   "noWordsAvailable": "Aucun mot disponible",
-  "chooseDeckToStart": "Choisis un deck pour commencer"
+  "chooseDeckToStart": "Choisis un deck pour commencer",
+
+  "statistics": "Statistiques",
+  "viewStatistics": "Voir les statistiques",
+  "trackYourProgress": "Suivez votre progression",
+  "noStatistics": "Aucune statistique disponible",
+  "startReviewing": "Commencez à réviser pour voir vos statistiques",
+  "currentStreak": "Série actuelle",
+  "days": "jours",
+  "totalWords": "Mots appris",
+  "learned": "appris",
+  "last7Days": "7 derniers jours",
+  "monthlyActivity": "Activité mensuelle",
+  "topDecks": "Top 5 des decks",
+  "reviewsCount": "{count} révisions",
+
+  "dataWillBeDeleted": "Données supprimées",
+  "deckProgress": "Progression des decks",
+  "preferences": "Préférences",
+  "statisticsWillBeKept": "Les statistiques seront conservées"
 }

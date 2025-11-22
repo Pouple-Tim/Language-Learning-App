@@ -53,7 +53,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String totalWords(int count) {
-    return '$count words';
+    return 'Words learned';
   }
 
   @override
@@ -176,6 +176,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String addMinWords(int min) {
     return 'Add at least $min words!';
   }
+
+  @override
+  String get wordDeleted => 'Deleted word';
 
   @override
   String get appearance => 'Appearance';
@@ -330,4 +333,54 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chooseDeckToStart => 'Choose a deck to start';
+
+  @override
+  String get statistics => 'Statistics';
+
+  @override
+  String get viewStatistics => 'View statistics';
+
+  @override
+  String get trackYourProgress => 'Track your progress';
+
+  @override
+  String get noStatistics => 'No statistics available';
+
+  @override
+  String get startReviewing => 'Start reviewing to see your statistics';
+
+  @override
+  String get currentStreak => 'Current streak';
+
+  @override
+  String get days => 'days';
+
+  @override
+  String get learned => 'learned';
+
+  @override
+  String get last7Days => 'Last 7 days';
+
+  @override
+  String get monthlyActivity => 'Monthly activity';
+
+  @override
+  String get topDecks => 'Top 5 decks';
+
+  @override
+  String reviewsCount(int count) {
+    return '$count reviews';
+  }
+
+  @override
+  String get dataWillBeDeleted => 'Data will be deleted';
+
+  @override
+  String get deckProgress => 'Deck progress';
+
+  @override
+  String get preferences => 'Preferences';
+
+  @override
+  String get statisticsWillBeKept => 'Statistics will be kept';
 }
