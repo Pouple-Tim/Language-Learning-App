@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' hide TextDirection;
+import 'package:intl/intl.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/l10n/app_localizations.dart';
 
 class HeatmapWidget extends StatelessWidget {
   final Map<DateTime, int> data;
@@ -12,6 +13,11 @@ class HeatmapWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 1. Récupération des outils de localisation une seule fois ici
+    final l10n = AppLocalizations.of(context)!;
+    final String localeCode = Localizations.localeOf(context).languageCode;
+    final DateFormat dateFormatter = DateFormat.MMMd(localeCode);
+
     final now = DateTime.now();
     final startDate = DateTime(now.year, now.month - 1, now.day);
     
@@ -35,26 +41,40 @@ class HeatmapWidget extends StatelessWidget {
             spacing: 4,
             runSpacing: 4,
             children: days.map((day) {
-              final value = data[day] ?? 0;
+              // Normaliser la date pour correspondre aux clés de la map (sans l'heure)
+              final dateKey = DateTime(day.year, day.month, day.day);
+              final value = data[dateKey] ?? 0;
+              
               final intensity = maxValue > 0 ? value / maxValue : 0.0;
               
-              return _buildDayCell(day, value, intensity);
+              // 2. On passe l10n et dateFormatter aux enfants
+              return _buildDayCell(day, value, intensity, l10n, dateFormatter);
             }).toList(),
           ),
           const SizedBox(height: 16),
-          _buildLegend(),
+          _buildLegend(l10n),
         ],
       ),
     );
   }
 
-  Widget _buildDayCell(DateTime day, int value, double intensity) {
+  Widget _buildDayCell(
+    DateTime day, 
+    int value, 
+    double intensity, 
+    AppLocalizations l10n, 
+    DateFormat dateFormatter
+  ) {
     final color = _getColorForIntensity(intensity);
     final isToday = DateTime.now().day == day.day && 
                     DateTime.now().month == day.month;
+    
+    // Utilisation du formatteur passé en paramètre
+    final String dateStr = dateFormatter.format(day);
+    final tooltip = l10n.revisionsTooltip(dateStr, value);
 
     return Tooltip(
-      message: '${DateFormat('d MMM', 'fr').format(day)}: $value révisions',
+      message: tooltip,
       child: Container(
         width: 32,
         height: 32,
@@ -95,55 +115,39 @@ class HeatmapWidget extends StatelessWidget {
     }
   }
 
-  Widget _buildLegend() {
+  Widget _buildLegend(AppLocalizations l10n) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.end, // Alignement à droite souvent plus joli pour la légende
       children: [
         Text(
-          'Moins',
+          l10n.less, // Correction : Pas de double Text()
           style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
         ),
         const SizedBox(width: 8),
-        Container(
-          width: 16,
-          height: 16,
-          decoration: BoxDecoration(
-            color: Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(3),
-          ),
-        ),
+        _buildLegendBox(Colors.grey.shade200),
         const SizedBox(width: 4),
-        Container(
-          width: 16,
-          height: 16,
-          decoration: BoxDecoration(
-            color: AppColors.primary.withValues(alpha: 0.3),
-            borderRadius: BorderRadius.circular(3),
-          ),
-        ),
+        _buildLegendBox(AppColors.primary.withValues(alpha: 0.3)),
         const SizedBox(width: 4),
-        Container(
-          width: 16,
-          height: 16,
-          decoration: BoxDecoration(
-            color: AppColors.primary.withValues(alpha: 0.6),
-            borderRadius: BorderRadius.circular(3),
-          ),
-        ),
+        _buildLegendBox(AppColors.primary.withValues(alpha: 0.6)),
         const SizedBox(width: 4),
-        Container(
-          width: 16,
-          height: 16,
-          decoration: BoxDecoration(
-            color: AppColors.primary,
-            borderRadius: BorderRadius.circular(3),
-          ),
-        ),
+        _buildLegendBox(AppColors.primary),
         const SizedBox(width: 8),
         Text(
-          'Plus',
+          l10n.more, // Correction : Pas de double Text()
           style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
         ),
       ],
+    );
+  }
+
+  Widget _buildLegendBox(Color color) {
+    return Container(
+      width: 16,
+      height: 16,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(3),
+      ),
     );
   }
 }

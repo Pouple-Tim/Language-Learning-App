@@ -2,7 +2,8 @@
   "id": "japanese_hiragana_base",
   "name": "Japonais - Hiragana",
   "type": "base",
-  "inputType": "draw",
+  "inputType": "text",
+  "reverseInputType": "draw",
   "words": [
     {"prompt": "あ", "answer": "a", "removed": false},
     {"prompt": "い", "answer": "i", "removed": false},

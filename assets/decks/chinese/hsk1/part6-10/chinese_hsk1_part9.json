@@ -3,6 +3,7 @@
   "name": "Chinois - HSK1 (Partie 9)",
   "type": "base",
   "inputType": "draw",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "xiǎo", "answer": "小", "meaning": "petit", "removed": false},
     {"prompt": "māo", "answer": "猫", "meaning": "chat", "removed": false},

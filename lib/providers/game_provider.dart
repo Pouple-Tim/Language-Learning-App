@@ -6,139 +6,221 @@ import 'package:language_learning_app/data/repositories/deck_repository.dart';
 import 'package:language_learning_app/core/utils/date_helper.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 
+/// GameProvider gère UNIQUEMENT la progression d'une partie en cours
+/// pour un deck ET un mode de jeu spécifiques
 class GameProvider extends ChangeNotifier {
   final DeckRepository _repository = DeckRepository();
   final StatisticsProvider? statisticsProvider;
+
+  // État du jeu en cours
+  String? _currentDeckId;           // ID du deck en cours
+  String? _currentGameMode;         // Mode de jeu en cours ('classic', 'reverse', etc.)
+  Deck? _currentProgressDeck;       // Deck avec la progression actuelle
+  Word? _currentWord;               // Mot actuellement affiché
   
-  Deck? _currentDeck;
-  Word? _currentWord;
+  // Animation de la roue
   bool _isSpinning = false;
   double _wheelRotation = 0.0;
 
   GameProvider({this.statisticsProvider});
 
-  // Getters
-  Deck? get currentDeck => _currentDeck;
+  // ========== GETTERS ==========
+
+  Deck? get currentDeck => _currentProgressDeck;
   Word? get currentWord => _currentWord;
   bool get isSpinning => _isSpinning;
   double get wheelRotation => _wheelRotation;
+  String? get currentGameMode => _currentGameMode;
   
-  // Stats
-  int get totalWords => _currentDeck?.totalWords ?? 0;
-  int get remainingWords => _currentDeck?.remainingWords ?? 0;
-  double get progress => _currentDeck?.progress ?? 0.0;
-  bool get isCompleted => _currentDeck?.isCompleted ?? false;
+  bool get isReverseMode => _currentGameMode == 'reverse';
+  
+  int get totalWords => _currentProgressDeck?.totalWords ?? 0;
+  int get remainingWords => _currentProgressDeck?.remainingWords ?? 0;
+  double get progress => _currentProgressDeck?.progress ?? 0.0;
+  bool get isCompleted => _currentProgressDeck?.isCompleted ?? false;
 
-  // Définir le deck actuel
-  Future<void> setDeck(Deck deck) async {
-    // Charger l'état sauvegardé du deck
-    final savedDeck = await _repository.loadDeckState(deck.id);
+  String get currentQuestionText {
+    if (_currentWord == null) return '';
+    return isReverseMode ? _currentWord!.answer : _currentWord!.prompt;
+  }
+
+  InputType get activeInputType {
+    if (_currentProgressDeck == null) return InputType.text;
+    return isReverseMode 
+        ? _currentProgressDeck!.effectiveReverseInputType 
+        : _currentProgressDeck!.inputType;
+  }
+
+  // ========== INITIALISATION DU JEU ==========
+
+  /// Initialise une partie pour un deck et un mode de jeu
+  /// 1. Charge la progression existante OU crée une nouvelle partie
+  /// 2. Sauvegarde les infos de la partie en cours
+  Future<void> setDeck(Deck baseDeck, {String gameMode = 'classic'}) async {
+    _currentDeckId = baseDeck.id;
+    _currentGameMode = gameMode;
     
-    if (savedDeck != null) {
-      // Utiliser l'état sauvegardé
-      _currentDeck = savedDeck;
+    debugPrint('🎮 Initialisation du jeu');
+    debugPrint('   Deck: ${baseDeck.name} (${baseDeck.id})');
+    debugPrint('   Mode: $gameMode');
+
+    // 1. Essayer de charger une progression existante
+    final savedProgress = await _repository.loadProgress(baseDeck.id, gameMode);
+    
+    if (savedProgress != null) {
+      // Progression existante trouvée
+      debugPrint('   ✅ Progression existante chargée (${savedProgress.progress.toStringAsFixed(0)}%)');
+      _currentProgressDeck = savedProgress;
     } else {
-      // Utiliser le deck tel quel
-      _currentDeck = deck;
+      // Nouvelle partie : créer une copie propre du deck
+      debugPrint('   🆕 Nouvelle partie créée');
+      _currentProgressDeck = baseDeck.copyWith(
+        words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
+      );
     }
     
     _currentWord = null;
+    _wheelRotation = 0.0;
     notifyListeners();
   }
 
-  // Lancer la roue
-  Future<void> spinWheel() async {
-    if (_currentDeck == null || _isSpinning) return;
+  // ========== LOGIQUE DE JEU ==========
 
-    final activeWords = _currentDeck!.activeWords;
+  /// Fait tourner la roue et sélectionne un mot aléatoire
+  Future<void> spinWheel() async {
+    if (_currentProgressDeck == null || _isSpinning) return;
+
+    final activeWords = _currentProgressDeck!.activeWords;
     if (activeWords.isEmpty) {
-      // Tous les mots ont été réussis
+      debugPrint('⚠️ Aucun mot actif disponible');
       return;
     }
 
-    // Commencer l'animation
     _isSpinning = true;
     notifyListeners();
 
-    // Sélectionner un mot aléatoire
+    // Sélection aléatoire
     final random = Random();
     _currentWord = activeWords[random.nextInt(activeWords.length)];
 
-    // Simuler la rotation de la roue (2 secondes)
-    final rotations = 5 + random.nextDouble() * 3; // 5-8 tours
+    // Animation
+    final rotations = 5 + random.nextDouble() * 3;
     _wheelRotation = rotations * 2 * pi;
 
-    // Attendre la fin de l'animation
     await Future.delayed(const Duration(milliseconds: 2000));
 
     _isSpinning = false;
     notifyListeners();
   }
 
+  /// Vérifie la réponse de l'utilisateur
   Future<bool> checkAnswer(String userAnswer) async {
-    if (_currentWord == null || _currentDeck == null) return false;
+    if (_currentWord == null || _currentProgressDeck == null) {
+      debugPrint('❌ Pas de mot ou de deck actif');
+      return false;
+    }
 
-    final correctAnswer = _currentWord!.answer.toLowerCase().trim();
     final userAnswerClean = userAnswer.toLowerCase().trim();
+    
+    // Déterminer la bonne réponse selon le mode
+    String expectedAnswer;
+    if (isReverseMode) {
+      expectedAnswer = _currentWord!.prompt.toLowerCase().trim();
+    } else {
+      expectedAnswer = _currentWord!.answer.toLowerCase().trim();
+    }
 
-    final isCorrect = correctAnswer == userAnswerClean;
+    final isCorrect = expectedAnswer == userAnswerClean;
 
+    // Enregistrer les statistiques
     await statisticsProvider?.addReview(
-      wordId: _currentWord!.prompt, // Utiliser le prompt comme ID unique
-      deckId: _currentDeck!.id,
+      wordId: _currentWord!.prompt,
+      deckId: _currentProgressDeck!.id,
       wasCorrect: isCorrect,
-      inputType: _currentDeck!.inputType == InputType.text ? 'text' : 'draw',
+      inputType: activeInputType == InputType.text ? 'text' : 'draw',
+      gameMode: _currentGameMode!,
     );
 
     if (isCorrect) {
-      // Bonne réponse : retirer le mot
+      // Marquer le mot comme retiré
       _currentWord!.removed = true;
       
-      // Sauvegarder l'état du deck
-      _saveDeckState();
+      // Sauvegarder la progression
+      await _saveProgress();
       
+      debugPrint('✅ Bonne réponse ! Progression: ${progress.toStringAsFixed(0)}%');
       notifyListeners();
       return true;
     }
 
-    // Mauvaise réponse
+    debugPrint('❌ Mauvaise réponse');
     return false;
   }
 
-  // Reset le deck (tous les mots redeviennent actifs)
-  Future<void> resetDeck() async {
-    if (_currentDeck == null) return;
-    _currentDeck!.resetWords();
-    _currentWord = null;
-    _wheelRotation = 0.0;
+  /// ✅ NOUVEAU : Marque le mot actuel comme correct (pour le mode dessin)
+  /// Cette méthode ne vérifie pas la réponse mais fait confiance à l'utilisateur
+  Future<void> markCurrentWordAsCorrect() async {
+    if (_currentWord == null || _currentProgressDeck == null) {
+      debugPrint('❌ Pas de mot ou de deck actif');
+      return;
+    }
+
+    // Marquer le mot comme retiré
+    _currentWord!.removed = true;
     
-    // Sauvegarder l'état réinitialisé
-    await _saveDeckState();
+    // Sauvegarder la progression
+    await _saveProgress();
     
+    debugPrint('✅ Mot marqué comme correct ! Progression: ${progress.toStringAsFixed(0)}%');
     notifyListeners();
   }
 
-  // Reset le mot actuel (relancer sans changer les stats)
+  /// Réinitialise le deck (tous les mots redeviennent actifs)
+  Future<void> resetDeck() async {
+    if (_currentProgressDeck == null || _currentDeckId == null || _currentGameMode == null) {
+      debugPrint('⚠️ Impossible de reset : pas de jeu actif');
+      return;
+    }
+    
+    _currentProgressDeck!.resetWords();
+    _currentWord = null;
+    _wheelRotation = 0.0;
+    
+    await _saveProgress();
+    debugPrint('🔄 Deck réinitialisé');
+    notifyListeners();
+  }
+
+  /// Réinitialise le mot actuel (pour en choisir un autre)
   void resetCurrentWord() {
     _currentWord = null;
     _wheelRotation = 0.0;
     notifyListeners();
   }
 
-  // Sauvegarder l'état du deck
-  Future<void> _saveDeckState() async {
-    if (_currentDeck != null) {
-      await _repository.saveDeckState(_currentDeck!);
+  /// Vérifie si un reset quotidien est nécessaire
+  Future<void> checkDailyReset(DateTime lastReset) async {
+    if (_currentProgressDeck == null) return;
+    
+    if (DateHelper.needsReset(lastReset)) {
+      debugPrint('📅 Reset quotidien déclenché');
+      await resetDeck();
     }
   }
 
-  // Vérifier et effectuer le reset quotidien si nécessaire
-  Future<void> checkDailyReset(DateTime lastReset) async {
-    if (_currentDeck == null) return;
-    
-    if (DateHelper.needsReset(lastReset)) {
-      // Reset nécessaire
-      await resetDeck();
+  // ========== SAUVEGARDE ==========
+
+  /// Sauvegarde la progression actuelle
+  Future<void> _saveProgress() async {
+    if (_currentProgressDeck == null || _currentDeckId == null || _currentGameMode == null) {
+      debugPrint('⚠️ Impossible de sauvegarder : données manquantes');
+      return;
     }
+
+    await _repository.saveProgress(
+      _currentDeckId!,
+      _currentGameMode!,
+      _currentProgressDeck!,
+    );
   }
 }

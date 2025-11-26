@@ -3,6 +3,7 @@
   "name": "Chinois - HSK1 (Partie 5)",
   "type": "base",
   "inputType": "draw",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "jiā", "answer": "家", "meaning": "maison, famille", "removed": false},
     {"prompt": "yǒu", "answer": "有", "meaning": "avoir, il y a", "removed": false},

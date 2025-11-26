@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
-import 'package:language_learning_app/providers/statistics_provider.dart'; // ⭐ NOUVEAU
+import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 
@@ -34,59 +34,87 @@ class _DrawingWidgetState extends State<DrawingWidget> {
   }
 
   void _showValidationDialog() {
-      final l10n = AppLocalizations.of(context)!;
-      final gameProvider = context.read<GameProvider>();
-      if (gameProvider.currentWord == null) return;
+    final l10n = AppLocalizations.of(context)!;
+    final gameProvider = context.read<GameProvider>();
+    final theme = Theme.of(context);
 
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(l10n.validate),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(l10n.drawingValidationQuestion(gameProvider.currentWord!.prompt)),
-              const SizedBox(height: 8),
-              Text('${l10n.answer} : ${gameProvider.currentWord!.answer}', style: const TextStyle(color: Colors.grey)),
-            ],
-          ),
-          actions: [
-            TextButton(onPressed: () {Navigator.pop(context); _handleValidation(false);}, child: Text(l10n.noWrong)),
-            ElevatedButton(onPressed: () {Navigator.pop(context); _handleValidation(true);}, child: Text(l10n.yesCorrect)),
+    if (gameProvider.currentWord == null) return;
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: theme.cardTheme.color,
+        title: Text(l10n.validate, style: theme.textTheme.titleMedium),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              l10n.drawingValidationQuestion(gameProvider.currentQuestionText),
+              style: theme.textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              '${l10n.answer} : ${gameProvider.isReverseMode ? gameProvider.currentWord!.prompt : gameProvider.currentWord!.answer}', 
+              style: theme.textTheme.bodySmall,
+            ),
           ],
         ),
-      );
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _handleValidation(false);
+            }, 
+            child: Text(l10n.noWrong, style: TextStyle(color: theme.colorScheme.error))
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _handleValidation(true);
+            }, 
+            child: Text(l10n.yesCorrect)
+          ),
+        ],
+      ),
+    );
   }
 
-  // ⭐ MODIFIÉ: async ajouté et enregistrement des stats
   Future<void> _handleValidation(bool isCorrect) async {
     final gameProvider = context.read<GameProvider>();
-    final statsProvider = context.read<StatisticsProvider>(); // ⭐ NOUVEAU
+    final statsProvider = context.read<StatisticsProvider>();
     
-    setState(() { _showFeedback = true; _isCorrect = isCorrect; });
+    if (gameProvider.currentWord == null || gameProvider.currentDeck == null) return;
 
-    // ⭐ NOUVEAU: Enregistrer la révision dans les statistiques
-    if (gameProvider.currentWord != null && gameProvider.currentDeck != null) {
-      await statsProvider.addReview(
-        wordId: gameProvider.currentWord!.prompt,
-        deckId: gameProvider.currentDeck!.id,
-        wasCorrect: isCorrect,
-        inputType: 'draw',
-      );
-    }
+    setState(() { 
+      _showFeedback = true; 
+      _isCorrect = isCorrect; 
+    });
+
+    await statsProvider.addReview(
+      wordId: gameProvider.currentWord!.prompt,
+      deckId: gameProvider.currentDeck!.id,
+      wasCorrect: isCorrect,
+      inputType: 'draw',
+      gameMode: gameProvider.currentGameMode ?? 'classic',
+    );
 
     if (isCorrect) {
-      if (gameProvider.currentWord != null) gameProvider.currentWord!.removed = true;
+      await gameProvider.markCurrentWordAsCorrect();
+      
       Future.delayed(const Duration(milliseconds: 1500), () {
         if (mounted) {
           _clearDrawing();
           gameProvider.resetCurrentWord();
-          if (gameProvider.remainingWords > 0) gameProvider.spinWheel();
+          if (gameProvider.remainingWords > 0) {
+            gameProvider.spinWheel();
+          }
         }
       });
     } else {
       Future.delayed(const Duration(milliseconds: 1000), () {
-        if (mounted) _clearDrawing();
+        if (mounted) {
+          _clearDrawing();
+        }
       });
     }
   }
@@ -95,18 +123,24 @@ class _DrawingWidgetState extends State<DrawingWidget> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final gameProvider = context.watch<GameProvider>();
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final strokeColor = isDark ? Colors.white : Colors.black;
+    
+    // Récupération du thème
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    
+    // Couleur du trait adaptée au thème (noir en clair, blanc en sombre)
+    final strokeColor = colorScheme.onSurface; 
     
     final screenHeight = MediaQuery.of(context).size.height;
 
     return LayoutBuilder(
       builder: (context, constraints) {
         final double visibleWidth = constraints.maxWidth;
-        
+        // Hauteur dynamique mais contrainte
         final double maxHeightAvailable = screenHeight * 0.40; 
         final double canvasHeight = (visibleWidth * 0.75).clamp(200.0, maxHeightAvailable);
         
+        // Calcul du scroll max
         final double maxScroll = (_virtualWidth - visibleWidth).clamp(0.0, double.infinity);
 
         return Padding(
@@ -114,7 +148,7 @@ class _DrawingWidgetState extends State<DrawingWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Feedback animé
+              // Zone de Feedback (Succès / Erreur)
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 height: _showFeedback ? 40 : 0,
@@ -130,9 +164,7 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                           const SizedBox(width: 8),
                           Text(
                             _isCorrect ? l10n.correct : l10n.tryAgain,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                            style: theme.textTheme.titleMedium?.copyWith(
                               color: _isCorrect ? AppColors.success : AppColors.error,
                             ),
                           ),
@@ -143,29 +175,29 @@ class _DrawingWidgetState extends State<DrawingWidget> {
 
               if (_showFeedback) const SizedBox(height: 8),
 
-              // Canvas de dessin
+              // Zone de dessin (Canvas)
               Container(
                 height: canvasHeight,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: isDark ? Colors.grey[900] : Colors.white,
+                  color: theme.cardTheme.color, // Utilise la couleur de carte du thème
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: _showFeedback
                         ? (_isCorrect ? AppColors.success : AppColors.error)
-                        : Colors.grey.shade300,
+                        : theme.dividerColor, 
                     width: 2,
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.05),
+                      color: theme.cardTheme.shadowColor ?? Colors.black12,
                       blurRadius: 10,
                       spreadRadius: 2,
                     )
                   ],
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(14), 
                   child: RawGestureDetector(
                     gestures: {
                       EagerPanGestureRecognizer: GestureRecognizerFactoryWithHandlers<EagerPanGestureRecognizer>(
@@ -211,36 +243,43 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                 ),
               ),
 
-              // Slider
+              // Barre de défilement (Slider) si nécessaire
               if (maxScroll > 0)
-                SizedBox(
-                  height: 30, 
-                  child: Row(
-                    children: [
-                      const Icon(Icons.keyboard_arrow_left, color: Colors.grey, size: 20),
-                      Expanded(
-                        child: SliderTheme(
-                          data: SliderTheme.of(context).copyWith(
-                            trackHeight: 2.0,
-                            thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6.0),
-                            overlayShape: const RoundSliderOverlayShape(overlayRadius: 12.0),
-                          ),
-                          child: Slider(
-                            value: _scrollOffset,
-                            min: 0.0,
-                            max: maxScroll,
-                            onChanged: (value) => setState(() => _scrollOffset = value),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: SizedBox(
+                    height: 30, 
+                    child: Row(
+                      children: [
+                        Icon(Icons.keyboard_arrow_left, color: theme.iconTheme.color?.withValues(alpha: 0.5), size: 20),
+                        Expanded(
+                          child: SliderTheme(
+                            data: SliderTheme.of(context).copyWith(
+                              activeTrackColor: colorScheme.primary,
+                              // CORRECTION ICI : surfaceContainerHighest remplace surfaceVariant
+                              inactiveTrackColor: colorScheme.surfaceContainerHighest,
+                              thumbColor: colorScheme.primary,
+                              trackHeight: 2.0,
+                              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6.0),
+                              overlayShape: const RoundSliderOverlayShape(overlayRadius: 12.0),
+                            ),
+                            child: Slider(
+                              value: _scrollOffset,
+                              min: 0.0,
+                              max: maxScroll,
+                              onChanged: (value) => setState(() => _scrollOffset = value),
+                            ),
                           ),
                         ),
-                      ),
-                      const Icon(Icons.keyboard_arrow_right, color: Colors.grey, size: 20),
-                    ],
+                        Icon(Icons.keyboard_arrow_right, color: theme.iconTheme.color?.withValues(alpha: 0.5), size: 20),
+                      ],
+                    ),
                   ),
                 ),
 
               SizedBox(height: maxScroll > 0 ? 8 : 16),
 
-              // Boutons
+              // Boutons d'action
               Row(
                 children: [
                   Expanded(
@@ -249,6 +288,8 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                       icon: const Icon(Icons.clear, size: 20),
                       label: Text(l10n.clear, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 13)),
                       style: OutlinedButton.styleFrom(
+                        foregroundColor: colorScheme.error, 
+                        side: BorderSide(color: colorScheme.error.withValues(alpha: 0.5)),
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         visualDensity: VisualDensity.compact,
                       ),
@@ -263,7 +304,7 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                       label: Text(l10n.validate, overflow: TextOverflow.ellipsis),
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 12),
-                         visualDensity: VisualDensity.compact,
+                        visualDensity: VisualDensity.compact,
                       ),
                     ),
                   ),
@@ -278,8 +319,11 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                         if (gameProvider.remainingWords > 0) gameProvider.spinWheel();
                       }
                     : null,
-                style: TextButton.styleFrom(visualDensity: VisualDensity.compact),
-                child: Text(l10n.skip, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  foregroundColor: theme.textTheme.bodySmall?.color,
+                ),
+                child: Text(l10n.skip, style: const TextStyle(fontSize: 13)),
               ),
             ],
           ),
@@ -295,27 +339,45 @@ class _DrawingPainter extends CustomPainter {
   final Color color;
   final double scrollOffset;
 
-  _DrawingPainter({required this.strokes, required this.currentStroke, required this.color, required this.scrollOffset});
+  _DrawingPainter({
+    required this.strokes, 
+    required this.currentStroke, 
+    required this.color, 
+    required this.scrollOffset
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.save();
     canvas.translate(-scrollOffset, 0);
-    final paint = Paint()..color = color..strokeWidth = 4.0..strokeCap = StrokeCap.round..style = PaintingStyle.stroke;
+    
+    final paint = Paint()
+      ..color = color
+      ..strokeWidth = 4.0
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round 
+      ..style = PaintingStyle.stroke;
+    
     for (final stroke in strokes) {
       _drawStroke(canvas, stroke, paint);
     }
-    if (currentStroke.isNotEmpty) _drawStroke(canvas, currentStroke, paint);
+    if (currentStroke.isNotEmpty) {
+      _drawStroke(canvas, currentStroke, paint);
+    }
     canvas.restore();
   }
 
   void _drawStroke(Canvas canvas, List<Offset> stroke, Paint paint) {
+    if (stroke.isEmpty) return;
+    
     if (stroke.length < 2) {
-      if (stroke.isNotEmpty) canvas.drawPoints(ui.PointMode.points, stroke, paint);
+      canvas.drawPoints(ui.PointMode.points, stroke, paint);
       return;
     }
+    
     final path = Path();
     path.moveTo(stroke[0].dx, stroke[0].dy);
+    
     for (int i = 1; i < stroke.length; i++) {
       final p0 = stroke[i - 1];
       final p1 = stroke[i];
@@ -326,16 +388,22 @@ class _DrawingPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_DrawingPainter oldDelegate) => oldDelegate.strokes != strokes || oldDelegate.currentStroke != currentStroke || oldDelegate.color != color || oldDelegate.scrollOffset != scrollOffset;
+  bool shouldRepaint(_DrawingPainter oldDelegate) => 
+    oldDelegate.strokes != strokes || 
+    oldDelegate.currentStroke != currentStroke || 
+    oldDelegate.color != color || 
+    oldDelegate.scrollOffset != scrollOffset;
 }
 
 class EagerPanGestureRecognizer extends PanGestureRecognizer {
   EagerPanGestureRecognizer() : super();
+  
   @override
   void addAllowedPointer(PointerDownEvent event) {
     super.addAllowedPointer(event);
     resolve(GestureDisposition.accepted);
   }
+  
   @override
   String get debugDescription => 'eager pan';
 }

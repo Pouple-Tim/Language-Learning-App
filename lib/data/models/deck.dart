@@ -26,7 +26,10 @@ class Deck {
   final DeckType type;
   
   @JsonKey(unknownEnumValue: InputType.text)
-  final InputType inputType;
+  final InputType inputType; // Input pour le mode Classique
+
+  @JsonKey(unknownEnumValue: InputType.text)
+  final InputType? reverseInputType; // Input spécifique pour le mode Reverse (Optionnel)
   
   List<Word> words;
 
@@ -35,40 +38,39 @@ class Deck {
     required this.name,
     required this.type,
     required this.inputType,
+    this.reverseInputType, // Nouveau paramètre
     required this.words,
   });
+
+  // Helper : Retourne l'input type pour le reverse, ou 'text' par défaut si null
+  InputType get effectiveReverseInputType => reverseInputType ?? InputType.text;
 
   // Obtenir les mots actifs (non retirés)
   List<Word> get activeWords => words.where((w) => !w.removed).toList();
   
-  // Nombre total de mots
   int get totalWords => words.length;
   
-  // Nombre de mots restants
   int get remainingWords => activeWords.length;
   
-  // Progression en pourcentage
   double get progress {
     if (totalWords == 0) return 0.0;
     return ((totalWords - remainingWords) / totalWords) * 100;
   }
   
-  // Vérifier si le deck est terminé
   bool get isCompleted => remainingWords == 0;
 
-  // Reset tous les mots (enlever le flag "removed")
   void resetWords() {
     for (var word in words) {
       word.removed = false;
     }
   }
 
-  // Créer une copie avec modifications
   Deck copyWith({
     String? id,
     String? name,
     DeckType? type,
     InputType? inputType,
+    InputType? reverseInputType,
     List<Word>? words,
   }) {
     return Deck(
@@ -76,14 +78,14 @@ class Deck {
       name: name ?? this.name,
       type: type ?? this.type,
       inputType: inputType ?? this.inputType,
+      reverseInputType: reverseInputType ?? this.reverseInputType,
       words: words ?? this.words,
     );
   }
 
-  // JSON Serialization
   factory Deck.fromJson(Map<String, dynamic> json) => _$DeckFromJson(json);
   Map<String, dynamic> toJson() => _$DeckToJson(this);
 
   @override
-  String toString() => 'Deck(id: $id, name: $name, words: ${words.length})';
+  String toString() => 'Deck(id: $id, name: $name, input: $inputType, reverse: $reverseInputType)';
 }

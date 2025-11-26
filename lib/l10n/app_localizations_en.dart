@@ -383,4 +383,53 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statisticsWillBeKept => 'Statistics will be kept';
+
+  @override
+  String get favoriteGameModes => 'Favorite Game Modes';
+
+  @override
+  String get wordsLearned => 'Words learned';
+
+  @override
+  String get noGameData => 'No game data';
+
+  @override
+  String gamesPlayed(int count) {
+    return '$count games played';
+  }
+
+  @override
+  String get less => 'Less';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String revisionsTooltip(String date, int count) {
+    return '$date: $count reviews';
+  }
+
+  @override
+  String get classicModeTitle => 'Classic Training';
+
+  @override
+  String get classicModeDesc => 'Wheel and drawing/text';
+
+  @override
+  String get gameModesTitle => 'Game Modes';
+
+  @override
+  String get manageDecksDesc => 'Create and edit your lists';
+
+  @override
+  String get noDeckSelected => 'No deck selected';
+
+  @override
+  String get selectDeck => 'Select a deck';
+
+  @override
+  String get reverseModeTitle => 'Reverse Training';
+
+  @override
+  String get reverseModeDesc => 'Guess the question from the answer';
 }

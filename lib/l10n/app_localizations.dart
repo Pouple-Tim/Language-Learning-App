@@ -797,6 +797,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Statistics will be kept'**
   String get statisticsWillBeKept;
+
+  /// No description provided for @favoriteGameModes.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite Game Modes'**
+  String get favoriteGameModes;
+
+  /// No description provided for @wordsLearned.
+  ///
+  /// In en, this message translates to:
+  /// **'Words learned'**
+  String get wordsLearned;
+
+  /// No description provided for @noGameData.
+  ///
+  /// In en, this message translates to:
+  /// **'No game data'**
+  String get noGameData;
+
+  /// No description provided for @gamesPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} games played'**
+  String gamesPlayed(int count);
+
+  /// No description provided for @less.
+  ///
+  /// In en, this message translates to:
+  /// **'Less'**
+  String get less;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @revisionsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'{date}: {count} reviews'**
+  String revisionsTooltip(String date, int count);
+
+  /// No description provided for @classicModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic Training'**
+  String get classicModeTitle;
+
+  /// No description provided for @classicModeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Wheel and drawing/text'**
+  String get classicModeDesc;
+
+  /// No description provided for @gameModesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Game Modes'**
+  String get gameModesTitle;
+
+  /// No description provided for @manageDecksDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Create and edit your lists'**
+  String get manageDecksDesc;
+
+  /// No description provided for @noDeckSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'No deck selected'**
+  String get noDeckSelected;
+
+  /// No description provided for @selectDeck.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a deck'**
+  String get selectDeck;
+
+  /// No description provided for @reverseModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reverse Training'**
+  String get reverseModeTitle;
+
+  /// No description provided for @reverseModeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Guess the question from the answer'**
+  String get reverseModeDesc;
 }
 
 class _AppLocalizationsDelegate

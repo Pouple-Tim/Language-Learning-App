@@ -3,6 +3,7 @@
   "name": "Espagnol - Basique",
   "type": "base",
   "inputType": "text",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "Hola", "answer": "bonjour", "removed": false},
     {"prompt": "Adiós", "answer": "au revoir", "removed": false},

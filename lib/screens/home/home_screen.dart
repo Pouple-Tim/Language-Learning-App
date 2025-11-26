@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
-import 'widgets/text_input_widget.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
-import 'widgets/drawing_widget.dart';
-import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/screens/settings/settings_screen.dart';
-import 'widgets/wheel_widget.dart';
-import 'package:language_learning_app/data/models/word.dart';
+import 'package:language_learning_app/screens/games/classic_game/classic_game_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
-import 'package:language_learning_app/core/extensions/deck_extensions.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
+import 'package:language_learning_app/core/extensions/strings_extensions.dart';
+import 'package:provider/provider.dart';
+import 'package:language_learning_app/providers/deck_provider.dart';
+import 'package:language_learning_app/providers/game_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,397 +16,351 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context); // Cache le thème pour l'utiliser plus bas
+
+    // Configuration des modes de jeu
+    final List<GameMode> gameModes = [
+      GameMode(
+        id: 'classic',
+        type: GameType.classic,
+        title: l10n.classicModeTitle,
+        description: l10n.classicModeDesc,
+        icon: Icons.school_rounded,
+        color: AppColors.primary,
+        routeName: '/game/classic',
+      ),
+      GameMode(
+        id: 'reverse', 
+        type: GameType.classic,
+        title: l10n.reverseModeTitle,
+        description: l10n.reverseModeDesc, 
+        icon: Icons.swap_horiz_rounded,
+        color: AppColors.secondary,
+        routeName: '/game/reverse',
+      ),
+    ];
+
+    // --- CALCUL RESPONSIVE POUR LES CARTES ---
+    // On veut que les cartes aient toujours environ 140px de hauteur,
+    // peu importe la largeur de l'écran.
+    final screenWidth = MediaQuery.of(context).size.width;
+    const padding = 20.0;
+    const spacing = 16.0;
+    // La largeur disponible pour les colonnes
+    final availableWidth = screenWidth - (padding * 2) - spacing;
+    // La largeur d'une seule carte
+    final itemWidth = availableWidth / 2;
+    // La hauteur fixe désirée (ajustez cette valeur si vous voulez plus/moins haut)
+    const targetHeight = 140.0; 
+    // Le ratio dynamique : Largeur / Hauteur
+    final childAspectRatio = itemWidth / targetHeight;
+    // -----------------------------------------
 
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(l10n.homeTitle),
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const DecksScreen()),
-            );
-          },
+        title: Text(
+          l10n.homeTitle.toUpperCase(),
+          style: TextStyle(
+            color: theme.textTheme.titleLarge?.color,
+            fontSize: 22,
+            letterSpacing: 1.5,
+            fontWeight: FontWeight.w800,
+          ),
         ),
         actions: [
-          Consumer<GameProvider>(
-            builder: (context, gameProvider, _) {
-              return IconButton(
-                icon: Badge(
-                  label: Text('${gameProvider.remainingWords}'),
-                  isLabelVisible: gameProvider.remainingWords > 0,
-                  child: const Icon(Icons.list),
-                ),
-                tooltip: l10n.remainingWordsList,
-                onPressed: () => _showRemainingWordsBottomSheet(context, gameProvider),
-              );
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: l10n.settingsTitle,
-            onPressed: () {
-              Navigator.push(
+          Padding(
+            padding: const EdgeInsets.only(right: 12.0),
+            child: IconButton(
+              iconSize: 32,
+              icon: Icon(Icons.settings_outlined, 
+                  color: theme.iconTheme.color),
+              onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              );
-            },
+              ),
+            ),
           ),
         ],
       ),
       body: SafeArea(
-        bottom: true,
-        child: Consumer<GameProvider>(
-          builder: (context, gameProvider, _) {
-            if (gameProvider.currentDeck == null) {
-              return const Center(child: CircularProgressIndicator());
-            }
-
-            return LayoutBuilder(
-              builder: (context, constraints) {
-                final isSmallScreen = constraints.maxWidth < 380;
-                // REMOVED: Unused variable 'isPlaying'
-
-                return GestureDetector(
-                  onTap: () => FocusScope.of(context).unfocus(),
-                  child: CustomScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    slivers: [
-                      SliverFillRemaining(
-                        hasScrollBody: false,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Column(
-                            children: [
-                              // --- HAUT (Titre + Barre) ---
-                              const SizedBox(height: 12), 
-                              FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text(
-                                  gameProvider.currentDeck!.localizedName(context),
-                                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                              const SizedBox(height: 8), 
-                              _buildProgressBar(context, gameProvider),
-
-                              const SizedBox(height: 12),
-                              
-                              // Si le jeu est fini
-                              if (gameProvider.isCompleted)
-                                Expanded(child: Center(child: _buildCompletedCard(context, gameProvider)))
-                              
-                              // Si on tourne la roue (pas de mot sélectionné)
-                              else if (gameProvider.currentWord == null)
-                                Expanded(
-                                  child: Center(
-                                    child: WheelWidget(
-                                      words: gameProvider.currentDeck!.activeWords,
-                                      isSpinning: gameProvider.isSpinning,
-                                      selectedWord: gameProvider.currentWord,
-                                      onSpin: () => gameProvider.spinWheel(),
-                                    ),
-                                  ),
-                                )
-                              
-                              // Si un mot est sélectionné (Jeu actif)
-                              else ...[
-                                // Zone du mot à deviner
-                                _buildWordDisplay(context, gameProvider, isSmallScreen),
-                                
-                                const Spacer(), 
-
-                                // --- BAS (Input / Dessin) ---
-                                const SizedBox(height: 16),
-                                if (gameProvider.currentDeck!.inputType == InputType.text)
-                                  const TextInputWidget()
-                                else
-                                  const DrawingWidget(),
-                                
-                                const SizedBox(height: 16), 
-                              ],
-                            ],
-                          ),
-                        ),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: padding, vertical: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildDeckManagementBanner(context, l10n),
+                
+                const SizedBox(height: 32),
+                
+                Row(
+                  children: [
+                    Icon(Icons.videogame_asset_outlined, 
+                        color: theme.iconTheme.color?.withValues(alpha: 0.7), 
+                        size: 28),
+                    const SizedBox(width: 10),
+                    Text(
+                      l10n.gameModesTitle,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
-                    ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: gameModes.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, 
+                    crossAxisSpacing: spacing,
+                    mainAxisSpacing: spacing,
+                    // Utilisation du ratio calculé dynamiquement
+                    childAspectRatio: childAspectRatio,
                   ),
-                );
-              },
-            );
-          },
+                  itemBuilder: (context, index) {
+                    return _buildGameModeCard(context, gameModes[index]);
+                  },
+                ),
+                
+                const SizedBox(height: 40),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildProgressBar(BuildContext context, GameProvider gameProvider) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '${gameProvider.totalWords - gameProvider.remainingWords}/${gameProvider.totalWords}',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            Text(
-              '${gameProvider.progress.toStringAsFixed(0)}%',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.primary,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 6),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: LinearProgressIndicator(
-            value: gameProvider.progress / 100,
-            minHeight: 10,
-            backgroundColor: Colors.grey.shade200,
-            valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
-          ),
-        ),
-      ],
-    );
-  }
-  
-  Widget _buildWordDisplay(BuildContext context, GameProvider gameProvider, bool isSmallScreen) {
-      final l10n = AppLocalizations.of(context)!;
-      
-      return Column(
-        children: [
-          Container(
-            width: double.infinity,
-            constraints: const BoxConstraints(maxWidth: 500),
-            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
-            decoration: BoxDecoration(
-              gradient: AppColors.primaryGradient,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.primary.withValues(alpha: 0.3),
-                  blurRadius: 15,
-                  offset: const Offset(0, 8),
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    gameProvider.currentWord!.prompt,
-                    style: const TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          TextButton.icon(
-            onPressed: gameProvider.resetCurrentWord,
-            icon: const Icon(Icons.refresh, size: 18),
-            label: Text(l10n.changeWord),
-            style: TextButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            ),
+  Widget _buildDeckManagementBanner(BuildContext context, AppLocalizations l10n) {
+    final deckProvider = context.watch<DeckProvider>();
+    final selectedDeckName = deckProvider.selectedDeck?.name ?? l10n.noDeckSelected;
+
+    return Container(
+      constraints: const BoxConstraints(minHeight: 140), 
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.3),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
           ),
         ],
-      );
-    }
-
-    Widget _buildCompletedCard(BuildContext context, GameProvider gameProvider) {
-       final l10n = AppLocalizations.of(context)!;
-        return Card(
-          elevation: 0,
-          color: AppColors.success.withValues(alpha: 0.1),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-            side: const BorderSide(color: AppColors.success, width: 2),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const DecksScreen()),
           ),
-          margin: const EdgeInsets.symmetric(horizontal: 8),
-          child: Padding(
+          borderRadius: BorderRadius.circular(24),
+          child: Container(
             padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.celebration, size: 60, color: AppColors.success),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.completed,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.success,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  l10n.completedMessage,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    onPressed: gameProvider.resetDeck,
-                    icon: const Icon(Icons.refresh),
-                    label: Text(l10n.restart),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.success,
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                    ),
-                  ),
-                ),
-              ],
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.primary.withValues(alpha: 0.8),
+                  AppColors.primary,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(24),
             ),
-          ),
-        );
-    }
-
-    void _showRemainingWordsBottomSheet(BuildContext context, GameProvider gameProvider) {
-        final l10n = AppLocalizations.of(context)!;
-        final deck = gameProvider.currentDeck;
-        if (deck == null) return;
-
-        final remainingWords = deck.activeWords;
-        final completedWords = deck.words.where((w) => w.removed).toList();
-
-        showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          builder: (context) {
-            return DraggableScrollableSheet(
-              initialChildSize: 0.6,
-              minChildSize: 0.4,
-              maxChildSize: 0.9,
-              builder: (_, scrollController) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).scaffoldBackgroundColor,
-                    borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-                  ),
+            child: Row(
+              children: [
+                Expanded(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       Center(
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(vertical: 12),
-                          width: 40,
-                          height: 4,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(2),
-                          ),
+                      Text(
+                        capitalizeFirst(l10n.decks),
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                      const SizedBox(height: 8),
+                      Text(
+                        selectedDeckName,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         child: Row(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.list_alt_rounded, color: AppColors.primary),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Text(
-                                deck.localizedName(context),
-                                style: Theme.of(context).textTheme.titleLarge,
+                            const Icon(Icons.edit, color: Colors.white, size: 12),
+                            const SizedBox(width: 4),
+                            Text(
+                              l10n.manageDecksDesc.toUpperCase(),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            IconButton(
-                              icon: const Icon(Icons.close),
-                              onPressed: () => Navigator.pop(context),
-                            )
                           ],
-                        ),
-                      ),
-                      const Divider(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            _buildStatCompact(context, l10n.remaining, '${remainingWords.length}', AppColors.warning),
-                            Container(width: 1, height: 30, color: Colors.grey.shade300),
-                            _buildStatCompact(context, l10n.succeeded, '${completedWords.length}', AppColors.success),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Expanded(
-                        child: DefaultTabController(
-                          length: 2,
-                          child: Column(
-                            children: [
-                              TabBar(
-                                labelColor: AppColors.primary,
-                                unselectedLabelColor: Colors.grey,
-                                indicatorColor: AppColors.primary,
-                                tabs: [
-                                  Tab(text: l10n.toReview),
-                                  Tab(text: l10n.succeeded),
-                                ],
-                              ),
-                              Expanded(
-                                child: TabBarView(
-                                  children: [
-                                    _buildWordsList(context, remainingWords, false, scrollController),
-                                    _buildWordsList(context, completedWords, true, scrollController),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                            ],
-                          ),
                         ),
                       ),
                     ],
                   ),
-                );
-              },
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.2),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.library_books_outlined,
+                    color: Colors.white,
+                    size: 36,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGameModeCard(BuildContext context, GameMode mode) {
+    final theme = Theme.of(context);
+    final cardColor = theme.cardTheme.color;
+    // On utilise une ombre plus légère définie dans le thème si possible, sinon défaut
+    final shadowColor = theme.cardTheme.shadowColor ?? Colors.black.withValues(alpha: 0.05);
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: cardColor,
+        boxShadow: [
+          BoxShadow(
+            color: shadowColor,
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            final deckProvider = context.read<DeckProvider>();
+            final gameProvider = context.read<GameProvider>();
+
+            if (deckProvider.selectedDeck == null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(AppLocalizations.of(context)!.noDeckSelected),
+                  backgroundColor: AppColors.error,
+                  action: SnackBarAction(
+                    label: AppLocalizations.of(context)!.selectDeck,
+                    textColor: Colors.white,
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const DecksScreen()),
+                    ),
+                  ),
+                ),
+              );
+              return;
+            }
+
+            gameProvider.setDeck(
+              deckProvider.selectedDeck!,
+              gameMode: mode.id, 
+            );
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ClassicGameScreen(
+                  gameTitle: mode.title, 
+                ),
+              ),
             );
           },
-        );
-    }
-    
-    Widget _buildStatCompact(BuildContext context, String label, String value, Color color) {
-        return Column(
-          children: [
-            Text(value, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: color)),
-            Text(label, style: TextStyle(fontSize: 12, color: Colors.grey.shade600)),
-          ],
-        );
-    }
-    
-    Widget _buildWordsList(BuildContext context, List<Word> words, bool isCompleted, ScrollController scrollController) {
-        final l10n = AppLocalizations.of(context)!;
-        if (words.isEmpty) {
-          return Center(child: Text(isCompleted ? l10n.noWordSucceeded : l10n.allWordsSucceeded));
-        }
-        return ListView.separated(
-          controller: scrollController,
-          padding: const EdgeInsets.all(16),
-          itemCount: words.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 8),
-          itemBuilder: (context, index) {
-             final word = words[index];
-             return ListTile(title: Text(word.prompt));
-          }
-        );
-    }
+          borderRadius: BorderRadius.circular(16),
+          child: Padding(
+            padding: const EdgeInsets.all(14), // Padding légèrement ajusté
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min, // Important pour éviter que le contenu s'étire bizarrement
+              children: [
+                // En-tête avec Icone
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: mode.color.withValues(alpha: 0.1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        mode.icon,
+                        size: 20,
+                        color: mode.color,
+                      ),
+                    ),
+                  ],
+                ),
+                
+                const Spacer(), // Pousse le texte vers le bas, mais s'adapte à la hauteur fixe
+                
+                // Titre
+                Text(
+                  mode.title,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    height: 1.1,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                
+                const SizedBox(height: 4),
+                
+                // Description
+                Text(
+                  mode.description,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontSize: 11,
+                    height: 1.2,
+                  ),
+                  maxLines: 2, 
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

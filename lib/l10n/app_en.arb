@@ -217,5 +217,39 @@
   "dataWillBeDeleted": "Data will be deleted",
   "deckProgress": "Deck progress",
   "preferences": "Preferences",
-  "statisticsWillBeKept": "Statistics will be kept"
+  "statisticsWillBeKept": "Statistics will be kept",
+  "favoriteGameModes": "Favorite Game Modes",
+  "wordsLearned": "Words learned",
+  "learned": "learned",
+  "noGameData": "No game data",
+  "gamesPlayed": "{count} games played",
+  "@gamesPlayed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "less": "Less",
+  "more": "More",
+  "revisionsTooltip": "{date}: {count} reviews",
+  "@revisionsTooltip": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "classicModeTitle": "Classic Training",
+  "classicModeDesc": "Wheel and drawing/text",
+  "gameModesTitle": "Game Modes",
+  "manageDecksDesc": "Create and edit your lists",
+  "noDeckSelected": "No deck selected",
+  "selectDeck": "Select a deck",
+  "reverseModeTitle": "Reverse Training",
+  "reverseModeDesc": "Guess the question from the answer"
 }

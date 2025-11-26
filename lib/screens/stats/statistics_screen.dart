@@ -8,6 +8,7 @@ import 'widgets/line_chart_widget.dart';
 import 'widgets/heatmap_widget.dart';
 import 'widgets/top_decks_widget.dart';
 import 'widgets/stats_card.dart';
+import 'widgets/game_mode_stats_widget.dart';
 
 class StatisticsScreen extends StatelessWidget {
   const StatisticsScreen({super.key});
@@ -50,6 +51,7 @@ class StatisticsScreen extends StatelessWidget {
 
                     // Graphique linéaire - 7 derniers jours
                     _buildSection(
+                      context,
                       title: l10n.last7Days,
                       icon: Icons.trending_up,
                       child: LineChartWidget(
@@ -61,6 +63,7 @@ class StatisticsScreen extends StatelessWidget {
 
                     // Heatmap - Activité mensuelle
                     _buildSection(
+                      context,
                       title: l10n.monthlyActivity,
                       icon: Icons.calendar_today,
                       child: HeatmapWidget(
@@ -72,11 +75,23 @@ class StatisticsScreen extends StatelessWidget {
 
                     // Top 5 decks
                     _buildSection(
+                      context,
                       title: l10n.topDecks,
                       icon: Icons.emoji_events,
                       child: TopDecksWidget(
                         topDecks: statsProvider.getTopDecks(),
                         deckProvider: deckProvider,
+                      ),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    _buildSection(
+                      context,
+                      title: "Modes de jeu favoris", // Ou l10n.favoriteGameModes
+                      icon: Icons.pie_chart,
+                      child: GameModeStatsWidget(
+                        data: statsProvider.getGameModeStats(),
                       ),
                     ),
 
@@ -92,6 +107,11 @@ class StatisticsScreen extends StatelessWidget {
   }
 
   Widget _buildEmptyState(BuildContext context, AppLocalizations l10n) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final iconColor = isDark ? Colors.grey[600] : Colors.grey.shade400;
+    final titleColor = isDark ? Colors.grey[300] : Colors.grey.shade700;
+    final subtitleColor = isDark ? Colors.grey[500] : Colors.grey.shade500;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32),
@@ -101,7 +121,7 @@ class StatisticsScreen extends StatelessWidget {
             Icon(
               Icons.bar_chart,
               size: 80,
-              color: Colors.grey.shade400,
+              color: iconColor,
             ),
             const SizedBox(height: 24),
             Text(
@@ -109,7 +129,7 @@ class StatisticsScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey.shade700,
+                color: titleColor,
               ),
               textAlign: TextAlign.center,
             ),
@@ -118,7 +138,7 @@ class StatisticsScreen extends StatelessWidget {
               l10n.startReviewing,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey.shade500,
+                color: subtitleColor,
               ),
               textAlign: TextAlign.center,
             ),
@@ -147,9 +167,9 @@ class StatisticsScreen extends StatelessWidget {
         const SizedBox(width: 12),
         Expanded(
           child: StatsCard(
-            title: 'Mots appris', // ou l10n.wordsLearned si disponible
+            title: l10n.wordsLearned,
             value: '${provider.getTotalWordsLearned()}',
-            subtitle: 'appris', // ou l10n.learned si disponible
+            subtitle: l10n.learned,
             icon: Icons.school,
             color: AppColors.primary,
           ),
@@ -158,18 +178,23 @@ class StatisticsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSection({
+  Widget _buildSection(
+    BuildContext context, {
     required String title,
     required IconData icon,
     required Widget child,
   }) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDark ? Colors.grey[850] : Colors.white;
+    final titleColor = isDark ? Colors.white : Colors.black;
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: cardColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -186,9 +211,10 @@ class StatisticsScreen extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    color: titleColor,
                   ),
                 ),
               ],

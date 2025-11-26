@@ -133,5 +133,22 @@
   "dataWillBeDeleted": "Données supprimées",
   "deckProgress": "Progression des decks",
   "preferences": "Préférences",
-  "statisticsWillBeKept": "Les statistiques seront conservées"
+  "statisticsWillBeKept": "Les statistiques seront conservées",
+  "favoriteGameModes": "Modes de jeu favoris",
+  "wordsLearned": "Mots appris",
+  "learned": "appris",
+  "noGameData": "Aucune donnée de jeu",
+  "gamesPlayed": "{count} parties jouées",
+  "less": "Moins",
+  "more": "Plus",
+  "revisionsTooltip": "{date} : {count} révisions",
+
+  "classicModeTitle": "Entraînement classique",
+  "classicModeDesc": "Roue et dessin/texte",
+  "gameModesTitle": "Modes de jeu",
+  "manageDecksDesc": "Créer et modifier vos listes",
+  "noDeckSelected": "Aucun deck sélectionné",
+  "selectDeck": "Choisir un deck",
+  "reverseModeTitle": "Entraînement inversé",
+  "reverseModeDesc": "Devinez la question via la réponse"
 }

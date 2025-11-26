@@ -90,7 +90,7 @@ class _DecksScreenState extends State<DecksScreen> {
     final hierarchy = DeckHierarchyUtils.buildHierarchyMap(deckProvider);
 
     if (hierarchy.isEmpty) {
-      return _buildEmptyState(l10n.noDecksAvailable);
+      return _buildEmptyState(context, l10n.noDecksAvailable);
     }
 
     return Column(
@@ -110,7 +110,10 @@ class _DecksScreenState extends State<DecksScreen> {
     List<String> path,
     int level,
   ) {
+    // MODIFICATION 1 : Récupérer la luminosité pour adapter les couleurs
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final l10n = AppLocalizations.of(context)!;
+    
     final keys = node.keys.where((k) => k != '_decks').toList()..sort();
     
     return keys.map((key) {
@@ -128,10 +131,14 @@ class _DecksScreenState extends State<DecksScreen> {
         child: Card(
           margin: EdgeInsets.zero,
           elevation: isExpanded ? (level == 0 ? 4 : 2) : 1,
+          // Couleur de la carte adaptée au thème si niveau > 0
+          color: level > 0 
+              ? (isDark ? Colors.grey[850] : Colors.grey[50]) 
+              : (isDark ? Colors.grey[800] : Colors.white),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
             side: level > 0 
-              ? BorderSide(color: Colors.grey.shade300) 
+              ? BorderSide(color: isDark ? Colors.grey.shade700 : Colors.grey.shade300) 
               : BorderSide.none,
           ),
           child: Theme(
@@ -139,7 +146,6 @@ class _DecksScreenState extends State<DecksScreen> {
             child: ExpansionTile(
               key: Key(pathKey),
               
-              // Ces deux lignes suppriment les bordures par défaut (traits noirs)
               shape: const Border(),
               collapsedShape: const Border(),
               
@@ -151,29 +157,36 @@ class _DecksScreenState extends State<DecksScreen> {
               },
               leading: _buildCategoryIcon(key, level),
               title: Text(
-                translateCategory(key, context), // Assure-toi d'avoir cette fonction accessible
+                translateCategory(key, context),
                 style: TextStyle(
                   fontWeight: level == 0 ? FontWeight.bold : FontWeight.w600,
-                  color: level == 0 ? null : Colors.grey.shade800,
+                  // MODIFICATION 2 : Couleur du texte dynamique
+                  color: level == 0 
+                      ? Theme.of(context).textTheme.titleMedium?.color 
+                      : (isDark ? Colors.grey.shade300 : Colors.grey.shade800),
                 ),
               ),
               subtitle: Text(
                 '$totalDecks ${totalDecks > 1 ? l10n.decks : l10n.deck}',
-                style: TextStyle(color: Colors.grey.shade600, fontSize: 13),
+                style: TextStyle(
+                  // Couleur du sous-titre dynamique
+                  color: isDark ? Colors.grey.shade400 : Colors.grey.shade600,
+                  fontSize: 13,
+                ),
               ),
               children: [
                 if (hasSubcategories)
                   ..._buildRecursiveHierarchy(context, subNode, currentPath, level + 1),
                 
                 ...decks.map((deck) => Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: DeckCard(
-                        deck: deck,
-                        isBase: true,
-                        onTap: () => _selectDeck(context, deck),
-                        onLongPress: () => _showDeckPreview(context, deck),
-                      ),
-                    )),
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: DeckCard(
+                      deck: deck,
+                      isBase: true,
+                      onTap: () => _selectDeck(context, deck),
+                      onLongPress: () => _showDeckPreview(context, deck),
+                    ),
+                  )),
               ],
             ),
           ),
@@ -272,46 +285,75 @@ class _DecksScreenState extends State<DecksScreen> {
           title,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
+                // Utilisation explicite de la couleur du thème pour être sûr
+                color: Theme.of(context).textTheme.titleLarge?.color,
               ),
         ),
       ],
     );
   }
 
-  Widget _buildEmptyState(String message) {
+  Widget _buildEmptyState(BuildContext context, String message) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+        // Couleur de fond adaptée
+        color: isDark ? Colors.grey[850] : Colors.grey.shade100,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Center(
-        child: Text(message, style: TextStyle(color: Colors.grey.shade600)),
+        child: Text(
+          message, 
+          style: TextStyle(
+            color: isDark ? Colors.grey.shade400 : Colors.grey.shade600
+          )
+        ),
       ),
     );
   }
 
   Widget _buildEmptyCustomDecks(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+        // Couleur de fond adaptée
+        color: isDark ? Colors.grey[850] : Colors.grey.shade100,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(
+          color: isDark ? Colors.grey.shade700 : Colors.grey.shade300
+        ),
       ),
       child: Column(
         children: [
-          Icon(Icons.folder_open, size: 64, color: Colors.grey.shade400),
+          Icon(
+            Icons.folder_open, 
+            size: 64, 
+            color: isDark ? Colors.grey.shade600 : Colors.grey.shade400
+          ),
           const SizedBox(height: 16),
-          Text(l10n.noCustomDecks, 
-              style: TextStyle(color: Colors.grey.shade600, fontSize: 16, fontWeight: FontWeight.bold)),
+          Text(
+            l10n.noCustomDecks, 
+            style: TextStyle(
+              color: isDark ? Colors.grey.shade300 : Colors.grey.shade600, 
+              fontSize: 16, 
+              fontWeight: FontWeight.bold
+            )
+          ),
           const SizedBox(height: 8),
-          Text(l10n.createFirstDeck, 
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey.shade500)),
+          Text(
+            l10n.createFirstDeck, 
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: isDark ? Colors.grey.shade500 : Colors.grey.shade500
+            )
+          ),
         ],
       ),
     );
@@ -355,7 +397,6 @@ class _DecksScreenState extends State<DecksScreen> {
       
       if (deck == null) {
         await deckProvider.addCustomDeck(result);
-        // Re-vérification car addCustomDeck est aussi asynchrone (potentiellement)
         if (context.mounted) {
              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(l10n.deckCreated(result.localizedName(context)))));

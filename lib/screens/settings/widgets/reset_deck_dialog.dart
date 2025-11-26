@@ -10,31 +10,48 @@ class ResetDeckDialog {
     final l10n = AppLocalizations.of(context)!;
     final gameProvider = context.read<GameProvider>();
     final deckProvider = context.read<DeckProvider>();
+    final theme = Theme.of(context);
 
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(l10n.resetDeck),
+        backgroundColor: theme.cardTheme.color, // Assure la cohérence avec les cartes
+        title: Text(
+          l10n.resetDeck,
+          style: theme.textTheme.titleMedium,
+        ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(l10n.resetDeckMessage),
-            const SizedBox(height: 12),
+            Text(
+              l10n.resetDeckMessage,
+              style: theme.textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: AppColors.warning.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: AppColors.warning.withValues(alpha: 0.3),
+                  width: 1,
+                ),
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.info_outline, size: 16, color: AppColors.warning),
-                  const SizedBox(width: 8),
+                  const Icon(Icons.info_outline, size: 20, color: AppColors.warning),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: Text(
                       l10n.statisticsWillBeKept,
-                      style: const TextStyle(fontSize: 12),
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.brightness == Brightness.dark 
+                            ? AppColors.warning // Orange lisible sur fond noir
+                            : Colors.orange[900], // Orange foncé sur fond clair
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
@@ -43,10 +60,14 @@ class ResetDeckDialog {
           ],
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        actionsPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(l10n.cancel, style: const TextStyle(color: Colors.grey)),
+            style: TextButton.styleFrom(
+              foregroundColor: theme.textTheme.bodySmall?.color,
+            ),
+            child: Text(l10n.cancel),
           ),
           FilledButton(
             onPressed: () async {
@@ -58,11 +79,15 @@ class ResetDeckDialog {
                   SnackBar(
                     content: Text(l10n.deckReset),
                     backgroundColor: AppColors.success,
+                    behavior: SnackBarBehavior.floating,
                   ),
                 );
               }
             },
-            style: FilledButton.styleFrom(backgroundColor: AppColors.warning),
+            style: FilledButton.styleFrom(
+              backgroundColor: AppColors.warning,
+              foregroundColor: Colors.white, // Toujours blanc pour le warning
+            ),
             child: Text(l10n.reset),
           ),
         ],

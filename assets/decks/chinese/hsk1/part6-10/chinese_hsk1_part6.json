@@ -3,6 +3,7 @@
   "name": "Chinois - HSK1 (Partie 6)",
   "type": "base",
   "inputType": "draw",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "huì", "answer": "会", "meaning": "savoir faire, pouvoir (capacité)", "removed": false},
     {"prompt": "shuō", "answer": "说", "meaning": "parler, dire", "removed": false},

@@ -133,5 +133,22 @@
   "dataWillBeDeleted": "Los datos serán eliminados",
   "deckProgress": "Progreso de los mazos",
   "preferences": "Preferencias",
-  "statisticsWillBeKept": "Las estadísticas se conservarán"
+  "statisticsWillBeKept": "Las estadísticas se conservarán",
+  "favoriteGameModes": "Modos de juego favoritos",
+  "wordsLearned": "Palabras aprendidas",
+  "learned": "aprendidas",
+  "noGameData": "Sin datos de juego",
+  "gamesPlayed": "{count} partidas jugadas",
+  "less": "Menos",
+  "more": "Más",
+  "revisionsTooltip": "{date}: {count} repasos",
+
+  "classicModeTitle": "Entrenamiento clásico",
+    "classicModeDesc": "Ruleta y dibujo/texto",
+    "gameModesTitle": "Modos de juego",
+    "manageDecksDesc": "Crea y edita tus listas",
+    "noDeckSelected": "Ningún mazo seleccionado",
+    "selectDeck": "Seleccionar un mazo",
+    "reverseModeTitle": "Entrenamiento inverso",
+    "reverseModeDesc": "Adivina la pregunta dada la respuesta"
 }

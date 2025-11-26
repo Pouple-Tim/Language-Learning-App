@@ -3,6 +3,7 @@
   "name": "Chinois - HSK1 (Partie 12)",
   "type": "base",
   "inputType": "draw",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "tiānqì", "answer": "天气", "meaning": "temps (météo)", "removed": false},
     {"prompt": "zěnmeyàng", "answer": "怎么样", "meaning": "comment, que penses-tu de", "removed": false},

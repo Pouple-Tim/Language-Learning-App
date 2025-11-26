@@ -19,6 +19,11 @@ Deck _$DeckFromJson(Map<String, dynamic> json) => Deck(
     json['inputType'],
     unknownValue: InputType.text,
   ),
+  reverseInputType: $enumDecodeNullable(
+    _$InputTypeEnumMap,
+    json['reverseInputType'],
+    unknownValue: InputType.text,
+  ),
   words: (json['words'] as List<dynamic>)
       .map((e) => Word.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -29,6 +34,7 @@ Map<String, dynamic> _$DeckToJson(Deck instance) => <String, dynamic>{
   'name': instance.name,
   'type': _$DeckTypeEnumMap[instance.type]!,
   'inputType': _$InputTypeEnumMap[instance.inputType]!,
+  'reverseInputType': _$InputTypeEnumMap[instance.reverseInputType],
   'words': instance.words,
 };
 

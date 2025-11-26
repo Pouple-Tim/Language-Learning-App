@@ -3,6 +3,7 @@
   "name": "Chinois - HSK1 (Partie 14)",
   "type": "base",
   "inputType": "draw",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "dōngxī", "answer": "东西", "meaning": "chose, objet", "removed": false},
     {"prompt": "yīdiǎnr", "answer": "一点儿", "meaning": "un peu", "removed": false},

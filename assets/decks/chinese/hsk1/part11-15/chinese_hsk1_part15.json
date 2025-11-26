@@ -3,6 +3,7 @@
   "name": "Chinois - HSK1 (Partie 15)",
   "type": "base",
   "inputType": "draw",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "rènshi", "answer": "认识", "meaning": "connaître (quelqu’un)", "removed": false},
     {"prompt": "nián", "answer": "年", "meaning": "année", "removed": false},

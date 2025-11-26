@@ -3,6 +3,7 @@
   "name": "Chinois - HSK1 (Parties 11 à 15)",
   "type": "base",
   "inputType": "draw",
+  "reverseInputType": "text",
   "words": [
     {"prompt": "xiànzài", "answer": "现在", "meaning": "maintenant", "removed": false},
     {"prompt": "diǎn", "answer": "点", "meaning": "heure (classificateur de l'heure)", "removed": false},

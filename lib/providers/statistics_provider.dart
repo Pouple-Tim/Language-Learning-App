@@ -36,11 +36,13 @@ class StatisticsProvider extends ChangeNotifier {
   }
 
   /// Ajouter une nouvelle révision
+  /// [gameMode] : 'classic', 'reverse', 'quiz', etc.
   Future<void> addReview({
     required String wordId,
     required String deckId,
     required bool wasCorrect,
     required String inputType,
+    required String gameMode, // <--- NOUVEAU PARAMÈTRE
   }) async {
     final entry = ReviewEntry(
       wordId: wordId,
@@ -48,6 +50,7 @@ class StatisticsProvider extends ChangeNotifier {
       reviewedAt: DateTime.now(),
       wasCorrect: wasCorrect,
       inputType: inputType,
+      gameMode: gameMode, // <--- ENREGISTREMENT
     );
 
     _history.addReview(entry);
@@ -71,18 +74,48 @@ class StatisticsProvider extends ChangeNotifier {
   // STATISTIQUES CALCULÉES
   // ============================================================
 
+  /// NOUVEAU : Répartition des modes de jeu (pour le graphique)
+  /// Retourne une liste triée : [MapEntry('Classic', 50), MapEntry('Reverse', 20)]
+  List<MapEntry<String, int>> getGameModeStats() {
+    final Map<String, int> stats = {};
+
+    for (final entry in _history.entries) {
+      // Si l'entrée est ancienne et n'a pas de gameMode, on la compte comme 'classic' par défaut
+      // ou on l'ignore selon ta préférence. Ici 'classic' par défaut.
+      final mode = entry.gameMode ?? 'classic';
+      
+      // On normalise le nom (optionnel, pour avoir une jolie casse)
+      final modeName = _formatModeName(mode);
+      
+      stats[modeName] = (stats[modeName] ?? 0) + 1;
+    }
+
+    // Trier par nombre décroissant (le plus joué en premier)
+    final sorted = stats.entries.toList()
+      ..sort((a, b) => b.value.compareTo(a.value));
+
+    return sorted;
+  }
+
+  String _formatModeName(String modeId) {
+    switch (modeId.toLowerCase()) {
+      case 'classic': return 'Classique';
+      case 'reverse': return 'Inversé';
+      case 'quiz': return 'Quiz';
+      default: return modeId[0].toUpperCase() + modeId.substring(1);
+    }
+  }
+
   /// Nombre de mots révisés par jour (7 derniers jours)
   Map<DateTime, int> getReviewsPerDay(int days) {
     final Map<DateTime, int> reviewsPerDay = {};
     final now = DateTime.now();
 
-    // Initialiser tous les jours à 0
     for (int i = days - 1; i >= 0; i--) {
       final day = DateTime(now.year, now.month, now.day).subtract(Duration(days: i));
       reviewsPerDay[day] = 0;
     }
 
-    // Compter les révisions
     final recentReviews = _history.getRecentReviews(days);
     for (final review in recentReviews) {
       final day = DateTime(
@@ -146,7 +179,6 @@ class StatisticsProvider extends ChangeNotifier {
       if (reviewsForDay.isNotEmpty) {
         streak++;
       } else if (i > 0) {
-        // Si on a déjà une série et qu'on trouve un jour vide, on arrête
         break;
       }
     }
@@ -175,7 +207,7 @@ class StatisticsProvider extends ChangeNotifier {
     return _history.entries.length / daysSinceStart;
   }
 
-  /// Meilleur jour de la semaine (1 = lundi, 7 = dimanche)
+  /// Meilleur jour de la semaine
   int getBestDayOfWeek() {
     final Map<int, int> dayCount = {};
 

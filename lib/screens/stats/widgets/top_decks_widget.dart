@@ -15,11 +15,18 @@ class TopDecksWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     if (topDecks.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.all(32),
+      return Padding(
+        padding: const EdgeInsets.all(32),
         child: Center(
-          child: Text('Aucun deck pratiqué'),
+          child: Text(
+            'Aucun deck pratiqué', // Idéalement à mettre dans l10n
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.textTheme.bodySmall?.color,
+            ),
+          ),
         ),
       );
     }
@@ -41,7 +48,7 @@ class TopDecksWidget extends StatelessWidget {
           );
 
           return Padding(
-            padding: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: 16), // Espacement légèrement augmenté
             child: _buildDeckItem(
               context,
               index + 1,
@@ -62,6 +69,7 @@ class TopDecksWidget extends StatelessWidget {
     int reviewCount,
     int maxReviews,
   ) {
+    final theme = Theme.of(context);
     final percentage = maxReviews > 0 ? reviewCount / maxReviews : 0.0;
     final color = _getColorForRank(rank);
 
@@ -72,52 +80,51 @@ class TopDecksWidget extends StatelessWidget {
           children: [
             // Médaille/rang
             Container(
-              width: 32,
-              height: 32,
+              width: 36, // Un peu plus grand pour l'accessibilité
+              height: 36,
               decoration: BoxDecoration(
-                color: color.withValues(alpha: 0.1),
+                color: color.withValues(alpha: 0.15),
                 shape: BoxShape.circle,
               ),
               child: Center(
                 child: rank <= 3
-                    ? Icon(_getMedalIcon(rank), color: color, size: 18)
+                    ? Icon(_getMedalIcon(rank), color: color, size: 20)
                     : Text(
                         '$rank',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: color,
+                          fontSize: 16,
                         ),
                       ),
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 16),
             
-            // Nom du deck
+            // Nom du deck et stats
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     deckName,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontSize: 15,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 2),
+                  const SizedBox(height: 4),
                   Text(
                     '$reviewCount révisions',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey.shade600,
-                    ),
+                    style: theme.textTheme.bodySmall,
                   ),
                 ],
               ),
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         
         // Barre de progression
         ClipRRect(
@@ -125,7 +132,8 @@ class TopDecksWidget extends StatelessWidget {
           child: LinearProgressIndicator(
             value: percentage,
             minHeight: 6,
-            backgroundColor: Colors.grey.shade200,
+            // S'adapte au mode sombre (gris clair vs gris foncé)
+            backgroundColor: theme.colorScheme.surfaceContainerHighest,
             valueColor: AlwaysStoppedAnimation<Color>(color),
           ),
         ),
@@ -136,11 +144,11 @@ class TopDecksWidget extends StatelessWidget {
   Color _getColorForRank(int rank) {
     switch (rank) {
       case 1:
-        return const Color(0xFFFFD700); // Or
+        return AppColors.gold;
       case 2:
-        return const Color(0xFFC0C0C0); // Argent
+        return AppColors.silver;
       case 3:
-        return const Color(0xFFCD7F32); // Bronze
+        return AppColors.bronze;
       default:
         return AppColors.primary;
     }
@@ -149,11 +157,11 @@ class TopDecksWidget extends StatelessWidget {
   IconData _getMedalIcon(int rank) {
     switch (rank) {
       case 1:
-        return Icons.emoji_events; // Trophée
+        return Icons.emoji_events_rounded; 
       case 2:
-        return Icons.military_tech; // Médaille
+        return Icons.military_tech_rounded; 
       case 3:
-        return Icons.stars; // Étoile
+        return Icons.stars_rounded; 
       default:
         return Icons.circle;
     }

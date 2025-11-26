@@ -12,6 +12,7 @@ ReviewEntry _$ReviewEntryFromJson(Map<String, dynamic> json) => ReviewEntry(
   reviewedAt: DateTime.parse(json['reviewedAt'] as String),
   wasCorrect: json['wasCorrect'] as bool,
   inputType: json['inputType'] as String,
+  gameMode: json['gameMode'] as String?,
 );
 
 Map<String, dynamic> _$ReviewEntryToJson(ReviewEntry instance) =>
@@ -21,6 +22,7 @@ Map<String, dynamic> _$ReviewEntryToJson(ReviewEntry instance) =>
       'reviewedAt': instance.reviewedAt.toIso8601String(),
       'wasCorrect': instance.wasCorrect,
       'inputType': instance.inputType,
+      'gameMode': instance.gameMode,
     };
 
 ReviewHistory _$ReviewHistoryFromJson(Map<String, dynamic> json) =>

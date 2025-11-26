@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
 
+/// DeckProvider gère UNIQUEMENT:
+/// 1. Les decks disponibles (base + custom)
+/// 2. Le deck actuellement sélectionné dans l'UI
+/// 
+/// Il NE gère PAS la progression des jeux (c'est le rôle de GameProvider)
 class DeckProvider extends ChangeNotifier {
   final DeckRepository _repository = DeckRepository();
   
@@ -20,40 +25,32 @@ class DeckProvider extends ChangeNotifier {
   DeckRepository get repository => _repository;
   bool get isInitialized => _isInitialized;
 
-  // Charger tous les decks
+  /// Charge tous les decks disponibles et sélectionne le dernier utilisé
   Future<void> loadDecks() async {
-
-    if (_isInitialized) {
-      debugPrint('✅ Decks déjà chargés (cache)');
-      return;
-    }
+    if (_isInitialized) return;
 
     _isLoading = true;
     notifyListeners();
 
     try {
-      // Charger tous les decks (ceci charge aussi le manifest et construit les métadonnées)
+      // 1. Charger les decks de base et personnalisés
       _baseDecks = await _repository.loadBaseDecks();
       _customDecks = await _repository.loadCustomDecks();
       
-      // Charger le deck sélectionné avec son état
+      // 2. Récupérer le dernier deck sélectionné
       final selectedId = await _repository.getSelectedDeckId();
-      final selectedDeckBase = allDecks.firstWhere(
+      
+      // 3. Trouver le deck correspondant (STRUCTURE UNIQUEMENT, sans progression)
+      _selectedDeck = allDecks.firstWhere(
         (deck) => deck.id == selectedId,
         orElse: () => _baseDecks.isNotEmpty ? _baseDecks.first : _createEmptyDeck(),
       );
-      
-      // Charger l'état sauvegardé du deck sélectionné
-      final savedState = await _repository.loadDeckState(selectedDeckBase.id);
-      _selectedDeck = savedState ?? selectedDeckBase;
 
       _isInitialized = true;
-      
-      debugPrint('✅ DeckProvider: ${_baseDecks.length} decks de base chargés');
-      debugPrint('✅ Catégories disponibles: ${_repository.getCategories()}');
+      debugPrint('✅ DeckProvider initialisé. Deck sélectionné: ${_selectedDeck?.name}');
       
     } catch (e) {
-      debugPrint('Erreur lors du chargement des decks: $e');
+      debugPrint('❌ Erreur chargement decks: $e');
       _selectedDeck = _createEmptyDeck();
     }
 
@@ -61,65 +58,72 @@ class DeckProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Sélectionner un deck
+  /// Sélectionne un deck pour l'utiliser dans les jeux
   Future<void> selectDeck(Deck deck) async {
-    // Charger l'état sauvegardé du deck
-    final savedState = await _repository.loadDeckState(deck.id);
-    _selectedDeck = savedState ?? deck;
-    
+    _selectedDeck = deck;
     await _repository.saveSelectedDeckId(deck.id);
+    debugPrint('✅ Deck sélectionné: ${deck.name}');
     notifyListeners();
   }
 
-  // Ajouter un deck personnalisé
+  /// Ajoute un deck personnalisé
   Future<void> addCustomDeck(Deck deck) async {
     _customDecks.add(deck);
     await _repository.saveCustomDecks(_customDecks);
+    debugPrint('✅ Deck personnalisé ajouté: ${deck.name}');
     notifyListeners();
   }
 
-  // Modifier un deck personnalisé
+  /// Met à jour un deck personnalisé
   Future<void> updateCustomDeck(Deck deck) async {
     final index = _customDecks.indexWhere((d) => d.id == deck.id);
     if (index != -1) {
       _customDecks[index] = deck;
       await _repository.saveCustomDecks(_customDecks);
       
-      // Si c'est le deck sélectionné, le mettre à jour
       if (_selectedDeck?.id == deck.id) {
         _selectedDeck = deck;
       }
-      
+      debugPrint('✅ Deck personnalisé mis à jour: ${deck.name}');
       notifyListeners();
     }
   }
 
-  // Supprimer un deck personnalisé
+  /// Supprime un deck personnalisé
   Future<void> deleteCustomDeck(String deckId) async {
     _customDecks.removeWhere((deck) => deck.id == deckId);
     await _repository.saveCustomDecks(_customDecks);
     
-    // Si c'était le deck sélectionné, choisir un autre
+    // Si c'était le deck sélectionné, en choisir un autre
     if (_selectedDeck?.id == deckId) {
       _selectedDeck = allDecks.isNotEmpty ? allDecks.first : _createEmptyDeck();
       await _repository.saveSelectedDeckId(_selectedDeck!.id);
     }
     
+    debugPrint('✅ Deck personnalisé supprimé: $deckId');
     notifyListeners();
   }
 
-  // Recharger l'état actuel du deck sélectionné
+  /// Recharge les decks (utile après des modifications)
+  Future<void> reloadDecks() async {
+    _isInitialized = false;
+    _repository.clearCache();
+    await loadDecks();
+  }
+
+  /// Rafraîchit le deck sélectionné (pas de progression, juste la structure)
   Future<void> refreshSelectedDeck() async {
     if (_selectedDeck != null) {
-      final savedState = await _repository.loadDeckState(_selectedDeck!.id);
-      if (savedState != null) {
-        _selectedDeck = savedState;
-        notifyListeners();
-      }
+      final freshDeck = allDecks.firstWhere(
+        (deck) => deck.id == _selectedDeck!.id,
+        orElse: () => _selectedDeck!,
+      );
+      _selectedDeck = freshDeck;
+      notifyListeners();
     }
   }
 
-  // Créer un deck vide par défaut
+  /// Crée un deck vide par défaut
   Deck _createEmptyDeck() {
     return Deck(
       id: 'empty',
@@ -128,11 +132,5 @@ class DeckProvider extends ChangeNotifier {
       inputType: InputType.text,
       words: [],
     );
-  }
-
-  Future<void> reloadDecks() async {
-    _isInitialized = false;
-    _repository.clearCache();
-    await loadDecks();
   }
 }

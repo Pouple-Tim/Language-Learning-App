@@ -10,6 +10,7 @@ class ReviewEntry {
   final DateTime reviewedAt;     // Date et heure de la révision
   final bool wasCorrect;         // Si la réponse était correcte
   final String inputType;        // 'text' ou 'draw'
+  final String? gameMode;
 
   ReviewEntry({
     required this.wordId,
@@ -17,6 +18,8 @@ class ReviewEntry {
     required this.reviewedAt,
     required this.wasCorrect,
     required this.inputType,
+    this.gameMode,
+    
   });
 
   factory ReviewEntry.fromJson(Map<String, dynamic> json) => _$ReviewEntryFromJson(json);
