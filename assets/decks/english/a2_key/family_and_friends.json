@@ -1,0 +1,33 @@
+{
+  "id": "family_and_friends",
+  "name": "Family and Friends",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "aunt", "answer": "tante", "removed": false},
+    {"prompt": "baby", "answer": "bébé", "removed": false},
+    {"prompt": "brother", "answer": "frère", "removed": false},
+    {"prompt": "child", "answer": "enfant", "removed": false},
+    {"prompt": "children", "answer": "enfants", "removed": false},
+    {"prompt": "cousin", "answer": "cousin / cousine", "removed": false},
+    {"prompt": "Dad", "answer": "papa", "removed": false},
+    {"prompt": "daughter", "answer": "fille (enfant)", "removed": false},
+    {"prompt": "family", "answer": "famille", "removed": false},
+    {"prompt": "father", "answer": "père", "removed": false},
+    {"prompt": "friend", "answer": "ami", "removed": false},
+    {"prompt": "girlfriend", "answer": "petite amie", "removed": false},
+    {"prompt": "husband", "answer": "mari", "removed": false},
+    {"prompt": "kid", "answer": "gosse / enfant", "removed": false},
+    {"prompt": "mother", "answer": "mère", "removed": false},
+    {"prompt": "mum", "answer": "maman", "removed": false},
+    {"prompt": "nephew", "answer": "neveu", "removed": false},
+    {"prompt": "niece", "answer": "nièce", "removed": false},
+    {"prompt": "parent", "answer": "parent", "removed": false},
+    {"prompt": "people", "answer": "gens", "removed": false},
+    {"prompt": "sister", "answer": "soeur", "removed": false},
+    {"prompt": "son", "answer": "fils", "removed": false},
+    {"prompt": "Uncle", "answer": "oncle", "removed": false},
+    {"prompt": "wife", "answer": "femme / épouse", "removed": false}
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "travel_and_transport",
+  "name": "Travel and Transport",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "airport", "answer": "aéroport", "removed": false},
+    {"prompt": "bike", "answer": "vélo", "removed": false},
+    {"prompt": "boat", "answer": "bateau", "removed": false},
+    {"prompt": "bus", "answer": "bus", "removed": false},
+    {"prompt": "bus station", "answer": "gare routière", "removed": false},
+    {"prompt": "car", "answer": "voiture", "removed": false},
+    {"prompt": "driver", "answer": "conducteur", "removed": false},
+    {"prompt": "flight", "answer": "vol", "removed": false},
+    {"prompt": "holiday", "answer": "vacances", "removed": false},
+    {"prompt": "journey", "answer": "voyage", "removed": false},
+    {"prompt": "map", "answer": "carte", "removed": false},
+    {"prompt": "motorbike", "answer": "moto", "removed": false},
+    {"prompt": "plane", "answer": "avion", "removed": false},
+    {"prompt": "road", "answer": "route", "removed": false},
+    {"prompt": "ship", "answer": "navire", "removed": false},
+    {"prompt": "station", "answer": "gare", "removed": false},
+    {"prompt": "street", "answer": "rue", "removed": false},
+    {"prompt": "taxi", "answer": "taxi", "removed": false},
+    {"prompt": "ticket", "answer": "billet / ticket", "removed": false},
+    {"prompt": "tourist", "answer": "touriste", "removed": false},
+    {"prompt": "traffic", "answer": "trafic", "removed": false},
+    {"prompt": "train", "answer": "train", "removed": false},
+    {"prompt": "travel", "answer": "voyager", "removed": false},
+    {"prompt": "trip", "answer": "voyage / excursion", "removed": false}
+  ]
+}

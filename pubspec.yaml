@@ -61,5 +61,6 @@ flutter:
     - assets/decks/chinese/hsk1/part1-5/
     - assets/decks/chinese/hsk1/part6-10/
     - assets/decks/chinese/hsk1/part11-15/
+    - assets/decks/english/a2_key/
   
   generate: true

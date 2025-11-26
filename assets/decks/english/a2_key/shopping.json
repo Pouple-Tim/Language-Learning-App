@@ -1,0 +1,27 @@
+{
+  "id": "shopping",
+  "name": "Shopping",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "basket", "answer": "panier", "removed": false},
+    {"prompt": "big", "answer": "grand", "removed": false},
+    {"prompt": "bill", "answer": "addition / facture", "removed": false},
+    {"prompt": "buy", "answer": "acheter", "removed": false},
+    {"prompt": "cheap", "answer": "bon marché", "removed": false},
+    {"prompt": "clothes", "answer": "vêtements", "removed": false},
+    {"prompt": "cost", "answer": "coût", "removed": false},
+    {"prompt": "customer", "answer": "client", "removed": false},
+    {"prompt": "expensive", "answer": "cher", "removed": false},
+    {"prompt": "money", "answer": "argent", "removed": false},
+    {"prompt": "pay", "answer": "payer", "removed": false},
+    {"prompt": "price", "answer": "prix", "removed": false},
+    {"prompt": "receipt", "answer": "reçu", "removed": false},
+    {"prompt": "sale", "answer": "vente", "removed": false},
+    {"prompt": "shop", "answer": "magasin", "removed": false},
+    {"prompt": "shopping", "answer": "shopping", "removed": false},
+    {"prompt": "small", "answer": "petit", "removed": false},
+    {"prompt": "supermarket", "answer": "supermarché", "removed": false}
+  ]
+}

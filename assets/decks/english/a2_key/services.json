@@ -1,0 +1,25 @@
+{
+  "id": "services",
+  "name": "Services",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "bank", "answer": "banque", "removed": false},
+    {"prompt": "barber", "answer": "coiffeur", "removed": false},
+    {"prompt": "bus service", "answer": "service de bus", "removed": false},
+    {"prompt": "cleaning", "answer": "nettoyage", "removed": false},
+    {"prompt": "dentist", "answer": "dentiste", "removed": false},
+    {"prompt": "doctor", "answer": "médecin", "removed": false},
+    {"prompt": "help", "answer": "aide", "removed": false},
+    {"prompt": "hotel service", "answer": "service hôtelier", "removed": false},
+    {"prompt": "information", "answer": "information", "removed": false},
+    {"prompt": "internet", "answer": "internet", "removed": false},
+    {"prompt": "police", "answer": "police", "removed": false},
+    {"prompt": "post office", "answer": "bureau de poste", "removed": false},
+    {"prompt": "service", "answer": "service", "removed": false},
+    {"prompt": "shop", "answer": "magasin", "removed": false},
+    {"prompt": "waiter", "answer": "serveur", "removed": false},
+    {"prompt": "waitress", "answer": "serveuse", "removed": false}
+  ]
+}

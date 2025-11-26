@@ -50,4 +50,22 @@ final Map<String, Map<String, String>> deckCategories = {
     'it': 'Parti da 11 a 15',
   },
 
+  // ###########
+  // # Anglais #
+  // ###########
+
+  'Anglais': {
+    'fr': 'Anglais',
+    'en': 'English',
+    'es': 'Inglés',
+    'it': 'Inglese',
+  },
+
+  'A2 key': {
+    'fr': 'A2 key',
+    'en': 'A2 key',
+    'es': 'A2 key',
+    'it': 'A2 key',
+  },
+
 };

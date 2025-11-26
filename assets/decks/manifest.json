@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdate": "2025-11-25",
+  "lastUpdate": "2025-11-26",
   "decks": [
     {
       "path": "assets/decks/spanish_basics.json",
@@ -183,6 +183,102 @@
         "Chinois",
         "HSK 1",
         "Parties 6 à 10"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/house_and_home.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/family_and_friends.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/health_medicine_exercise.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/appliances.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/clothes_accessories.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/hobbies_and_leisure.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/education.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/colours.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/entertainment_and_media.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/communication_technology.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/documents_and_texts.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/food_and_drink.json",
+      "categories": [
+        "English",
+        "A2 Key"
       ],
       "difficulty": "beginner"
     }

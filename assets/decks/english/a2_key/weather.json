@@ -1,0 +1,24 @@
+{
+  "id": "weather",
+  "name": "Weather",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "cloud", "answer": "nuage", "removed": false},
+    {"prompt": "cold", "answer": "froid", "removed": false},
+    {"prompt": "fog", "answer": "brouillard", "removed": false},
+    {"prompt": "forecast", "answer": "prévisions", "removed": false},
+    {"prompt": "hot", "answer": "chaud", "removed": false},
+    {"prompt": "rain", "answer": "pluie", "removed": false},
+    {"prompt": "rainy", "answer": "pluvieux", "removed": false},
+    {"prompt": "snow", "answer": "neige", "removed": false},
+    {"prompt": "storm", "answer": "tempête", "removed": false},
+    {"prompt": "sun", "answer": "soleil", "removed": false},
+    {"prompt": "sunny", "answer": "ensoleillé", "removed": false},
+    {"prompt": "temperature", "answer": "température", "removed": false},
+    {"prompt": "weather", "answer": "météo", "removed": false},
+    {"prompt": "wind", "answer": "vent", "removed": false},
+    {"prompt": "windy", "answer": "venteux", "removed": false}
+  ]
+}

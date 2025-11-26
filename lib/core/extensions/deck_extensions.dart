@@ -47,6 +47,7 @@ import 'package:language_learning_app/data/models/deck.dart';
 
 import 'package:language_learning_app/data/translations/deck_chinese.dart';
 import 'package:language_learning_app/data/translations/deck_japanese.dart';
+import 'package:language_learning_app/data/translations/deck_english.dart';
 import 'package:language_learning_app/data/translations/deck_categories.dart';
 
 // ═════════════════════════════════════════════════════════════════════════════
@@ -123,6 +124,7 @@ final Map<String, Map<String, String>> _deckTranslations = {
   ///
   /// **Fichier source :** `data/translations/deck_japanese.dart`
   ...deckTranslationsJapanese,
+  ...deckTranslationsEnglish,
   
   // ───────────────────────────────────────────────────────────────────────────
   // Coréen

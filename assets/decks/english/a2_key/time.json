@@ -1,0 +1,33 @@
+{
+  "id": "time",
+  "name": "Time",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "afternoon", "answer": "après-midi", "removed": false},
+    {"prompt": "age", "answer": "âge", "removed": false},
+    {"prompt": "birthday", "answer": "anniversaire", "removed": false},
+    {"prompt": "century", "answer": "siècle", "removed": false},
+    {"prompt": "day", "answer": "jour", "removed": false},
+    {"prompt": "evening", "answer": "soirée", "removed": false},
+    {"prompt": "hour", "answer": "heure", "removed": false},
+    {"prompt": "midday / noon", "answer": "midi", "removed": false},
+    {"prompt": "midnight", "answer": "minuit", "removed": false},
+    {"prompt": "minute", "answer": "minute", "removed": false},
+    {"prompt": "month", "answer": "mois", "removed": false},
+    {"prompt": "morning", "answer": "matin", "removed": false},
+    {"prompt": "night", "answer": "nuit", "removed": false},
+    {"prompt": "o’clock", "answer": "heures", "removed": false},
+    {"prompt": "past", "answer": "passé", "removed": false},
+    {"prompt": "quarter", "answer": "quart", "removed": false},
+    {"prompt": "second", "answer": "seconde", "removed": false},
+    {"prompt": "time", "answer": "temps", "removed": false},
+    {"prompt": "today", "answer": "aujourd’hui", "removed": false},
+    {"prompt": "tomorrow", "answer": "demain", "removed": false},
+    {"prompt": "week", "answer": "semaine", "removed": false},
+    {"prompt": "weekend", "answer": "week-end", "removed": false},
+    {"prompt": "year", "answer": "année", "removed": false},
+    {"prompt": "yesterday", "answer": "hier", "removed": false}
+  ]
+}

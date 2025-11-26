@@ -1,0 +1,33 @@
+{
+  "id": "education",
+  "name": "Education",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "answer", "answer": "réponse", "removed": false},
+    {"prompt": "board", "answer": "tableau", "removed": false},
+    {"prompt": "book", "answer": "livre", "removed": false},
+    {"prompt": "class", "answer": "classe", "removed": false},
+    {"prompt": "classroom", "answer": "salle de classe", "removed": false},
+    {"prompt": "course", "answer": "cours", "removed": false},
+    {"prompt": "dictionary", "answer": "dictionnaire", "removed": false},
+    {"prompt": "exam", "answer": "examen", "removed": false},
+    {"prompt": "exercise", "answer": "exercice", "removed": false},
+    {"prompt": "homework", "answer": "devoirs", "removed": false},
+    {"prompt": "learn", "answer": "apprendre", "removed": false},
+    {"prompt": "lesson", "answer": "leçon", "removed": false},
+    {"prompt": "library", "answer": "bibliothèque", "removed": false},
+    {"prompt": "notebook", "answer": "cahier", "removed": false},
+    {"prompt": "page", "answer": "page", "removed": false},
+    {"prompt": "pen", "answer": "stylo", "removed": false},
+    {"prompt": "pencil", "answer": "crayon", "removed": false},
+    {"prompt": "question", "answer": "question", "removed": false},
+    {"prompt": "school", "answer": "école", "removed": false},
+    {"prompt": "student", "answer": "étudiant", "removed": false},
+    {"prompt": "study", "answer": "étudier", "removed": false},
+    {"prompt": "teacher", "answer": "professeur", "removed": false},
+    {"prompt": "test", "answer": "test", "removed": false},
+    {"prompt": "textbook", "answer": "manuel scolaire", "removed": false}
+  ]
+}

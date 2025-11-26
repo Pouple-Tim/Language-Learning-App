@@ -1,0 +1,33 @@
+{
+  "id": "appliances",
+  "name": "Appliances",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "camera", "answer": "appareil photo", "removed": false},
+    {"prompt": "CD player", "answer": "lecteur CD", "removed": false},
+    {"prompt": "cell phone", "answer": "téléphone portable", "removed": false},
+    {"prompt": "clock", "answer": "horloge", "removed": false},
+    {"prompt": "computer", "answer": "ordinateur", "removed": false},
+    {"prompt": "cooker", "answer": "cuisinière", "removed": false},
+    {"prompt": "digital camera", "answer": "appareil photo numérique", "removed": false},
+    {"prompt": "DVD player", "answer": "lecteur DVD", "removed": false},
+    {"prompt": "electric lights", "answer": "lumières électriques", "removed": false},
+    {"prompt": "electricity", "answer": "électricité", "removed": false},
+    {"prompt": "fridge", "answer": "réfrigérateur", "removed": false},
+    {"prompt": "gas", "answer": "gaz", "removed": false},
+    {"prompt": "heating", "answer": "chauffage", "removed": false},
+    {"prompt": "lamp", "answer": "lampe", "removed": false},
+    {"prompt": "laptop", "answer": "ordinateur portable", "removed": false},
+    {"prompt": "mobile phone", "answer": "téléphone mobile", "removed": false},
+    {"prompt": "oven", "answer": "four", "removed": false},
+    {"prompt": "PC", "answer": "ordinateur personnel", "removed": false},
+    {"prompt": "phone", "answer": "téléphone", "removed": false},
+    {"prompt": "radio", "answer": "radio", "removed": false},
+    {"prompt": "telephone", "answer": "téléphone", "removed": false},
+    {"prompt": "television / TV", "answer": "télévision", "removed": false},
+    {"prompt": "video", "answer": "vidéo", "removed": false},
+    {"prompt": "washing machine", "answer": "machine à laver", "removed": false}
+  ]
+}

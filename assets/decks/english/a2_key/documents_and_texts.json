@@ -1,0 +1,29 @@
+{
+  "id": "documents_and_texts",
+  "name": "Documents and Texts",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "article", "answer": "article", "removed": false},
+    {"prompt": "book", "answer": "livre", "removed": false},
+    {"prompt": "card", "answer": "carte", "removed": false},
+    {"prompt": "dictionary", "answer": "dictionnaire", "removed": false},
+    {"prompt": "email", "answer": "email", "removed": false},
+    {"prompt": "file", "answer": "fichier", "removed": false},
+    {"prompt": "letter", "answer": "lettre", "removed": false},
+    {"prompt": "magazine", "answer": "magazine", "removed": false},
+    {"prompt": "message", "answer": "message", "removed": false},
+    {"prompt": "newspaper", "answer": "journal", "removed": false},
+    {"prompt": "note", "answer": "note", "removed": false},
+    {"prompt": "page", "answer": "page", "removed": false},
+    {"prompt": "passport", "answer": "passeport", "removed": false},
+    {"prompt": "pen", "answer": "stylo", "removed": false},
+    {"prompt": "pencil", "answer": "crayon", "removed": false},
+    {"prompt": "postcard", "answer": "carte postale", "removed": false},
+    {"prompt": "report", "answer": "rapport", "removed": false},
+    {"prompt": "sign", "answer": "pancarte / panneau", "removed": false},
+    {"prompt": "text", "answer": "texte", "removed": false},
+    {"prompt": "ticket", "answer": "ticket / billet", "removed": false}
+  ]
+}

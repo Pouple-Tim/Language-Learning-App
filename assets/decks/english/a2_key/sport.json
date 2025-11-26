@@ -1,0 +1,25 @@
+{
+  "id": "sport",
+  "name": "Sport",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "ball", "answer": "balle / ballon", "removed": false},
+    {"prompt": "basketball", "answer": "basket-ball", "removed": false},
+    {"prompt": "camp", "answer": "camp", "removed": false},
+    {"prompt": "cycling", "answer": "cyclisme", "removed": false},
+    {"prompt": "football", "answer": "football", "removed": false},
+    {"prompt": "game", "answer": "jeu / match", "removed": false},
+    {"prompt": "golf", "answer": "golf", "removed": false},
+    {"prompt": "gym", "answer": "salle de sport", "removed": false},
+    {"prompt": "player", "answer": "joueur", "removed": false},
+    {"prompt": "run", "answer": "courir", "removed": false},
+    {"prompt": "ski", "answer": "ski", "removed": false},
+    {"prompt": "swim", "answer": "nager", "removed": false},
+    {"prompt": "swimming", "answer": "natation", "removed": false},
+    {"prompt": "tennis", "answer": "tennis", "removed": false},
+    {"prompt": "team", "answer": "équipe", "removed": false},
+    {"prompt": "walk", "answer": "marcher", "removed": false}
+  ]
+}

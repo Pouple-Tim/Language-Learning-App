@@ -1,0 +1,24 @@
+{
+  "id": "measurements",
+  "name": "Measurements",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "centimetre", "answer": "centimètre", "removed": false},
+    {"prompt": "degree", "answer": "degré", "removed": false},
+    {"prompt": "gram", "answer": "gramme", "removed": false},
+    {"prompt": "height", "answer": "hauteur", "removed": false},
+    {"prompt": "kilogram", "answer": "kilogramme", "removed": false},
+    {"prompt": "kilometre", "answer": "kilomètre", "removed": false},
+    {"prompt": "length", "answer": "longueur", "removed": false},
+    {"prompt": "litre", "answer": "litre", "removed": false},
+    {"prompt": "metre", "answer": "mètre", "removed": false},
+    {"prompt": "mile", "answer": "mile", "removed": false},
+    {"prompt": "minute", "answer": "minute", "removed": false},
+    {"prompt": "second", "answer": "seconde", "removed": false},
+    {"prompt": "size", "answer": "taille", "removed": false},
+    {"prompt": "weight", "answer": "poids", "removed": false},
+    {"prompt": "width", "answer": "largeur", "removed": false}
+  ]
+}

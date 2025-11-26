@@ -1,0 +1,30 @@
+{
+  "id": "work_and_jobs",
+  "name": "Work and Jobs",
+  "type": "base",
+  "inputType": "text",
+  "reverseInputType": "text",
+  "words": [
+    {"prompt": "actor", "answer": "acteur", "removed": false},
+    {"prompt": "actress", "answer": "actrice", "removed": false},
+    {"prompt": "business", "answer": "entreprise / affaires", "removed": false},
+    {"prompt": "boss", "answer": "patron", "removed": false},
+    {"prompt": "cook", "answer": "cuisinier", "removed": false},
+    {"prompt": "customer", "answer": "client", "removed": false},
+    {"prompt": "doctor", "answer": "médecin", "removed": false},
+    {"prompt": "engineer", "answer": "ingénieur", "removed": false},
+    {"prompt": "farmer", "answer": "agriculteur", "removed": false},
+    {"prompt": "job", "answer": "emploi", "removed": false},
+    {"prompt": "lawyer", "answer": "avocat", "removed": false},
+    {"prompt": "manager", "answer": "manager", "removed": false},
+    {"prompt": "nurse", "answer": "infirmière", "removed": false},
+    {"prompt": "pilot", "answer": "pilote", "removed": false},
+    {"prompt": "police officer", "answer": "policier", "removed": false},
+    {"prompt": "shop assistant", "answer": "vendeur", "removed": false},
+    {"prompt": "student", "answer": "étudiant", "removed": false},
+    {"prompt": "teacher", "answer": "professeur", "removed": false},
+    {"prompt": "waiter", "answer": "serveur", "removed": false},
+    {"prompt": "waitress", "answer": "serveuse", "removed": false},
+    {"prompt": "work", "answer": "travailler / travail", "removed": false}
+  ]
+}
