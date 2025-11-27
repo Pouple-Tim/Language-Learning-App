@@ -310,21 +310,6 @@ class _DrawingWidgetState extends State<DrawingWidget> {
                   ),
                 ],
               ),
-
-              TextButton(
-                onPressed: gameProvider.currentWord != null && !_showFeedback
-                    ? () {
-                        _clearDrawing();
-                        gameProvider.resetCurrentWord();
-                        if (gameProvider.remainingWords > 0) gameProvider.spinWheel();
-                      }
-                    : null,
-                style: TextButton.styleFrom(
-                  visualDensity: VisualDensity.compact,
-                  foregroundColor: theme.textTheme.bodySmall?.color,
-                ),
-                child: Text(l10n.skip, style: const TextStyle(fontSize: 13)),
-              ),
             ],
           ),
         );

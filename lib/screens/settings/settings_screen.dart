@@ -283,6 +283,7 @@ class SettingsScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
+              // --- En-tête existant ---
               const CircleAvatar(
                 radius: 30,
                 backgroundColor: AppColors.primary,
@@ -299,11 +300,40 @@ class SettingsScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey.shade600, height: 1.5),
               ),
+
+              // --- Nouvelle Section : Nouveautés ---
+              const SizedBox(height: 24),
+              const Divider(),
+              const SizedBox(height: 16),
+              
+              // Titre de la section
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Nouveautés", // Tu peux mettre l10n.whatsNew ici
+                  style: TextStyle(
+                    fontSize: 16, 
+                    fontWeight: FontWeight.w600,
+                    color: Colors.grey.shade800
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              // Liste des fonctionnalités demandées
+              _buildFeatureItem(Icons.bar_chart_rounded, "Nouvelle page de statistique"),
+              _buildFeatureItem(Icons.language, "Nouvelle langue : Italien"),
+              _buildFeatureItem(Icons.swap_horizontal_circle_outlined, "Nouveau mode de jeu : Reverse"),
+              _buildFeatureItem(Icons.style, "Nouvel ensemble de deck : A2 key"),
+              _buildFeatureItem(Icons.auto_fix_high, "Optimisation et amélioration du visuel"),
+
+              // --- Footer existant ---
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(l10n.madeWithLove, style: TextStyle(fontSize: 12, color: Colors.grey.shade500)),
+                  Text(l10n.madeWithLove,
+                      style: TextStyle(fontSize: 12, color: Colors.grey.shade500)),
                   const SizedBox(width: 4),
                   const Icon(Icons.favorite, color: Colors.red, size: 14),
                 ],
@@ -312,6 +342,25 @@ class SettingsScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  // Méthode helper pour afficher une ligne de fonctionnalité
+  Widget _buildFeatureItem(IconData icon, String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: AppColors.primary),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontSize: 14),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

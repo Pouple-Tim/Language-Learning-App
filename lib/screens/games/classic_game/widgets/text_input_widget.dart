@@ -222,20 +222,6 @@ class _TextInputWidgetState extends State<TextInputWidget> {
                   ),
           
                   const SizedBox(height: 12),
-          
-                  // Bouton Passer (si bloqué)
-                  TextButton(
-                    onPressed: gameProvider.currentWord != null && !_showFeedback
-                        ? () {
-                            _controller.clear();
-                            gameProvider.resetCurrentWord();
-                            if (gameProvider.remainingWords > 0) {
-                              gameProvider.spinWheel();
-                            }
-                          }
-                        : null,
-                    child: Text(l10n.skip),
-                  ),
                 ],
               ),
             ),

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdate": "2025-11-26",
+  "lastUpdate": "2025-11-27",
   "decks": [
     {
       "path": "assets/decks/spanish_basics.json",
@@ -21,6 +21,15 @@
       "categories": [
         "Chinois",
         "HSK 1"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part2.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
       ],
       "difficulty": "beginner"
     },
@@ -62,15 +71,6 @@
     },
     {
       "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1.json",
-      "categories": [
-        "Chinois",
-        "HSK 1",
-        "Parties 1 à 5"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part2.json",
       "categories": [
         "Chinois",
         "HSK 1",
@@ -187,63 +187,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/house_and_home.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/family_and_friends.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/health_medicine_exercise.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/appliances.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/clothes_accessories.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/hobbies_and_leisure.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/education.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/colours.json",
+      "path": "assets/decks/english/a2_key/measurements.json",
       "categories": [
         "English",
         "A2 Key"
@@ -267,6 +211,14 @@
       "difficulty": "beginner"
     },
     {
+      "path": "assets/decks/english/a2_key/work_and_jobs.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
       "path": "assets/decks/english/a2_key/documents_and_texts.json",
       "categories": [
         "English",
@@ -276,6 +228,142 @@
     },
     {
       "path": "assets/decks/english/a2_key/food_and_drink.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/natural_world.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/family_and_friends.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/travel_and_transport.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/health_medicine_exercise.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/appliances.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/time.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/personal_feelings_opinions_experiences.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/hobbies_and_leisure.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/shopping.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/weather.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/places.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/services.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/sport.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/house_and_home.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/education.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/colours.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/clothes_accessories.json",
       "categories": [
         "English",
         "A2 Key"
