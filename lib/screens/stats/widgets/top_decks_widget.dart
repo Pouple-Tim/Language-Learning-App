@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/core/extensions/deck_extensions.dart';
+import 'package:language_learning_app/l10n/app_localizations.dart';
 
 class TopDecksWidget extends StatelessWidget {
   final List<MapEntry<String, int>> topDecks;
@@ -72,6 +73,7 @@ class TopDecksWidget extends StatelessWidget {
     final theme = Theme.of(context);
     final percentage = maxReviews > 0 ? reviewCount / maxReviews : 0.0;
     final color = _getColorForRank(rank);
+    final l10n = AppLocalizations.of(context)!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,7 +118,7 @@ class TopDecksWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '$reviewCount révisions',
+                    l10n.reviewsCount(reviewCount),
                     style: theme.textTheme.bodySmall,
                   ),
                 ],

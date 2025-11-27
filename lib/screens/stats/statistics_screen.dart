@@ -88,10 +88,10 @@ class StatisticsScreen extends StatelessWidget {
 
                     _buildSection(
                       context,
-                      title: "Modes de jeu favoris", // Ou l10n.favoriteGameModes
+                      title: l10n.favoriteGameModes,
                       icon: Icons.pie_chart,
-                      child: GameModeStatsWidget(
-                        data: statsProvider.getGameModeStats(),
+                      child: GameModeStatsWidget.fromRawData(
+                        rawData: Map.fromEntries(statsProvider.getGameModeStats()),
                       ),
                     ),
 

@@ -1,104 +1,146 @@
 import 'package:flutter/material.dart';
-import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
+import 'package:language_learning_app/core/extensions/gamemode_extensions.dart';
 
 class GameModeStatsWidget extends StatelessWidget {
-  final List<MapEntry<String, int>> data;
+  /// Les données sont typées fortement avec l'Enum [GameMode]
+  final List<MapEntry<GameMode, int>> data;
 
   const GameModeStatsWidget({
     super.key,
     required this.data,
   });
 
+  /// Constructeur utilitaire pour transformer des données brutes (String) venant d'une API/BDD
+  /// Exemple: {'classic': 10, 'reverse': 5}
+  GameModeStatsWidget.fromRawData({
+    super.key,
+    required Map<String, int> rawData,
+  }) : data = rawData.entries
+            .map((e) => MapEntry(GameMode.fromString(e.key), e.value))
+            // On filtre les modes inconnus vides si nécessaire, ou on les garde
+            .where((e) => e.value > 0 || e.key != GameMode.unknown)
+            .toList()
+          // Tri par nombre de parties (décroissant)
+          ..sort((a, b) => b.value.compareTo(a.value));
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+
     if (data.isEmpty) {
       return Padding(
-        padding: EdgeInsets.all(32),
+        padding: const EdgeInsets.all(32),
         child: Center(
-          child: Text(l10n.noGameData),
+          child: Text(
+            l10n.noGameData,
+            style: TextStyle(color: Colors.grey.shade600),
+          ),
         ),
       );
     }
 
-    // Calculer le total pour faire des pourcentages globaux (Camembert aplati)
-    final totalPlays = data.fold(0, (sum, item) => sum + item.value);
+    // Calcul du total pour les pourcentages
+    final totalPlays = data.fold<int>(0, (sum, item) => sum + item.value);
 
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
         children: data.map((entry) {
-          final modeName = entry.key;
+          final mode = entry.key;
           final count = entry.value;
-          final percentage = count / totalPlays;
+          // Sécurité anti-division par zéro
+          final percentage = totalPlays > 0 ? count / totalPlays : 0.0;
 
           return Padding(
             padding: const EdgeInsets.only(bottom: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // En-tête : Nom du mode + Pourcentage
+                // 1. En-tête : Icône + Titre + Pourcentage
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        _getModeIcon(modeName),
-                        const SizedBox(width: 8),
-                        Text(
-                          modeName,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
+                    // Icône avec fond coloré léger
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: mode.color.withValues(alpha: 0.1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        mode.icon, 
+                        size: 18, 
+                        color: mode.color
+                      ),
                     ),
+                    const SizedBox(width: 12),
+                    
+                    // Titre traduit (via extension)
+                    Expanded(
+                      child: Text(
+                        mode.getLocalizedName(l10n),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    
+                    // Pourcentage
                     Text(
                       '${(percentage * 100).toStringAsFixed(1)}%',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey,
+                        color: Colors.grey.shade500,
+                        fontSize: 12,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 6),
                 
-                // Barre de progression
+                const SizedBox(height: 8),
+                
+                // 2. Barre de progression
                 Stack(
                   children: [
-                    // Fond gris
+                    // Fond de la barre
                     Container(
                       height: 8,
+                      width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    // Barre colorée
-                    FractionallySizedBox(
-                      widthFactor: percentage,
-                      child: Container(
-                        height: 8,
-                        decoration: BoxDecoration(
-                          color: _getModeColor(modeName),
-                          borderRadius: BorderRadius.circular(4),
+                    // Remplissage coloré
+                    if (percentage > 0)
+                      FractionallySizedBox(
+                        widthFactor: percentage,
+                        child: Container(
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: mode.color,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
                 
                 const SizedBox(height: 4),
                 
-                // Sous-titre : Nombre de parties
-                Text(
-                  l10n.gamesPlayed(count),
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey.shade600,
+                // 3. Sous-titre : Nombre de parties
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    l10n.gamesPlayed(count),
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: Colors.grey.shade600,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],
@@ -106,43 +148,6 @@ class GameModeStatsWidget extends StatelessWidget {
           );
         }).toList(),
       ),
-    );
-  }
-
-  // Helper pour les couleurs
-  Color _getModeColor(String modeName) {
-    final name = modeName.toLowerCase();
-    if (name.contains('classique') || name.contains('classic')) {
-      return AppColors.primary;
-    } else if (name.contains('inversé') || name.contains('reverse')) {
-      return AppColors.secondary;
-    } else if (name.contains('quiz')) {
-      return Colors.orange;
-    }
-    return Colors.teal;
-  }
-
-  // Helper pour les icônes
-  Widget _getModeIcon(String modeName) {
-    final name = modeName.toLowerCase();
-    IconData icon = Icons.gamepad;
-    Color color = _getModeColor(modeName);
-
-    if (name.contains('classique') || name.contains('classic')) {
-      icon = Icons.school;
-    } else if (name.contains('inversé') || name.contains('reverse')) {
-      icon = Icons.swap_horiz;
-    } else if (name.contains('quiz')) {
-      icon = Icons.timer;
-    }
-
-    return Container(
-      padding: const EdgeInsets.all(6),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
-        shape: BoxShape.circle,
-      ),
-      child: Icon(icon, size: 16, color: color),
     );
   }
 }
