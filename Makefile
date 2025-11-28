@@ -42,3 +42,30 @@ l10n: generate-l10n
 # Tout régénérer (manifest + l10n)
 generate: generate-l10n generate-manifest
 	@echo "🎉 Tout a été régénéré !"
+
+# Configurer l'USB dynamiquement (WSL2 Fix)
+usb:
+	@echo "🔌 Démarrage du service udev..."
+	@sudo service udev start
+	@echo "👀 Recherche du périphérique connecté (hors hubs)..."
+	@# On récupère la ligne qui n'est pas un 'root hub' et on prend la colonne ID (ex: 22d9:2769)
+	@id_str=$$(lsusb | grep -v "root hub" | head -n 1 | awk '{print $$6}'); \
+	if [ -z "$$id_str" ]; then \
+		echo "❌ Aucun périphérique trouvé ! Avez-vous fait 'usbipd attach' sous Windows ?"; \
+		exit 1; \
+	fi; \
+	vendor=$$(echo $$id_str | cut -d':' -f1); \
+	product=$$(echo $$id_str | cut -d':' -f2); \
+	echo "🔍 Périphérique détecté : Vendor=$$vendor, Product=$$product"; \
+	echo "✍️  Mise à jour des règles udev..."; \
+	echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="'$$vendor'", ATTR{idProduct}=="'$$product'", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android.rules > /dev/null
+	@echo "🔄 Application des nouvelles règles..."
+	@sudo udevadm control --reload-rules
+	@sudo udevadm trigger
+	@echo "🔁 Redémarrage serveur ADB..."
+	@adb kill-server
+	@adb start-server
+	@echo "📱 ADB Devices :"
+	@adb devices
+	@echo "🚀 Flutter Devices :"
+	@flutter devices
