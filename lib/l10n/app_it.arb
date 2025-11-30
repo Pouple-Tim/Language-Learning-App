@@ -150,5 +150,8 @@
   "noDeckSelected": "Nessun mazzo selezionato",
   "selectDeck": "Seleziona un mazzo",
   "reverseModeTitle": "Allenamento inverso",
-  "reverseModeDesc": "Indovina la domanda dalla risposta"
+  "reverseModeDesc": "Indovina la domanda dalla risposta",
+
+  "quizModeTitle": "Quiz Veloce",
+  "quizModeDesc": "Scegli la risposta corretta tra 4 opzioni."
 }

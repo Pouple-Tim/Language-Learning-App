@@ -17,6 +17,10 @@ class GameProvider extends ChangeNotifier {
   String? _currentGameMode;         // Mode de jeu en cours ('classic', 'reverse', etc.)
   Deck? _currentProgressDeck;       // Deck avec la progression actuelle
   Word? _currentWord;               // Mot actuellement affiché
+
+  // Jeu Quizz
+  List<String> _quizOptions = [];
+  List<String> get quizOptions => _quizOptions;
   
   // Animation de la roue
   bool _isSpinning = false;
@@ -102,6 +106,10 @@ class GameProvider extends ChangeNotifier {
     // Sélection aléatoire
     final random = Random();
     _currentWord = activeWords[random.nextInt(activeWords.length)];
+
+    if (_currentGameMode == 'quiz') {
+      _generateQuizOptions(activeWords);
+    }
 
     // Animation
     final rotations = 5 + random.nextDouble() * 3;
@@ -222,5 +230,34 @@ class GameProvider extends ChangeNotifier {
       _currentGameMode!,
       _currentProgressDeck!,
     );
+  }
+
+  void _generateQuizOptions(List<Word> activeWords) {
+    if (_currentWord == null) return;
+
+    // 1. Identifier la bonne réponse
+    final correctAnswer = _currentWord!.answer;
+
+    // 2. Récupérer tous les mots possibles du deck (même ceux déjà appris pour plus de difficulté, ou juste les actifs)
+    final allWords = _currentProgressDeck!.words;
+
+    // 3. Filtrer pour ne pas avoir la bonne réponse en double
+    final distractors = allWords
+        .where((w) => w.answer.toLowerCase() != correctAnswer.toLowerCase())
+        .map((w) => w.answer)
+        .toList();
+
+    // 4. Mélanger et prendre 3 distracteurs
+    distractors.shuffle();
+    final selectedDistractors = distractors.take(3).toList();
+
+    // 5. Compléter avec des leurres si on n'a pas assez de mots dans le deck
+    while (selectedDistractors.length < 3) {
+      selectedDistractors.add("Option ${selectedDistractors.length + 1}");
+    }
+
+    // 6. Ajouter la bonne réponse et mélanger le tout
+    _quizOptions = [...selectedDistractors, correctAnswer];
+    _quizOptions.shuffle();
   }
 }

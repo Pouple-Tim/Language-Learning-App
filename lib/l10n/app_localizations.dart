@@ -887,6 +887,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Guess the question from the answer'**
   String get reverseModeDesc;
+
+  /// No description provided for @quizModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Quiz'**
+  String get quizModeTitle;
+
+  /// No description provided for @quizModeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the correct answer from 4 options.'**
+  String get quizModeDesc;
 }
 
 class _AppLocalizationsDelegate

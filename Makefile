@@ -45,6 +45,8 @@ generate: generate-l10n generate-manifest
 
 # Configurer l'USB dynamiquement (WSL2 Fix)
 usb:
+	@echo "D'abord lancer la liaison depuis powershell"
+	@echo "usbipd list => usbipd attach --wsl --busid [BUSID]"
 	@echo "🔌 Démarrage du service udev..."
 	@sudo service udev start
 	@echo "👀 Recherche du périphérique connecté (hors hubs)..."

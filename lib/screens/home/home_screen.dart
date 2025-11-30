@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
 import 'package:language_learning_app/screens/settings/settings_screen.dart';
-import 'package:language_learning_app/screens/games/classic_game/classic_game_screen.dart';
+import 'package:language_learning_app/screens/games/classic_game/game_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/core/extensions/strings_extensions.dart';
@@ -37,6 +37,15 @@ class HomeScreen extends StatelessWidget {
         icon: Icons.swap_horiz_rounded,
         color: AppColors.secondary,
         routeName: '/game/reverse',
+      ),
+      GameMode(
+        id: 'quiz',
+        type: GameType.quiz,
+        title: l10n.quizModeTitle, // 
+        description: l10n.quizModeDesc, // 
+        icon: Icons.quiz_rounded,
+        color: Colors.orange, // Ou AppColors.warning
+        routeName: '/game/quiz',
       ),
     ];
 
@@ -298,7 +307,7 @@ class HomeScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ClassicGameScreen(
+                builder: (context) => GameScreen(
                   gameTitle: mode.title, 
                 ),
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum GameType {
   classic,
-  quiz,    // Futur
+  quiz,
   memory,  // Futur
 }
 

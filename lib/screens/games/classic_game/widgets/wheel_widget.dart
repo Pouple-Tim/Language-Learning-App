@@ -85,83 +85,84 @@ class _WheelWidgetState extends State<WheelWidget>
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        // Calcule le diamètre pour s'adapter à l'écran mobile
-        // Max 340px pour ne pas prendre toute la place sur les grands téléphones
-        final double wheelDiameter = min(constraints.maxWidth * 0.9, 340.0);
-        final double arrowSize = wheelDiameter * 0.15;
+    // CORRECTION : Suppression du LayoutBuilder.
+    // On utilise MediaQuery pour obtenir la largeur de l'écran.
+    final screenWidth = MediaQuery.of(context).size.width;
+    
+    // Calcule le diamètre pour s'adapter à l'écran mobile
+    // Max 340px pour ne pas prendre toute la place sur les grands téléphones
+    // On enlève un peu de marge (padding du GameScreen est de 32 au total)
+    final double availableWidth = screenWidth - 32; 
+    final double wheelDiameter = min(availableWidth * 0.9, 340.0);
+    final double arrowSize = wheelDiameter * 0.15;
 
-        if (widget.words.isEmpty) {
-          return _buildEmptyWheel(context, wheelDiameter);
-        }
+    if (widget.words.isEmpty) {
+      return _buildEmptyWheel(context, wheelDiameter);
+    }
 
-        return SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Flèche au-dessus (comme avant)
-              Icon(
-                Icons.arrow_drop_down,
-                size: arrowSize,
-                color: AppColors.error,
-              ),
-        
-              // La roue simple (sans stack, sans ombre)
-              SizedBox(
-                width: wheelDiameter,
-                height: wheelDiameter,
-                child: GestureDetector(
-                  onTap: widget.isSpinning ? null : widget.onSpin,
-                  // RepaintBoundary améliore les perfs pendant l'animation
-                  child: RepaintBoundary(
-                    child: AnimatedBuilder(
-                      animation: _animation,
-                      builder: (context, child) {
-                        return Transform.rotate(
-                          angle: _animation.value,
-                          child: CustomPaint(
-                            size: Size(wheelDiameter, wheelDiameter),
-                            painter: _WheelPainter(
-                              words: widget.words,
-                              selectedWord: widget.selectedWord,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ),
-        
-              SizedBox(height: wheelDiameter * 0.1),
-        
-              // Bouton
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 250),
-                child: ElevatedButton.icon(
-                  onPressed: widget.isSpinning ? null : widget.onSpin,
-                  icon: Icon(
-                    widget.isSpinning ? Icons.hourglass_empty : Icons.casino,
-                    size: 20,
-                  ),
-                  label: Text(
-                    widget.isSpinning ? l10n.spinning : l10n.spinWheel,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Flèche au-dessus
+          Icon(
+            Icons.arrow_drop_down,
+            size: arrowSize,
+            color: AppColors.error,
           ),
-        );
-      },
+    
+          // La roue
+          SizedBox(
+            width: wheelDiameter,
+            height: wheelDiameter,
+            child: GestureDetector(
+              onTap: widget.isSpinning ? null : widget.onSpin,
+              child: RepaintBoundary(
+                child: AnimatedBuilder(
+                  animation: _animation,
+                  builder: (context, child) {
+                    return Transform.rotate(
+                      angle: _animation.value,
+                      child: CustomPaint(
+                        size: Size(wheelDiameter, wheelDiameter),
+                        painter: _WheelPainter(
+                          words: widget.words,
+                          selectedWord: widget.selectedWord,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+    
+          SizedBox(height: wheelDiameter * 0.1),
+    
+          // Bouton
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 250),
+            child: ElevatedButton.icon(
+              onPressed: widget.isSpinning ? null : widget.onSpin,
+              icon: Icon(
+                widget.isSpinning ? Icons.hourglass_empty : Icons.casino,
+                size: 20,
+              ),
+              label: Text(
+                widget.isSpinning ? l10n.spinning : l10n.spinWheel,
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -191,7 +192,7 @@ class _WheelWidgetState extends State<WheelWidget>
   }
 }
 
-// Painter simple (sans texte, sans ombres)
+// Le Painter ne change pas
 class _WheelPainter extends CustomPainter {
   final List<Word> words;
   final Word? selectedWord;
@@ -210,14 +211,12 @@ class _WheelPainter extends CustomPainter {
 
     final sweepAngle = (2 * pi) / words.length;
 
-    // Epaisseurs relatives
     final strokeWidthOuter = radius * 0.015;
     final strokeWidthCenter = radius * 0.03; 
 
     for (int i = 0; i < words.length; i++) {
       final startAngle = i * sweepAngle - pi / 2;
 
-      // Couleur simple
       final paint = Paint()
         ..color = AppColors.wheelColors[i % AppColors.wheelColors.length]
         ..style = PaintingStyle.fill;
@@ -234,7 +233,6 @@ class _WheelPainter extends CustomPainter {
 
       canvas.drawPath(path, paint);
 
-      // Bordure blanche simple
       final borderPaint = Paint()
         ..color = Colors.white
         ..style = PaintingStyle.stroke
@@ -243,14 +241,12 @@ class _WheelPainter extends CustomPainter {
       canvas.drawPath(path, borderPaint);
     }
 
-    // Cercle central simple
     final centerPaint = Paint()
       ..color = Colors.white
       ..style = PaintingStyle.fill;
 
     canvas.drawCircle(center, radius * 0.15, centerPaint);
 
-    // Bordure centrale
     final centerBorderPaint = Paint()
       ..color = AppColors.primary
       ..style = PaintingStyle.stroke

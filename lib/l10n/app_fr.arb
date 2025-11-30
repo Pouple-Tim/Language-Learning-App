@@ -150,5 +150,8 @@
   "noDeckSelected": "Aucun deck sélectionné",
   "selectDeck": "Choisir un deck",
   "reverseModeTitle": "Entraînement inversé",
-  "reverseModeDesc": "Devinez la question via la réponse"
+  "reverseModeDesc": "Devinez la question via la réponse",
+
+  "quizModeTitle": "Quiz Rapide",
+  "quizModeDesc": "Choisis la bonne réponse parmi 4 propositions."
 }

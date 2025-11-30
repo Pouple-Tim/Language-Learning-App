@@ -123,201 +123,200 @@ class _DrawingWidgetState extends State<DrawingWidget> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final gameProvider = context.watch<GameProvider>();
-    
-    // Récupération du thème
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    
-    // Couleur du trait adaptée au thème (noir en clair, blanc en sombre)
     final strokeColor = colorScheme.onSurface; 
     
-    final screenHeight = MediaQuery.of(context).size.height;
+    // CORRECTION ICI : Suppression du LayoutBuilder qui causait le crash.
+    // On utilise MediaQuery pour calculer la taille.
+    final screenSize = MediaQuery.of(context).size;
+    
+    // Calcul de la largeur disponible :
+    // Screen Width - Padding GameScreen (16*2) - Padding DrawingWidget (24*2) = -80
+    final double paddingTotal = 32 + 48; 
+    final double visibleWidth = (screenSize.width - paddingTotal).clamp(0.0, double.infinity);
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final double visibleWidth = constraints.maxWidth;
-        // Hauteur dynamique mais contrainte
-        final double maxHeightAvailable = screenHeight * 0.40; 
-        final double canvasHeight = (visibleWidth * 0.75).clamp(200.0, maxHeightAvailable);
-        
-        // Calcul du scroll max
-        final double maxScroll = (_virtualWidth - visibleWidth).clamp(0.0, double.infinity);
+    // Hauteur dynamique mais contrainte
+    final double maxHeightAvailable = screenSize.height * 0.40; 
+    final double canvasHeight = (visibleWidth * 0.75).clamp(200.0, maxHeightAvailable);
+    
+    // Calcul du scroll max
+    final double maxScroll = (_virtualWidth - visibleWidth).clamp(0.0, double.infinity);
 
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Zone de Feedback (Succès / Erreur)
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                height: _showFeedback ? 40 : 0,
-                child: _showFeedback
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            _isCorrect ? Icons.check_circle : Icons.cancel,
-                            color: _isCorrect ? AppColors.success : AppColors.error,
-                            size: 24,
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            _isCorrect ? l10n.correct : l10n.tryAgain,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              color: _isCorrect ? AppColors.success : AppColors.error,
-                            ),
-                          ),
-                        ],
-                      )
-                    : const SizedBox(),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Zone de Feedback (Succès / Erreur)
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            height: _showFeedback ? 40 : 0,
+            child: _showFeedback
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        _isCorrect ? Icons.check_circle : Icons.cancel,
+                        color: _isCorrect ? AppColors.success : AppColors.error,
+                        size: 24,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        _isCorrect ? l10n.correct : l10n.tryAgain,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          color: _isCorrect ? AppColors.success : AppColors.error,
+                        ),
+                      ),
+                    ],
+                  )
+                : const SizedBox(),
+          ),
+
+          if (_showFeedback) const SizedBox(height: 8),
+
+          // Zone de dessin (Canvas)
+          Container(
+            height: canvasHeight,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: theme.cardTheme.color,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: _showFeedback
+                    ? (_isCorrect ? AppColors.success : AppColors.error)
+                    : theme.dividerColor, 
+                width: 2,
               ),
-
-              if (_showFeedback) const SizedBox(height: 8),
-
-              // Zone de dessin (Canvas)
-              Container(
-                height: canvasHeight,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: theme.cardTheme.color, // Utilise la couleur de carte du thème
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: _showFeedback
-                        ? (_isCorrect ? AppColors.success : AppColors.error)
-                        : theme.dividerColor, 
-                    width: 2,
+              boxShadow: [
+                BoxShadow(
+                  color: theme.cardTheme.shadowColor ?? Colors.black12,
+                  blurRadius: 10,
+                  spreadRadius: 2,
+                )
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(14), 
+              child: RawGestureDetector(
+                gestures: {
+                  EagerPanGestureRecognizer: GestureRecognizerFactoryWithHandlers<EagerPanGestureRecognizer>(
+                    () => EagerPanGestureRecognizer(),
+                    (EagerPanGestureRecognizer instance) {
+                      instance.onStart = (details) {
+                        if (!_showFeedback && gameProvider.currentWord != null) {
+                          setState(() {
+                            final absolutePoint = Offset(details.localPosition.dx + _scrollOffset, details.localPosition.dy);
+                            _currentStroke = [absolutePoint];
+                          });
+                        }
+                      };
+                      instance.onUpdate = (details) {
+                        if (!_showFeedback && gameProvider.currentWord != null) {
+                          setState(() {
+                            final absolutePoint = Offset(details.localPosition.dx + _scrollOffset, details.localPosition.dy);
+                            _currentStroke.add(absolutePoint);
+                          });
+                        }
+                      };
+                      instance.onEnd = (details) {
+                        if (!_showFeedback && gameProvider.currentWord != null) {
+                          setState(() {
+                            _strokes.add(List.from(_currentStroke));
+                            _currentStroke = [];
+                          });
+                        }
+                      };
+                    },
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: theme.cardTheme.shadowColor ?? Colors.black12,
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                    )
+                },
+                child: CustomPaint(
+                  painter: _DrawingPainter(
+                    strokes: _strokes,
+                    currentStroke: _currentStroke,
+                    color: strokeColor,
+                    scrollOffset: _scrollOffset,
+                  ),
+                  size: Size.infinite,
+                ),
+              ),
+            ),
+          ),
+
+          // Barre de défilement (Slider) si nécessaire
+          if (maxScroll > 0)
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: SizedBox(
+                height: 30, 
+                child: Row(
+                  children: [
+                    Icon(Icons.keyboard_arrow_left, color: theme.iconTheme.color?.withValues(alpha: 0.5), size: 20),
+                    Expanded(
+                      child: SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: colorScheme.primary,
+                          inactiveTrackColor: colorScheme.surfaceContainerHighest,
+                          thumbColor: colorScheme.primary,
+                          trackHeight: 2.0,
+                          thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6.0),
+                          overlayShape: const RoundSliderOverlayShape(overlayRadius: 12.0),
+                        ),
+                        child: Slider(
+                          value: _scrollOffset,
+                          min: 0.0,
+                          max: maxScroll,
+                          onChanged: (value) => setState(() => _scrollOffset = value),
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.keyboard_arrow_right, color: theme.iconTheme.color?.withValues(alpha: 0.5), size: 20),
                   ],
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(14), 
-                  child: RawGestureDetector(
-                    gestures: {
-                      EagerPanGestureRecognizer: GestureRecognizerFactoryWithHandlers<EagerPanGestureRecognizer>(
-                        () => EagerPanGestureRecognizer(),
-                        (EagerPanGestureRecognizer instance) {
-                          instance.onStart = (details) {
-                            if (!_showFeedback && gameProvider.currentWord != null) {
-                              setState(() {
-                                final absolutePoint = Offset(details.localPosition.dx + _scrollOffset, details.localPosition.dy);
-                                _currentStroke = [absolutePoint];
-                              });
-                            }
-                          };
-                          instance.onUpdate = (details) {
-                            if (!_showFeedback && gameProvider.currentWord != null) {
-                              setState(() {
-                                final absolutePoint = Offset(details.localPosition.dx + _scrollOffset, details.localPosition.dy);
-                                _currentStroke.add(absolutePoint);
-                              });
-                            }
-                          };
-                          instance.onEnd = (details) {
-                            if (!_showFeedback && gameProvider.currentWord != null) {
-                              setState(() {
-                                _strokes.add(List.from(_currentStroke));
-                                _currentStroke = [];
-                              });
-                            }
-                          };
-                        },
-                      ),
-                    },
-                    child: CustomPaint(
-                      painter: _DrawingPainter(
-                        strokes: _strokes,
-                        currentStroke: _currentStroke,
-                        color: strokeColor,
-                        scrollOffset: _scrollOffset,
-                      ),
-                      size: Size.infinite,
-                    ),
+              ),
+            ),
+
+          SizedBox(height: maxScroll > 0 ? 8 : 16),
+
+          // Boutons d'action
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: gameProvider.currentWord != null && !_showFeedback ? _clearDrawing : null,
+                  icon: const Icon(Icons.clear, size: 20),
+                  label: Text(l10n.clear, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 13)),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: colorScheme.error, 
+                    side: BorderSide(color: colorScheme.error.withValues(alpha: 0.5)),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    visualDensity: VisualDensity.compact,
                   ),
                 ),
               ),
-
-              // Barre de défilement (Slider) si nécessaire
-              if (maxScroll > 0)
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: SizedBox(
-                    height: 30, 
-                    child: Row(
-                      children: [
-                        Icon(Icons.keyboard_arrow_left, color: theme.iconTheme.color?.withValues(alpha: 0.5), size: 20),
-                        Expanded(
-                          child: SliderTheme(
-                            data: SliderTheme.of(context).copyWith(
-                              activeTrackColor: colorScheme.primary,
-                              // CORRECTION ICI : surfaceContainerHighest remplace surfaceVariant
-                              inactiveTrackColor: colorScheme.surfaceContainerHighest,
-                              thumbColor: colorScheme.primary,
-                              trackHeight: 2.0,
-                              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6.0),
-                              overlayShape: const RoundSliderOverlayShape(overlayRadius: 12.0),
-                            ),
-                            child: Slider(
-                              value: _scrollOffset,
-                              min: 0.0,
-                              max: maxScroll,
-                              onChanged: (value) => setState(() => _scrollOffset = value),
-                            ),
-                          ),
-                        ),
-                        Icon(Icons.keyboard_arrow_right, color: theme.iconTheme.color?.withValues(alpha: 0.5), size: 20),
-                      ],
-                    ),
+              const SizedBox(width: 12),
+              Expanded(
+                flex: 2,
+                child: ElevatedButton.icon(
+                  onPressed: gameProvider.currentWord != null && !_showFeedback && _strokes.isNotEmpty ? _showValidationDialog : null,
+                  icon: const Icon(Icons.check, size: 20),
+                  label: Text(l10n.validate, overflow: TextOverflow.ellipsis),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    visualDensity: VisualDensity.compact,
                   ),
                 ),
-
-              SizedBox(height: maxScroll > 0 ? 8 : 16),
-
-              // Boutons d'action
-              Row(
-                children: [
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: gameProvider.currentWord != null && !_showFeedback ? _clearDrawing : null,
-                      icon: const Icon(Icons.clear, size: 20),
-                      label: Text(l10n.clear, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 13)),
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: colorScheme.error, 
-                        side: BorderSide(color: colorScheme.error.withValues(alpha: 0.5)),
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        visualDensity: VisualDensity.compact,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    flex: 2,
-                    child: ElevatedButton.icon(
-                      onPressed: gameProvider.currentWord != null && !_showFeedback && _strokes.isNotEmpty ? _showValidationDialog : null,
-                      icon: const Icon(Icons.check, size: 20),
-                      label: Text(l10n.validate, overflow: TextOverflow.ellipsis),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        visualDensity: VisualDensity.compact,
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ],
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }
 
+// ... _DrawingPainter et EagerPanGestureRecognizer restent inchangés ...
+// (Tu peux garder le code du bas du fichier précédent pour ces deux classes)
 class _DrawingPainter extends CustomPainter {
   final List<List<Offset>> strokes;
   final List<Offset> currentStroke;
