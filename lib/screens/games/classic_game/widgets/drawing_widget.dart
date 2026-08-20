@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 
@@ -91,11 +92,11 @@ class _DrawingWidgetState extends State<DrawingWidget> {
     });
 
     await statsProvider.addReview(
-      wordId: gameProvider.currentWord!.prompt,
+      wordId: gameProvider.currentWord!.id,
       deckId: gameProvider.currentDeck!.id,
       wasCorrect: isCorrect,
       inputType: 'draw',
-      gameMode: gameProvider.currentGameMode ?? 'classic',
+      gameMode: gameProvider.currentGameMode ?? GameType.classic.storageId,
     );
 
     if (isCorrect) {

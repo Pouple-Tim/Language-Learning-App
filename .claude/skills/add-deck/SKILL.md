@@ -11,7 +11,7 @@ A "deck" is a JSON file under `assets/decks/<language>/<level-or-category>/` tha
 
 ## Before you start: re-read the schema, don't assume it
 
-The `Deck`/`Word`/`Sentence` models are still evolving (the `sentences` field and sentence-builder game mode were added recently, and existing deck files sometimes carry fields the models don't — e.g. `words[].meaning` is present in JSON today but not read by `Word`). **Never reuse field names from a previous session or from memory.** Every time this skill runs, read fresh:
+The `Deck`/`Word`/`Sentence` models are still evolving (the `sentences` field and sentence-builder game mode were added recently, and deck files can drift ahead of or behind the models). **Never reuse field names from a previous session or from memory.** Every time this skill runs, read fresh:
 
 - `lib/data/models/deck.dart` and `lib/data/models/word.dart` — for `Deck`/`Word`, `@JsonSerializable()` classes, so their `.g.dart` files (`deck.g.dart`, `word.g.dart`) are the ground truth for exact JSON key names and which fields are required vs. optional/defaulted.
 - `lib/data/models/sentence.dart` — hand-written `fromJson`/`toJson` (not codegen), covers the `sentences` array.

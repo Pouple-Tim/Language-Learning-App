@@ -116,6 +116,17 @@ class GameProvider extends ChangeNotifier {
 
     final savedProgress = await _repository.loadProgress(baseDeck.id, gameMode.storageId);
 
+    // Copie profonde des phrases : chaque partie doit avoir ses propres
+    // instances de Sentence, indépendantes du deck en cache dans
+    // DeckProvider (sinon compléter une phrase muterait le deck partagé).
+    List<Sentence> freshSentences() => baseDeck.sentences.map((s) => Sentence(
+          id: s.id,
+          original: s.original,
+          translation: s.translation,
+          blocks: s.blocks,
+          completed: false,
+        )).toList();
+
     if (savedProgress != null) {
       debugPrint('   ✅ Progression existante détectée. Fusion des données...');
 
@@ -128,13 +139,7 @@ class GameProvider extends ChangeNotifier {
 
       final freshDeck = baseDeck.copyWith(
         words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
-        sentences: baseDeck.sentences.map((s) => Sentence(
-          id: s.id,
-          original: s.original,
-          translation: s.translation,
-          blocks: s.blocks,
-          completed: false,
-        )).toList(),
+        sentences: freshSentences(),
       );
 
       // A. Restauration des mots appris (match par id)
@@ -164,7 +169,7 @@ class GameProvider extends ChangeNotifier {
       debugPrint('   🆕 Nouvelle partie créée');
       _currentProgressDeck = baseDeck.copyWith(
         words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
-        sentences: baseDeck.sentences,
+        sentences: freshSentences(),
       );
     }
 

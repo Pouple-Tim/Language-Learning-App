@@ -58,8 +58,6 @@ class GameScreen extends StatelessWidget {
 
             return LayoutBuilder(
               builder: (context, constraints) {
-                final isSmallScreen = constraints.maxWidth < 380;
-
                 return GestureDetector(
                   onTap: () => FocusScope.of(context).unfocus(),
                   child: CustomScrollView(
@@ -101,7 +99,7 @@ class GameScreen extends StatelessWidget {
                                   ),
                                 )
                               else ...[
-                                _buildWordDisplay(context, gameProvider, isSmallScreen),
+                                _buildWordDisplay(context, gameProvider),
                                 const Spacer(),
                                 const SizedBox(height: 16),
                                 _buildGameInputArea(context, gameProvider),
@@ -138,7 +136,7 @@ class GameScreen extends StatelessWidget {
     }
   }
 
-  Widget _buildWordDisplay(BuildContext context, GameProvider gameProvider, bool isSmallScreen) {
+  Widget _buildWordDisplay(BuildContext context, GameProvider gameProvider) {
     final l10n = AppLocalizations.of(context)!;
     return Column(
       children: [

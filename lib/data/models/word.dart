@@ -4,6 +4,10 @@ part 'word.g.dart';
 
 @JsonSerializable()
 class Word {
+  // Convention pour les decks embarqués : `<deckId>_wN`, assigné une seule
+  // fois par un script de migration (depuis supprimé). Ne jamais renuméroter
+  // un id existant : il sert de clé stable pour la progression sauvegardée
+  // et l'historique de révisions.
   final String id;
   final String prompt;   // Le mot à afficher (ex: "あ")
   final String answer;   // La réponse attendue (ex: "a")
