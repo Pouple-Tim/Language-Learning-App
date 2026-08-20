@@ -254,7 +254,7 @@ class GameProvider extends ChangeNotifier {
 
     if (statisticsProvider != null && _currentProgressDeck != null) {
       await statisticsProvider!.addReview(
-        wordId: _currentSentence!.original,
+        wordId: _currentSentence!.id,
         deckId: _currentProgressDeck!.id,
         wasCorrect: isCorrect,
         inputType: 'blocks',
