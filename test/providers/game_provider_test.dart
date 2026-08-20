@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/word.dart';
 import 'package:language_learning_app/data/models/sentence.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
@@ -42,50 +43,53 @@ void main() {
   group('GameProvider.setDeck', () {
     test('initializes a fresh game with no saved progress', () async {
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(), gameMode: 'classic');
+      await provider.setDeck(_buildDeck(), gameMode: GameType.classic);
 
       expect(provider.currentDeck, isNotNull);
       expect(provider.totalWords, 3);
       expect(provider.remainingWords, 3);
       expect(provider.currentGameMode, 'classic');
+      expect(provider.currentGameType, GameType.classic);
       expect(provider.isReverseMode, isFalse);
     });
 
-    test('isReverseMode is true only for the reverse mode string', () async {
+    test('isReverseMode is true only for the reverse mode', () async {
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(), gameMode: 'reverse');
+      await provider.setDeck(_buildDeck(), gameMode: GameType.reverse);
       expect(provider.isReverseMode, isTrue);
 
       final classicProvider = GameProvider();
-      await classicProvider.setDeck(_buildDeck(), gameMode: 'classic');
+      await classicProvider.setDeck(_buildDeck(), gameMode: GameType.classic);
       expect(classicProvider.isReverseMode, isFalse);
     });
 
-    test('restores removed words from saved progress by matching prompt text', () async {
+    test('restores removed words from saved progress by matching id, even if prompt/answer text changed', () async {
       final repo = DeckRepository();
       final saved = _buildDeck()..words.first.removed = true;
-      await repo.saveProgress('deck1', 'classic', saved);
+      await repo.saveProgress('deck1', GameType.classic.storageId, saved);
+
+      // Simulate a deck JSON revision that changed word text but kept the same id.
+      final revisedDeck = _buildDeck();
+      revisedDeck.words[0] = Word(id: 'w0', prompt: 'renamed prompt', answer: 'renamed answer', removed: false);
 
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(), gameMode: 'classic');
+      await provider.setDeck(revisedDeck, gameMode: GameType.classic);
 
       expect(provider.currentDeck!.words.first.removed, isTrue);
       expect(provider.remainingWords, 2);
     });
 
-    test('a saved word with no matching prompt in the fresh deck is silently skipped, not restored', () async {
+    test('does not restore, and does not throw, when a saved word id no longer exists in the fresh deck', () async {
       final repo = DeckRepository();
-      final saved = _buildDeck()..words.first.removed = true;
-      final renamedFreshDeck = _buildDeck();
-      renamedFreshDeck.words[0] = Word(id: 'w0', prompt: 'renamed', answer: 'answer0', removed: false);
-
-      await repo.saveProgress('deck1', 'classic', saved);
+      final saved = _buildDeck();
+      saved.words.add(Word(id: 'deleted_word', prompt: 'x', answer: 'y', removed: true));
+      await repo.saveProgress('deck1', GameType.classic.storageId, saved);
 
       final provider = GameProvider();
-      await provider.setDeck(renamedFreshDeck, gameMode: 'classic');
-
-      // Old behavior: content-based match fails silently (id matches, but the
-      // current logic still matches on prompt, which no longer matches), nothing restored.
+      await expectLater(
+        provider.setDeck(_buildDeck(), gameMode: GameType.classic),
+        completes,
+      );
       expect(provider.remainingWords, 3);
     });
   });
@@ -93,7 +97,7 @@ void main() {
   group('GameProvider.checkAnswer', () {
     test('correct answer (classic mode) marks the word removed', () async {
       final provider = GameProvider();
-      await provider.setDeck(_oneWordDeck(), gameMode: 'classic');
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
       await provider.spinWheel();
 
       final result = await provider.checkAnswer('one');
@@ -104,7 +108,7 @@ void main() {
 
     test('incorrect answer (classic mode) leaves the word not removed', () async {
       final provider = GameProvider();
-      await provider.setDeck(_oneWordDeck(), gameMode: 'classic');
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
       await provider.spinWheel();
 
       final result = await provider.checkAnswer('wrong');
@@ -115,7 +119,7 @@ void main() {
 
     test('reverse mode checks the answer against prompt, not answer', () async {
       final provider = GameProvider();
-      await provider.setDeck(_oneWordDeck(), gameMode: 'reverse');
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.reverse);
       await provider.spinWheel();
 
       final result = await provider.checkAnswer('un');
@@ -134,7 +138,7 @@ void main() {
 
     test('spinWheel loads a sentence and shuffles blocks into availableBlocks', () async {
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: 'sentence');
+      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: GameType.sentence);
       await provider.spinWheel();
 
       expect(provider.currentSentence, isNotNull);
@@ -144,7 +148,7 @@ void main() {
 
     test('addBlockToSentence / removeBlockFromSentence move blocks between lists', () async {
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: 'sentence');
+      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: GameType.sentence);
       await provider.spinWheel();
 
       provider.addBlockToSentence('ni');
@@ -158,7 +162,7 @@ void main() {
 
     test('checkSentenceConstruction: correct order marks the sentence completed', () async {
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: 'sentence');
+      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: GameType.sentence);
       await provider.spinWheel();
 
       provider.addBlockToSentence('ni');
@@ -172,7 +176,7 @@ void main() {
 
     test('checkSentenceConstruction: wrong order does not complete the sentence', () async {
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: 'sentence');
+      await provider.setDeck(_buildDeck(sentences: [buildSentence()]), gameMode: GameType.sentence);
       await provider.spinWheel();
 
       provider.addBlockToSentence('hao');
@@ -188,7 +192,7 @@ void main() {
   group('GameProvider - quiz mode', () {
     test('spinWheel in quiz mode populates 4 quiz options including the correct answer', () async {
       final provider = GameProvider();
-      await provider.setDeck(_buildDeck(wordCount: 5), gameMode: 'quiz');
+      await provider.setDeck(_buildDeck(wordCount: 5), gameMode: GameType.quiz);
       await provider.spinWheel();
 
       expect(provider.quizOptions.length, 4);
@@ -202,7 +206,7 @@ void main() {
       final deck = _buildDeck(sentences: [
         Sentence(id: 's1', original: 'o', translation: 't', blocks: ['t']),
       ]);
-      await provider.setDeck(deck, gameMode: 'classic');
+      await provider.setDeck(deck, gameMode: GameType.classic);
       provider.currentDeck!.words.first.removed = true;
       provider.currentDeck!.sentences.first.completed = true;
 

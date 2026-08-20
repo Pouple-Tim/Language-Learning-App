@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/word.dart';
 import 'package:language_learning_app/data/models/sentence.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
 import 'package:language_learning_app/core/utils/date_helper.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
@@ -13,12 +14,12 @@ class GameProvider extends ChangeNotifier {
 
   // État du jeu en cours
   String? _currentDeckId;
-  String? _currentGameMode; // 'classic', 'reverse', 'quiz', 'sentence'
+  GameType? _currentGameType;
   Deck? _currentProgressDeck;
-  
+
   // État Mode Mots (Classic/Reverse/Quiz)
   Word? _currentWord;
-  
+
   // État Mode Phrase (Sentence)
   Sentence? _currentSentence;
   List<String> _availableBlocks = []; // Blocs disponibles (en bas)
@@ -27,7 +28,7 @@ class GameProvider extends ChangeNotifier {
   // Jeu Quiz
   List<String> _quizOptions = [];
   List<String> get quizOptions => _quizOptions;
-  
+
   // Animation
   bool _isSpinning = false;
   double _wheelRotation = 0.0;
@@ -41,19 +42,26 @@ class GameProvider extends ChangeNotifier {
   Deck? get currentDeck => _currentProgressDeck;
   Word? get currentWord => _currentWord;
   Sentence? get currentSentence => _currentSentence;
-  
+
   List<String> get availableBlocks => _availableBlocks;
   List<String> get selectedBlocks => _selectedBlocks;
-  
+
   bool get isSpinning => _isSpinning;
   double get wheelRotation => _wheelRotation;
-  String? get currentGameMode => _currentGameMode;
-  bool get isReverseMode => _currentGameMode == 'reverse';
+
+  /// Enum-based mode identity -- the single source of truth for behavior.
+  GameType? get currentGameType => _currentGameType;
+
+  /// String form kept for callers that persist/display it as text
+  /// (SharedPreferences progress keys, ReviewEntry.gameMode).
+  String? get currentGameMode => _currentGameType?.storageId;
+
+  bool get isReverseMode => _currentGameType == GameType.reverse;
 
   /// Nombre total d'éléments à apprendre (Mots ou Phrases)
   int get totalWords {
     if (_currentProgressDeck == null) return 0;
-    if (_currentGameMode == 'sentence') {
+    if (_currentGameType == GameType.sentence) {
       return _currentProgressDeck!.sentences.length;
     }
     return _currentProgressDeck!.totalWords;
@@ -62,8 +70,7 @@ class GameProvider extends ChangeNotifier {
   /// Nombre d'éléments restants
   int get remainingWords {
     if (_currentProgressDeck == null) return 0;
-    if (_currentGameMode == 'sentence') {
-      // Compte les phrases qui ne sont PAS complétées
+    if (_currentGameType == GameType.sentence) {
       return _currentProgressDeck!.sentences.where((s) => !s.completed).length;
     }
     return _currentProgressDeck!.remainingWords;
@@ -76,17 +83,13 @@ class GameProvider extends ChangeNotifier {
   }
 
   /// Jeu terminé ?
-  bool get isCompleted {
-    return remainingWords == 0;
-  }
+  bool get isCompleted => remainingWords == 0;
 
   /// Texte de la question à afficher
   String get currentQuestionText {
-    // Mode Phrase : Affiche "Bonjour" (Original)
-    if (_currentGameMode == 'sentence' && _currentSentence != null) {
+    if (_currentGameType == GameType.sentence && _currentSentence != null) {
       return _currentSentence!.original;
     }
-    // Mode Mots
     if (_currentWord == null) return '';
     return isReverseMode ? _currentWord!.answer : _currentWord!.prompt;
   }
@@ -94,8 +97,8 @@ class GameProvider extends ChangeNotifier {
   /// Type d'input (Clavier ou Dessin) pour les modes mots
   InputType get activeInputType {
     if (_currentProgressDeck == null) return InputType.text;
-    return isReverseMode 
-        ? _currentProgressDeck!.effectiveReverseInputType 
+    return isReverseMode
+        ? _currentProgressDeck!.effectiveReverseInputType
         : _currentProgressDeck!.inputType;
   }
 
@@ -103,23 +106,25 @@ class GameProvider extends ChangeNotifier {
   // INITIALISATION (SetDeck avec Merge)
   // ===========================================================================
 
-  Future<void> setDeck(Deck baseDeck, {String gameMode = 'classic'}) async {
+  Future<void> setDeck(Deck baseDeck, {GameType gameMode = GameType.classic}) async {
     _currentDeckId = baseDeck.id;
-    _currentGameMode = gameMode;
-    
+    _currentGameType = gameMode;
+
     debugPrint('🎮 Initialisation du jeu');
     debugPrint('   Deck: ${baseDeck.name} (${baseDeck.id})');
-    debugPrint('   Mode: $gameMode');
+    debugPrint('   Mode: ${gameMode.storageId}');
 
-    // 1. Charger la progression sauvegardée
-    final savedProgress = await _repository.loadProgress(baseDeck.id, gameMode);
-    
+    final savedProgress = await _repository.loadProgress(baseDeck.id, gameMode.storageId);
+
     if (savedProgress != null) {
       debugPrint('   ✅ Progression existante détectée. Fusion des données...');
-      
+
       // STRATÉGIE DE FUSION :
-      // On prend le deck "frais" (JSON) pour avoir le contenu à jour (nouvelles phrases, corrections orthographe).
-      // On applique les états "removed" (mots) et "completed" (phrases) depuis la sauvegarde.
+      // On prend le deck "frais" (JSON) pour avoir le contenu à jour.
+      // On applique les états "removed" (mots) et "completed" (phrases)
+      // depuis la sauvegarde, en faisant correspondre par id stable
+      // (et non plus par contenu, qui casse silencieusement si le texte
+      // d'un mot change entre deux révisions du deck).
 
       final freshDeck = baseDeck.copyWith(
         words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
@@ -128,42 +133,41 @@ class GameProvider extends ChangeNotifier {
           original: s.original,
           translation: s.translation,
           blocks: s.blocks,
-          completed: false, // Reset par défaut avant application de la sauvegarde
+          completed: false,
         )).toList(),
       );
 
-      // A. Restauration des mots appris
-      for (var savedWord in savedProgress.words) {
-        if (savedWord.removed) {
-          try {
-            final wordToUpdate = freshDeck.words.firstWhere((w) => w.prompt == savedWord.prompt);
-            wordToUpdate.removed = true;
-          } catch (_) {}
-        }
-      }
-
-      // B. Restauration des phrases complétées
-      if (savedProgress.sentences.isNotEmpty) {
-        for (var savedSentence in savedProgress.sentences) {
-          if (savedSentence.completed) {
-            try {
-              final sentenceToUpdate = freshDeck.sentences.firstWhere((s) => s.id == savedSentence.id);
-              sentenceToUpdate.completed = true;
-            } catch (_) {}
+      // A. Restauration des mots appris (match par id)
+      for (final savedWord in savedProgress.words) {
+        if (!savedWord.removed) continue;
+        for (final freshWord in freshDeck.words) {
+          if (freshWord.id == savedWord.id) {
+            freshWord.removed = true;
+            break;
           }
         }
       }
-      
+
+      // B. Restauration des phrases complétées (match par id)
+      for (final savedSentence in savedProgress.sentences) {
+        if (!savedSentence.completed) continue;
+        for (final freshSentence in freshDeck.sentences) {
+          if (freshSentence.id == savedSentence.id) {
+            freshSentence.completed = true;
+            break;
+          }
+        }
+      }
+
       _currentProgressDeck = freshDeck;
-      
     } else {
       debugPrint('   🆕 Nouvelle partie créée');
       _currentProgressDeck = baseDeck.copyWith(
         words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
-        sentences: baseDeck.sentences, // On garde les phrases du JSON
+        sentences: baseDeck.sentences,
       );
     }
-    
+
     // Reset des pointeurs
     _currentWord = null;
     _currentSentence = null;
@@ -177,20 +181,15 @@ class GameProvider extends ChangeNotifier {
 
   Future<void> spinWheel() async {
     if (_currentProgressDeck == null) return;
-    
-    // Si une roue tourne déjà, on ne fait rien (sauf si on veut forcer en mode phrase)
-    if (_isSpinning && _currentGameMode != 'sentence') return;
 
-    // --- BRANCHE : MODE PHRASE ---
-    if (_currentGameMode == 'sentence') {
-      // MODIFICATION : Plus d'animation, plus de délai.
-      // On charge directement la phrase suivante pour une transition instantanée.
+    if (_isSpinning && _currentGameType != GameType.sentence) return;
+
+    if (_currentGameType == GameType.sentence) {
       _loadNextSentence();
       notifyListeners();
       return;
     }
 
-    // --- BRANCHE : MODE MOTS (Classic/Quiz/Reverse) ---
     final activeWords = _currentProgressDeck!.activeWords;
     if (activeWords.isEmpty) {
       debugPrint('⚠️ Aucun mot actif disponible');
@@ -200,16 +199,13 @@ class GameProvider extends ChangeNotifier {
     _isSpinning = true;
     notifyListeners();
 
-    // Sélection aléatoire
     final random = Random();
     _currentWord = activeWords[random.nextInt(activeWords.length)];
 
-    // Préparation Quiz si nécessaire
-    if (_currentGameMode == 'quiz') {
+    if (_currentGameType == GameType.quiz) {
       _generateQuizOptions(activeWords);
     }
 
-    // Animation Roue
     final rotations = 5 + random.nextDouble() * 3;
     _wheelRotation = rotations * 2 * pi;
 
@@ -224,19 +220,15 @@ class GameProvider extends ChangeNotifier {
   // ===========================================================================
 
   void _loadNextSentence() {
-    // Filtrer pour ne garder que les phrases non complétées
     final activeSentences = _currentProgressDeck?.sentences.where((s) => !s.completed).toList() ?? [];
-    
+
     if (activeSentences.isNotEmpty) {
-        final random = Random();
-        _currentSentence = activeSentences[random.nextInt(activeSentences.length)];
-        
-        // Mélanger les blocs pour l'affichage
-        _availableBlocks = List.from(_currentSentence!.blocks)..shuffle();
-        _selectedBlocks = [];
+      final random = Random();
+      _currentSentence = activeSentences[random.nextInt(activeSentences.length)];
+      _availableBlocks = List.from(_currentSentence!.blocks)..shuffle();
+      _selectedBlocks = [];
     } else {
-        // Cas où tout est fini ou pas de phrases
-        _currentSentence = null;
+      _currentSentence = null;
     }
   }
 
@@ -255,39 +247,34 @@ class GameProvider extends ChangeNotifier {
   Future<bool> checkSentenceConstruction() async {
     if (_currentSentence == null) return false;
 
-    // Validation "Loose" : On retire les espaces pour supporter le chinois/japonais
-    // Ex: "ni hao" == "nihao" ou "你 好" == "你好"
     final userSentence = _selectedBlocks.join('').replaceAll(' ', '').toLowerCase();
     final correctSentence = _currentSentence!.translation.replaceAll(' ', '').toLowerCase();
-    
+
     final isCorrect = userSentence == correctSentence;
 
-    // 1. Enregistrement Stats
     if (statisticsProvider != null && _currentProgressDeck != null) {
       await statisticsProvider!.addReview(
-        wordId: _currentSentence!.original, // ID = La phrase originale
+        wordId: _currentSentence!.original,
         deckId: _currentProgressDeck!.id,
         wasCorrect: isCorrect,
         inputType: 'blocks',
-        gameMode: 'sentence',
+        gameMode: GameType.sentence.storageId,
       );
     }
 
     if (isCorrect) {
-      // 2. Marquer comme fait
       _currentSentence!.completed = true;
-      // 3. Sauvegarder
       await _saveProgress();
-      
+
       debugPrint('✅ Phrase correcte !');
       notifyListeners();
       return true;
     }
-    
+
     debugPrint('❌ Phrase incorrecte.');
     return false;
   }
-  
+
   void resetCurrentSentence() {
     _currentSentence = null;
     _selectedBlocks = [];
@@ -304,7 +291,7 @@ class GameProvider extends ChangeNotifier {
 
     final userAnswerClean = userAnswer.toLowerCase().trim();
     String expectedAnswer;
-    
+
     if (isReverseMode) {
       expectedAnswer = _currentWord!.prompt.toLowerCase().trim();
     } else {
@@ -313,13 +300,12 @@ class GameProvider extends ChangeNotifier {
 
     final isCorrect = expectedAnswer == userAnswerClean;
 
-    // Enregistrement Stats
     await statisticsProvider?.addReview(
-      wordId: _currentWord!.prompt,
+      wordId: _currentWord!.id,
       deckId: _currentProgressDeck!.id,
       wasCorrect: isCorrect,
       inputType: activeInputType == InputType.text ? 'text' : 'draw',
-      gameMode: _currentGameMode!,
+      gameMode: _currentGameType!.storageId,
     );
 
     if (isCorrect) {
@@ -337,7 +323,7 @@ class GameProvider extends ChangeNotifier {
   // Pour le mode Dessin (validation manuelle)
   Future<void> markCurrentWordAsCorrect() async {
     if (_currentWord == null || _currentProgressDeck == null) return;
-    
+
     _currentWord!.removed = true;
     await _saveProgress();
     debugPrint('✅ Dessin validé !');
@@ -364,7 +350,6 @@ class GameProvider extends ChangeNotifier {
     distractors.shuffle();
     final selectedDistractors = distractors.take(3).toList();
 
-    // Remplissage si pas assez de mots
     while (selectedDistractors.length < 3) {
       selectedDistractors.add("Option ${selectedDistractors.length + 1}");
     }
@@ -378,20 +363,18 @@ class GameProvider extends ChangeNotifier {
   // ===========================================================================
 
   Future<void> resetDeck() async {
-    if (_currentProgressDeck == null || _currentDeckId == null || _currentGameMode == null) return;
-    
-    // Reset Mots
+    if (_currentProgressDeck == null || _currentDeckId == null || _currentGameType == null) return;
+
     _currentProgressDeck!.resetWords();
-    
-    // Reset Phrases (important pour le mode Sentence)
-    for (var s in _currentProgressDeck!.sentences) {
+
+    for (final s in _currentProgressDeck!.sentences) {
       s.completed = false;
     }
-    
+
     _currentWord = null;
     _currentSentence = null;
     _wheelRotation = 0.0;
-    
+
     await _saveProgress();
     debugPrint('🔄 Deck réinitialisé');
     notifyListeners();
@@ -400,7 +383,7 @@ class GameProvider extends ChangeNotifier {
 
   Future<void> checkDailyReset(DateTime lastReset) async {
     if (_currentProgressDeck == null) return;
-    
+
     if (DateHelper.needsReset(lastReset)) {
       debugPrint('📅 Reset quotidien déclenché');
       await resetDeck();
@@ -408,15 +391,15 @@ class GameProvider extends ChangeNotifier {
   }
 
   Future<void> _saveProgress() async {
-    if (_currentProgressDeck == null || _currentDeckId == null || _currentGameMode == null) {
+    if (_currentProgressDeck == null || _currentDeckId == null || _currentGameType == null) {
       return;
     }
 
     await _repository.saveProgress(
       _currentDeckId!,
-      _currentGameMode!,
+      _currentGameType!.storageId,
       _currentProgressDeck!,
     );
-    debugPrint('💾 Progression sauvegardée: progress_${_currentDeckId}_$_currentGameMode');
+    debugPrint('💾 Progression sauvegardée: progress_${_currentDeckId}_${_currentGameType!.storageId}');
   }
 }
