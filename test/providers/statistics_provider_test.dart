@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
+import 'package:language_learning_app/data/models/review_history.dart';
 
 void main() {
   setUp(() async {
@@ -33,7 +34,13 @@ void main() {
       final provider = StatisticsProvider();
       await provider.loadHistory();
 
-      await provider.addReview(wordId: 'w1', deckId: 'd1', wasCorrect: true, inputType: 'text', gameMode: 'classic');
+      provider.history.addReview(ReviewEntry(
+        wordId: 'w1',
+        deckId: 'd1',
+        reviewedAt: DateTime.now(),
+        wasCorrect: true,
+        inputType: 'text',
+      ));
 
       final stats = provider.getGameModeStats();
       expect(stats.single.type, GameType.classic);
