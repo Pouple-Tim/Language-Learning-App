@@ -4,11 +4,13 @@ part 'word.g.dart';
 
 @JsonSerializable()
 class Word {
+  final String id;
   final String prompt;   // Le mot à afficher (ex: "あ")
   final String answer;   // La réponse attendue (ex: "a")
   bool removed;          // Si le mot a été réussi aujourd'hui
 
   Word({
+    required this.id,
     required this.prompt,
     required this.answer,
     this.removed = false,
@@ -16,11 +18,13 @@ class Word {
 
   // Créer une copie avec modifications
   Word copyWith({
+    String? id,
     String? prompt,
     String? answer,
     bool? removed,
   }) {
     return Word(
+      id: id ?? this.id,
       prompt: prompt ?? this.prompt,
       answer: answer ?? this.answer,
       removed: removed ?? this.removed,
@@ -32,16 +36,15 @@ class Word {
   Map<String, dynamic> toJson() => _$WordToJson(this);
 
   @override
-  String toString() => 'Word(prompt: $prompt, answer: $answer, removed: $removed)';
+  String toString() => 'Word(id: $id, prompt: $prompt, answer: $answer, removed: $removed)';
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is Word &&
           runtimeType == other.runtimeType &&
-          prompt == other.prompt &&
-          answer == other.answer;
+          id == other.id;
 
   @override
-  int get hashCode => prompt.hashCode ^ answer.hashCode;
+  int get hashCode => id.hashCode;
 }

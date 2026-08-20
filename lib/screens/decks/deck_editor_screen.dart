@@ -52,7 +52,7 @@ class _DeckEditorScreenState extends State<DeckEditorScreen> {
       context: context,
       builder: (context) => WordEditDialog(
         onSave: (prompt, answer) {
-          setState(() => _words.add(Word(prompt: prompt, answer: answer)));
+          setState(() => _words.add(Word(id: const Uuid().v4(), prompt: prompt, answer: answer)));
         },
       ),
     );
@@ -64,7 +64,11 @@ class _DeckEditorScreenState extends State<DeckEditorScreen> {
       builder: (context) => WordEditDialog(
         word: _words[index],
         onSave: (prompt, answer) {
-          setState(() => _words[index] = Word(prompt: prompt, answer: answer));
+          setState(() => _words[index] = Word(
+                id: _words[index].id,
+                prompt: prompt,
+                answer: answer,
+              ));
         },
       ),
     );

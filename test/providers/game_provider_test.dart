@@ -10,7 +10,7 @@ import 'package:language_learning_app/core/utils/storage_helper.dart';
 Deck _buildDeck({int wordCount = 3, List<Sentence> sentences = const []}) {
   final words = List.generate(
     wordCount,
-    (i) => Word(prompt: 'prompt$i', answer: 'answer$i', removed: false),
+    (i) => Word(id: 'w$i', prompt: 'prompt$i', answer: 'answer$i', removed: false),
   );
   return Deck(
     id: 'deck1',
@@ -29,7 +29,7 @@ Deck _oneWordDeck() {
     name: 'Test Deck',
     type: DeckType.base,
     inputType: InputType.text,
-    words: [Word(prompt: 'un', answer: 'one', removed: false)],
+    words: [Word(id: 'w0', prompt: 'un', answer: 'one', removed: false)],
   );
 }
 
@@ -76,17 +76,16 @@ void main() {
     test('a saved word with no matching prompt in the fresh deck is silently skipped, not restored', () async {
       final repo = DeckRepository();
       final saved = _buildDeck()..words.first.removed = true;
-      // Simulate the fresh deck's first word text having changed.
       final renamedFreshDeck = _buildDeck();
-      renamedFreshDeck.words.first.removed = false;
-      renamedFreshDeck.words[0] = Word(prompt: 'renamed', answer: 'answer0', removed: false);
+      renamedFreshDeck.words[0] = Word(id: 'w0', prompt: 'renamed', answer: 'answer0', removed: false);
 
       await repo.saveProgress('deck1', 'classic', saved);
 
       final provider = GameProvider();
       await provider.setDeck(renamedFreshDeck, gameMode: 'classic');
 
-      // Old behavior: content-based match fails silently, nothing restored.
+      // Old behavior: content-based match fails silently (id matches, but the
+      // current logic still matches on prompt, which no longer matches), nothing restored.
       expect(provider.remainingWords, 3);
     });
   });
