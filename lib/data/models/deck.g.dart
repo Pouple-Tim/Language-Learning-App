@@ -27,6 +27,11 @@ Deck _$DeckFromJson(Map<String, dynamic> json) => Deck(
   words: (json['words'] as List<dynamic>)
       .map((e) => Word.fromJson(e as Map<String, dynamic>))
       .toList(),
+  sentences:
+      (json['sentences'] as List<dynamic>?)
+          ?.map((e) => Sentence.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$DeckToJson(Deck instance) => <String, dynamic>{
@@ -36,6 +41,7 @@ Map<String, dynamic> _$DeckToJson(Deck instance) => <String, dynamic>{
   'inputType': _$InputTypeEnumMap[instance.inputType]!,
   'reverseInputType': _$InputTypeEnumMap[instance.reverseInputType],
   'words': instance.words,
+  'sentences': instance.sentences,
 };
 
 const _$DeckTypeEnumMap = {DeckType.base: 'base', DeckType.custom: 'custom'};

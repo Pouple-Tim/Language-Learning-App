@@ -47,7 +47,7 @@ class DeckCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start, // Alignement haut pour le texte long
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildDeckIcon(isSelected),
               const SizedBox(width: 12),
@@ -55,30 +55,43 @@ class DeckCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // CORRECTION 1 : Le titre s'affiche en entier
                     Text(
                       deck.localizedName(context),
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
                       ),
+                      // Pas de maxLines, pas d'overflow ellipsis -> le texte va à la ligne
                     ),
                     const SizedBox(height: 4),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    
+                    // CORRECTION 2 : Utilisation de Wrap au lieu de Row
+                    // Cela permet aux éléments de passer à la ligne suivante s'il n'y a pas assez de place
+                    Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 8,    // Espace horizontal entre les éléments
+                      runSpacing: 4, // Espace vertical si ça passe à la ligne
                       children: [
-                        Icon(Icons.style, size: 12, color: Colors.grey.shade500),
-                        const SizedBox(width: 4),
-                        Text(
-                          l10n.totalWords(deck.totalWords),
-                          style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+                        // Groupe Icône + Texte nombre de mots
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.style, size: 12, color: Colors.grey.shade500),
+                            const SizedBox(width: 4),
+                            Text(
+                              l10n.totalWords(deck.totalWords),
+                              style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+                            ),
+                          ],
                         ),
                         
-                        if (metadata?.difficulty != null) ...[
-                          const SizedBox(width: 8),
+                        // Difficulté
+                        if (metadata?.difficulty != null)
                           _buildDifficultyChip(context, metadata!.difficulty, l10n),
-                        ],
                       ],
                     ),
+                    
                     if (deck.progress > 0) ...[
                       const SizedBox(height: 6),
                       ClipRRect(
@@ -104,6 +117,7 @@ class DeckCard extends StatelessWidget {
     );
   }
 
+  // ... (Le reste : _buildDeckIcon, _buildDifficultyChip, _buildActions reste identique)
   Widget _buildDeckIcon(bool isSelected) {
     return Container(
       padding: const EdgeInsets.all(8),
@@ -149,7 +163,7 @@ class DeckCard extends StatelessWidget {
       children: [
         IconButton(
           icon: const Icon(Icons.visibility, size: 20),
-          onPressed: onLongPress, // Ouvre la preview
+          onPressed: onLongPress,
           tooltip: 'Prévisualiser',
           padding: EdgeInsets.zero,
           constraints: const BoxConstraints(),

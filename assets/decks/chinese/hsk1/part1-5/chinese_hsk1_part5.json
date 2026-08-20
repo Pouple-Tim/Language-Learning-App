@@ -15,5 +15,73 @@
     {"prompt": "jīnnián", "answer": "今年", "meaning": "cette année", "removed": false},
     {"prompt": "duō", "answer": "多", "meaning": "beaucoup, combien (devant un adjectif)", "removed": false},
     {"prompt": "dà", "answer": "大", "meaning": "grand", "removed": false}
+  ],
+  "sentences": [
+    {
+      "id": "s1_p5",
+      "original": "Combien de personnes y a-t-il dans ta famille ?",
+      "translation": "你家有几口人？",
+      "blocks": ["你", "家", "有", "几", "口", "人", "岁", "了", "?"]
+    },
+    {
+      "id": "s2_p5",
+      "original": "Quel âge a ta fille ?",
+      "translation": "你女儿几岁了？",
+      "blocks": ["你", "女儿", "几", "岁", "了", "多", "大", "呢", "?"]
+    },
+    {
+      "id": "s3_p5",
+      "original": "Elle a quatre ans cette année.",
+      "translation": "她今年四岁了",
+      "blocks": ["她", "今年", "四", "岁", "了", "几", "多", "大"]
+    },
+    {
+      "id": "s4_p5",
+      "original": "Quel âge a le professeur ?",
+      "translation": "老师多大？",
+      "blocks": ["老师", "多", "大", "几", "岁", "了", "人", "?"]
+    },
+    {
+      "id": "s5_p5",
+      "original": "Il y a trois personnes dans ma famille.",
+      "translation": "我家有三口人",
+      "blocks": ["我", "家", "有", "三", "口", "人", "几", "岁"]
+    },
+    {
+      "id": "s6_p5",
+      "original": "Quel âge as-tu cette année ?",
+      "translation": "你今年多大？",
+      "blocks": ["你", "今年", "多", "大", "几", "岁", "了", "呢", "?"]
+    },
+    {
+      "id": "s7_p5",
+      "original": "Mon professeur a une fille.",
+      "translation": "我的老师有女儿",
+      "blocks": ["我", "的", "老师", "有", "女儿", "没", "几", "个"]
+    },
+    {
+      "id": "s8_p5",
+      "original": "Sa fille a 5 ans.",
+      "translation": "她的女儿五岁了",
+      "blocks": ["她", "的", "女儿", "五", "岁", "了", "多", "大"]
+    },
+    {
+      "id": "s9_p5",
+      "original": "As-tu un ami chinois ?",
+      "translation": "你有中国朋友吗？",
+      "blocks": ["你", "有", "中国", "朋友", "吗", "是", "几", "口", "?"]
+    },
+    {
+      "id": "s10_p5",
+      "original": "Le professeur Li a 50 ans cette année.",
+      "translation": "李老师今年五十岁",
+      "blocks": ["李", "老师", "今年", "五十", "岁", "多", "大", "了"]
+    },
+    {
+      "id": "s11_p5",
+      "original": "Combien d'étudiants y a-t-il ?",
+      "translation": "有几个学生？",
+      "blocks": ["有", "几", "个", "学生", "口", "人", "多", "大", "?"]
+    }
   ]
 }

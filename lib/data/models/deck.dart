@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'word.dart';
+import 'sentence.dart'; // <--- 1. Import ajouté
 
 part 'deck.g.dart';
 
@@ -26,26 +27,28 @@ class Deck {
   final DeckType type;
   
   @JsonKey(unknownEnumValue: InputType.text)
-  final InputType inputType; // Input pour le mode Classique
+  final InputType inputType;
 
   @JsonKey(unknownEnumValue: InputType.text)
-  final InputType? reverseInputType; // Input spécifique pour le mode Reverse (Optionnel)
+  final InputType? reverseInputType;
   
   List<Word> words;
+
+  // <--- 2. Nouvelle liste pour stocker les phrases
+  final List<Sentence> sentences; 
 
   Deck({
     required this.id,
     required this.name,
     required this.type,
     required this.inputType,
-    this.reverseInputType, // Nouveau paramètre
+    this.reverseInputType,
     required this.words,
+    this.sentences = const [], // <--- 3. Initialisation par défaut
   });
 
-  // Helper : Retourne l'input type pour le reverse, ou 'text' par défaut si null
   InputType get effectiveReverseInputType => reverseInputType ?? InputType.text;
 
-  // Obtenir les mots actifs (non retirés)
   List<Word> get activeWords => words.where((w) => !w.removed).toList();
   
   int get totalWords => words.length;
@@ -72,6 +75,7 @@ class Deck {
     InputType? inputType,
     InputType? reverseInputType,
     List<Word>? words,
+    List<Sentence>? sentences, // <--- Ajout paramètre
   }) {
     return Deck(
       id: id ?? this.id,
@@ -80,6 +84,7 @@ class Deck {
       inputType: inputType ?? this.inputType,
       reverseInputType: reverseInputType ?? this.reverseInputType,
       words: words ?? this.words,
+      sentences: sentences ?? this.sentences, // <--- Ajout assignation
     );
   }
 
@@ -87,5 +92,5 @@ class Deck {
   Map<String, dynamic> toJson() => _$DeckToJson(this);
 
   @override
-  String toString() => 'Deck(id: $id, name: $name, input: $inputType, reverse: $reverseInputType)';
+  String toString() => 'Deck(id: $id, name: $name, words: ${words.length}, sentences: ${sentences.length})';
 }

@@ -46,5 +46,79 @@
     {"prompt": "jīnnián", "answer": "今年", "meaning": "cette année", "removed": false},
     {"prompt": "duō", "answer": "多", "meaning": "beaucoup, combien", "removed": false},
     {"prompt": "dà", "answer": "大", "meaning": "grand", "removed": false}
+  ],
+  "sentences": [
+    {
+      "id": "s1_p1_5",
+      "original": "Mon ami est chinois.",
+      "translation": "我的朋友是中国人",
+      "blocks": ["我", "的", "朋友", "是", "中国", "人", "他", "哪"]
+    },
+    {
+      "id": "s2_p1_5",
+      "original": "Quel âge as-tu cette année ?",
+      "translation": "你今年多大？",
+      "blocks": ["你", "今年", "多", "大", "几", "岁", "了", "呢"]
+    },
+    {
+      "id": "s3_p1_5",
+      "original": "Merci, au revoir.",
+      "translation": "谢谢再见",
+      "blocks": ["谢谢", "", "再见", "不", "客气", "好"]
+    },
+    {
+      "id": "s4_p1_5",
+      "original": "Qui est ton professeur de chinois ?",
+      "translation": "谁是你的汉语老师？",
+      "blocks": ["谁", "是", "你", "的", "汉语", "老师", "他", "哪"]
+    },
+    {
+      "id": "s5_p1_5",
+      "original": "Il y a trois personnes dans ma famille.",
+      "translation": "我家有三口人",
+      "blocks": ["我", "家", "有", "三", "口", "人", "几", "岁"]
+    },
+    {
+      "id": "s6_p1_5",
+      "original": "Comment s'appelle ton camarade de classe ?",
+      "translation": "你的同学叫什么名字？",
+      "blocks": ["你", "的", "同学", "叫", "什么", "名字", "她", "谁"]
+    },
+    {
+      "id": "s7_p1_5",
+      "original": "Je suis américain, je ne suis pas chinois.",
+      "translation": "我是美国人我不是中国人",
+      "blocks": ["我", "是", "美国", "人", "不", "中国", "吗", "呢"]
+    },
+    {
+      "id": "s8_p1_5",
+      "original": "Désolé, je ne suis pas professeur.",
+      "translation": "对不起我不是老师",
+      "blocks": ["对不起", "我", "不", "是", "老师", "没关系", "学生"]
+    },
+    {
+      "id": "s9_p1_5",
+      "original": "A-t-elle une fille ?",
+      "translation": "她有女儿吗？",
+      "blocks": ["她", "有", "女儿", "吗", "他", "几", "个"]
+    },
+    {
+      "id": "s10_p1_5",
+      "original": "Ton professeur est de quel pays ?",
+      "translation": "你的老师是哪国人？",
+      "blocks": ["你", "的", "老师", "是", "哪", "国", "人", "谁"]
+    },
+    {
+      "id": "s11_p1_5",
+      "original": "Sa fille n'est pas étudiante.",
+      "translation": "她的女儿不是学生",
+      "blocks": ["她", "的", "女儿", "不", "是", "学生", "老师", "岁"]
+    },
+    {
+      "id": "s12_p1_5",
+      "original": "Bonjour à vous tous.",
+      "translation": "你们好",
+      "blocks": ["你们", "好", "我们", "老师", "再见"]
+    }
   ]
 }

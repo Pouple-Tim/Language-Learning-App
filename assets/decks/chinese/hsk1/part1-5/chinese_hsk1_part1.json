@@ -10,6 +10,38 @@
     {"prompt": "nín", "answer": "您", "meaning": "vous (forme polie)", "removed": false},
     {"prompt": "nǐmen", "answer": "你们", "meaning": "vous (pluriel)", "removed": false},
     {"prompt": "duìbuqǐ", "answer": "对不起", "meaning": "désolé(e)", "removed": false},
-    {"prompt": "méi guānxi", "answer": "没关系", "meaning": "ce n’est pas grave / de rien", "removed": false}
+    {"prompt": "méi guānxi", "answer": "没关系", "meaning": "ce n'est pas grave / de rien", "removed": false}
+  ],
+  "sentences": [
+    {
+      "id": "s1",
+      "original": "Bonjour (lit. Toi Bien)",
+      "translation": "你好",
+      "blocks": ["你", "好", "您", "们"]
+    },
+    {
+      "id": "s2",
+      "original": "Bonjour (poli)",
+      "translation": "您好",
+      "blocks": ["您", "好", "你", "不"]
+    },
+    {
+      "id": "s3",
+      "original": "Bonjour à vous tous",
+      "translation": "你们好",
+      "blocks": ["你们", "好", "我们", "没"]
+    },
+    {
+      "id": "s4",
+      "original": "Désolé",
+      "translation": "对不起",
+      "blocks": ["对不起", "没关系", "好", "你"]
+    },
+    {
+      "id": "s5",
+      "original": "Ce n'est pas grave",
+      "translation": "没关系",
+      "blocks": ["没关系", "对不起", "好", "您"]
+    }
   ]
 }

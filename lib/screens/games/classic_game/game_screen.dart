@@ -12,6 +12,7 @@ import 'widgets/text_input_widget.dart';
 import 'widgets/drawing_widget.dart';
 import 'widgets/wheel_widget.dart';
 import 'widgets/quiz_widget.dart';
+import 'widgets/sentence_builder_widget.dart'; // <--- 1. IMPORT AJOUTÉ
 
 class GameScreen extends StatelessWidget {
   final String? gameTitle;
@@ -21,7 +22,6 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    // Titre par défaut si null
     final title = gameTitle ?? l10n.homeTitle; 
 
     return Scaffold(
@@ -84,7 +84,8 @@ class GameScreen extends StatelessWidget {
                               // 4. Contenu central dynamique
                               if (gameProvider.isCompleted)
                                 Expanded(child: Center(child: _buildCompletedCard(context, gameProvider)))
-                              else if (gameProvider.currentWord == null)
+                              
+                              else if (gameProvider.currentWord == null && gameProvider.currentSentence == null)
                                 Expanded(
                                   child: Center(
                                     child: WheelWidget(
@@ -96,7 +97,7 @@ class GameScreen extends StatelessWidget {
                                   ),
                                 )
                               else ...[
-                                // Question
+                                // Question (Mot ou Phrase originale)
                                 _buildWordDisplay(context, gameProvider, isSmallScreen),
                                 
                                 const Spacer(),
@@ -124,14 +125,19 @@ class GameScreen extends StatelessWidget {
     );
   }
 
+  // <--- 3. MODIFICATION ICI : Gestion du widget SentenceBuilder
   Widget _buildGameInputArea(BuildContext context, GameProvider gameProvider) {
-    // Si on est en mode Quiz, on force l'affichage du QuizWidget
+    // Mode Quiz
     if (gameProvider.currentGameMode == 'quiz') {
       return const QuizWidget();
     }
+    
+    // Mode Phrase (AJOUT)
+    if (gameProvider.currentGameMode == 'sentence') {
+      return const SentenceBuilderWidget();
+    }
 
     // Sinon, on regarde le type d'input configuré dans le deck (Texte ou Dessin)
-    // Note: Le DrawingWidget gère déjà le mode Reverse ou Classic en interne via le provider
     if (gameProvider.activeInputType == InputType.text) {
       return const TextInputWidget();
     } else {
@@ -139,6 +145,7 @@ class GameScreen extends StatelessWidget {
     }
   }
 
+  // <--- 4. MODIFICATION ICI : Badge du Header
   Widget _buildHeader(BuildContext context, GameProvider gameProvider) {
     return FittedBox(
       fit: BoxFit.scaleDown,
@@ -152,7 +159,9 @@ class GameScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           // Affiche un badge si on n'est pas en mode classique standard
-          if (gameProvider.isReverseMode || gameProvider.currentGameMode == 'quiz')
+          if (gameProvider.isReverseMode || 
+              gameProvider.currentGameMode == 'quiz' || 
+              gameProvider.currentGameMode == 'sentence')
             Container(
               margin: const EdgeInsets.only(top: 4),
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
@@ -161,13 +170,20 @@ class GameScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
-                gameProvider.currentGameMode == 'quiz' ? "QUIZ MODE" : "REVERSE",
+                _getModeLabel(gameProvider.currentGameMode), // Helper pour le texte
                 style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppColors.secondary),
               ),
             ),
         ],
       ),
     );
+  }
+  
+  String _getModeLabel(String? mode) {
+    if (mode == 'quiz') return "QUIZ MODE";
+    if (mode == 'sentence') return "PHRASE";
+    if (mode == 'reverse') return "REVERSE";
+    return "";
   }
 
   Widget _buildProgressBar(BuildContext context, GameProvider gameProvider) {
@@ -227,8 +243,7 @@ class GameScreen extends StatelessWidget {
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
-                    // Le getter gère déjà Reverse/Classic. 
-                    // Pour le Quiz, c'est généralement le Prompt qu'on affiche.
+                    // Le getter gère déjà Reverse/Classic et maintenant Sentence (Original Text)
                     gameProvider.currentQuestionText, 
                     style: const TextStyle(
                       fontSize: 40,
@@ -241,9 +256,9 @@ class GameScreen extends StatelessWidget {
               ],
             ),
           ),
-          // Bouton pour changer de mot (utile en Quiz aussi ?)
-          // Tu peux décider de le cacher en mode Quiz si tu veux
-          if (gameProvider.currentGameMode != 'quiz') 
+          // Bouton pour changer de mot
+          // <--- 5. MODIFICATION ICI : On cache le bouton "Change Word" en mode Phrase
+          if (gameProvider.currentGameMode != 'quiz' && gameProvider.currentGameMode != 'sentence') 
             TextButton.icon(
               onPressed: gameProvider.resetCurrentWord,
               icon: const Icon(Icons.refresh, size: 18),

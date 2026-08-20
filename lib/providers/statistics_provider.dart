@@ -102,6 +102,7 @@ class StatisticsProvider extends ChangeNotifier {
       case 'classic': return 'Classique';
       case 'reverse': return 'Inversé';
       case 'quiz': return 'Quiz';
+      case 'sentence': return 'Phrase';
       default: return modeId[0].toUpperCase() + modeId.substring(1);
     }
   }

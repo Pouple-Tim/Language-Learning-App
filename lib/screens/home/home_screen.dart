@@ -47,6 +47,15 @@ class HomeScreen extends StatelessWidget {
         color: Colors.orange, // Ou AppColors.warning
         routeName: '/game/quiz',
       ),
+      GameMode(
+        id: 'sentence', // ID important pour le provider
+        type: GameType.sentence, // Tu peux créer GameType.sentence si tu veux être propre
+        title: "Phrase", // l10n.sentenceModeTitle
+        description: "Reconstitue la phrase correcte.", // l10n.sentenceModeDesc
+        icon: Icons.segment_rounded, // Icône sympa pour les blocs
+        color: Colors.purple,
+        routeName: '/game/sentence',
+      ),
     ];
 
     // --- CALCUL RESPONSIVE POUR LES CARTES ---
