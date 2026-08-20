@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 
 class GameModeStatsWidget extends StatelessWidget {
-  final List<MapEntry<String, int>> data;
+  final List<GameModeStat> data;
 
   const GameModeStatsWidget({
     super.key,
@@ -15,39 +17,35 @@ class GameModeStatsWidget extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     if (data.isEmpty) {
       return Padding(
-        padding: EdgeInsets.all(32),
+        padding: const EdgeInsets.all(32),
         child: Center(
           child: Text(l10n.noGameData),
         ),
       );
     }
 
-    // Calculer le total pour faire des pourcentages globaux (Camembert aplati)
-    final totalPlays = data.fold(0, (sum, item) => sum + item.value);
+    final totalPlays = data.fold(0, (sum, item) => sum + item.count);
 
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
-        children: data.map((entry) {
-          final modeName = entry.key;
-          final count = entry.value;
-          final percentage = count / totalPlays;
+        children: data.map((stat) {
+          final percentage = stat.count / totalPlays;
 
           return Padding(
             padding: const EdgeInsets.only(bottom: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // En-tête : Nom du mode + Pourcentage
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
-                        _getModeIcon(modeName),
+                        _getModeIcon(stat.type),
                         const SizedBox(width: 8),
                         Text(
-                          modeName,
+                          stat.label,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
@@ -65,11 +63,8 @@ class GameModeStatsWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 6),
-                
-                // Barre de progression
                 Stack(
                   children: [
-                    // Fond gris
                     Container(
                       height: 8,
                       decoration: BoxDecoration(
@@ -77,25 +72,21 @@ class GameModeStatsWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    // Barre colorée
                     FractionallySizedBox(
                       widthFactor: percentage,
                       child: Container(
                         height: 8,
                         decoration: BoxDecoration(
-                          color: _getModeColor(modeName),
+                          color: _getModeColor(stat.type),
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
                     ),
                   ],
                 ),
-                
                 const SizedBox(height: 4),
-                
-                // Sous-titre : Nombre de parties
                 Text(
-                  l10n.gamesPlayed(count),
+                  l10n.gamesPlayed(stat.count),
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey.shade600,
@@ -109,32 +100,37 @@ class GameModeStatsWidget extends StatelessWidget {
     );
   }
 
-  // Helper pour les couleurs
-  Color _getModeColor(String modeName) {
-    final name = modeName.toLowerCase();
-    if (name.contains('classique') || name.contains('classic')) {
-      return AppColors.primary;
-    } else if (name.contains('inversé') || name.contains('reverse')) {
-      return AppColors.secondary;
-    } else if (name.contains('quiz')) {
-      return Colors.orange;
+  Color _getModeColor(GameType type) {
+    switch (type) {
+      case GameType.classic:
+        return AppColors.primary;
+      case GameType.reverse:
+        return AppColors.secondary;
+      case GameType.quiz:
+        return Colors.orange;
+      case GameType.sentence:
+      case GameType.memory:
+        return Colors.teal;
     }
-    return Colors.teal;
   }
 
-  // Helper pour les icônes
-  Widget _getModeIcon(String modeName) {
-    final name = modeName.toLowerCase();
-    IconData icon = Icons.gamepad;
-    Color color = _getModeColor(modeName);
-
-    if (name.contains('classique') || name.contains('classic')) {
-      icon = Icons.school;
-    } else if (name.contains('inversé') || name.contains('reverse')) {
-      icon = Icons.swap_horiz;
-    } else if (name.contains('quiz')) {
-      icon = Icons.timer;
+  Widget _getModeIcon(GameType type) {
+    IconData icon;
+    switch (type) {
+      case GameType.classic:
+        icon = Icons.school;
+        break;
+      case GameType.reverse:
+        icon = Icons.swap_horiz;
+        break;
+      case GameType.quiz:
+        icon = Icons.timer;
+        break;
+      case GameType.sentence:
+      case GameType.memory:
+        icon = Icons.gamepad;
     }
+    final color = _getModeColor(type);
 
     return Container(
       padding: const EdgeInsets.all(6),
