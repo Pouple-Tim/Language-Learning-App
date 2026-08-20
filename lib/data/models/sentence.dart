@@ -1,10 +1,15 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'sentence.g.dart';
+
+@JsonSerializable()
 class Sentence {
   final String id;
   final String original;
   final String translation;
   final List<String> blocks;
-  
-  bool completed; 
+
+  bool completed;
 
   Sentence({
     required this.id,
@@ -14,23 +19,6 @@ class Sentence {
     this.completed = false,
   });
 
-  factory Sentence.fromJson(Map<String, dynamic> json) {
-    return Sentence(
-      id: json['id'] ?? '',
-      original: json['original'] ?? '',
-      translation: json['translation'] ?? '',
-      blocks: List<String>.from(json['blocks'] ?? []),
-      completed: json['completed'] ?? false,
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'original': original,
-      'translation': translation,
-      'blocks': blocks,
-      'completed': completed,
-    };
-  }
+  factory Sentence.fromJson(Map<String, dynamic> json) => _$SentenceFromJson(json);
+  Map<String, dynamic> toJson() => _$SentenceToJson(this);
 }
