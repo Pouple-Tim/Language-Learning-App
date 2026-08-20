@@ -5,17 +5,77 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "zhuōzi", "answer": "桌子", "meaning": "table", "removed": false},
-    {"prompt": "shàng", "answer": "上", "meaning": "sur, au-dessus", "removed": false},
-    {"prompt": "diànnǎo", "answer": "电脑", "meaning": "ordinateur", "removed": false},
-    {"prompt": "hé", "answer": "和", "meaning": "et, avec", "removed": false},
-    {"prompt": "běn", "answer": "本", "meaning": "classificateur pour les livres", "removed": false},
-    {"prompt": "lǐ", "answer": "里", "meaning": "dans, à l’intérieur", "removed": false},
-    {"prompt": "qiánmiàn", "answer": "前面", "meaning": "devant", "removed": false},
-    {"prompt": "hòumiàn", "answer": "后面", "meaning": "derrière", "removed": false},
-    {"prompt": "zhèr", "answer": "这儿", "meaning": "ici", "removed": false},
-    {"prompt": "méiyǒu", "answer": "没有", "meaning": "ne pas avoir, il n’y a pas", "removed": false},
-    {"prompt": "néng", "answer": "能", "meaning": "pouvoir, être capable de", "removed": false},
-    {"prompt": "zuò", "answer": "坐", "meaning": "s’asseoir, prendre (un moyen de transport)", "removed": false}
+    {
+      "prompt": "zhuōzi",
+      "answer": "桌子",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w1"
+    },
+    {
+      "prompt": "shàng",
+      "answer": "上",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w2"
+    },
+    {
+      "prompt": "diànnǎo",
+      "answer": "电脑",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w3"
+    },
+    {
+      "prompt": "hé",
+      "answer": "和",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w4"
+    },
+    {
+      "prompt": "běn",
+      "answer": "本",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w5"
+    },
+    {
+      "prompt": "lǐ",
+      "answer": "里",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w6"
+    },
+    {
+      "prompt": "qiánmiàn",
+      "answer": "前面",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w7"
+    },
+    {
+      "prompt": "hòumiàn",
+      "answer": "后面",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w8"
+    },
+    {
+      "prompt": "zhèr",
+      "answer": "这儿",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w9"
+    },
+    {
+      "prompt": "méiyǒu",
+      "answer": "没有",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w10"
+    },
+    {
+      "prompt": "néng",
+      "answer": "能",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w11"
+    },
+    {
+      "prompt": "zuò",
+      "answer": "坐",
+      "removed": false,
+      "id": "chinese_hsk1_part10_w12"
+    }
   ]
 }

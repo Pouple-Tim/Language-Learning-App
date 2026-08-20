@@ -5,20 +5,95 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "centimetre", "answer": "centimètre", "removed": false},
-    {"prompt": "degree", "answer": "degré", "removed": false},
-    {"prompt": "gram", "answer": "gramme", "removed": false},
-    {"prompt": "height", "answer": "hauteur", "removed": false},
-    {"prompt": "kilogram", "answer": "kilogramme", "removed": false},
-    {"prompt": "kilometre", "answer": "kilomètre", "removed": false},
-    {"prompt": "length", "answer": "longueur", "removed": false},
-    {"prompt": "litre", "answer": "litre", "removed": false},
-    {"prompt": "metre", "answer": "mètre", "removed": false},
-    {"prompt": "mile", "answer": "mile", "removed": false},
-    {"prompt": "minute", "answer": "minute", "removed": false},
-    {"prompt": "second", "answer": "seconde", "removed": false},
-    {"prompt": "size", "answer": "taille", "removed": false},
-    {"prompt": "weight", "answer": "poids", "removed": false},
-    {"prompt": "width", "answer": "largeur", "removed": false}
+    {
+      "prompt": "centimetre",
+      "answer": "centimètre",
+      "removed": false,
+      "id": "measurements_w1"
+    },
+    {
+      "prompt": "degree",
+      "answer": "degré",
+      "removed": false,
+      "id": "measurements_w2"
+    },
+    {
+      "prompt": "gram",
+      "answer": "gramme",
+      "removed": false,
+      "id": "measurements_w3"
+    },
+    {
+      "prompt": "height",
+      "answer": "hauteur",
+      "removed": false,
+      "id": "measurements_w4"
+    },
+    {
+      "prompt": "kilogram",
+      "answer": "kilogramme",
+      "removed": false,
+      "id": "measurements_w5"
+    },
+    {
+      "prompt": "kilometre",
+      "answer": "kilomètre",
+      "removed": false,
+      "id": "measurements_w6"
+    },
+    {
+      "prompt": "length",
+      "answer": "longueur",
+      "removed": false,
+      "id": "measurements_w7"
+    },
+    {
+      "prompt": "litre",
+      "answer": "litre",
+      "removed": false,
+      "id": "measurements_w8"
+    },
+    {
+      "prompt": "metre",
+      "answer": "mètre",
+      "removed": false,
+      "id": "measurements_w9"
+    },
+    {
+      "prompt": "mile",
+      "answer": "mile",
+      "removed": false,
+      "id": "measurements_w10"
+    },
+    {
+      "prompt": "minute",
+      "answer": "minute",
+      "removed": false,
+      "id": "measurements_w11"
+    },
+    {
+      "prompt": "second",
+      "answer": "seconde",
+      "removed": false,
+      "id": "measurements_w12"
+    },
+    {
+      "prompt": "size",
+      "answer": "taille",
+      "removed": false,
+      "id": "measurements_w13"
+    },
+    {
+      "prompt": "weight",
+      "answer": "poids",
+      "removed": false,
+      "id": "measurements_w14"
+    },
+    {
+      "prompt": "width",
+      "answer": "largeur",
+      "removed": false,
+      "id": "measurements_w15"
+    }
   ]
 }

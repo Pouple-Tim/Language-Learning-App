@@ -5,34 +5,179 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "ache", "answer": "douleur", "removed": false},
-    {"prompt": "appointment", "answer": "rendez-vous", "removed": false},
-    {"prompt": "body", "answer": "corps", "removed": false},
-    {"prompt": "cold", "answer": "rhume", "removed": false},
-    {"prompt": "cook", "answer": "cuisiner", "removed": false},
-    {"prompt": "doctor", "answer": "médecin", "removed": false},
-    {"prompt": "exercise", "answer": "exercice", "removed": false},
-    {"prompt": "feel", "answer": "se sentir", "removed": false},
-    {"prompt": "fit", "answer": "en forme", "removed": false},
-    {"prompt": "headache", "answer": "mal de tête", "removed": false},
-    {"prompt": "health", "answer": "santé", "removed": false},
-    {"prompt": "heart", "answer": "coeur", "removed": false},
-    {"prompt": "hospital", "answer": "hôpital", "removed": false},
-    {"prompt": "ill", "answer": "malade", "removed": false},
-    {"prompt": "medicine", "answer": "médicament", "removed": false},
-    {"prompt": "mouth", "answer": "bouche", "removed": false},
-    {"prompt": "nose", "answer": "nez", "removed": false},
-    {"prompt": "pain", "answer": "douleur", "removed": false},
-    {"prompt": "run", "answer": "courir", "removed": false},
-    {"prompt": "sick", "answer": "malade", "removed": false},
-    {"prompt": "smoke", "answer": "fumer", "removed": false},
-    {"prompt": "sport", "answer": "sport", "removed": false},
-    {"prompt": "stomach", "answer": "estomac", "removed": false},
-    {"prompt": "swim", "answer": "nager", "removed": false},
-    {"prompt": "swimming", "answer": "natation", "removed": false},
-    {"prompt": "tired", "answer": "fatigué", "removed": false},
-    {"prompt": "tooth", "answer": "dent", "removed": false},
-    {"prompt": "walk", "answer": "marcher", "removed": false},
-    {"prompt": "well", "answer": "bien", "removed": false}
+    {
+      "prompt": "ache",
+      "answer": "douleur",
+      "removed": false,
+      "id": "health_medicine_exercise_w1"
+    },
+    {
+      "prompt": "appointment",
+      "answer": "rendez-vous",
+      "removed": false,
+      "id": "health_medicine_exercise_w2"
+    },
+    {
+      "prompt": "body",
+      "answer": "corps",
+      "removed": false,
+      "id": "health_medicine_exercise_w3"
+    },
+    {
+      "prompt": "cold",
+      "answer": "rhume",
+      "removed": false,
+      "id": "health_medicine_exercise_w4"
+    },
+    {
+      "prompt": "cook",
+      "answer": "cuisiner",
+      "removed": false,
+      "id": "health_medicine_exercise_w5"
+    },
+    {
+      "prompt": "doctor",
+      "answer": "médecin",
+      "removed": false,
+      "id": "health_medicine_exercise_w6"
+    },
+    {
+      "prompt": "exercise",
+      "answer": "exercice",
+      "removed": false,
+      "id": "health_medicine_exercise_w7"
+    },
+    {
+      "prompt": "feel",
+      "answer": "se sentir",
+      "removed": false,
+      "id": "health_medicine_exercise_w8"
+    },
+    {
+      "prompt": "fit",
+      "answer": "en forme",
+      "removed": false,
+      "id": "health_medicine_exercise_w9"
+    },
+    {
+      "prompt": "headache",
+      "answer": "mal de tête",
+      "removed": false,
+      "id": "health_medicine_exercise_w10"
+    },
+    {
+      "prompt": "health",
+      "answer": "santé",
+      "removed": false,
+      "id": "health_medicine_exercise_w11"
+    },
+    {
+      "prompt": "heart",
+      "answer": "coeur",
+      "removed": false,
+      "id": "health_medicine_exercise_w12"
+    },
+    {
+      "prompt": "hospital",
+      "answer": "hôpital",
+      "removed": false,
+      "id": "health_medicine_exercise_w13"
+    },
+    {
+      "prompt": "ill",
+      "answer": "malade",
+      "removed": false,
+      "id": "health_medicine_exercise_w14"
+    },
+    {
+      "prompt": "medicine",
+      "answer": "médicament",
+      "removed": false,
+      "id": "health_medicine_exercise_w15"
+    },
+    {
+      "prompt": "mouth",
+      "answer": "bouche",
+      "removed": false,
+      "id": "health_medicine_exercise_w16"
+    },
+    {
+      "prompt": "nose",
+      "answer": "nez",
+      "removed": false,
+      "id": "health_medicine_exercise_w17"
+    },
+    {
+      "prompt": "pain",
+      "answer": "douleur",
+      "removed": false,
+      "id": "health_medicine_exercise_w18"
+    },
+    {
+      "prompt": "run",
+      "answer": "courir",
+      "removed": false,
+      "id": "health_medicine_exercise_w19"
+    },
+    {
+      "prompt": "sick",
+      "answer": "malade",
+      "removed": false,
+      "id": "health_medicine_exercise_w20"
+    },
+    {
+      "prompt": "smoke",
+      "answer": "fumer",
+      "removed": false,
+      "id": "health_medicine_exercise_w21"
+    },
+    {
+      "prompt": "sport",
+      "answer": "sport",
+      "removed": false,
+      "id": "health_medicine_exercise_w22"
+    },
+    {
+      "prompt": "stomach",
+      "answer": "estomac",
+      "removed": false,
+      "id": "health_medicine_exercise_w23"
+    },
+    {
+      "prompt": "swim",
+      "answer": "nager",
+      "removed": false,
+      "id": "health_medicine_exercise_w24"
+    },
+    {
+      "prompt": "swimming",
+      "answer": "natation",
+      "removed": false,
+      "id": "health_medicine_exercise_w25"
+    },
+    {
+      "prompt": "tired",
+      "answer": "fatigué",
+      "removed": false,
+      "id": "health_medicine_exercise_w26"
+    },
+    {
+      "prompt": "tooth",
+      "answer": "dent",
+      "removed": false,
+      "id": "health_medicine_exercise_w27"
+    },
+    {
+      "prompt": "walk",
+      "answer": "marcher",
+      "removed": false,
+      "id": "health_medicine_exercise_w28"
+    },
+    {
+      "prompt": "well",
+      "answer": "bien",
+      "removed": false,
+      "id": "health_medicine_exercise_w29"
+    }
   ]
 }

@@ -5,45 +5,245 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "address", "answer": "adresse", "removed": false},
-    {"prompt": "at (@)", "answer": "arobase", "removed": false},
-    {"prompt": "call", "answer": "appeler", "removed": false},
-    {"prompt": "camera", "answer": "appareil photo", "removed": false},
-    {"prompt": "CD player", "answer": "lecteur CD", "removed": false},
-    {"prompt": "cell phone", "answer": "téléphone portable", "removed": false},
-    {"prompt": "chat", "answer": "discussion / chatter", "removed": false},
-    {"prompt": "click", "answer": "cliquer", "removed": false},
-    {"prompt": "computer", "answer": "ordinateur", "removed": false},
-    {"prompt": "conversation", "answer": "conversation", "removed": false},
-    {"prompt": "digital", "answer": "numérique", "removed": false},
-    {"prompt": "digital camera", "answer": "appareil photo numérique", "removed": false},
-    {"prompt": "download", "answer": "télécharger", "removed": false},
-    {"prompt": "dot", "answer": "point", "removed": false},
-    {"prompt": "DVD player", "answer": "lecteur DVD", "removed": false},
-    {"prompt": "email", "answer": "email", "removed": false},
-    {"prompt": "envelope", "answer": "enveloppe", "removed": false},
-    {"prompt": "file", "answer": "fichier", "removed": false},
-    {"prompt": "information", "answer": "information", "removed": false},
-    {"prompt": "internet", "answer": "internet", "removed": false},
-    {"prompt": "keyboard", "answer": "clavier", "removed": false},
-    {"prompt": "laptop", "answer": "ordinateur portable", "removed": false},
-    {"prompt": "mobile phone", "answer": "téléphone portable", "removed": false},
-    {"prompt": "mouse", "answer": "souris", "removed": false},
-    {"prompt": "online", "answer": "en ligne", "removed": false},
-    {"prompt": "password", "answer": "mot de passe", "removed": false},
-    {"prompt": "PC", "answer": "ordinateur", "removed": false},
-    {"prompt": "phone", "answer": "téléphone", "removed": false},
-    {"prompt": "photograph", "answer": "photographie", "removed": false},
-    {"prompt": "printer", "answer": "imprimante", "removed": false},
-    {"prompt": "screen", "answer": "écran", "removed": false},
-    {"prompt": "software", "answer": "logiciel", "removed": false},
-    {"prompt": "tablet", "answer": "tablette", "removed": false},
-    {"prompt": "talk", "answer": "parler", "removed": false},
-    {"prompt": "telephone", "answer": "téléphone", "removed": false},
-    {"prompt": "text (message)", "answer": "message / texto", "removed": false},
-    {"prompt": "video", "answer": "vidéo", "removed": false},
-    {"prompt": "web", "answer": "web", "removed": false},
-    {"prompt": "web page", "answer": "page web", "removed": false},
-    {"prompt": "website", "answer": "site web", "removed": false}
+    {
+      "prompt": "address",
+      "answer": "adresse",
+      "removed": false,
+      "id": "communication_and_technology_w1"
+    },
+    {
+      "prompt": "at (@)",
+      "answer": "arobase",
+      "removed": false,
+      "id": "communication_and_technology_w2"
+    },
+    {
+      "prompt": "call",
+      "answer": "appeler",
+      "removed": false,
+      "id": "communication_and_technology_w3"
+    },
+    {
+      "prompt": "camera",
+      "answer": "appareil photo",
+      "removed": false,
+      "id": "communication_and_technology_w4"
+    },
+    {
+      "prompt": "CD player",
+      "answer": "lecteur CD",
+      "removed": false,
+      "id": "communication_and_technology_w5"
+    },
+    {
+      "prompt": "cell phone",
+      "answer": "téléphone portable",
+      "removed": false,
+      "id": "communication_and_technology_w6"
+    },
+    {
+      "prompt": "chat",
+      "answer": "discussion / chatter",
+      "removed": false,
+      "id": "communication_and_technology_w7"
+    },
+    {
+      "prompt": "click",
+      "answer": "cliquer",
+      "removed": false,
+      "id": "communication_and_technology_w8"
+    },
+    {
+      "prompt": "computer",
+      "answer": "ordinateur",
+      "removed": false,
+      "id": "communication_and_technology_w9"
+    },
+    {
+      "prompt": "conversation",
+      "answer": "conversation",
+      "removed": false,
+      "id": "communication_and_technology_w10"
+    },
+    {
+      "prompt": "digital",
+      "answer": "numérique",
+      "removed": false,
+      "id": "communication_and_technology_w11"
+    },
+    {
+      "prompt": "digital camera",
+      "answer": "appareil photo numérique",
+      "removed": false,
+      "id": "communication_and_technology_w12"
+    },
+    {
+      "prompt": "download",
+      "answer": "télécharger",
+      "removed": false,
+      "id": "communication_and_technology_w13"
+    },
+    {
+      "prompt": "dot",
+      "answer": "point",
+      "removed": false,
+      "id": "communication_and_technology_w14"
+    },
+    {
+      "prompt": "DVD player",
+      "answer": "lecteur DVD",
+      "removed": false,
+      "id": "communication_and_technology_w15"
+    },
+    {
+      "prompt": "email",
+      "answer": "email",
+      "removed": false,
+      "id": "communication_and_technology_w16"
+    },
+    {
+      "prompt": "envelope",
+      "answer": "enveloppe",
+      "removed": false,
+      "id": "communication_and_technology_w17"
+    },
+    {
+      "prompt": "file",
+      "answer": "fichier",
+      "removed": false,
+      "id": "communication_and_technology_w18"
+    },
+    {
+      "prompt": "information",
+      "answer": "information",
+      "removed": false,
+      "id": "communication_and_technology_w19"
+    },
+    {
+      "prompt": "internet",
+      "answer": "internet",
+      "removed": false,
+      "id": "communication_and_technology_w20"
+    },
+    {
+      "prompt": "keyboard",
+      "answer": "clavier",
+      "removed": false,
+      "id": "communication_and_technology_w21"
+    },
+    {
+      "prompt": "laptop",
+      "answer": "ordinateur portable",
+      "removed": false,
+      "id": "communication_and_technology_w22"
+    },
+    {
+      "prompt": "mobile phone",
+      "answer": "téléphone portable",
+      "removed": false,
+      "id": "communication_and_technology_w23"
+    },
+    {
+      "prompt": "mouse",
+      "answer": "souris",
+      "removed": false,
+      "id": "communication_and_technology_w24"
+    },
+    {
+      "prompt": "online",
+      "answer": "en ligne",
+      "removed": false,
+      "id": "communication_and_technology_w25"
+    },
+    {
+      "prompt": "password",
+      "answer": "mot de passe",
+      "removed": false,
+      "id": "communication_and_technology_w26"
+    },
+    {
+      "prompt": "PC",
+      "answer": "ordinateur",
+      "removed": false,
+      "id": "communication_and_technology_w27"
+    },
+    {
+      "prompt": "phone",
+      "answer": "téléphone",
+      "removed": false,
+      "id": "communication_and_technology_w28"
+    },
+    {
+      "prompt": "photograph",
+      "answer": "photographie",
+      "removed": false,
+      "id": "communication_and_technology_w29"
+    },
+    {
+      "prompt": "printer",
+      "answer": "imprimante",
+      "removed": false,
+      "id": "communication_and_technology_w30"
+    },
+    {
+      "prompt": "screen",
+      "answer": "écran",
+      "removed": false,
+      "id": "communication_and_technology_w31"
+    },
+    {
+      "prompt": "software",
+      "answer": "logiciel",
+      "removed": false,
+      "id": "communication_and_technology_w32"
+    },
+    {
+      "prompt": "tablet",
+      "answer": "tablette",
+      "removed": false,
+      "id": "communication_and_technology_w33"
+    },
+    {
+      "prompt": "talk",
+      "answer": "parler",
+      "removed": false,
+      "id": "communication_and_technology_w34"
+    },
+    {
+      "prompt": "telephone",
+      "answer": "téléphone",
+      "removed": false,
+      "id": "communication_and_technology_w35"
+    },
+    {
+      "prompt": "text (message)",
+      "answer": "message / texto",
+      "removed": false,
+      "id": "communication_and_technology_w36"
+    },
+    {
+      "prompt": "video",
+      "answer": "vidéo",
+      "removed": false,
+      "id": "communication_and_technology_w37"
+    },
+    {
+      "prompt": "web",
+      "answer": "web",
+      "removed": false,
+      "id": "communication_and_technology_w38"
+    },
+    {
+      "prompt": "web page",
+      "answer": "page web",
+      "removed": false,
+      "id": "communication_and_technology_w39"
+    },
+    {
+      "prompt": "website",
+      "answer": "site web",
+      "removed": false,
+      "id": "communication_and_technology_w40"
+    }
   ]
 }

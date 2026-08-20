@@ -5,32 +5,167 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "apartment", "answer": "appartement", "removed": false},
-    {"prompt": "bath", "answer": "bain", "removed": false},
-    {"prompt": "bathroom", "answer": "salle de bain", "removed": false},
-    {"prompt": "bed", "answer": "lit", "removed": false},
-    {"prompt": "bedroom", "answer": "chambre", "removed": false},
-    {"prompt": "ceiling", "answer": "plafond", "removed": false},
-    {"prompt": "chair", "answer": "chaise", "removed": false},
-    {"prompt": "cupboard", "answer": "placard", "removed": false},
-    {"prompt": "door", "answer": "porte", "removed": false},
-    {"prompt": "floor", "answer": "sol", "removed": false},
-    {"prompt": "furniture", "answer": "meubles", "removed": false},
-    {"prompt": "garden", "answer": "jardin", "removed": false},
-    {"prompt": "home", "answer": "maison / chez soi", "removed": false},
-    {"prompt": "house", "answer": "maison", "removed": false},
-    {"prompt": "kitchen", "answer": "cuisine", "removed": false},
-    {"prompt": "living room", "answer": "salon", "removed": false},
-    {"prompt": "mirror", "answer": "miroir", "removed": false},
-    {"prompt": "painting", "answer": "peinture", "removed": false},
-    {"prompt": "rooftop", "answer": "toit", "removed": false},
-    {"prompt": "room", "answer": "pièce / chambre", "removed": false},
-    {"prompt": "shower", "answer": "douche", "removed": false},
-    {"prompt": "sofa", "answer": "canapé", "removed": false},
-    {"prompt": "stairs", "answer": "escaliers", "removed": false},
-    {"prompt": "table", "answer": "table", "removed": false},
-    {"prompt": "toilet", "answer": "toilettes", "removed": false},
-    {"prompt": "wall", "answer": "mur", "removed": false},
-    {"prompt": "window", "answer": "fenêtre", "removed": false}
+    {
+      "prompt": "apartment",
+      "answer": "appartement",
+      "removed": false,
+      "id": "house_and_home_w1"
+    },
+    {
+      "prompt": "bath",
+      "answer": "bain",
+      "removed": false,
+      "id": "house_and_home_w2"
+    },
+    {
+      "prompt": "bathroom",
+      "answer": "salle de bain",
+      "removed": false,
+      "id": "house_and_home_w3"
+    },
+    {
+      "prompt": "bed",
+      "answer": "lit",
+      "removed": false,
+      "id": "house_and_home_w4"
+    },
+    {
+      "prompt": "bedroom",
+      "answer": "chambre",
+      "removed": false,
+      "id": "house_and_home_w5"
+    },
+    {
+      "prompt": "ceiling",
+      "answer": "plafond",
+      "removed": false,
+      "id": "house_and_home_w6"
+    },
+    {
+      "prompt": "chair",
+      "answer": "chaise",
+      "removed": false,
+      "id": "house_and_home_w7"
+    },
+    {
+      "prompt": "cupboard",
+      "answer": "placard",
+      "removed": false,
+      "id": "house_and_home_w8"
+    },
+    {
+      "prompt": "door",
+      "answer": "porte",
+      "removed": false,
+      "id": "house_and_home_w9"
+    },
+    {
+      "prompt": "floor",
+      "answer": "sol",
+      "removed": false,
+      "id": "house_and_home_w10"
+    },
+    {
+      "prompt": "furniture",
+      "answer": "meubles",
+      "removed": false,
+      "id": "house_and_home_w11"
+    },
+    {
+      "prompt": "garden",
+      "answer": "jardin",
+      "removed": false,
+      "id": "house_and_home_w12"
+    },
+    {
+      "prompt": "home",
+      "answer": "maison / chez soi",
+      "removed": false,
+      "id": "house_and_home_w13"
+    },
+    {
+      "prompt": "house",
+      "answer": "maison",
+      "removed": false,
+      "id": "house_and_home_w14"
+    },
+    {
+      "prompt": "kitchen",
+      "answer": "cuisine",
+      "removed": false,
+      "id": "house_and_home_w15"
+    },
+    {
+      "prompt": "living room",
+      "answer": "salon",
+      "removed": false,
+      "id": "house_and_home_w16"
+    },
+    {
+      "prompt": "mirror",
+      "answer": "miroir",
+      "removed": false,
+      "id": "house_and_home_w17"
+    },
+    {
+      "prompt": "painting",
+      "answer": "peinture",
+      "removed": false,
+      "id": "house_and_home_w18"
+    },
+    {
+      "prompt": "rooftop",
+      "answer": "toit",
+      "removed": false,
+      "id": "house_and_home_w19"
+    },
+    {
+      "prompt": "room",
+      "answer": "pièce / chambre",
+      "removed": false,
+      "id": "house_and_home_w20"
+    },
+    {
+      "prompt": "shower",
+      "answer": "douche",
+      "removed": false,
+      "id": "house_and_home_w21"
+    },
+    {
+      "prompt": "sofa",
+      "answer": "canapé",
+      "removed": false,
+      "id": "house_and_home_w22"
+    },
+    {
+      "prompt": "stairs",
+      "answer": "escaliers",
+      "removed": false,
+      "id": "house_and_home_w23"
+    },
+    {
+      "prompt": "table",
+      "answer": "table",
+      "removed": false,
+      "id": "house_and_home_w24"
+    },
+    {
+      "prompt": "toilet",
+      "answer": "toilettes",
+      "removed": false,
+      "id": "house_and_home_w25"
+    },
+    {
+      "prompt": "wall",
+      "answer": "mur",
+      "removed": false,
+      "id": "house_and_home_w26"
+    },
+    {
+      "prompt": "window",
+      "answer": "fenêtre",
+      "removed": false,
+      "id": "house_and_home_w27"
+    }
   ]
 }

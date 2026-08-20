@@ -5,23 +5,113 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "basket", "answer": "panier", "removed": false},
-    {"prompt": "big", "answer": "grand", "removed": false},
-    {"prompt": "bill", "answer": "addition / facture", "removed": false},
-    {"prompt": "buy", "answer": "acheter", "removed": false},
-    {"prompt": "cheap", "answer": "bon marché", "removed": false},
-    {"prompt": "clothes", "answer": "vêtements", "removed": false},
-    {"prompt": "cost", "answer": "coût", "removed": false},
-    {"prompt": "customer", "answer": "client", "removed": false},
-    {"prompt": "expensive", "answer": "cher", "removed": false},
-    {"prompt": "money", "answer": "argent", "removed": false},
-    {"prompt": "pay", "answer": "payer", "removed": false},
-    {"prompt": "price", "answer": "prix", "removed": false},
-    {"prompt": "receipt", "answer": "reçu", "removed": false},
-    {"prompt": "sale", "answer": "vente", "removed": false},
-    {"prompt": "shop", "answer": "magasin", "removed": false},
-    {"prompt": "shopping", "answer": "shopping", "removed": false},
-    {"prompt": "small", "answer": "petit", "removed": false},
-    {"prompt": "supermarket", "answer": "supermarché", "removed": false}
+    {
+      "prompt": "basket",
+      "answer": "panier",
+      "removed": false,
+      "id": "shopping_w1"
+    },
+    {
+      "prompt": "big",
+      "answer": "grand",
+      "removed": false,
+      "id": "shopping_w2"
+    },
+    {
+      "prompt": "bill",
+      "answer": "addition / facture",
+      "removed": false,
+      "id": "shopping_w3"
+    },
+    {
+      "prompt": "buy",
+      "answer": "acheter",
+      "removed": false,
+      "id": "shopping_w4"
+    },
+    {
+      "prompt": "cheap",
+      "answer": "bon marché",
+      "removed": false,
+      "id": "shopping_w5"
+    },
+    {
+      "prompt": "clothes",
+      "answer": "vêtements",
+      "removed": false,
+      "id": "shopping_w6"
+    },
+    {
+      "prompt": "cost",
+      "answer": "coût",
+      "removed": false,
+      "id": "shopping_w7"
+    },
+    {
+      "prompt": "customer",
+      "answer": "client",
+      "removed": false,
+      "id": "shopping_w8"
+    },
+    {
+      "prompt": "expensive",
+      "answer": "cher",
+      "removed": false,
+      "id": "shopping_w9"
+    },
+    {
+      "prompt": "money",
+      "answer": "argent",
+      "removed": false,
+      "id": "shopping_w10"
+    },
+    {
+      "prompt": "pay",
+      "answer": "payer",
+      "removed": false,
+      "id": "shopping_w11"
+    },
+    {
+      "prompt": "price",
+      "answer": "prix",
+      "removed": false,
+      "id": "shopping_w12"
+    },
+    {
+      "prompt": "receipt",
+      "answer": "reçu",
+      "removed": false,
+      "id": "shopping_w13"
+    },
+    {
+      "prompt": "sale",
+      "answer": "vente",
+      "removed": false,
+      "id": "shopping_w14"
+    },
+    {
+      "prompt": "shop",
+      "answer": "magasin",
+      "removed": false,
+      "id": "shopping_w15"
+    },
+    {
+      "prompt": "shopping",
+      "answer": "shopping",
+      "removed": false,
+      "id": "shopping_w16"
+    },
+    {
+      "prompt": "small",
+      "answer": "petit",
+      "removed": false,
+      "id": "shopping_w17"
+    },
+    {
+      "prompt": "supermarket",
+      "answer": "supermarché",
+      "removed": false,
+      "id": "shopping_w18"
+    }
   ]
 }

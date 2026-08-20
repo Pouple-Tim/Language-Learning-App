@@ -5,22 +5,107 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "dōngxī", "answer": "东西", "meaning": "chose, objet", "removed": false},
-    {"prompt": "yīdiǎnr", "answer": "一点儿", "meaning": "un peu", "removed": false},
-    {"prompt": "píngguǒ", "answer": "苹果", "meaning": "pomme", "removed": false},
-    {"prompt": "kànjiàn", "answer": "看见", "meaning": "voir, apercevoir", "removed": false},
-    {"prompt": "xiānsheng", "answer": "先生", "meaning": "monsieur", "removed": false},
-    {"prompt": "kāi", "answer": "开", "meaning": "ouvrir, conduire", "removed": false},
-    {"prompt": "chē", "answer": "车", "meaning": "voiture, véhicule", "removed": false},
-    {"prompt": "huílai", "answer": "回来", "meaning": "revenir", "removed": false},
-    {"prompt": "fēnzhōng", "answer": "分钟", "meaning": "minute (durée)", "removed": false},
-    {"prompt": "hòu", "answer": "后", "meaning": "après", "removed": false},
-    {"prompt": "yīfu", "answer": "衣服", "meaning": "vêtements", "removed": false},
-    {"prompt": "piàoliang", "answer": "漂亮", "meaning": "beau, jolie", "removed": false},
-    {"prompt": "a", "answer": "啊", "meaning": "ah, oh (interjection)", "removed": false},
-    {"prompt": "shǎo", "answer": "少", "meaning": "peu, manquer de", "removed": false},
-    {"prompt": "bù shǎo", "answer": "不少", "meaning": "pas mal, beaucoup", "removed": false},
-    {"prompt": "zhèxiē", "answer": "这些", "meaning": "ces, ceux-ci", "removed": false},
-    {"prompt": "dōu", "answer": "都", "meaning": "tous, tout", "removed": false}
+    {
+      "prompt": "dōngxī",
+      "answer": "东西",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w1"
+    },
+    {
+      "prompt": "yīdiǎnr",
+      "answer": "一点儿",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w2"
+    },
+    {
+      "prompt": "píngguǒ",
+      "answer": "苹果",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w3"
+    },
+    {
+      "prompt": "kànjiàn",
+      "answer": "看见",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w4"
+    },
+    {
+      "prompt": "xiānsheng",
+      "answer": "先生",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w5"
+    },
+    {
+      "prompt": "kāi",
+      "answer": "开",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w6"
+    },
+    {
+      "prompt": "chē",
+      "answer": "车",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w7"
+    },
+    {
+      "prompt": "huílai",
+      "answer": "回来",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w8"
+    },
+    {
+      "prompt": "fēnzhōng",
+      "answer": "分钟",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w9"
+    },
+    {
+      "prompt": "hòu",
+      "answer": "后",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w10"
+    },
+    {
+      "prompt": "yīfu",
+      "answer": "衣服",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w11"
+    },
+    {
+      "prompt": "piàoliang",
+      "answer": "漂亮",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w12"
+    },
+    {
+      "prompt": "a",
+      "answer": "啊",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w13"
+    },
+    {
+      "prompt": "shǎo",
+      "answer": "少",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w14"
+    },
+    {
+      "prompt": "bù shǎo",
+      "answer": "不少",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w15"
+    },
+    {
+      "prompt": "zhèxiē",
+      "answer": "这些",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w16"
+    },
+    {
+      "prompt": "dōu",
+      "answer": "都",
+      "removed": false,
+      "id": "chinese_hsk1_part14_w17"
+    }
   ]
 }

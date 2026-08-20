@@ -90,8 +90,8 @@ class StatisticsScreen extends StatelessWidget {
                       context,
                       title: l10n.favoriteGameModes,
                       icon: Icons.pie_chart,
-                      child: GameModeStatsWidget.fromRawData(
-                        rawData: Map.fromEntries(statsProvider.getGameModeStats()),
+                      child: GameModeStatsWidget(
+                        data: statsProvider.getGameModeStats(),
                       ),
                     ),
 

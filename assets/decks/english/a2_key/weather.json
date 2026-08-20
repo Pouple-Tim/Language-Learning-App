@@ -5,20 +5,95 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "cloud", "answer": "nuage", "removed": false},
-    {"prompt": "cold", "answer": "froid", "removed": false},
-    {"prompt": "fog", "answer": "brouillard", "removed": false},
-    {"prompt": "forecast", "answer": "prévisions", "removed": false},
-    {"prompt": "hot", "answer": "chaud", "removed": false},
-    {"prompt": "rain", "answer": "pluie", "removed": false},
-    {"prompt": "rainy", "answer": "pluvieux", "removed": false},
-    {"prompt": "snow", "answer": "neige", "removed": false},
-    {"prompt": "storm", "answer": "tempête", "removed": false},
-    {"prompt": "sun", "answer": "soleil", "removed": false},
-    {"prompt": "sunny", "answer": "ensoleillé", "removed": false},
-    {"prompt": "temperature", "answer": "température", "removed": false},
-    {"prompt": "weather", "answer": "météo", "removed": false},
-    {"prompt": "wind", "answer": "vent", "removed": false},
-    {"prompt": "windy", "answer": "venteux", "removed": false}
+    {
+      "prompt": "cloud",
+      "answer": "nuage",
+      "removed": false,
+      "id": "weather_w1"
+    },
+    {
+      "prompt": "cold",
+      "answer": "froid",
+      "removed": false,
+      "id": "weather_w2"
+    },
+    {
+      "prompt": "fog",
+      "answer": "brouillard",
+      "removed": false,
+      "id": "weather_w3"
+    },
+    {
+      "prompt": "forecast",
+      "answer": "prévisions",
+      "removed": false,
+      "id": "weather_w4"
+    },
+    {
+      "prompt": "hot",
+      "answer": "chaud",
+      "removed": false,
+      "id": "weather_w5"
+    },
+    {
+      "prompt": "rain",
+      "answer": "pluie",
+      "removed": false,
+      "id": "weather_w6"
+    },
+    {
+      "prompt": "rainy",
+      "answer": "pluvieux",
+      "removed": false,
+      "id": "weather_w7"
+    },
+    {
+      "prompt": "snow",
+      "answer": "neige",
+      "removed": false,
+      "id": "weather_w8"
+    },
+    {
+      "prompt": "storm",
+      "answer": "tempête",
+      "removed": false,
+      "id": "weather_w9"
+    },
+    {
+      "prompt": "sun",
+      "answer": "soleil",
+      "removed": false,
+      "id": "weather_w10"
+    },
+    {
+      "prompt": "sunny",
+      "answer": "ensoleillé",
+      "removed": false,
+      "id": "weather_w11"
+    },
+    {
+      "prompt": "temperature",
+      "answer": "température",
+      "removed": false,
+      "id": "weather_w12"
+    },
+    {
+      "prompt": "weather",
+      "answer": "météo",
+      "removed": false,
+      "id": "weather_w13"
+    },
+    {
+      "prompt": "wind",
+      "answer": "vent",
+      "removed": false,
+      "id": "weather_w14"
+    },
+    {
+      "prompt": "windy",
+      "answer": "venteux",
+      "removed": false,
+      "id": "weather_w15"
+    }
   ]
 }

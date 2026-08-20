@@ -5,38 +5,203 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "afraid", "answer": "avoir peur", "removed": false},
-    {"prompt": "angry", "answer": "en colère", "removed": false},
-    {"prompt": "bored", "answer": "ennuyé", "removed": false},
-    {"prompt": "boring", "answer": "ennuyeux", "removed": false},
-    {"prompt": "careful", "answer": "prudent", "removed": false},
-    {"prompt": "change", "answer": "changer", "removed": false},
-    {"prompt": "different", "answer": "différent", "removed": false},
-    {"prompt": "difficult", "answer": "difficile", "removed": false},
-    {"prompt": "easy", "answer": "facile", "removed": false},
-    {"prompt": "excited", "answer": "excité", "removed": false},
-    {"prompt": "exciting", "answer": "excitant", "removed": false},
-    {"prompt": "famous", "answer": "célèbre", "removed": false},
-    {"prompt": "fantastic", "answer": "fantastique", "removed": false},
-    {"prompt": "feel", "answer": "se sentir", "removed": false},
-    {"prompt": "funny", "answer": "drôle", "removed": false},
-    {"prompt": "glad", "answer": "heureux", "removed": false},
-    {"prompt": "good", "answer": "bon", "removed": false},
-    {"prompt": "happy", "answer": "heureux", "removed": false},
-    {"prompt": "hate", "answer": "détester", "removed": false},
-    {"prompt": "hope", "answer": "espérer", "removed": false},
-    {"prompt": "interested", "answer": "intéressé", "removed": false},
-    {"prompt": "interesting", "answer": "intéressant", "removed": false},
-    {"prompt": "like", "answer": "aimer", "removed": false},
-    {"prompt": "love", "answer": "aimer", "removed": false},
-    {"prompt": "nervous", "answer": "nerveux", "removed": false},
-    {"prompt": "nice", "answer": "agréable / gentil", "removed": false},
-    {"prompt": "relax", "answer": "se détendre", "removed": false},
-    {"prompt": "sad", "answer": "triste", "removed": false},
-    {"prompt": "scared", "answer": "effrayé", "removed": false},
-    {"prompt": "strange", "answer": "étrange", "removed": false},
-    {"prompt": "surprised", "answer": "surpris", "removed": false},
-    {"prompt": "tired", "answer": "fatigué", "removed": false},
-    {"prompt": "worried", "answer": "inquiet", "removed": false}
+    {
+      "prompt": "afraid",
+      "answer": "avoir peur",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w1"
+    },
+    {
+      "prompt": "angry",
+      "answer": "en colère",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w2"
+    },
+    {
+      "prompt": "bored",
+      "answer": "ennuyé",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w3"
+    },
+    {
+      "prompt": "boring",
+      "answer": "ennuyeux",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w4"
+    },
+    {
+      "prompt": "careful",
+      "answer": "prudent",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w5"
+    },
+    {
+      "prompt": "change",
+      "answer": "changer",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w6"
+    },
+    {
+      "prompt": "different",
+      "answer": "différent",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w7"
+    },
+    {
+      "prompt": "difficult",
+      "answer": "difficile",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w8"
+    },
+    {
+      "prompt": "easy",
+      "answer": "facile",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w9"
+    },
+    {
+      "prompt": "excited",
+      "answer": "excité",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w10"
+    },
+    {
+      "prompt": "exciting",
+      "answer": "excitant",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w11"
+    },
+    {
+      "prompt": "famous",
+      "answer": "célèbre",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w12"
+    },
+    {
+      "prompt": "fantastic",
+      "answer": "fantastique",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w13"
+    },
+    {
+      "prompt": "feel",
+      "answer": "se sentir",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w14"
+    },
+    {
+      "prompt": "funny",
+      "answer": "drôle",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w15"
+    },
+    {
+      "prompt": "glad",
+      "answer": "heureux",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w16"
+    },
+    {
+      "prompt": "good",
+      "answer": "bon",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w17"
+    },
+    {
+      "prompt": "happy",
+      "answer": "heureux",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w18"
+    },
+    {
+      "prompt": "hate",
+      "answer": "détester",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w19"
+    },
+    {
+      "prompt": "hope",
+      "answer": "espérer",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w20"
+    },
+    {
+      "prompt": "interested",
+      "answer": "intéressé",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w21"
+    },
+    {
+      "prompt": "interesting",
+      "answer": "intéressant",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w22"
+    },
+    {
+      "prompt": "like",
+      "answer": "aimer",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w23"
+    },
+    {
+      "prompt": "love",
+      "answer": "aimer",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w24"
+    },
+    {
+      "prompt": "nervous",
+      "answer": "nerveux",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w25"
+    },
+    {
+      "prompt": "nice",
+      "answer": "agréable / gentil",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w26"
+    },
+    {
+      "prompt": "relax",
+      "answer": "se détendre",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w27"
+    },
+    {
+      "prompt": "sad",
+      "answer": "triste",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w28"
+    },
+    {
+      "prompt": "scared",
+      "answer": "effrayé",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w29"
+    },
+    {
+      "prompt": "strange",
+      "answer": "étrange",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w30"
+    },
+    {
+      "prompt": "surprised",
+      "answer": "surpris",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w31"
+    },
+    {
+      "prompt": "tired",
+      "answer": "fatigué",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w32"
+    },
+    {
+      "prompt": "worried",
+      "answer": "inquiet",
+      "removed": false,
+      "id": "personal_feelings_opinions_experiences_w33"
+    }
   ]
 }

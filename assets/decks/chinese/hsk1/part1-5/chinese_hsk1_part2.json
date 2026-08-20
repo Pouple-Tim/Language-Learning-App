@@ -5,9 +5,142 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "xièxie", "answer": "谢谢", "meaning": "merci", "removed": false},
-    {"prompt": "bù", "answer": "不", "meaning": "non, ne pas", "removed": false},
-    {"prompt": "bú kèqi", "answer": "不客气", "meaning": "de rien", "removed": false},
-    {"prompt": "zàijiàn", "answer": "再见", "meaning": "au revoir", "removed": false}
+    {
+      "prompt": "xièxie",
+      "answer": "谢谢",
+      "removed": false,
+      "id": "chinese_hsk1_part2_w1"
+    },
+    {
+      "prompt": "bù",
+      "answer": "不",
+      "removed": false,
+      "id": "chinese_hsk1_part2_w2"
+    },
+    {
+      "prompt": "bú kèqi",
+      "answer": "不客气",
+      "removed": false,
+      "id": "chinese_hsk1_part2_w3"
+    },
+    {
+      "prompt": "zàijiàn",
+      "answer": "再见",
+      "removed": false,
+      "id": "chinese_hsk1_part2_w4"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p2",
+      "original": "Merci !",
+      "translation": "谢谢",
+      "blocks": [
+        "谢谢",
+        "不",
+        "好",
+        "客气"
+      ]
+    },
+    {
+      "id": "s2_p2",
+      "original": "Non, merci.",
+      "translation": "不谢谢",
+      "blocks": [
+        "不",
+        "谢谢",
+        "再见",
+        "客气"
+      ]
+    },
+    {
+      "id": "s3_p2",
+      "original": "De rien.",
+      "translation": "不客气",
+      "blocks": [
+        "不客气",
+        "对不起",
+        "再见",
+        "好"
+      ]
+    },
+    {
+      "id": "s4_p2",
+      "original": "Au revoir !",
+      "translation": "再见",
+      "blocks": [
+        "再见",
+        "谢谢",
+        "不",
+        "见"
+      ]
+    },
+    {
+      "id": "s5_p2",
+      "original": "Bonjour à vous.",
+      "translation": "你们好",
+      "blocks": [
+        "你们",
+        "好",
+        "我们",
+        "再见"
+      ]
+    },
+    {
+      "id": "s6_p2",
+      "original": "Non (négation).",
+      "translation": "不",
+      "blocks": [
+        "不",
+        "好",
+        "很",
+        "是"
+      ]
+    },
+    {
+      "id": "s7_p2",
+      "original": "Merci, au revoir.",
+      "translation": "谢谢再见",
+      "blocks": [
+        "谢谢",
+        "再见",
+        "不",
+        "客气"
+      ]
+    },
+    {
+      "id": "s8_p2",
+      "original": "Désolé.",
+      "translation": "对不起",
+      "blocks": [
+        "对不起",
+        "没关系",
+        "谢谢",
+        "好"
+      ]
+    },
+    {
+      "id": "s9_p2",
+      "original": "Ce n'est pas grave.",
+      "translation": "没关系",
+      "blocks": [
+        "没关系",
+        "不客气",
+        "对不起",
+        "好"
+      ]
+    },
+    {
+      "id": "s10_p2",
+      "original": "Non, ce n'est pas grave.",
+      "translation": "不没关系",
+      "blocks": [
+        "不",
+        "没关系",
+        "对不起",
+        "谢谢",
+        "再见"
+      ]
+    }
   ]
 }

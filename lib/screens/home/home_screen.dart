@@ -2,13 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
 import 'package:language_learning_app/screens/settings/settings_screen.dart';
-import 'package:language_learning_app/screens/games/classic_game/classic_game_screen.dart';
+import 'package:language_learning_app/screens/games/classic_game/game_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/core/extensions/strings_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
+
+List<GameMode> _buildGameModes(AppLocalizations l10n) {
+  return [
+    GameMode(
+      type: GameType.classic,
+      title: l10n.classicModeTitle,
+      description: l10n.classicModeDesc,
+      icon: Icons.school_rounded,
+      color: AppColors.primary,
+    ),
+    GameMode(
+      type: GameType.reverse,
+      title: l10n.reverseModeTitle,
+      description: l10n.reverseModeDesc,
+      icon: Icons.swap_horiz_rounded,
+      color: AppColors.secondary,
+    ),
+    GameMode(
+      type: GameType.quiz,
+      title: l10n.quizModeTitle,
+      description: l10n.quizModeDesc,
+      icon: Icons.quiz_rounded,
+      color: Colors.orange,
+    ),
+    GameMode(
+      type: GameType.sentence,
+      title: "Phrase",
+      description: "Reconstitue la phrase correcte.",
+      icon: Icons.segment_rounded,
+      color: Colors.purple,
+    ),
+  ];
+}
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,27 +51,7 @@ class HomeScreen extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context); // Cache le thème pour l'utiliser plus bas
 
-    // Configuration des modes de jeu
-    final List<GameMode> gameModes = [
-      GameMode(
-        id: 'classic',
-        type: GameType.classic,
-        title: l10n.classicModeTitle,
-        description: l10n.classicModeDesc,
-        icon: Icons.school_rounded,
-        color: AppColors.primary,
-        routeName: '/game/classic',
-      ),
-      GameMode(
-        id: 'reverse', 
-        type: GameType.classic,
-        title: l10n.reverseModeTitle,
-        description: l10n.reverseModeDesc, 
-        icon: Icons.swap_horiz_rounded,
-        color: AppColors.secondary,
-        routeName: '/game/reverse',
-      ),
-    ];
+    final List<GameMode> gameModes = _buildGameModes(l10n);
 
     // --- CALCUL RESPONSIVE POUR LES CARTES ---
     // On veut que les cartes aient toujours environ 140px de hauteur,
@@ -292,13 +305,13 @@ class HomeScreen extends StatelessWidget {
 
             gameProvider.setDeck(
               deckProvider.selectedDeck!,
-              gameMode: mode.id, 
+              gameMode: mode.type,
             );
 
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ClassicGameScreen(
+                builder: (context) => GameScreen(
                   gameTitle: mode.title, 
                 ),
               ),

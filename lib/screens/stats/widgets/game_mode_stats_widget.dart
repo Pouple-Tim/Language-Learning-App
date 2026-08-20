@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
-import 'package:language_learning_app/core/extensions/gamemode_extensions.dart';
 
 class GameModeStatsWidget extends StatelessWidget {
-  /// Les données sont typées fortement avec l'Enum [GameMode]
-  final List<MapEntry<GameMode, int>> data;
+  final List<GameModeStat> data;
 
   const GameModeStatsWidget({
     super.key,
     required this.data,
   });
-
-  /// Constructeur utilitaire pour transformer des données brutes (String) venant d'une API/BDD
-  /// Exemple: {'classic': 10, 'reverse': 5}
-  GameModeStatsWidget.fromRawData({
-    super.key,
-    required Map<String, int> rawData,
-  }) : data = rawData.entries
-            .map((e) => MapEntry(GameMode.fromString(e.key), e.value))
-            // On filtre les modes inconnus vides si nécessaire, ou on les garde
-            .where((e) => e.value > 0 || e.key != GameMode.unknown)
-            .toList()
-          // Tri par nombre de parties (décroissant)
-          ..sort((a, b) => b.value.compareTo(a.value));
 
   @override
   Widget build(BuildContext context) {
@@ -40,45 +28,34 @@ class GameModeStatsWidget extends StatelessWidget {
       );
     }
 
-    // Calcul du total pour les pourcentages
-    final totalPlays = data.fold<int>(0, (sum, item) => sum + item.value);
+    final totalPlays = data.fold<int>(0, (sum, item) => sum + item.count);
 
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
-        children: data.map((entry) {
-          final mode = entry.key;
-          final count = entry.value;
-          // Sécurité anti-division par zéro
-          final percentage = totalPlays > 0 ? count / totalPlays : 0.0;
+        children: data.map((stat) {
+          final color = _getModeColor(stat.type);
+          final percentage = totalPlays > 0 ? stat.count / totalPlays : 0.0;
 
           return Padding(
             padding: const EdgeInsets.only(bottom: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 1. En-tête : Icône + Titre + Pourcentage
                 Row(
                   children: [
-                    // Icône avec fond coloré léger
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: mode.color.withValues(alpha: 0.1),
+                        color: color.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(
-                        mode.icon, 
-                        size: 18, 
-                        color: mode.color
-                      ),
+                      child: Icon(_getModeIcon(stat.type), size: 18, color: color),
                     ),
                     const SizedBox(width: 12),
-                    
-                    // Titre traduit (via extension)
                     Expanded(
                       child: Text(
-                        mode.getLocalizedName(l10n),
+                        stat.label,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
@@ -87,8 +64,6 @@ class GameModeStatsWidget extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    
-                    // Pourcentage
                     Text(
                       '${(percentage * 100).toStringAsFixed(1)}%',
                       style: TextStyle(
@@ -99,13 +74,9 @@ class GameModeStatsWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                
                 const SizedBox(height: 8),
-                
-                // 2. Barre de progression
                 Stack(
                   children: [
-                    // Fond de la barre
                     Container(
                       height: 8,
                       width: double.infinity,
@@ -114,28 +85,24 @@ class GameModeStatsWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    // Remplissage coloré
                     if (percentage > 0)
                       FractionallySizedBox(
                         widthFactor: percentage,
                         child: Container(
                           height: 8,
                           decoration: BoxDecoration(
-                            color: mode.color,
+                            color: color,
                             borderRadius: BorderRadius.circular(4),
                           ),
                         ),
                       ),
                   ],
                 ),
-                
                 const SizedBox(height: 4),
-                
-                // 3. Sous-titre : Nombre de parties
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    l10n.gamesPlayed(count),
+                    l10n.gamesPlayed(stat.count),
                     style: TextStyle(
                       fontSize: 11,
                       color: Colors.grey.shade600,
@@ -149,5 +116,33 @@ class GameModeStatsWidget extends StatelessWidget {
         }).toList(),
       ),
     );
+  }
+
+  Color _getModeColor(GameType type) {
+    switch (type) {
+      case GameType.classic:
+        return AppColors.primary;
+      case GameType.reverse:
+        return AppColors.secondary;
+      case GameType.quiz:
+        return Colors.orange;
+      case GameType.sentence:
+      case GameType.memory:
+        return Colors.teal;
+    }
+  }
+
+  IconData _getModeIcon(GameType type) {
+    switch (type) {
+      case GameType.classic:
+        return Icons.school;
+      case GameType.reverse:
+        return Icons.swap_horiz;
+      case GameType.quiz:
+        return Icons.timer;
+      case GameType.sentence:
+      case GameType.memory:
+        return Icons.gamepad;
+    }
   }
 }

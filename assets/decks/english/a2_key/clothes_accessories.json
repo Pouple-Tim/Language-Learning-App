@@ -5,55 +5,305 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "backpack", "answer": "sac à dos", "removed": false},
-    {"prompt": "bag", "answer": "sac", "removed": false},
-    {"prompt": "bathing suit", "answer": "maillot de bain", "removed": false},
-    {"prompt": "belt", "answer": "ceinture", "removed": false},
-    {"prompt": "blouse", "answer": "chemisier", "removed": false},
-    {"prompt": "boot", "answer": "botte", "removed": false},
-    {"prompt": "bracelet", "answer": "bracelet", "removed": false},
-    {"prompt": "cap", "answer": "casquette", "removed": false},
-    {"prompt": "chain", "answer": "chaîne", "removed": false},
-    {"prompt": "clothes", "answer": "vêtements", "removed": false},
-    {"prompt": "coat", "answer": "manteau", "removed": false},
-    {"prompt": "costume (swimming)", "answer": "maillot de bain", "removed": false},
-    {"prompt": "dress", "answer": "robe", "removed": false},
-    {"prompt": "earring", "answer": "boucle d’oreille", "removed": false},
-    {"prompt": "fashion", "answer": "mode", "removed": false},
-    {"prompt": "glasses", "answer": "lunettes", "removed": false},
-    {"prompt": "glove", "answer": "gant", "removed": false},
-    {"prompt": "handbag", "answer": "sac à main", "removed": false},
-    {"prompt": "hat", "answer": "chapeau", "removed": false},
-    {"prompt": "hoodie", "answer": "sweat à capuche", "removed": false},
-    {"prompt": "jacket", "answer": "veste", "removed": false},
-    {"prompt": "jeans", "answer": "jean", "removed": false},
-    {"prompt": "jumper", "answer": "pull", "removed": false},
-    {"prompt": "kit", "answer": "équipement", "removed": false},
-    {"prompt": "necklace", "answer": "collier", "removed": false},
-    {"prompt": "pocket", "answer": "poche", "removed": false},
-    {"prompt": "purse", "answer": "porte-monnaie", "removed": false},
-    {"prompt": "raincoat", "answer": "imperméable", "removed": false},
-    {"prompt": "ring", "answer": "bague", "removed": false},
-    {"prompt": "rucksack", "answer": "sac à dos", "removed": false},
-    {"prompt": "scarf", "answer": "écharpe", "removed": false},
-    {"prompt": "shirt", "answer": "chemise", "removed": false},
-    {"prompt": "shoes", "answer": "chaussures", "removed": false},
-    {"prompt": "shorts", "answer": "short", "removed": false},
-    {"prompt": "skirt", "answer": "jupe", "removed": false},
-    {"prompt": "sock", "answer": "chaussette", "removed": false},
-    {"prompt": "sunglasses", "answer": "lunettes de soleil", "removed": false},
-    {"prompt": "sweater", "answer": "pull", "removed": false},
-    {"prompt": "swimming costume", "answer": "maillot de bain", "removed": false},
-    {"prompt": "swimsuit", "answer": "maillot de bain", "removed": false},
-    {"prompt": "tie", "answer": "cravate", "removed": false},
-    {"prompt": "tights", "answer": "collants", "removed": false},
-    {"prompt": "trainers", "answer": "baskets", "removed": false},
-    {"prompt": "trousers", "answer": "pantalon", "removed": false},
-    {"prompt": "T-shirt", "answer": "t-shirt", "removed": false},
-    {"prompt": "umbrella", "answer": "parapluie", "removed": false},
-    {"prompt": "uniform", "answer": "uniforme", "removed": false},
-    {"prompt": "wallet", "answer": "portefeuille", "removed": false},
-    {"prompt": "watch", "answer": "montre", "removed": false},
-    {"prompt": "wear", "answer": "porter", "removed": false}
+    {
+      "prompt": "backpack",
+      "answer": "sac à dos",
+      "removed": false,
+      "id": "clothes_and_accessories_w1"
+    },
+    {
+      "prompt": "bag",
+      "answer": "sac",
+      "removed": false,
+      "id": "clothes_and_accessories_w2"
+    },
+    {
+      "prompt": "bathing suit",
+      "answer": "maillot de bain",
+      "removed": false,
+      "id": "clothes_and_accessories_w3"
+    },
+    {
+      "prompt": "belt",
+      "answer": "ceinture",
+      "removed": false,
+      "id": "clothes_and_accessories_w4"
+    },
+    {
+      "prompt": "blouse",
+      "answer": "chemisier",
+      "removed": false,
+      "id": "clothes_and_accessories_w5"
+    },
+    {
+      "prompt": "boot",
+      "answer": "botte",
+      "removed": false,
+      "id": "clothes_and_accessories_w6"
+    },
+    {
+      "prompt": "bracelet",
+      "answer": "bracelet",
+      "removed": false,
+      "id": "clothes_and_accessories_w7"
+    },
+    {
+      "prompt": "cap",
+      "answer": "casquette",
+      "removed": false,
+      "id": "clothes_and_accessories_w8"
+    },
+    {
+      "prompt": "chain",
+      "answer": "chaîne",
+      "removed": false,
+      "id": "clothes_and_accessories_w9"
+    },
+    {
+      "prompt": "clothes",
+      "answer": "vêtements",
+      "removed": false,
+      "id": "clothes_and_accessories_w10"
+    },
+    {
+      "prompt": "coat",
+      "answer": "manteau",
+      "removed": false,
+      "id": "clothes_and_accessories_w11"
+    },
+    {
+      "prompt": "costume (swimming)",
+      "answer": "maillot de bain",
+      "removed": false,
+      "id": "clothes_and_accessories_w12"
+    },
+    {
+      "prompt": "dress",
+      "answer": "robe",
+      "removed": false,
+      "id": "clothes_and_accessories_w13"
+    },
+    {
+      "prompt": "earring",
+      "answer": "boucle d’oreille",
+      "removed": false,
+      "id": "clothes_and_accessories_w14"
+    },
+    {
+      "prompt": "fashion",
+      "answer": "mode",
+      "removed": false,
+      "id": "clothes_and_accessories_w15"
+    },
+    {
+      "prompt": "glasses",
+      "answer": "lunettes",
+      "removed": false,
+      "id": "clothes_and_accessories_w16"
+    },
+    {
+      "prompt": "glove",
+      "answer": "gant",
+      "removed": false,
+      "id": "clothes_and_accessories_w17"
+    },
+    {
+      "prompt": "handbag",
+      "answer": "sac à main",
+      "removed": false,
+      "id": "clothes_and_accessories_w18"
+    },
+    {
+      "prompt": "hat",
+      "answer": "chapeau",
+      "removed": false,
+      "id": "clothes_and_accessories_w19"
+    },
+    {
+      "prompt": "hoodie",
+      "answer": "sweat à capuche",
+      "removed": false,
+      "id": "clothes_and_accessories_w20"
+    },
+    {
+      "prompt": "jacket",
+      "answer": "veste",
+      "removed": false,
+      "id": "clothes_and_accessories_w21"
+    },
+    {
+      "prompt": "jeans",
+      "answer": "jean",
+      "removed": false,
+      "id": "clothes_and_accessories_w22"
+    },
+    {
+      "prompt": "jumper",
+      "answer": "pull",
+      "removed": false,
+      "id": "clothes_and_accessories_w23"
+    },
+    {
+      "prompt": "kit",
+      "answer": "équipement",
+      "removed": false,
+      "id": "clothes_and_accessories_w24"
+    },
+    {
+      "prompt": "necklace",
+      "answer": "collier",
+      "removed": false,
+      "id": "clothes_and_accessories_w25"
+    },
+    {
+      "prompt": "pocket",
+      "answer": "poche",
+      "removed": false,
+      "id": "clothes_and_accessories_w26"
+    },
+    {
+      "prompt": "purse",
+      "answer": "porte-monnaie",
+      "removed": false,
+      "id": "clothes_and_accessories_w27"
+    },
+    {
+      "prompt": "raincoat",
+      "answer": "imperméable",
+      "removed": false,
+      "id": "clothes_and_accessories_w28"
+    },
+    {
+      "prompt": "ring",
+      "answer": "bague",
+      "removed": false,
+      "id": "clothes_and_accessories_w29"
+    },
+    {
+      "prompt": "rucksack",
+      "answer": "sac à dos",
+      "removed": false,
+      "id": "clothes_and_accessories_w30"
+    },
+    {
+      "prompt": "scarf",
+      "answer": "écharpe",
+      "removed": false,
+      "id": "clothes_and_accessories_w31"
+    },
+    {
+      "prompt": "shirt",
+      "answer": "chemise",
+      "removed": false,
+      "id": "clothes_and_accessories_w32"
+    },
+    {
+      "prompt": "shoes",
+      "answer": "chaussures",
+      "removed": false,
+      "id": "clothes_and_accessories_w33"
+    },
+    {
+      "prompt": "shorts",
+      "answer": "short",
+      "removed": false,
+      "id": "clothes_and_accessories_w34"
+    },
+    {
+      "prompt": "skirt",
+      "answer": "jupe",
+      "removed": false,
+      "id": "clothes_and_accessories_w35"
+    },
+    {
+      "prompt": "sock",
+      "answer": "chaussette",
+      "removed": false,
+      "id": "clothes_and_accessories_w36"
+    },
+    {
+      "prompt": "sunglasses",
+      "answer": "lunettes de soleil",
+      "removed": false,
+      "id": "clothes_and_accessories_w37"
+    },
+    {
+      "prompt": "sweater",
+      "answer": "pull",
+      "removed": false,
+      "id": "clothes_and_accessories_w38"
+    },
+    {
+      "prompt": "swimming costume",
+      "answer": "maillot de bain",
+      "removed": false,
+      "id": "clothes_and_accessories_w39"
+    },
+    {
+      "prompt": "swimsuit",
+      "answer": "maillot de bain",
+      "removed": false,
+      "id": "clothes_and_accessories_w40"
+    },
+    {
+      "prompt": "tie",
+      "answer": "cravate",
+      "removed": false,
+      "id": "clothes_and_accessories_w41"
+    },
+    {
+      "prompt": "tights",
+      "answer": "collants",
+      "removed": false,
+      "id": "clothes_and_accessories_w42"
+    },
+    {
+      "prompt": "trainers",
+      "answer": "baskets",
+      "removed": false,
+      "id": "clothes_and_accessories_w43"
+    },
+    {
+      "prompt": "trousers",
+      "answer": "pantalon",
+      "removed": false,
+      "id": "clothes_and_accessories_w44"
+    },
+    {
+      "prompt": "T-shirt",
+      "answer": "t-shirt",
+      "removed": false,
+      "id": "clothes_and_accessories_w45"
+    },
+    {
+      "prompt": "umbrella",
+      "answer": "parapluie",
+      "removed": false,
+      "id": "clothes_and_accessories_w46"
+    },
+    {
+      "prompt": "uniform",
+      "answer": "uniforme",
+      "removed": false,
+      "id": "clothes_and_accessories_w47"
+    },
+    {
+      "prompt": "wallet",
+      "answer": "portefeuille",
+      "removed": false,
+      "id": "clothes_and_accessories_w48"
+    },
+    {
+      "prompt": "watch",
+      "answer": "montre",
+      "removed": false,
+      "id": "clothes_and_accessories_w49"
+    },
+    {
+      "prompt": "wear",
+      "answer": "porter",
+      "removed": false,
+      "id": "clothes_and_accessories_w50"
+    }
   ]
 }

@@ -432,4 +432,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reverseModeDesc => 'Devinez la question via la réponse';
+
+  @override
+  String get quizModeTitle => 'Quiz Rapide';
+
+  @override
+  String get quizModeDesc => 'Choisis la bonne réponse parmi 4 propositions.';
 }

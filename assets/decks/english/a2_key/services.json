@@ -5,21 +5,101 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "bank", "answer": "banque", "removed": false},
-    {"prompt": "barber", "answer": "coiffeur", "removed": false},
-    {"prompt": "bus service", "answer": "service de bus", "removed": false},
-    {"prompt": "cleaning", "answer": "nettoyage", "removed": false},
-    {"prompt": "dentist", "answer": "dentiste", "removed": false},
-    {"prompt": "doctor", "answer": "médecin", "removed": false},
-    {"prompt": "help", "answer": "aide", "removed": false},
-    {"prompt": "hotel service", "answer": "service hôtelier", "removed": false},
-    {"prompt": "information", "answer": "information", "removed": false},
-    {"prompt": "internet", "answer": "internet", "removed": false},
-    {"prompt": "police", "answer": "police", "removed": false},
-    {"prompt": "post office", "answer": "bureau de poste", "removed": false},
-    {"prompt": "service", "answer": "service", "removed": false},
-    {"prompt": "shop", "answer": "magasin", "removed": false},
-    {"prompt": "waiter", "answer": "serveur", "removed": false},
-    {"prompt": "waitress", "answer": "serveuse", "removed": false}
+    {
+      "prompt": "bank",
+      "answer": "banque",
+      "removed": false,
+      "id": "services_w1"
+    },
+    {
+      "prompt": "barber",
+      "answer": "coiffeur",
+      "removed": false,
+      "id": "services_w2"
+    },
+    {
+      "prompt": "bus service",
+      "answer": "service de bus",
+      "removed": false,
+      "id": "services_w3"
+    },
+    {
+      "prompt": "cleaning",
+      "answer": "nettoyage",
+      "removed": false,
+      "id": "services_w4"
+    },
+    {
+      "prompt": "dentist",
+      "answer": "dentiste",
+      "removed": false,
+      "id": "services_w5"
+    },
+    {
+      "prompt": "doctor",
+      "answer": "médecin",
+      "removed": false,
+      "id": "services_w6"
+    },
+    {
+      "prompt": "help",
+      "answer": "aide",
+      "removed": false,
+      "id": "services_w7"
+    },
+    {
+      "prompt": "hotel service",
+      "answer": "service hôtelier",
+      "removed": false,
+      "id": "services_w8"
+    },
+    {
+      "prompt": "information",
+      "answer": "information",
+      "removed": false,
+      "id": "services_w9"
+    },
+    {
+      "prompt": "internet",
+      "answer": "internet",
+      "removed": false,
+      "id": "services_w10"
+    },
+    {
+      "prompt": "police",
+      "answer": "police",
+      "removed": false,
+      "id": "services_w11"
+    },
+    {
+      "prompt": "post office",
+      "answer": "bureau de poste",
+      "removed": false,
+      "id": "services_w12"
+    },
+    {
+      "prompt": "service",
+      "answer": "service",
+      "removed": false,
+      "id": "services_w13"
+    },
+    {
+      "prompt": "shop",
+      "answer": "magasin",
+      "removed": false,
+      "id": "services_w14"
+    },
+    {
+      "prompt": "waiter",
+      "answer": "serveur",
+      "removed": false,
+      "id": "services_w15"
+    },
+    {
+      "prompt": "waitress",
+      "answer": "serveuse",
+      "removed": false,
+      "id": "services_w16"
+    }
   ]
 }

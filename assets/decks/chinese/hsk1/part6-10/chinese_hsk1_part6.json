@@ -5,17 +5,77 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "huì", "answer": "会", "meaning": "savoir faire, pouvoir (capacité)", "removed": false},
-    {"prompt": "shuō", "answer": "说", "meaning": "parler, dire", "removed": false},
-    {"prompt": "māma", "answer": "妈妈", "meaning": "maman", "removed": false},
-    {"prompt": "cài", "answer": "菜", "meaning": "plat, légume", "removed": false},
-    {"prompt": "hěn", "answer": "很", "meaning": "très", "removed": false},
-    {"prompt": "hǎochī", "answer": "好吃", "meaning": "délicieux", "removed": false},
-    {"prompt": "zuò", "answer": "做", "meaning": "faire, préparer", "removed": false},
-    {"prompt": "xiě", "answer": "写", "meaning": "écrire", "removed": false},
-    {"prompt": "Hànzì", "answer": "汉字", "meaning": "caractère chinois", "removed": false},
-    {"prompt": "zì", "answer": "字", "meaning": "caractère, mot", "removed": false},
-    {"prompt": "zěnme", "answer": "怎么", "meaning": "comment", "removed": false},
-    {"prompt": "dú", "answer": "读", "meaning": "lire, étudier", "removed": false}
+    {
+      "prompt": "huì",
+      "answer": "会",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w1"
+    },
+    {
+      "prompt": "shuō",
+      "answer": "说",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w2"
+    },
+    {
+      "prompt": "māma",
+      "answer": "妈妈",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w3"
+    },
+    {
+      "prompt": "cài",
+      "answer": "菜",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w4"
+    },
+    {
+      "prompt": "hěn",
+      "answer": "很",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w5"
+    },
+    {
+      "prompt": "hǎochī",
+      "answer": "好吃",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w6"
+    },
+    {
+      "prompt": "zuò",
+      "answer": "做",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w7"
+    },
+    {
+      "prompt": "xiě",
+      "answer": "写",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w8"
+    },
+    {
+      "prompt": "Hànzì",
+      "answer": "汉字",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w9"
+    },
+    {
+      "prompt": "zì",
+      "answer": "字",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w10"
+    },
+    {
+      "prompt": "zěnme",
+      "answer": "怎么",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w11"
+    },
+    {
+      "prompt": "dú",
+      "answer": "读",
+      "removed": false,
+      "id": "chinese_hsk1_part6_w12"
+    }
   ]
 }

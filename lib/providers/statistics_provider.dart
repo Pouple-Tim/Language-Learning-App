@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/data/models/review_history.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
+
+class GameModeStat {
+  final GameType type;
+  final String label;
+  final int count;
+
+  const GameModeStat({required this.type, required this.label, required this.count});
+}
 
 class StatisticsProvider extends ChangeNotifier {
   ReviewHistory _history = ReviewHistory.empty();
@@ -74,36 +83,22 @@ class StatisticsProvider extends ChangeNotifier {
   // STATISTIQUES CALCULÉES
   // ============================================================
 
-  /// NOUVEAU : Répartition des modes de jeu (pour le graphique)
-  /// Retourne une liste triée : [MapEntry('Classic', 50), MapEntry('Reverse', 20)]
-  List<MapEntry<String, int>> getGameModeStats() {
-    final Map<String, int> stats = {};
+  /// Répartition des modes de jeu (pour le graphique), triée par nombre
+  /// de parties décroissant.
+  List<GameModeStat> getGameModeStats() {
+    final Map<GameType, int> counts = {};
 
     for (final entry in _history.entries) {
-      // Si l'entrée est ancienne et n'a pas de gameMode, on la compte comme 'classic' par défaut
-      // ou on l'ignore selon ta préférence. Ici 'classic' par défaut.
-      final mode = entry.gameMode ?? 'classic';
-      
-      // On normalise le nom (optionnel, pour avoir une jolie casse)
-      final modeName = _formatModeName(mode);
-      
-      stats[modeName] = (stats[modeName] ?? 0) + 1;
+      final type = GameTypeIdentity.fromStorageId(entry.gameMode ?? 'classic');
+      counts[type] = (counts[type] ?? 0) + 1;
     }
 
-    // Trier par nombre décroissant (le plus joué en premier)
-    final sorted = stats.entries.toList()
-      ..sort((a, b) => b.value.compareTo(a.value));
+    final stats = counts.entries
+        .map((e) => GameModeStat(type: e.key, label: e.key.statsLabel, count: e.value))
+        .toList()
+      ..sort((a, b) => b.count.compareTo(a.count));
 
-    return sorted;
-  }
-
-  String _formatModeName(String modeId) {
-    switch (modeId.toLowerCase()) {
-      case 'classic': return 'Classique';
-      case 'reverse': return 'Inversé';
-      case 'quiz': return 'Quiz';
-      default: return modeId[0].toUpperCase() + modeId.substring(1);
-    }
+    return stats;
   }
 
   /// Nombre de mots révisés par jour (7 derniers jours)

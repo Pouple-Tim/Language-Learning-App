@@ -15,10 +15,10 @@ void main() {
         type: DeckType.base,
         inputType: InputType.text,
         words: [
-          Word(prompt: '1', answer: 'one', removed: false),
-          Word(prompt: '2', answer: 'two', removed: true), // Déjà fait
-          Word(prompt: '3', answer: 'three', removed: false),
-          Word(prompt: '4', answer: 'four', removed: true), // Déjà fait
+          Word(id: 'w1', prompt: '1', answer: 'one', removed: false),
+          Word(id: 'w2', prompt: '2', answer: 'two', removed: true), // Déjà fait
+          Word(id: 'w3', prompt: '3', answer: 'three', removed: false),
+          Word(id: 'w4', prompt: '4', answer: 'four', removed: true), // Déjà fait
         ],
       );
     });

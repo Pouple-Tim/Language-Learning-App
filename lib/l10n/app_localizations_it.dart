@@ -433,4 +433,10 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get reverseModeDesc => 'Indovina la domanda dalla risposta';
+
+  @override
+  String get quizModeTitle => 'Quiz Veloce';
+
+  @override
+  String get quizModeDesc => 'Scegli la risposta corretta tra 4 opzioni.';
 }

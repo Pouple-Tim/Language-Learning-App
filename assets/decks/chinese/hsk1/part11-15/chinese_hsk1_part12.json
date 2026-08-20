@@ -5,20 +5,95 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "tiānqì", "answer": "天气", "meaning": "temps (météo)", "removed": false},
-    {"prompt": "zěnmeyàng", "answer": "怎么样", "meaning": "comment, que penses-tu de", "removed": false},
-    {"prompt": "tài ... le", "answer": "太...了", "meaning": "trop...", "removed": false},
-    {"prompt": "rè", "answer": "热", "meaning": "chaud", "removed": false},
-    {"prompt": "lěng", "answer": "冷", "meaning": "froid", "removed": false},
-    {"prompt": "xià yǔ", "answer": "下雨", "meaning": "pleuvoir", "removed": false},
-    {"prompt": "xià", "answer": "下", "meaning": "descendre, sous", "removed": false},
-    {"prompt": "yǔ", "answer": "雨", "meaning": "pluie", "removed": false},
-    {"prompt": "xiǎojiě", "answer": "小姐", "meaning": "mademoiselle", "removed": false},
-    {"prompt": "lái", "answer": "来", "meaning": "venir", "removed": false},
-    {"prompt": "shēntǐ", "answer": "身体", "meaning": "corps, santé", "removed": false},
-    {"prompt": "ài", "answer": "爱", "meaning": "aimer", "removed": false},
-    {"prompt": "xiē", "answer": "些", "meaning": "quelques, un peu, certains", "removed": false},
-    {"prompt": "shuǐguǒ", "answer": "水果", "meaning": "fruit", "removed": false},
-    {"prompt": "shuǐ", "answer": "水", "meaning": "eau", "removed": false}
+    {
+      "prompt": "tiānqì",
+      "answer": "天气",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w1"
+    },
+    {
+      "prompt": "zěnmeyàng",
+      "answer": "怎么样",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w2"
+    },
+    {
+      "prompt": "tài ... le",
+      "answer": "太...了",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w3"
+    },
+    {
+      "prompt": "rè",
+      "answer": "热",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w4"
+    },
+    {
+      "prompt": "lěng",
+      "answer": "冷",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w5"
+    },
+    {
+      "prompt": "xià yǔ",
+      "answer": "下雨",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w6"
+    },
+    {
+      "prompt": "xià",
+      "answer": "下",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w7"
+    },
+    {
+      "prompt": "yǔ",
+      "answer": "雨",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w8"
+    },
+    {
+      "prompt": "xiǎojiě",
+      "answer": "小姐",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w9"
+    },
+    {
+      "prompt": "lái",
+      "answer": "来",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w10"
+    },
+    {
+      "prompt": "shēntǐ",
+      "answer": "身体",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w11"
+    },
+    {
+      "prompt": "ài",
+      "answer": "爱",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w12"
+    },
+    {
+      "prompt": "xiē",
+      "answer": "些",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w13"
+    },
+    {
+      "prompt": "shuǐguǒ",
+      "answer": "水果",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w14"
+    },
+    {
+      "prompt": "shuǐ",
+      "answer": "水",
+      "removed": false,
+      "id": "chinese_hsk1_part12_w15"
+    }
   ]
 }

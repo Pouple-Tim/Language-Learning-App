@@ -5,7 +5,7 @@ part 'review_history.g.dart';
 /// Représente une révision d'un mot à un moment donné
 @JsonSerializable()
 class ReviewEntry {
-  final String wordId;           // ID unique du mot (prompt)
+  final String wordId;           // ID stable du mot (Word.id)
   final String deckId;           // ID du deck
   final DateTime reviewedAt;     // Date et heure de la révision
   final bool wasCorrect;         // Si la réponse était correcte

@@ -5,20 +5,95 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "xiǎng", "answer": "想", "meaning": "vouloir, penser à", "removed": false},
-    {"prompt": "hē", "answer": "喝", "meaning": "boire", "removed": false},
-    {"prompt": "chá", "answer": "茶", "meaning": "thé", "removed": false},
-    {"prompt": "chī", "answer": "吃", "meaning": "manger", "removed": false},
-    {"prompt": "mǐfàn", "answer": "米饭", "meaning": "riz cuit, repas", "removed": false},
-    {"prompt": "xiàwǔ", "answer": "下午", "meaning": "après-midi", "removed": false},
-    {"prompt": "shāngdiàn", "answer": "商店", "meaning": "magasin", "removed": false},
-    {"prompt": "mǎi", "answer": "买", "meaning": "acheter", "removed": false},
-    {"prompt": "gè", "answer": "个", "meaning": "classificateur général", "removed": false},
-    {"prompt": "bēizi", "answer": "杯子", "meaning": "verre, tasse", "removed": false},
-    {"prompt": "zhè", "answer": "这", "meaning": "ce, ceci", "removed": false},
-    {"prompt": "duōshao", "answer": "多少", "meaning": "combien", "removed": false},
-    {"prompt": "qián", "answer": "钱", "meaning": "argent", "removed": false},
-    {"prompt": "kuài", "answer": "块", "meaning": "yuan (monnaie), morceau", "removed": false},
-    {"prompt": "nà", "answer": "那", "meaning": "cela, celui-là", "removed": false}
+    {
+      "prompt": "xiǎng",
+      "answer": "想",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w1"
+    },
+    {
+      "prompt": "hē",
+      "answer": "喝",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w2"
+    },
+    {
+      "prompt": "chá",
+      "answer": "茶",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w3"
+    },
+    {
+      "prompt": "chī",
+      "answer": "吃",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w4"
+    },
+    {
+      "prompt": "mǐfàn",
+      "answer": "米饭",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w5"
+    },
+    {
+      "prompt": "xiàwǔ",
+      "answer": "下午",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w6"
+    },
+    {
+      "prompt": "shāngdiàn",
+      "answer": "商店",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w7"
+    },
+    {
+      "prompt": "mǎi",
+      "answer": "买",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w8"
+    },
+    {
+      "prompt": "gè",
+      "answer": "个",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w9"
+    },
+    {
+      "prompt": "bēizi",
+      "answer": "杯子",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w10"
+    },
+    {
+      "prompt": "zhè",
+      "answer": "这",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w11"
+    },
+    {
+      "prompt": "duōshao",
+      "answer": "多少",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w12"
+    },
+    {
+      "prompt": "qián",
+      "answer": "钱",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w13"
+    },
+    {
+      "prompt": "kuài",
+      "answer": "块",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w14"
+    },
+    {
+      "prompt": "nà",
+      "answer": "那",
+      "removed": false,
+      "id": "chinese_hsk1_part8_w15"
+    }
   ]
 }

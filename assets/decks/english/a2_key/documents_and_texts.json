@@ -5,25 +5,125 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "article", "answer": "article", "removed": false},
-    {"prompt": "book", "answer": "livre", "removed": false},
-    {"prompt": "card", "answer": "carte", "removed": false},
-    {"prompt": "dictionary", "answer": "dictionnaire", "removed": false},
-    {"prompt": "email", "answer": "email", "removed": false},
-    {"prompt": "file", "answer": "fichier", "removed": false},
-    {"prompt": "letter", "answer": "lettre", "removed": false},
-    {"prompt": "magazine", "answer": "magazine", "removed": false},
-    {"prompt": "message", "answer": "message", "removed": false},
-    {"prompt": "newspaper", "answer": "journal", "removed": false},
-    {"prompt": "note", "answer": "note", "removed": false},
-    {"prompt": "page", "answer": "page", "removed": false},
-    {"prompt": "passport", "answer": "passeport", "removed": false},
-    {"prompt": "pen", "answer": "stylo", "removed": false},
-    {"prompt": "pencil", "answer": "crayon", "removed": false},
-    {"prompt": "postcard", "answer": "carte postale", "removed": false},
-    {"prompt": "report", "answer": "rapport", "removed": false},
-    {"prompt": "sign", "answer": "pancarte / panneau", "removed": false},
-    {"prompt": "text", "answer": "texte", "removed": false},
-    {"prompt": "ticket", "answer": "ticket / billet", "removed": false}
+    {
+      "prompt": "article",
+      "answer": "article",
+      "removed": false,
+      "id": "documents_and_texts_w1"
+    },
+    {
+      "prompt": "book",
+      "answer": "livre",
+      "removed": false,
+      "id": "documents_and_texts_w2"
+    },
+    {
+      "prompt": "card",
+      "answer": "carte",
+      "removed": false,
+      "id": "documents_and_texts_w3"
+    },
+    {
+      "prompt": "dictionary",
+      "answer": "dictionnaire",
+      "removed": false,
+      "id": "documents_and_texts_w4"
+    },
+    {
+      "prompt": "email",
+      "answer": "email",
+      "removed": false,
+      "id": "documents_and_texts_w5"
+    },
+    {
+      "prompt": "file",
+      "answer": "fichier",
+      "removed": false,
+      "id": "documents_and_texts_w6"
+    },
+    {
+      "prompt": "letter",
+      "answer": "lettre",
+      "removed": false,
+      "id": "documents_and_texts_w7"
+    },
+    {
+      "prompt": "magazine",
+      "answer": "magazine",
+      "removed": false,
+      "id": "documents_and_texts_w8"
+    },
+    {
+      "prompt": "message",
+      "answer": "message",
+      "removed": false,
+      "id": "documents_and_texts_w9"
+    },
+    {
+      "prompt": "newspaper",
+      "answer": "journal",
+      "removed": false,
+      "id": "documents_and_texts_w10"
+    },
+    {
+      "prompt": "note",
+      "answer": "note",
+      "removed": false,
+      "id": "documents_and_texts_w11"
+    },
+    {
+      "prompt": "page",
+      "answer": "page",
+      "removed": false,
+      "id": "documents_and_texts_w12"
+    },
+    {
+      "prompt": "passport",
+      "answer": "passeport",
+      "removed": false,
+      "id": "documents_and_texts_w13"
+    },
+    {
+      "prompt": "pen",
+      "answer": "stylo",
+      "removed": false,
+      "id": "documents_and_texts_w14"
+    },
+    {
+      "prompt": "pencil",
+      "answer": "crayon",
+      "removed": false,
+      "id": "documents_and_texts_w15"
+    },
+    {
+      "prompt": "postcard",
+      "answer": "carte postale",
+      "removed": false,
+      "id": "documents_and_texts_w16"
+    },
+    {
+      "prompt": "report",
+      "answer": "rapport",
+      "removed": false,
+      "id": "documents_and_texts_w17"
+    },
+    {
+      "prompt": "sign",
+      "answer": "pancarte / panneau",
+      "removed": false,
+      "id": "documents_and_texts_w18"
+    },
+    {
+      "prompt": "text",
+      "answer": "texte",
+      "removed": false,
+      "id": "documents_and_texts_w19"
+    },
+    {
+      "prompt": "ticket",
+      "answer": "ticket / billet",
+      "removed": false,
+      "id": "documents_and_texts_w20"
+    }
   ]
 }

@@ -251,5 +251,8 @@
   "noDeckSelected": "No deck selected",
   "selectDeck": "Select a deck",
   "reverseModeTitle": "Reverse Training",
-  "reverseModeDesc": "Guess the question from the answer"
+  "reverseModeDesc": "Guess the question from the answer",
+
+  "quizModeTitle": "Quick Quiz",
+  "quizModeDesc": "Choose the correct answer from 4 options."
 }

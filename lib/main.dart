@@ -5,7 +5,7 @@ import 'providers/theme_provider.dart';
 import 'providers/game_provider.dart';
 import 'providers/deck_provider.dart';
 import 'providers/locale_provider.dart';
-import 'providers/statistics_provider.dart'; // ⭐ NOUVEAU
+import 'providers/statistics_provider.dart';
 import 'app.dart';
 
 void main() async {

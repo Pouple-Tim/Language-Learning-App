@@ -5,50 +5,275 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "apple", "answer": "pomme", "removed": false},
-    {"prompt": "banana", "answer": "banane", "removed": false},
-    {"prompt": "beef", "answer": "boeuf", "removed": false},
-    {"prompt": "biscuit", "answer": "biscuit", "removed": false},
-    {"prompt": "bread", "answer": "pain", "removed": false},
-    {"prompt": "breakfast", "answer": "petit-déjeuner", "removed": false},
-    {"prompt": "butter", "answer": "beurre", "removed": false},
-    {"prompt": "cake", "answer": "gâteau", "removed": false},
-    {"prompt": "carrot", "answer": "carotte", "removed": false},
-    {"prompt": "cheese", "answer": "fromage", "removed": false},
-    {"prompt": "chicken", "answer": "poulet", "removed": false},
-    {"prompt": "chips", "answer": "frites", "removed": false},
-    {"prompt": "chocolate", "answer": "chocolat", "removed": false},
-    {"prompt": "coffee", "answer": "café", "removed": false},
-    {"prompt": "coke", "answer": "coca", "removed": false},
-    {"prompt": "dessert", "answer": "dessert", "removed": false},
-    {"prompt": "drink", "answer": "boisson", "removed": false},
-    {"prompt": "egg", "answer": "oeuf", "removed": false},
-    {"prompt": "fish", "answer": "poisson", "removed": false},
-    {"prompt": "food", "answer": "nourriture", "removed": false},
-    {"prompt": "fruit", "answer": "fruit", "removed": false},
-    {"prompt": "hamburger", "answer": "hamburger", "removed": false},
-    {"prompt": "ice cream", "answer": "glace", "removed": false},
-    {"prompt": "juice", "answer": "jus", "removed": false},
-    {"prompt": "lemon", "answer": "citron", "removed": false},
-    {"prompt": "meat", "answer": "viande", "removed": false},
-    {"prompt": "milk", "answer": "lait", "removed": false},
-    {"prompt": "noodles", "answer": "nouilles", "removed": false},
-    {"prompt": "orange", "answer": "orange", "removed": false},
-    {"prompt": "pasta", "answer": "pâtes", "removed": false},
-    {"prompt": "pie", "answer": "tarte", "removed": false},
-    {"prompt": "pizza", "answer": "pizza", "removed": false},
-    {"prompt": "potato", "answer": "pomme de terre", "removed": false},
-    {"prompt": "rice", "answer": "riz", "removed": false},
-    {"prompt": "salad", "answer": "salade", "removed": false},
-    {"prompt": "salt", "answer": "sel", "removed": false},
-    {"prompt": "sandwich", "answer": "sandwich", "removed": false},
-    {"prompt": "soup", "answer": "soupe", "removed": false},
-    {"prompt": "spaghetti", "answer": "spaghettis", "removed": false},
-    {"prompt": "sugar", "answer": "sucre", "removed": false},
-    {"prompt": "tea", "answer": "thé", "removed": false},
-    {"prompt": "tomato", "answer": "tomate", "removed": false},
-    {"prompt": "vegetable", "answer": "légume", "removed": false},
-    {"prompt": "water", "answer": "eau", "removed": false},
-    {"prompt": "wine", "answer": "vin", "removed": false}
+    {
+      "prompt": "apple",
+      "answer": "pomme",
+      "removed": false,
+      "id": "food_and_drink_w1"
+    },
+    {
+      "prompt": "banana",
+      "answer": "banane",
+      "removed": false,
+      "id": "food_and_drink_w2"
+    },
+    {
+      "prompt": "beef",
+      "answer": "boeuf",
+      "removed": false,
+      "id": "food_and_drink_w3"
+    },
+    {
+      "prompt": "biscuit",
+      "answer": "biscuit",
+      "removed": false,
+      "id": "food_and_drink_w4"
+    },
+    {
+      "prompt": "bread",
+      "answer": "pain",
+      "removed": false,
+      "id": "food_and_drink_w5"
+    },
+    {
+      "prompt": "breakfast",
+      "answer": "petit-déjeuner",
+      "removed": false,
+      "id": "food_and_drink_w6"
+    },
+    {
+      "prompt": "butter",
+      "answer": "beurre",
+      "removed": false,
+      "id": "food_and_drink_w7"
+    },
+    {
+      "prompt": "cake",
+      "answer": "gâteau",
+      "removed": false,
+      "id": "food_and_drink_w8"
+    },
+    {
+      "prompt": "carrot",
+      "answer": "carotte",
+      "removed": false,
+      "id": "food_and_drink_w9"
+    },
+    {
+      "prompt": "cheese",
+      "answer": "fromage",
+      "removed": false,
+      "id": "food_and_drink_w10"
+    },
+    {
+      "prompt": "chicken",
+      "answer": "poulet",
+      "removed": false,
+      "id": "food_and_drink_w11"
+    },
+    {
+      "prompt": "chips",
+      "answer": "frites",
+      "removed": false,
+      "id": "food_and_drink_w12"
+    },
+    {
+      "prompt": "chocolate",
+      "answer": "chocolat",
+      "removed": false,
+      "id": "food_and_drink_w13"
+    },
+    {
+      "prompt": "coffee",
+      "answer": "café",
+      "removed": false,
+      "id": "food_and_drink_w14"
+    },
+    {
+      "prompt": "coke",
+      "answer": "coca",
+      "removed": false,
+      "id": "food_and_drink_w15"
+    },
+    {
+      "prompt": "dessert",
+      "answer": "dessert",
+      "removed": false,
+      "id": "food_and_drink_w16"
+    },
+    {
+      "prompt": "drink",
+      "answer": "boisson",
+      "removed": false,
+      "id": "food_and_drink_w17"
+    },
+    {
+      "prompt": "egg",
+      "answer": "oeuf",
+      "removed": false,
+      "id": "food_and_drink_w18"
+    },
+    {
+      "prompt": "fish",
+      "answer": "poisson",
+      "removed": false,
+      "id": "food_and_drink_w19"
+    },
+    {
+      "prompt": "food",
+      "answer": "nourriture",
+      "removed": false,
+      "id": "food_and_drink_w20"
+    },
+    {
+      "prompt": "fruit",
+      "answer": "fruit",
+      "removed": false,
+      "id": "food_and_drink_w21"
+    },
+    {
+      "prompt": "hamburger",
+      "answer": "hamburger",
+      "removed": false,
+      "id": "food_and_drink_w22"
+    },
+    {
+      "prompt": "ice cream",
+      "answer": "glace",
+      "removed": false,
+      "id": "food_and_drink_w23"
+    },
+    {
+      "prompt": "juice",
+      "answer": "jus",
+      "removed": false,
+      "id": "food_and_drink_w24"
+    },
+    {
+      "prompt": "lemon",
+      "answer": "citron",
+      "removed": false,
+      "id": "food_and_drink_w25"
+    },
+    {
+      "prompt": "meat",
+      "answer": "viande",
+      "removed": false,
+      "id": "food_and_drink_w26"
+    },
+    {
+      "prompt": "milk",
+      "answer": "lait",
+      "removed": false,
+      "id": "food_and_drink_w27"
+    },
+    {
+      "prompt": "noodles",
+      "answer": "nouilles",
+      "removed": false,
+      "id": "food_and_drink_w28"
+    },
+    {
+      "prompt": "orange",
+      "answer": "orange",
+      "removed": false,
+      "id": "food_and_drink_w29"
+    },
+    {
+      "prompt": "pasta",
+      "answer": "pâtes",
+      "removed": false,
+      "id": "food_and_drink_w30"
+    },
+    {
+      "prompt": "pie",
+      "answer": "tarte",
+      "removed": false,
+      "id": "food_and_drink_w31"
+    },
+    {
+      "prompt": "pizza",
+      "answer": "pizza",
+      "removed": false,
+      "id": "food_and_drink_w32"
+    },
+    {
+      "prompt": "potato",
+      "answer": "pomme de terre",
+      "removed": false,
+      "id": "food_and_drink_w33"
+    },
+    {
+      "prompt": "rice",
+      "answer": "riz",
+      "removed": false,
+      "id": "food_and_drink_w34"
+    },
+    {
+      "prompt": "salad",
+      "answer": "salade",
+      "removed": false,
+      "id": "food_and_drink_w35"
+    },
+    {
+      "prompt": "salt",
+      "answer": "sel",
+      "removed": false,
+      "id": "food_and_drink_w36"
+    },
+    {
+      "prompt": "sandwich",
+      "answer": "sandwich",
+      "removed": false,
+      "id": "food_and_drink_w37"
+    },
+    {
+      "prompt": "soup",
+      "answer": "soupe",
+      "removed": false,
+      "id": "food_and_drink_w38"
+    },
+    {
+      "prompt": "spaghetti",
+      "answer": "spaghettis",
+      "removed": false,
+      "id": "food_and_drink_w39"
+    },
+    {
+      "prompt": "sugar",
+      "answer": "sucre",
+      "removed": false,
+      "id": "food_and_drink_w40"
+    },
+    {
+      "prompt": "tea",
+      "answer": "thé",
+      "removed": false,
+      "id": "food_and_drink_w41"
+    },
+    {
+      "prompt": "tomato",
+      "answer": "tomate",
+      "removed": false,
+      "id": "food_and_drink_w42"
+    },
+    {
+      "prompt": "vegetable",
+      "answer": "légume",
+      "removed": false,
+      "id": "food_and_drink_w43"
+    },
+    {
+      "prompt": "water",
+      "answer": "eau",
+      "removed": false,
+      "id": "food_and_drink_w44"
+    },
+    {
+      "prompt": "wine",
+      "answer": "vin",
+      "removed": false,
+      "id": "food_and_drink_w45"
+    }
   ]
 }

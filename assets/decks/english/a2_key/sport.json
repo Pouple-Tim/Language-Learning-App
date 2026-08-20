@@ -5,21 +5,101 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "ball", "answer": "balle / ballon", "removed": false},
-    {"prompt": "basketball", "answer": "basket-ball", "removed": false},
-    {"prompt": "camp", "answer": "camp", "removed": false},
-    {"prompt": "cycling", "answer": "cyclisme", "removed": false},
-    {"prompt": "football", "answer": "football", "removed": false},
-    {"prompt": "game", "answer": "jeu / match", "removed": false},
-    {"prompt": "golf", "answer": "golf", "removed": false},
-    {"prompt": "gym", "answer": "salle de sport", "removed": false},
-    {"prompt": "player", "answer": "joueur", "removed": false},
-    {"prompt": "run", "answer": "courir", "removed": false},
-    {"prompt": "ski", "answer": "ski", "removed": false},
-    {"prompt": "swim", "answer": "nager", "removed": false},
-    {"prompt": "swimming", "answer": "natation", "removed": false},
-    {"prompt": "tennis", "answer": "tennis", "removed": false},
-    {"prompt": "team", "answer": "équipe", "removed": false},
-    {"prompt": "walk", "answer": "marcher", "removed": false}
+    {
+      "prompt": "ball",
+      "answer": "balle / ballon",
+      "removed": false,
+      "id": "sport_w1"
+    },
+    {
+      "prompt": "basketball",
+      "answer": "basket-ball",
+      "removed": false,
+      "id": "sport_w2"
+    },
+    {
+      "prompt": "camp",
+      "answer": "camp",
+      "removed": false,
+      "id": "sport_w3"
+    },
+    {
+      "prompt": "cycling",
+      "answer": "cyclisme",
+      "removed": false,
+      "id": "sport_w4"
+    },
+    {
+      "prompt": "football",
+      "answer": "football",
+      "removed": false,
+      "id": "sport_w5"
+    },
+    {
+      "prompt": "game",
+      "answer": "jeu / match",
+      "removed": false,
+      "id": "sport_w6"
+    },
+    {
+      "prompt": "golf",
+      "answer": "golf",
+      "removed": false,
+      "id": "sport_w7"
+    },
+    {
+      "prompt": "gym",
+      "answer": "salle de sport",
+      "removed": false,
+      "id": "sport_w8"
+    },
+    {
+      "prompt": "player",
+      "answer": "joueur",
+      "removed": false,
+      "id": "sport_w9"
+    },
+    {
+      "prompt": "run",
+      "answer": "courir",
+      "removed": false,
+      "id": "sport_w10"
+    },
+    {
+      "prompt": "ski",
+      "answer": "ski",
+      "removed": false,
+      "id": "sport_w11"
+    },
+    {
+      "prompt": "swim",
+      "answer": "nager",
+      "removed": false,
+      "id": "sport_w12"
+    },
+    {
+      "prompt": "swimming",
+      "answer": "natation",
+      "removed": false,
+      "id": "sport_w13"
+    },
+    {
+      "prompt": "tennis",
+      "answer": "tennis",
+      "removed": false,
+      "id": "sport_w14"
+    },
+    {
+      "prompt": "team",
+      "answer": "équipe",
+      "removed": false,
+      "id": "sport_w15"
+    },
+    {
+      "prompt": "walk",
+      "answer": "marcher",
+      "removed": false,
+      "id": "sport_w16"
+    }
   ]
 }

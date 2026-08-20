@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/deck_manifest.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
 import 'package:language_learning_app/core/constants/app_constants.dart';
 
@@ -148,10 +149,8 @@ class DeckRepository {
 
   /// Réinitialise TOUTES les progressions d'un deck (tous modes confondus)
   Future<void> resetAllProgressForDeck(String deckId) async {
-    // Liste des modes connus (à adapter si tu en ajoutes)
-    const gameModes = ['classic', 'reverse'];
-    for (final mode in gameModes) {
-      await resetProgress(deckId, mode);
+    for (final type in GameType.values) {
+      await resetProgress(deckId, type.storageId);
     }
     debugPrint('🗑️ Toutes les progressions supprimées pour: $deckId');
   }

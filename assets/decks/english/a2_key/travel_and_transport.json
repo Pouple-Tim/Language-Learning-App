@@ -5,29 +5,149 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "airport", "answer": "aéroport", "removed": false},
-    {"prompt": "bike", "answer": "vélo", "removed": false},
-    {"prompt": "boat", "answer": "bateau", "removed": false},
-    {"prompt": "bus", "answer": "bus", "removed": false},
-    {"prompt": "bus station", "answer": "gare routière", "removed": false},
-    {"prompt": "car", "answer": "voiture", "removed": false},
-    {"prompt": "driver", "answer": "conducteur", "removed": false},
-    {"prompt": "flight", "answer": "vol", "removed": false},
-    {"prompt": "holiday", "answer": "vacances", "removed": false},
-    {"prompt": "journey", "answer": "voyage", "removed": false},
-    {"prompt": "map", "answer": "carte", "removed": false},
-    {"prompt": "motorbike", "answer": "moto", "removed": false},
-    {"prompt": "plane", "answer": "avion", "removed": false},
-    {"prompt": "road", "answer": "route", "removed": false},
-    {"prompt": "ship", "answer": "navire", "removed": false},
-    {"prompt": "station", "answer": "gare", "removed": false},
-    {"prompt": "street", "answer": "rue", "removed": false},
-    {"prompt": "taxi", "answer": "taxi", "removed": false},
-    {"prompt": "ticket", "answer": "billet / ticket", "removed": false},
-    {"prompt": "tourist", "answer": "touriste", "removed": false},
-    {"prompt": "traffic", "answer": "trafic", "removed": false},
-    {"prompt": "train", "answer": "train", "removed": false},
-    {"prompt": "travel", "answer": "voyager", "removed": false},
-    {"prompt": "trip", "answer": "voyage / excursion", "removed": false}
+    {
+      "prompt": "airport",
+      "answer": "aéroport",
+      "removed": false,
+      "id": "travel_and_transport_w1"
+    },
+    {
+      "prompt": "bike",
+      "answer": "vélo",
+      "removed": false,
+      "id": "travel_and_transport_w2"
+    },
+    {
+      "prompt": "boat",
+      "answer": "bateau",
+      "removed": false,
+      "id": "travel_and_transport_w3"
+    },
+    {
+      "prompt": "bus",
+      "answer": "bus",
+      "removed": false,
+      "id": "travel_and_transport_w4"
+    },
+    {
+      "prompt": "bus station",
+      "answer": "gare routière",
+      "removed": false,
+      "id": "travel_and_transport_w5"
+    },
+    {
+      "prompt": "car",
+      "answer": "voiture",
+      "removed": false,
+      "id": "travel_and_transport_w6"
+    },
+    {
+      "prompt": "driver",
+      "answer": "conducteur",
+      "removed": false,
+      "id": "travel_and_transport_w7"
+    },
+    {
+      "prompt": "flight",
+      "answer": "vol",
+      "removed": false,
+      "id": "travel_and_transport_w8"
+    },
+    {
+      "prompt": "holiday",
+      "answer": "vacances",
+      "removed": false,
+      "id": "travel_and_transport_w9"
+    },
+    {
+      "prompt": "journey",
+      "answer": "voyage",
+      "removed": false,
+      "id": "travel_and_transport_w10"
+    },
+    {
+      "prompt": "map",
+      "answer": "carte",
+      "removed": false,
+      "id": "travel_and_transport_w11"
+    },
+    {
+      "prompt": "motorbike",
+      "answer": "moto",
+      "removed": false,
+      "id": "travel_and_transport_w12"
+    },
+    {
+      "prompt": "plane",
+      "answer": "avion",
+      "removed": false,
+      "id": "travel_and_transport_w13"
+    },
+    {
+      "prompt": "road",
+      "answer": "route",
+      "removed": false,
+      "id": "travel_and_transport_w14"
+    },
+    {
+      "prompt": "ship",
+      "answer": "navire",
+      "removed": false,
+      "id": "travel_and_transport_w15"
+    },
+    {
+      "prompt": "station",
+      "answer": "gare",
+      "removed": false,
+      "id": "travel_and_transport_w16"
+    },
+    {
+      "prompt": "street",
+      "answer": "rue",
+      "removed": false,
+      "id": "travel_and_transport_w17"
+    },
+    {
+      "prompt": "taxi",
+      "answer": "taxi",
+      "removed": false,
+      "id": "travel_and_transport_w18"
+    },
+    {
+      "prompt": "ticket",
+      "answer": "billet / ticket",
+      "removed": false,
+      "id": "travel_and_transport_w19"
+    },
+    {
+      "prompt": "tourist",
+      "answer": "touriste",
+      "removed": false,
+      "id": "travel_and_transport_w20"
+    },
+    {
+      "prompt": "traffic",
+      "answer": "trafic",
+      "removed": false,
+      "id": "travel_and_transport_w21"
+    },
+    {
+      "prompt": "train",
+      "answer": "train",
+      "removed": false,
+      "id": "travel_and_transport_w22"
+    },
+    {
+      "prompt": "travel",
+      "answer": "voyager",
+      "removed": false,
+      "id": "travel_and_transport_w23"
+    },
+    {
+      "prompt": "trip",
+      "answer": "voyage / excursion",
+      "removed": false,
+      "id": "travel_and_transport_w24"
+    }
   ]
 }

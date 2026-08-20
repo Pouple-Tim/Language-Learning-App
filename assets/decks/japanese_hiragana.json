@@ -5,15 +5,65 @@
   "inputType": "text",
   "reverseInputType": "draw",
   "words": [
-    {"prompt": "あ", "answer": "a", "removed": false},
-    {"prompt": "い", "answer": "i", "removed": false},
-    {"prompt": "う", "answer": "u", "removed": false},
-    {"prompt": "え", "answer": "e", "removed": false},
-    {"prompt": "お", "answer": "o", "removed": false},
-    {"prompt": "か", "answer": "ka", "removed": false},
-    {"prompt": "き", "answer": "ki", "removed": false},
-    {"prompt": "く", "answer": "ku", "removed": false},
-    {"prompt": "け", "answer": "ke", "removed": false},
-    {"prompt": "こ", "answer": "ko", "removed": false}
+    {
+      "prompt": "あ",
+      "answer": "a",
+      "removed": false,
+      "id": "japanese_hiragana_base_w1"
+    },
+    {
+      "prompt": "い",
+      "answer": "i",
+      "removed": false,
+      "id": "japanese_hiragana_base_w2"
+    },
+    {
+      "prompt": "う",
+      "answer": "u",
+      "removed": false,
+      "id": "japanese_hiragana_base_w3"
+    },
+    {
+      "prompt": "え",
+      "answer": "e",
+      "removed": false,
+      "id": "japanese_hiragana_base_w4"
+    },
+    {
+      "prompt": "お",
+      "answer": "o",
+      "removed": false,
+      "id": "japanese_hiragana_base_w5"
+    },
+    {
+      "prompt": "か",
+      "answer": "ka",
+      "removed": false,
+      "id": "japanese_hiragana_base_w6"
+    },
+    {
+      "prompt": "き",
+      "answer": "ki",
+      "removed": false,
+      "id": "japanese_hiragana_base_w7"
+    },
+    {
+      "prompt": "く",
+      "answer": "ku",
+      "removed": false,
+      "id": "japanese_hiragana_base_w8"
+    },
+    {
+      "prompt": "け",
+      "answer": "ke",
+      "removed": false,
+      "id": "japanese_hiragana_base_w9"
+    },
+    {
+      "prompt": "こ",
+      "answer": "ko",
+      "removed": false,
+      "id": "japanese_hiragana_base_w10"
+    }
   ]
 }

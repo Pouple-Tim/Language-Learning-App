@@ -5,15 +5,236 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "tā (homme)", "answer": "他", "meaning": "il, lui", "removed": false},
-    {"prompt": "tā (femme)", "answer": "她", "meaning": "elle", "removed": false},
-    {"prompt": "shéi", "answer": "谁", "meaning": "qui", "removed": false},
-    {"prompt": "de", "answer": "的", "meaning": "particule possessive (de)", "removed": false},
-    {"prompt": "Hànyǔ", "answer": "汉语", "meaning": "langue chinoise", "removed": false},
-    {"prompt": "nǎ", "answer": "哪", "meaning": "quel, laquelle", "removed": false},
-    {"prompt": "guó", "answer": "国", "meaning": "pays", "removed": false},
-    {"prompt": "ne", "answer": "呢", "meaning": "particule interrogative (et… ?)", "removed": false},
-    {"prompt": "tóngxué", "answer": "同学", "meaning": "camarade de classe", "removed": false},
-    {"prompt": "péngyou", "answer": "朋友", "meaning": "ami", "removed": false}
+    {
+      "prompt": "tā (homme)",
+      "answer": "他",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w1"
+    },
+    {
+      "prompt": "tā (femme)",
+      "answer": "她",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w2"
+    },
+    {
+      "prompt": "shéi",
+      "answer": "谁",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w3"
+    },
+    {
+      "prompt": "de",
+      "answer": "的",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w4"
+    },
+    {
+      "prompt": "Hànyǔ",
+      "answer": "汉语",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w5"
+    },
+    {
+      "prompt": "nǎ",
+      "answer": "哪",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w6"
+    },
+    {
+      "prompt": "guó",
+      "answer": "国",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w7"
+    },
+    {
+      "prompt": "ne",
+      "answer": "呢",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w8"
+    },
+    {
+      "prompt": "tóngxué",
+      "answer": "同学",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w9"
+    },
+    {
+      "prompt": "péngyou",
+      "answer": "朋友",
+      "removed": false,
+      "id": "chinese_hsk1_part4_w10"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p4",
+      "original": "Qui est-il ?",
+      "translation": "他是谁？",
+      "blocks": [
+        "他",
+        "是",
+        "谁",
+        "她",
+        "哪",
+        "国",
+        "?"
+      ]
+    },
+    {
+      "id": "s2_p4",
+      "original": "C'est mon professeur de chinois.",
+      "translation": "他是我的汉语老师",
+      "blocks": [
+        "他",
+        "是",
+        "我",
+        "的",
+        "汉语",
+        "老师",
+        "朋友",
+        "你"
+      ]
+    },
+    {
+      "id": "s3_p4",
+      "original": "Quelle est ta nationalité ? (Tu es de quel pays ?)",
+      "translation": "你是哪国人？",
+      "blocks": [
+        "你",
+        "是",
+        "哪",
+        "国",
+        "人",
+        "谁",
+        "呢",
+        "?"
+      ]
+    },
+    {
+      "id": "s4_p4",
+      "original": "Je suis américain, et toi ?",
+      "translation": "我是美国人你呢？",
+      "blocks": [
+        "我",
+        "是",
+        "美国",
+        "人",
+        "你",
+        "呢",
+        "吗",
+        "哪",
+        "?"
+      ]
+    },
+    {
+      "id": "s5_p4",
+      "original": "Elle est mon amie.",
+      "translation": "她是我的朋友",
+      "blocks": [
+        "她",
+        "是",
+        "我",
+        "的",
+        "朋友",
+        "同学",
+        "谁",
+        "汉语"
+      ]
+    },
+    {
+      "id": "s6_p4",
+      "original": "Est-ce qu'il est ton camarade de classe ?",
+      "translation": "他是你的同学吗？",
+      "blocks": [
+        "他",
+        "是",
+        "你",
+        "的",
+        "同学",
+        "吗",
+        "朋友",
+        "谁",
+        "?"
+      ]
+    },
+    {
+      "id": "s7_p4",
+      "original": "Qui est ton ami ?",
+      "translation": "谁是你的朋友？",
+      "blocks": [
+        "谁",
+        "是",
+        "你",
+        "的",
+        "朋友",
+        "他",
+        "哪",
+        "国",
+        "?"
+      ]
+    },
+    {
+      "id": "s8_p4",
+      "original": "Mon professeur de chinois est américain.",
+      "translation": "我的汉语老师是美国人",
+      "blocks": [
+        "我",
+        "的",
+        "汉语",
+        "老师",
+        "是",
+        "美国",
+        "人",
+        "谁"
+      ]
+    },
+    {
+      "id": "s9_p4",
+      "original": "Elle n'est pas ma camarade.",
+      "translation": "她不是我的同学",
+      "blocks": [
+        "她",
+        "不",
+        "是",
+        "我",
+        "的",
+        "同学",
+        "朋友",
+        "呢"
+      ]
+    },
+    {
+      "id": "s10_p4",
+      "original": "Quel est son nom ? (Son nom est quoi ?)",
+      "translation": "她的名字是什么？",
+      "blocks": [
+        "她",
+        "的",
+        "名字",
+        "是",
+        "什么",
+        "谁",
+        "哪",
+        "国",
+        "?"
+      ]
+    },
+    {
+      "id": "s11_p4",
+      "original": "Je suis Chinois, et elle ?",
+      "translation": "我是中国人她呢？",
+      "blocks": [
+        "我",
+        "是",
+        "中国",
+        "人",
+        "她",
+        "呢",
+        "你",
+        "哪",
+        "?"
+      ]
+    }
   ]
 }

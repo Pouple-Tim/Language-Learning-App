@@ -5,31 +5,161 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "activity", "answer": "activité", "removed": false},
-    {"prompt": "camping", "answer": "camping", "removed": false},
-    {"prompt": "chess", "answer": "échecs", "removed": false},
-    {"prompt": "cinema", "answer": "cinéma", "removed": false},
-    {"prompt": "club", "answer": "club", "removed": false},
-    {"prompt": "dancing", "answer": "danse", "removed": false},
-    {"prompt": "drawing", "answer": "dessin", "removed": false},
-    {"prompt": "fishing", "answer": "pêche", "removed": false},
-    {"prompt": "game", "answer": "jeu", "removed": false},
-    {"prompt": "gym", "answer": "salle de sport", "removed": false},
-    {"prompt": "hobby", "answer": "loisir", "removed": false},
-    {"prompt": "holiday", "answer": "vacances", "removed": false},
-    {"prompt": "interest", "answer": "intérêt", "removed": false},
-    {"prompt": "jogging", "answer": "jogging", "removed": false},
-    {"prompt": "movie", "answer": "film", "removed": false},
-    {"prompt": "museum", "answer": "musée", "removed": false},
-    {"prompt": "Park", "answer": "parc", "removed": false},
-    {"prompt": "photo", "answer": "photo", "removed": false},
-    {"prompt": "picnic", "answer": "pique-nique", "removed": false},
-    {"prompt": "reading", "answer": "lecture", "removed": false},
-    {"prompt": "shopping", "answer": "shopping", "removed": false},
-    {"prompt": "sport", "answer": "sport", "removed": false},
-    {"prompt": "swimming", "answer": "natation", "removed": false},
-    {"prompt": "tennis", "answer": "tennis", "removed": false},
-    {"prompt": "walking", "answer": "marche", "removed": false},
-    {"prompt": "yoga", "answer": "yoga", "removed": false}
+    {
+      "prompt": "activity",
+      "answer": "activité",
+      "removed": false,
+      "id": "hobbies_and_leisure_w1"
+    },
+    {
+      "prompt": "camping",
+      "answer": "camping",
+      "removed": false,
+      "id": "hobbies_and_leisure_w2"
+    },
+    {
+      "prompt": "chess",
+      "answer": "échecs",
+      "removed": false,
+      "id": "hobbies_and_leisure_w3"
+    },
+    {
+      "prompt": "cinema",
+      "answer": "cinéma",
+      "removed": false,
+      "id": "hobbies_and_leisure_w4"
+    },
+    {
+      "prompt": "club",
+      "answer": "club",
+      "removed": false,
+      "id": "hobbies_and_leisure_w5"
+    },
+    {
+      "prompt": "dancing",
+      "answer": "danse",
+      "removed": false,
+      "id": "hobbies_and_leisure_w6"
+    },
+    {
+      "prompt": "drawing",
+      "answer": "dessin",
+      "removed": false,
+      "id": "hobbies_and_leisure_w7"
+    },
+    {
+      "prompt": "fishing",
+      "answer": "pêche",
+      "removed": false,
+      "id": "hobbies_and_leisure_w8"
+    },
+    {
+      "prompt": "game",
+      "answer": "jeu",
+      "removed": false,
+      "id": "hobbies_and_leisure_w9"
+    },
+    {
+      "prompt": "gym",
+      "answer": "salle de sport",
+      "removed": false,
+      "id": "hobbies_and_leisure_w10"
+    },
+    {
+      "prompt": "hobby",
+      "answer": "loisir",
+      "removed": false,
+      "id": "hobbies_and_leisure_w11"
+    },
+    {
+      "prompt": "holiday",
+      "answer": "vacances",
+      "removed": false,
+      "id": "hobbies_and_leisure_w12"
+    },
+    {
+      "prompt": "interest",
+      "answer": "intérêt",
+      "removed": false,
+      "id": "hobbies_and_leisure_w13"
+    },
+    {
+      "prompt": "jogging",
+      "answer": "jogging",
+      "removed": false,
+      "id": "hobbies_and_leisure_w14"
+    },
+    {
+      "prompt": "movie",
+      "answer": "film",
+      "removed": false,
+      "id": "hobbies_and_leisure_w15"
+    },
+    {
+      "prompt": "museum",
+      "answer": "musée",
+      "removed": false,
+      "id": "hobbies_and_leisure_w16"
+    },
+    {
+      "prompt": "Park",
+      "answer": "parc",
+      "removed": false,
+      "id": "hobbies_and_leisure_w17"
+    },
+    {
+      "prompt": "photo",
+      "answer": "photo",
+      "removed": false,
+      "id": "hobbies_and_leisure_w18"
+    },
+    {
+      "prompt": "picnic",
+      "answer": "pique-nique",
+      "removed": false,
+      "id": "hobbies_and_leisure_w19"
+    },
+    {
+      "prompt": "reading",
+      "answer": "lecture",
+      "removed": false,
+      "id": "hobbies_and_leisure_w20"
+    },
+    {
+      "prompt": "shopping",
+      "answer": "shopping",
+      "removed": false,
+      "id": "hobbies_and_leisure_w21"
+    },
+    {
+      "prompt": "sport",
+      "answer": "sport",
+      "removed": false,
+      "id": "hobbies_and_leisure_w22"
+    },
+    {
+      "prompt": "swimming",
+      "answer": "natation",
+      "removed": false,
+      "id": "hobbies_and_leisure_w23"
+    },
+    {
+      "prompt": "tennis",
+      "answer": "tennis",
+      "removed": false,
+      "id": "hobbies_and_leisure_w24"
+    },
+    {
+      "prompt": "walking",
+      "answer": "marche",
+      "removed": false,
+      "id": "hobbies_and_leisure_w25"
+    },
+    {
+      "prompt": "yoga",
+      "answer": "yoga",
+      "removed": false,
+      "id": "hobbies_and_leisure_w26"
+    }
   ]
 }

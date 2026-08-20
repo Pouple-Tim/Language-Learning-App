@@ -5,21 +5,101 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "black", "answer": "noir", "removed": false},
-    {"prompt": "blue", "answer": "bleu", "removed": false},
-    {"prompt": "brown", "answer": "marron", "removed": false},
-    {"prompt": "dark", "answer": "foncé", "removed": false},
-    {"prompt": "golden", "answer": "doré", "removed": false},
-    {"prompt": "green", "answer": "vert", "removed": false},
-    {"prompt": "grey", "answer": "gris", "removed": false},
-    {"prompt": "light", "answer": "clair", "removed": false},
-    {"prompt": "orange", "answer": "orange", "removed": false},
-    {"prompt": "pale", "answer": "pâle", "removed": false},
-    {"prompt": "pink", "answer": "rose", "removed": false},
-    {"prompt": "purple", "answer": "violet", "removed": false},
-    {"prompt": "red", "answer": "rouge", "removed": false},
-    {"prompt": "silver", "answer": "argenté", "removed": false},
-    {"prompt": "white", "answer": "blanc", "removed": false},
-    {"prompt": "yellow", "answer": "jaune", "removed": false}
+    {
+      "prompt": "black",
+      "answer": "noir",
+      "removed": false,
+      "id": "colours_w1"
+    },
+    {
+      "prompt": "blue",
+      "answer": "bleu",
+      "removed": false,
+      "id": "colours_w2"
+    },
+    {
+      "prompt": "brown",
+      "answer": "marron",
+      "removed": false,
+      "id": "colours_w3"
+    },
+    {
+      "prompt": "dark",
+      "answer": "foncé",
+      "removed": false,
+      "id": "colours_w4"
+    },
+    {
+      "prompt": "golden",
+      "answer": "doré",
+      "removed": false,
+      "id": "colours_w5"
+    },
+    {
+      "prompt": "green",
+      "answer": "vert",
+      "removed": false,
+      "id": "colours_w6"
+    },
+    {
+      "prompt": "grey",
+      "answer": "gris",
+      "removed": false,
+      "id": "colours_w7"
+    },
+    {
+      "prompt": "light",
+      "answer": "clair",
+      "removed": false,
+      "id": "colours_w8"
+    },
+    {
+      "prompt": "orange",
+      "answer": "orange",
+      "removed": false,
+      "id": "colours_w9"
+    },
+    {
+      "prompt": "pale",
+      "answer": "pâle",
+      "removed": false,
+      "id": "colours_w10"
+    },
+    {
+      "prompt": "pink",
+      "answer": "rose",
+      "removed": false,
+      "id": "colours_w11"
+    },
+    {
+      "prompt": "purple",
+      "answer": "violet",
+      "removed": false,
+      "id": "colours_w12"
+    },
+    {
+      "prompt": "red",
+      "answer": "rouge",
+      "removed": false,
+      "id": "colours_w13"
+    },
+    {
+      "prompt": "silver",
+      "answer": "argenté",
+      "removed": false,
+      "id": "colours_w14"
+    },
+    {
+      "prompt": "white",
+      "answer": "blanc",
+      "removed": false,
+      "id": "colours_w15"
+    },
+    {
+      "prompt": "yellow",
+      "answer": "jaune",
+      "removed": false,
+      "id": "colours_w16"
+    }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdate": "2025-11-27",
+  "lastUpdate": "2026-08-20",
   "decks": [
     {
       "path": "assets/decks/spanish_basics.json",
@@ -25,16 +25,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part2.json",
-      "categories": [
-        "Chinois",
-        "HSK 1",
-        "Parties 1 à 5"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1_5.json",
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1.json",
       "categories": [
         "Chinois",
         "HSK 1",
@@ -52,7 +43,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part5.json",
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1_5.json",
       "categories": [
         "Chinois",
         "HSK 1",
@@ -70,7 +61,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1.json",
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part2.json",
       "categories": [
         "Chinois",
         "HSK 1",
@@ -79,7 +70,16 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part13.json",
+      "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part5.json",
+      "categories": [
+        "Chinois",
+        "HSK 1",
+        "Parties 1 à 5"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part14.json",
       "categories": [
         "Chinois",
         "HSK 1",
@@ -88,7 +88,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part15.json",
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part13.json",
       "categories": [
         "Chinois",
         "HSK 1",
@@ -106,16 +106,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part14.json",
-      "categories": [
-        "Chinois",
-        "HSK 1",
-        "Parties 11 à 15"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part11_15.json",
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part15.json",
       "categories": [
         "Chinois",
         "HSK 1",
@@ -133,38 +124,11 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part6_10.json",
+      "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part11_15.json",
       "categories": [
         "Chinois",
         "HSK 1",
-        "Parties 6 à 10"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part8.json",
-      "categories": [
-        "Chinois",
-        "HSK 1",
-        "Parties 6 à 10"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part7.json",
-      "categories": [
-        "Chinois",
-        "HSK 1",
-        "Parties 6 à 10"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part10.json",
-      "categories": [
-        "Chinois",
-        "HSK 1",
-        "Parties 6 à 10"
+        "Parties 11 à 15"
       ],
       "difficulty": "beginner"
     },
@@ -187,39 +151,43 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/measurements.json",
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part6_10.json",
       "categories": [
-        "English",
-        "A2 Key"
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
       ],
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/entertainment_and_media.json",
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part10.json",
       "categories": [
-        "English",
-        "A2 Key"
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
       ],
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/communication_technology.json",
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part7.json",
       "categories": [
-        "English",
-        "A2 Key"
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
       ],
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/work_and_jobs.json",
+      "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part8.json",
       "categories": [
-        "English",
-        "A2 Key"
+        "Chinois",
+        "HSK 1",
+        "Parties 6 à 10"
       ],
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/documents_and_texts.json",
+      "path": "assets/decks/english/a2_key/house_and_home.json",
       "categories": [
         "English",
         "A2 Key"
@@ -235,87 +203,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/natural_world.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/family_and_friends.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/travel_and_transport.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/health_medicine_exercise.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/appliances.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/time.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/personal_feelings_opinions_experiences.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/hobbies_and_leisure.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/shopping.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/weather.json",
-      "categories": [
-        "English",
-        "A2 Key"
-      ],
-      "difficulty": "beginner"
-    },
-    {
-      "path": "assets/decks/english/a2_key/places.json",
+      "path": "assets/decks/english/a2_key/education.json",
       "categories": [
         "English",
         "A2 Key"
@@ -331,7 +219,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/sport.json",
+      "path": "assets/decks/english/a2_key/hobbies_and_leisure.json",
       "categories": [
         "English",
         "A2 Key"
@@ -339,7 +227,7 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/house_and_home.json",
+      "path": "assets/decks/english/a2_key/places.json",
       "categories": [
         "English",
         "A2 Key"
@@ -347,7 +235,23 @@
       "difficulty": "beginner"
     },
     {
-      "path": "assets/decks/english/a2_key/education.json",
+      "path": "assets/decks/english/a2_key/family_and_friends.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/shopping.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/personal_feelings_opinions_experiences.json",
       "categories": [
         "English",
         "A2 Key"
@@ -364,6 +268,102 @@
     },
     {
       "path": "assets/decks/english/a2_key/clothes_accessories.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/documents_and_texts.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/weather.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/measurements.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/travel_and_transport.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/entertainment_and_media.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/time.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/health_medicine_exercise.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/communication_technology.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/appliances.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/natural_world.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/work_and_jobs.json",
+      "categories": [
+        "English",
+        "A2 Key"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "path": "assets/decks/english/a2_key/sport.json",
       "categories": [
         "English",
         "A2 Key"
