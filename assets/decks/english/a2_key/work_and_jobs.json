@@ -5,26 +5,131 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "actor", "answer": "acteur", "removed": false},
-    {"prompt": "actress", "answer": "actrice", "removed": false},
-    {"prompt": "business", "answer": "entreprise / affaires", "removed": false},
-    {"prompt": "boss", "answer": "patron", "removed": false},
-    {"prompt": "cook", "answer": "cuisinier", "removed": false},
-    {"prompt": "customer", "answer": "client", "removed": false},
-    {"prompt": "doctor", "answer": "médecin", "removed": false},
-    {"prompt": "engineer", "answer": "ingénieur", "removed": false},
-    {"prompt": "farmer", "answer": "agriculteur", "removed": false},
-    {"prompt": "job", "answer": "emploi", "removed": false},
-    {"prompt": "lawyer", "answer": "avocat", "removed": false},
-    {"prompt": "manager", "answer": "manager", "removed": false},
-    {"prompt": "nurse", "answer": "infirmière", "removed": false},
-    {"prompt": "pilot", "answer": "pilote", "removed": false},
-    {"prompt": "police officer", "answer": "policier", "removed": false},
-    {"prompt": "shop assistant", "answer": "vendeur", "removed": false},
-    {"prompt": "student", "answer": "étudiant", "removed": false},
-    {"prompt": "teacher", "answer": "professeur", "removed": false},
-    {"prompt": "waiter", "answer": "serveur", "removed": false},
-    {"prompt": "waitress", "answer": "serveuse", "removed": false},
-    {"prompt": "work", "answer": "travailler / travail", "removed": false}
+    {
+      "prompt": "actor",
+      "answer": "acteur",
+      "removed": false,
+      "id": "work_and_jobs_w1"
+    },
+    {
+      "prompt": "actress",
+      "answer": "actrice",
+      "removed": false,
+      "id": "work_and_jobs_w2"
+    },
+    {
+      "prompt": "business",
+      "answer": "entreprise / affaires",
+      "removed": false,
+      "id": "work_and_jobs_w3"
+    },
+    {
+      "prompt": "boss",
+      "answer": "patron",
+      "removed": false,
+      "id": "work_and_jobs_w4"
+    },
+    {
+      "prompt": "cook",
+      "answer": "cuisinier",
+      "removed": false,
+      "id": "work_and_jobs_w5"
+    },
+    {
+      "prompt": "customer",
+      "answer": "client",
+      "removed": false,
+      "id": "work_and_jobs_w6"
+    },
+    {
+      "prompt": "doctor",
+      "answer": "médecin",
+      "removed": false,
+      "id": "work_and_jobs_w7"
+    },
+    {
+      "prompt": "engineer",
+      "answer": "ingénieur",
+      "removed": false,
+      "id": "work_and_jobs_w8"
+    },
+    {
+      "prompt": "farmer",
+      "answer": "agriculteur",
+      "removed": false,
+      "id": "work_and_jobs_w9"
+    },
+    {
+      "prompt": "job",
+      "answer": "emploi",
+      "removed": false,
+      "id": "work_and_jobs_w10"
+    },
+    {
+      "prompt": "lawyer",
+      "answer": "avocat",
+      "removed": false,
+      "id": "work_and_jobs_w11"
+    },
+    {
+      "prompt": "manager",
+      "answer": "manager",
+      "removed": false,
+      "id": "work_and_jobs_w12"
+    },
+    {
+      "prompt": "nurse",
+      "answer": "infirmière",
+      "removed": false,
+      "id": "work_and_jobs_w13"
+    },
+    {
+      "prompt": "pilot",
+      "answer": "pilote",
+      "removed": false,
+      "id": "work_and_jobs_w14"
+    },
+    {
+      "prompt": "police officer",
+      "answer": "policier",
+      "removed": false,
+      "id": "work_and_jobs_w15"
+    },
+    {
+      "prompt": "shop assistant",
+      "answer": "vendeur",
+      "removed": false,
+      "id": "work_and_jobs_w16"
+    },
+    {
+      "prompt": "student",
+      "answer": "étudiant",
+      "removed": false,
+      "id": "work_and_jobs_w17"
+    },
+    {
+      "prompt": "teacher",
+      "answer": "professeur",
+      "removed": false,
+      "id": "work_and_jobs_w18"
+    },
+    {
+      "prompt": "waiter",
+      "answer": "serveur",
+      "removed": false,
+      "id": "work_and_jobs_w19"
+    },
+    {
+      "prompt": "waitress",
+      "answer": "serveuse",
+      "removed": false,
+      "id": "work_and_jobs_w20"
+    },
+    {
+      "prompt": "work",
+      "answer": "travailler / travail",
+      "removed": false,
+      "id": "work_and_jobs_w21"
+    }
   ]
 }

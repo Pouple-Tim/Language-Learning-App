@@ -5,84 +5,220 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "jiào", "answer": "叫", "meaning": "s'appeler", "removed": false},
-    {"prompt": "shénme", "answer": "什么", "meaning": "quoi, quel", "removed": false},
-    {"prompt": "míngzi", "answer": "名字", "meaning": "nom (personne)", "removed": false},
-    {"prompt": "wǒ", "answer": "我", "meaning": "je, moi", "removed": false},
-    {"prompt": "shì", "answer": "是", "meaning": "être", "removed": false},
-    {"prompt": "lǎoshī", "answer": "老师", "meaning": "professeur", "removed": false},
-    {"prompt": "ma", "answer": "吗", "meaning": "particule interrogative", "removed": false},
-    {"prompt": "xuésheng", "answer": "学生", "meaning": "étudiant, élève", "removed": false},
-    {"prompt": "rén", "answer": "人", "meaning": "personne, être humain", "removed": false},
-    {"prompt": "Zhōngguó", "answer": "中国", "meaning": "Chine", "removed": false},
-    {"prompt": "Měiguó", "answer": "美国", "meaning": "États-Unis", "removed": false}
+    {
+      "prompt": "jiào",
+      "answer": "叫",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w1"
+    },
+    {
+      "prompt": "shénme",
+      "answer": "什么",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w2"
+    },
+    {
+      "prompt": "míngzi",
+      "answer": "名字",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w3"
+    },
+    {
+      "prompt": "wǒ",
+      "answer": "我",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w4"
+    },
+    {
+      "prompt": "shì",
+      "answer": "是",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w5"
+    },
+    {
+      "prompt": "lǎoshī",
+      "answer": "老师",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w6"
+    },
+    {
+      "prompt": "ma",
+      "answer": "吗",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w7"
+    },
+    {
+      "prompt": "xuésheng",
+      "answer": "学生",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w8"
+    },
+    {
+      "prompt": "rén",
+      "answer": "人",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w9"
+    },
+    {
+      "prompt": "Zhōngguó",
+      "answer": "中国",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w10"
+    },
+    {
+      "prompt": "Měiguó",
+      "answer": "美国",
+      "removed": false,
+      "id": "chinese_hsk1_part3_w11"
+    }
   ],
   "sentences": [
     {
       "id": "s1_p3",
       "original": "Comment t'appelles-tu ?",
       "translation": "你叫什么名字？",
-      "blocks": ["你", "叫", "什么", "名字", "我", "吗"]
+      "blocks": [
+        "你",
+        "叫",
+        "什么",
+        "名字",
+        "我",
+        "吗"
+      ]
     },
     {
       "id": "s2_p3",
       "original": "Je suis professeur.",
       "translation": "我是老师",
-      "blocks": ["我", "是", "老师", "学生", "你", "不"]
+      "blocks": [
+        "我",
+        "是",
+        "老师",
+        "学生",
+        "你",
+        "不"
+      ]
     },
     {
       "id": "s3_p3",
       "original": "Es-tu étudiant ?",
       "translation": "你是学生吗？",
-      "blocks": ["你", "是", "学生", "吗", "不", "老师"]
+      "blocks": [
+        "你",
+        "是",
+        "学生",
+        "吗",
+        "不",
+        "老师"
+      ]
     },
     {
       "id": "s4_p3",
       "original": "Je ne suis pas Américain.",
       "translation": "我不是美国人",
-      "blocks": ["我", "不", "是", "美国", "人", "中国", "吗"]
+      "blocks": [
+        "我",
+        "不",
+        "是",
+        "美国",
+        "人",
+        "中国",
+        "吗"
+      ]
     },
     {
       "id": "s5_p3",
       "original": "Êtes-vous Chinois ?",
       "translation": "你是中国人吗？",
-      "blocks": ["你", "是", "中国", "人", "吗", "我", "叫"]
+      "blocks": [
+        "你",
+        "是",
+        "中国",
+        "人",
+        "吗",
+        "我",
+        "叫"
+      ]
     },
     {
       "id": "s6_p3",
       "original": "Je m'appelle Li Yue.",
       "translation": "我叫李月",
-      "blocks": ["我", "叫", "李月", "是", "名字", "什么"]
+      "blocks": [
+        "我",
+        "叫",
+        "李月",
+        "是",
+        "名字",
+        "什么"
+      ]
     },
     {
       "id": "s7_p3",
       "original": "Le professeur est chinois.",
       "translation": "老师是中国人",
-      "blocks": ["老师", "是", "中国", "人", "美国", "学生"]
+      "blocks": [
+        "老师",
+        "是",
+        "中国",
+        "人",
+        "美国",
+        "学生"
+      ]
     },
     {
       "id": "s8_p3",
       "original": "Je ne suis pas professeur.",
       "translation": "我不是老师",
-      "blocks": ["我", "不", "是", "老师", "学生", "吗"]
+      "blocks": [
+        "我",
+        "不",
+        "是",
+        "老师",
+        "学生",
+        "吗"
+      ]
     },
     {
       "id": "s9_p3",
       "original": "Quel est ton nom ?",
       "translation": "你叫什么名字?",
-      "blocks": ["你", "叫", "什么", "名字", "是", "吗", "?"]
+      "blocks": [
+        "你",
+        "叫",
+        "什么",
+        "名字",
+        "是",
+        "吗",
+        "?"
+      ]
     },
     {
       "id": "s10_p3",
       "original": "Es-tu américain ?",
       "translation": "你是美国人吗？",
-      "blocks": ["你", "是", "美国", "人", "吗", "中国", "不", "?"]
+      "blocks": [
+        "你",
+        "是",
+        "美国",
+        "人",
+        "吗",
+        "中国",
+        "不",
+        "?"
+      ]
     },
     {
       "id": "s11_p3",
       "original": "Bonjour Professeur.",
       "translation": "老师好",
-      "blocks": ["老师", "好", "学生", "你", "再见"]
+      "blocks": [
+        "老师",
+        "好",
+        "学生",
+        "你",
+        "再见"
+      ]
     }
   ]
 }

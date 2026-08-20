@@ -5,18 +5,83 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "xiǎo", "answer": "小", "meaning": "petit", "removed": false},
-    {"prompt": "māo", "answer": "猫", "meaning": "chat", "removed": false},
-    {"prompt": "zài", "answer": "在", "meaning": "être (à un endroit), se trouver", "removed": false},
-    {"prompt": "nǎr", "answer": "哪儿", "meaning": "où", "removed": false},
-    {"prompt": "nàr", "answer": "那儿", "meaning": "là-bas", "removed": false},
-    {"prompt": "gǒu", "answer": "狗", "meaning": "chien", "removed": false},
-    {"prompt": "yǐzi", "answer": "椅子", "meaning": "chaise", "removed": false},
-    {"prompt": "xiàmiàn", "answer": "下面", "meaning": "en dessous, dessous", "removed": false},
-    {"prompt": "gōngzuò", "answer": "工作", "meaning": "travail, travailler", "removed": false},
-    {"prompt": "érzi", "answer": "儿子", "meaning": "fils", "removed": false},
-    {"prompt": "yīyuàn", "answer": "医院", "meaning": "hôpital", "removed": false},
-    {"prompt": "yīshēng", "answer": "医生", "meaning": "médecin", "removed": false},
-    {"prompt": "bàba", "answer": "爸爸", "meaning": "papa", "removed": false}
+    {
+      "prompt": "xiǎo",
+      "answer": "小",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w1"
+    },
+    {
+      "prompt": "māo",
+      "answer": "猫",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w2"
+    },
+    {
+      "prompt": "zài",
+      "answer": "在",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w3"
+    },
+    {
+      "prompt": "nǎr",
+      "answer": "哪儿",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w4"
+    },
+    {
+      "prompt": "nàr",
+      "answer": "那儿",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w5"
+    },
+    {
+      "prompt": "gǒu",
+      "answer": "狗",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w6"
+    },
+    {
+      "prompt": "yǐzi",
+      "answer": "椅子",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w7"
+    },
+    {
+      "prompt": "xiàmiàn",
+      "answer": "下面",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w8"
+    },
+    {
+      "prompt": "gōngzuò",
+      "answer": "工作",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w9"
+    },
+    {
+      "prompt": "érzi",
+      "answer": "儿子",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w10"
+    },
+    {
+      "prompt": "yīyuàn",
+      "answer": "医院",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w11"
+    },
+    {
+      "prompt": "yīshēng",
+      "answer": "医生",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w12"
+    },
+    {
+      "prompt": "bàba",
+      "answer": "爸爸",
+      "removed": false,
+      "id": "chinese_hsk1_part9_w13"
+    }
   ]
 }

@@ -5,36 +5,191 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "actor", "answer": "acteur", "removed": false},
-    {"prompt": "actress", "answer": "actrice", "removed": false},
-    {"prompt": "band", "answer": "groupe (musique)", "removed": false},
-    {"prompt": "camera", "answer": "caméra / appareil photo", "removed": false},
-    {"prompt": "CD", "answer": "CD", "removed": false},
-    {"prompt": "concert", "answer": "concert", "removed": false},
-    {"prompt": "dance", "answer": "danser", "removed": false},
-    {"prompt": "dancer", "answer": "danseur", "removed": false},
-    {"prompt": "DVD", "answer": "DVD", "removed": false},
-    {"prompt": "film", "answer": "film", "removed": false},
-    {"prompt": "fun", "answer": "amusant", "removed": false},
-    {"prompt": "game", "answer": "jeu", "removed": false},
-    {"prompt": "guitar", "answer": "guitare", "removed": false},
-    {"prompt": "internet", "answer": "internet", "removed": false},
-    {"prompt": "magazine", "answer": "magazine", "removed": false},
-    {"prompt": "movie", "answer": "film", "removed": false},
-    {"prompt": "music", "answer": "musique", "removed": false},
-    {"prompt": "newspaper", "answer": "journal", "removed": false},
-    {"prompt": "party", "answer": "fête", "removed": false},
-    {"prompt": "photograph", "answer": "photographie", "removed": false},
-    {"prompt": "piano", "answer": "piano", "removed": false},
-    {"prompt": "picture", "answer": "image", "removed": false},
-    {"prompt": "radio", "answer": "radio", "removed": false},
-    {"prompt": "rock", "answer": "rock", "removed": false},
-    {"prompt": "show", "answer": "spectacle / émission", "removed": false},
-    {"prompt": "sing", "answer": "chanter", "removed": false},
-    {"prompt": "singer", "answer": "chanteur", "removed": false},
-    {"prompt": "song", "answer": "chanson", "removed": false},
-    {"prompt": "television", "answer": "télévision", "removed": false},
-    {"prompt": "TV", "answer": "télé", "removed": false},
-    {"prompt": "video", "answer": "vidéo", "removed": false}
+    {
+      "prompt": "actor",
+      "answer": "acteur",
+      "removed": false,
+      "id": "entertainment_and_media_w1"
+    },
+    {
+      "prompt": "actress",
+      "answer": "actrice",
+      "removed": false,
+      "id": "entertainment_and_media_w2"
+    },
+    {
+      "prompt": "band",
+      "answer": "groupe (musique)",
+      "removed": false,
+      "id": "entertainment_and_media_w3"
+    },
+    {
+      "prompt": "camera",
+      "answer": "caméra / appareil photo",
+      "removed": false,
+      "id": "entertainment_and_media_w4"
+    },
+    {
+      "prompt": "CD",
+      "answer": "CD",
+      "removed": false,
+      "id": "entertainment_and_media_w5"
+    },
+    {
+      "prompt": "concert",
+      "answer": "concert",
+      "removed": false,
+      "id": "entertainment_and_media_w6"
+    },
+    {
+      "prompt": "dance",
+      "answer": "danser",
+      "removed": false,
+      "id": "entertainment_and_media_w7"
+    },
+    {
+      "prompt": "dancer",
+      "answer": "danseur",
+      "removed": false,
+      "id": "entertainment_and_media_w8"
+    },
+    {
+      "prompt": "DVD",
+      "answer": "DVD",
+      "removed": false,
+      "id": "entertainment_and_media_w9"
+    },
+    {
+      "prompt": "film",
+      "answer": "film",
+      "removed": false,
+      "id": "entertainment_and_media_w10"
+    },
+    {
+      "prompt": "fun",
+      "answer": "amusant",
+      "removed": false,
+      "id": "entertainment_and_media_w11"
+    },
+    {
+      "prompt": "game",
+      "answer": "jeu",
+      "removed": false,
+      "id": "entertainment_and_media_w12"
+    },
+    {
+      "prompt": "guitar",
+      "answer": "guitare",
+      "removed": false,
+      "id": "entertainment_and_media_w13"
+    },
+    {
+      "prompt": "internet",
+      "answer": "internet",
+      "removed": false,
+      "id": "entertainment_and_media_w14"
+    },
+    {
+      "prompt": "magazine",
+      "answer": "magazine",
+      "removed": false,
+      "id": "entertainment_and_media_w15"
+    },
+    {
+      "prompt": "movie",
+      "answer": "film",
+      "removed": false,
+      "id": "entertainment_and_media_w16"
+    },
+    {
+      "prompt": "music",
+      "answer": "musique",
+      "removed": false,
+      "id": "entertainment_and_media_w17"
+    },
+    {
+      "prompt": "newspaper",
+      "answer": "journal",
+      "removed": false,
+      "id": "entertainment_and_media_w18"
+    },
+    {
+      "prompt": "party",
+      "answer": "fête",
+      "removed": false,
+      "id": "entertainment_and_media_w19"
+    },
+    {
+      "prompt": "photograph",
+      "answer": "photographie",
+      "removed": false,
+      "id": "entertainment_and_media_w20"
+    },
+    {
+      "prompt": "piano",
+      "answer": "piano",
+      "removed": false,
+      "id": "entertainment_and_media_w21"
+    },
+    {
+      "prompt": "picture",
+      "answer": "image",
+      "removed": false,
+      "id": "entertainment_and_media_w22"
+    },
+    {
+      "prompt": "radio",
+      "answer": "radio",
+      "removed": false,
+      "id": "entertainment_and_media_w23"
+    },
+    {
+      "prompt": "rock",
+      "answer": "rock",
+      "removed": false,
+      "id": "entertainment_and_media_w24"
+    },
+    {
+      "prompt": "show",
+      "answer": "spectacle / émission",
+      "removed": false,
+      "id": "entertainment_and_media_w25"
+    },
+    {
+      "prompt": "sing",
+      "answer": "chanter",
+      "removed": false,
+      "id": "entertainment_and_media_w26"
+    },
+    {
+      "prompt": "singer",
+      "answer": "chanteur",
+      "removed": false,
+      "id": "entertainment_and_media_w27"
+    },
+    {
+      "prompt": "song",
+      "answer": "chanson",
+      "removed": false,
+      "id": "entertainment_and_media_w28"
+    },
+    {
+      "prompt": "television",
+      "answer": "télévision",
+      "removed": false,
+      "id": "entertainment_and_media_w29"
+    },
+    {
+      "prompt": "TV",
+      "answer": "télé",
+      "removed": false,
+      "id": "entertainment_and_media_w30"
+    },
+    {
+      "prompt": "video",
+      "answer": "vidéo",
+      "removed": false,
+      "id": "entertainment_and_media_w31"
+    }
   ]
 }

@@ -5,29 +5,149 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "aunt", "answer": "tante", "removed": false},
-    {"prompt": "baby", "answer": "bébé", "removed": false},
-    {"prompt": "brother", "answer": "frère", "removed": false},
-    {"prompt": "child", "answer": "enfant", "removed": false},
-    {"prompt": "children", "answer": "enfants", "removed": false},
-    {"prompt": "cousin", "answer": "cousin / cousine", "removed": false},
-    {"prompt": "Dad", "answer": "papa", "removed": false},
-    {"prompt": "daughter", "answer": "fille (enfant)", "removed": false},
-    {"prompt": "family", "answer": "famille", "removed": false},
-    {"prompt": "father", "answer": "père", "removed": false},
-    {"prompt": "friend", "answer": "ami", "removed": false},
-    {"prompt": "girlfriend", "answer": "petite amie", "removed": false},
-    {"prompt": "husband", "answer": "mari", "removed": false},
-    {"prompt": "kid", "answer": "gosse / enfant", "removed": false},
-    {"prompt": "mother", "answer": "mère", "removed": false},
-    {"prompt": "mum", "answer": "maman", "removed": false},
-    {"prompt": "nephew", "answer": "neveu", "removed": false},
-    {"prompt": "niece", "answer": "nièce", "removed": false},
-    {"prompt": "parent", "answer": "parent", "removed": false},
-    {"prompt": "people", "answer": "gens", "removed": false},
-    {"prompt": "sister", "answer": "soeur", "removed": false},
-    {"prompt": "son", "answer": "fils", "removed": false},
-    {"prompt": "Uncle", "answer": "oncle", "removed": false},
-    {"prompt": "wife", "answer": "femme / épouse", "removed": false}
+    {
+      "prompt": "aunt",
+      "answer": "tante",
+      "removed": false,
+      "id": "family_and_friends_w1"
+    },
+    {
+      "prompt": "baby",
+      "answer": "bébé",
+      "removed": false,
+      "id": "family_and_friends_w2"
+    },
+    {
+      "prompt": "brother",
+      "answer": "frère",
+      "removed": false,
+      "id": "family_and_friends_w3"
+    },
+    {
+      "prompt": "child",
+      "answer": "enfant",
+      "removed": false,
+      "id": "family_and_friends_w4"
+    },
+    {
+      "prompt": "children",
+      "answer": "enfants",
+      "removed": false,
+      "id": "family_and_friends_w5"
+    },
+    {
+      "prompt": "cousin",
+      "answer": "cousin / cousine",
+      "removed": false,
+      "id": "family_and_friends_w6"
+    },
+    {
+      "prompt": "Dad",
+      "answer": "papa",
+      "removed": false,
+      "id": "family_and_friends_w7"
+    },
+    {
+      "prompt": "daughter",
+      "answer": "fille (enfant)",
+      "removed": false,
+      "id": "family_and_friends_w8"
+    },
+    {
+      "prompt": "family",
+      "answer": "famille",
+      "removed": false,
+      "id": "family_and_friends_w9"
+    },
+    {
+      "prompt": "father",
+      "answer": "père",
+      "removed": false,
+      "id": "family_and_friends_w10"
+    },
+    {
+      "prompt": "friend",
+      "answer": "ami",
+      "removed": false,
+      "id": "family_and_friends_w11"
+    },
+    {
+      "prompt": "girlfriend",
+      "answer": "petite amie",
+      "removed": false,
+      "id": "family_and_friends_w12"
+    },
+    {
+      "prompt": "husband",
+      "answer": "mari",
+      "removed": false,
+      "id": "family_and_friends_w13"
+    },
+    {
+      "prompt": "kid",
+      "answer": "gosse / enfant",
+      "removed": false,
+      "id": "family_and_friends_w14"
+    },
+    {
+      "prompt": "mother",
+      "answer": "mère",
+      "removed": false,
+      "id": "family_and_friends_w15"
+    },
+    {
+      "prompt": "mum",
+      "answer": "maman",
+      "removed": false,
+      "id": "family_and_friends_w16"
+    },
+    {
+      "prompt": "nephew",
+      "answer": "neveu",
+      "removed": false,
+      "id": "family_and_friends_w17"
+    },
+    {
+      "prompt": "niece",
+      "answer": "nièce",
+      "removed": false,
+      "id": "family_and_friends_w18"
+    },
+    {
+      "prompt": "parent",
+      "answer": "parent",
+      "removed": false,
+      "id": "family_and_friends_w19"
+    },
+    {
+      "prompt": "people",
+      "answer": "gens",
+      "removed": false,
+      "id": "family_and_friends_w20"
+    },
+    {
+      "prompt": "sister",
+      "answer": "soeur",
+      "removed": false,
+      "id": "family_and_friends_w21"
+    },
+    {
+      "prompt": "son",
+      "answer": "fils",
+      "removed": false,
+      "id": "family_and_friends_w22"
+    },
+    {
+      "prompt": "Uncle",
+      "answer": "oncle",
+      "removed": false,
+      "id": "family_and_friends_w23"
+    },
+    {
+      "prompt": "wife",
+      "answer": "femme / épouse",
+      "removed": false,
+      "id": "family_and_friends_w24"
+    }
   ]
 }

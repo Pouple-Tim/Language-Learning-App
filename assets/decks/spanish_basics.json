@@ -5,15 +5,65 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "Hola", "answer": "bonjour", "removed": false},
-    {"prompt": "Adiós", "answer": "au revoir", "removed": false},
-    {"prompt": "Gracias", "answer": "merci", "removed": false},
-    {"prompt": "Por favor", "answer": "s'il vous plait", "removed": false},
-    {"prompt": "Sí", "answer": "oui", "removed": false},
-    {"prompt": "No", "answer": "non", "removed": false},
-    {"prompt": "Buenos días", "answer": "bon matin", "removed": false},
-    {"prompt": "Buenas noches", "answer": "bonne nuit", "removed": false},
-    {"prompt": "¿Cómo estás?", "answer": "comment vas-tu", "removed": false},
-    {"prompt": "Bien", "answer": "bien", "removed": false}
+    {
+      "prompt": "Hola",
+      "answer": "bonjour",
+      "removed": false,
+      "id": "spanish_basics_base_w1"
+    },
+    {
+      "prompt": "Adiós",
+      "answer": "au revoir",
+      "removed": false,
+      "id": "spanish_basics_base_w2"
+    },
+    {
+      "prompt": "Gracias",
+      "answer": "merci",
+      "removed": false,
+      "id": "spanish_basics_base_w3"
+    },
+    {
+      "prompt": "Por favor",
+      "answer": "s'il vous plait",
+      "removed": false,
+      "id": "spanish_basics_base_w4"
+    },
+    {
+      "prompt": "Sí",
+      "answer": "oui",
+      "removed": false,
+      "id": "spanish_basics_base_w5"
+    },
+    {
+      "prompt": "No",
+      "answer": "non",
+      "removed": false,
+      "id": "spanish_basics_base_w6"
+    },
+    {
+      "prompt": "Buenos días",
+      "answer": "bon matin",
+      "removed": false,
+      "id": "spanish_basics_base_w7"
+    },
+    {
+      "prompt": "Buenas noches",
+      "answer": "bonne nuit",
+      "removed": false,
+      "id": "spanish_basics_base_w8"
+    },
+    {
+      "prompt": "¿Cómo estás?",
+      "answer": "comment vas-tu",
+      "removed": false,
+      "id": "spanish_basics_base_w9"
+    },
+    {
+      "prompt": "Bien",
+      "answer": "bien",
+      "removed": false,
+      "id": "spanish_basics_base_w10"
+    }
   ]
 }

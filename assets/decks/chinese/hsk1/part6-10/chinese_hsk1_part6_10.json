@@ -5,61 +5,341 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "huì", "answer": "会", "meaning": "savoir faire, pouvoir", "removed": false},
-    {"prompt": "shuō", "answer": "说", "meaning": "parler", "removed": false},
-    {"prompt": "māma", "answer": "妈妈", "meaning": "maman", "removed": false},
-    {"prompt": "cài", "answer": "菜", "meaning": "plat, légume", "removed": false},
-    {"prompt": "hěn", "answer": "很", "meaning": "très", "removed": false},
-    {"prompt": "hǎochī", "answer": "好吃", "meaning": "délicieux", "removed": false},
-    {"prompt": "zuò", "answer": "做", "meaning": "faire, fabriquer", "removed": false},
-    {"prompt": "xiě", "answer": "写", "meaning": "écrire", "removed": false},
-    {"prompt": "hànzì", "answer": "汉字", "meaning": "caractère chinois", "removed": false},
-    {"prompt": "zì", "answer": "字", "meaning": "caractère, mot", "removed": false},
-    {"prompt": "zěnme", "answer": "怎么", "meaning": "comment", "removed": false},
-    {"prompt": "dú", "answer": "读", "meaning": "lire, étudier", "removed": false},
-    {"prompt": "qǐng", "answer": "请", "meaning": "s'il vous plaît, inviter", "removed": false},
-    {"prompt": "wèn", "answer": "问", "meaning": "demander", "removed": false},
-    {"prompt": "jīntiān", "answer": "今天", "meaning": "aujourd’hui", "removed": false},
-    {"prompt": "yuè", "answer": "月", "meaning": "mois", "removed": false},
-    {"prompt": "xīngqī", "answer": "星期", "meaning": "semaine", "removed": false},
-    {"prompt": "zuótiān", "answer": "昨天", "meaning": "hier", "removed": false},
-    {"prompt": "míngtiān", "answer": "明天", "meaning": "demain", "removed": false},
-    {"prompt": "qù", "answer": "去", "meaning": "aller", "removed": false},
-    {"prompt": "xuéxiào", "answer": "学校", "meaning": "école", "removed": false},
-    {"prompt": "kàn", "answer": "看", "meaning": "voir, lire", "removed": false},
-    {"prompt": "shū", "answer": "书", "meaning": "livre", "removed": false},
-    {"prompt": "xiǎng", "answer": "想", "meaning": "vouloir, penser à", "removed": false},
-    {"prompt": "hē", "answer": "喝", "meaning": "boire", "removed": false},
-    {"prompt": "chá", "answer": "茶", "meaning": "thé", "removed": false},
-    {"prompt": "chī", "answer": "吃", "meaning": "manger", "removed": false},
-    {"prompt": "mǐfàn", "answer": "米饭", "meaning": "riz cuit, repas", "removed": false},
-    {"prompt": "shāngdiàn", "answer": "商店", "meaning": "magasin", "removed": false},
-    {"prompt": "mǎi", "answer": "买", "meaning": "acheter", "removed": false},
-    {"prompt": "gè", "answer": "个", "meaning": "classificateur général", "removed": false},
-    {"prompt": "zhè", "answer": "这", "meaning": "ce, ceci", "removed": false},
-    {"prompt": "duōshao", "answer": "多少", "meaning": "combien", "removed": false},
-    {"prompt": "qián", "answer": "钱", "meaning": "argent", "removed": false},
-    {"prompt": "kuài", "answer": "块", "meaning": "yuan (monnaie), morceau", "removed": false},
-    {"prompt": "nà", "answer": "那", "meaning": "cela, celui-là", "removed": false},
-    {"prompt": "xiǎo", "answer": "小", "meaning": "petit", "removed": false},
-    {"prompt": "māo", "answer": "猫", "meaning": "chat", "removed": false},
-    {"prompt": "nǎr (where)", "answer": "哪儿", "meaning": "où", "removed": false},
-    {"prompt": "nàr (there)", "answer": "那儿", "meaning": "là-bas", "removed": false},
-    {"prompt": "gǒu", "answer": "狗", "meaning": "chien", "removed": false},
-    {"prompt": "gōngzuò", "answer": "工作", "meaning": "travail, travailler", "removed": false},
-    {"prompt": "érzi", "answer": "儿子", "meaning": "fils", "removed": false},
-    {"prompt": "bàba", "answer": "爸爸", "meaning": "papa", "removed": false},
-    {"prompt": "zhuōzi", "answer": "桌子", "meaning": "table", "removed": false},
-    {"prompt": "shàng", "answer": "上", "meaning": "au-dessus, sur", "removed": false},
-    {"prompt": "diànnǎo", "answer": "电脑", "meaning": "ordinateur", "removed": false},
-    {"prompt": "hé", "answer": "和", "meaning": "et", "removed": false},
-    {"prompt": "běn", "answer": "本", "meaning": "classificateur pour les livres", "removed": false},
-    {"prompt": "lǐ", "answer": "里", "meaning": "dans, à l’intérieur", "removed": false},
-    {"prompt": "qiánmiàn", "answer": "前面", "meaning": "devant", "removed": false},
-    {"prompt": "hòumiàn", "answer": "后面", "meaning": "derrière", "removed": false},
-    {"prompt": "zhèr", "answer": "这儿", "meaning": "ici", "removed": false},
-    {"prompt": "méiyǒu", "answer": "没有", "meaning": "ne pas avoir", "removed": false},
-    {"prompt": "néng", "answer": "能", "meaning": "pouvoir, être capable de", "removed": false},
-    {"prompt": "zuò", "answer": "坐", "meaning": "s’asseoir", "removed": false}
+    {
+      "prompt": "huì",
+      "answer": "会",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w1"
+    },
+    {
+      "prompt": "shuō",
+      "answer": "说",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w2"
+    },
+    {
+      "prompt": "māma",
+      "answer": "妈妈",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w3"
+    },
+    {
+      "prompt": "cài",
+      "answer": "菜",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w4"
+    },
+    {
+      "prompt": "hěn",
+      "answer": "很",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w5"
+    },
+    {
+      "prompt": "hǎochī",
+      "answer": "好吃",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w6"
+    },
+    {
+      "prompt": "zuò",
+      "answer": "做",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w7"
+    },
+    {
+      "prompt": "xiě",
+      "answer": "写",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w8"
+    },
+    {
+      "prompt": "hànzì",
+      "answer": "汉字",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w9"
+    },
+    {
+      "prompt": "zì",
+      "answer": "字",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w10"
+    },
+    {
+      "prompt": "zěnme",
+      "answer": "怎么",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w11"
+    },
+    {
+      "prompt": "dú",
+      "answer": "读",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w12"
+    },
+    {
+      "prompt": "qǐng",
+      "answer": "请",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w13"
+    },
+    {
+      "prompt": "wèn",
+      "answer": "问",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w14"
+    },
+    {
+      "prompt": "jīntiān",
+      "answer": "今天",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w15"
+    },
+    {
+      "prompt": "yuè",
+      "answer": "月",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w16"
+    },
+    {
+      "prompt": "xīngqī",
+      "answer": "星期",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w17"
+    },
+    {
+      "prompt": "zuótiān",
+      "answer": "昨天",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w18"
+    },
+    {
+      "prompt": "míngtiān",
+      "answer": "明天",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w19"
+    },
+    {
+      "prompt": "qù",
+      "answer": "去",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w20"
+    },
+    {
+      "prompt": "xuéxiào",
+      "answer": "学校",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w21"
+    },
+    {
+      "prompt": "kàn",
+      "answer": "看",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w22"
+    },
+    {
+      "prompt": "shū",
+      "answer": "书",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w23"
+    },
+    {
+      "prompt": "xiǎng",
+      "answer": "想",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w24"
+    },
+    {
+      "prompt": "hē",
+      "answer": "喝",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w25"
+    },
+    {
+      "prompt": "chá",
+      "answer": "茶",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w26"
+    },
+    {
+      "prompt": "chī",
+      "answer": "吃",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w27"
+    },
+    {
+      "prompt": "mǐfàn",
+      "answer": "米饭",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w28"
+    },
+    {
+      "prompt": "shāngdiàn",
+      "answer": "商店",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w29"
+    },
+    {
+      "prompt": "mǎi",
+      "answer": "买",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w30"
+    },
+    {
+      "prompt": "gè",
+      "answer": "个",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w31"
+    },
+    {
+      "prompt": "zhè",
+      "answer": "这",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w32"
+    },
+    {
+      "prompt": "duōshao",
+      "answer": "多少",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w33"
+    },
+    {
+      "prompt": "qián",
+      "answer": "钱",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w34"
+    },
+    {
+      "prompt": "kuài",
+      "answer": "块",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w35"
+    },
+    {
+      "prompt": "nà",
+      "answer": "那",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w36"
+    },
+    {
+      "prompt": "xiǎo",
+      "answer": "小",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w37"
+    },
+    {
+      "prompt": "māo",
+      "answer": "猫",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w38"
+    },
+    {
+      "prompt": "nǎr (where)",
+      "answer": "哪儿",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w39"
+    },
+    {
+      "prompt": "nàr (there)",
+      "answer": "那儿",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w40"
+    },
+    {
+      "prompt": "gǒu",
+      "answer": "狗",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w41"
+    },
+    {
+      "prompt": "gōngzuò",
+      "answer": "工作",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w42"
+    },
+    {
+      "prompt": "érzi",
+      "answer": "儿子",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w43"
+    },
+    {
+      "prompt": "bàba",
+      "answer": "爸爸",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w44"
+    },
+    {
+      "prompt": "zhuōzi",
+      "answer": "桌子",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w45"
+    },
+    {
+      "prompt": "shàng",
+      "answer": "上",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w46"
+    },
+    {
+      "prompt": "diànnǎo",
+      "answer": "电脑",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w47"
+    },
+    {
+      "prompt": "hé",
+      "answer": "和",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w48"
+    },
+    {
+      "prompt": "běn",
+      "answer": "本",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w49"
+    },
+    {
+      "prompt": "lǐ",
+      "answer": "里",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w50"
+    },
+    {
+      "prompt": "qiánmiàn",
+      "answer": "前面",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w51"
+    },
+    {
+      "prompt": "hòumiàn",
+      "answer": "后面",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w52"
+    },
+    {
+      "prompt": "zhèr",
+      "answer": "这儿",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w53"
+    },
+    {
+      "prompt": "méiyǒu",
+      "answer": "没有",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w54"
+    },
+    {
+      "prompt": "néng",
+      "answer": "能",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w55"
+    },
+    {
+      "prompt": "zuò",
+      "answer": "坐",
+      "removed": false,
+      "id": "chinese_hsk1_part6_10_w56"
+    }
   ]
 }

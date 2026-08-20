@@ -5,29 +5,149 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "afternoon", "answer": "après-midi", "removed": false},
-    {"prompt": "age", "answer": "âge", "removed": false},
-    {"prompt": "birthday", "answer": "anniversaire", "removed": false},
-    {"prompt": "century", "answer": "siècle", "removed": false},
-    {"prompt": "day", "answer": "jour", "removed": false},
-    {"prompt": "evening", "answer": "soirée", "removed": false},
-    {"prompt": "hour", "answer": "heure", "removed": false},
-    {"prompt": "midday / noon", "answer": "midi", "removed": false},
-    {"prompt": "midnight", "answer": "minuit", "removed": false},
-    {"prompt": "minute", "answer": "minute", "removed": false},
-    {"prompt": "month", "answer": "mois", "removed": false},
-    {"prompt": "morning", "answer": "matin", "removed": false},
-    {"prompt": "night", "answer": "nuit", "removed": false},
-    {"prompt": "o’clock", "answer": "heures", "removed": false},
-    {"prompt": "past", "answer": "passé", "removed": false},
-    {"prompt": "quarter", "answer": "quart", "removed": false},
-    {"prompt": "second", "answer": "seconde", "removed": false},
-    {"prompt": "time", "answer": "temps", "removed": false},
-    {"prompt": "today", "answer": "aujourd’hui", "removed": false},
-    {"prompt": "tomorrow", "answer": "demain", "removed": false},
-    {"prompt": "week", "answer": "semaine", "removed": false},
-    {"prompt": "weekend", "answer": "week-end", "removed": false},
-    {"prompt": "year", "answer": "année", "removed": false},
-    {"prompt": "yesterday", "answer": "hier", "removed": false}
+    {
+      "prompt": "afternoon",
+      "answer": "après-midi",
+      "removed": false,
+      "id": "time_w1"
+    },
+    {
+      "prompt": "age",
+      "answer": "âge",
+      "removed": false,
+      "id": "time_w2"
+    },
+    {
+      "prompt": "birthday",
+      "answer": "anniversaire",
+      "removed": false,
+      "id": "time_w3"
+    },
+    {
+      "prompt": "century",
+      "answer": "siècle",
+      "removed": false,
+      "id": "time_w4"
+    },
+    {
+      "prompt": "day",
+      "answer": "jour",
+      "removed": false,
+      "id": "time_w5"
+    },
+    {
+      "prompt": "evening",
+      "answer": "soirée",
+      "removed": false,
+      "id": "time_w6"
+    },
+    {
+      "prompt": "hour",
+      "answer": "heure",
+      "removed": false,
+      "id": "time_w7"
+    },
+    {
+      "prompt": "midday / noon",
+      "answer": "midi",
+      "removed": false,
+      "id": "time_w8"
+    },
+    {
+      "prompt": "midnight",
+      "answer": "minuit",
+      "removed": false,
+      "id": "time_w9"
+    },
+    {
+      "prompt": "minute",
+      "answer": "minute",
+      "removed": false,
+      "id": "time_w10"
+    },
+    {
+      "prompt": "month",
+      "answer": "mois",
+      "removed": false,
+      "id": "time_w11"
+    },
+    {
+      "prompt": "morning",
+      "answer": "matin",
+      "removed": false,
+      "id": "time_w12"
+    },
+    {
+      "prompt": "night",
+      "answer": "nuit",
+      "removed": false,
+      "id": "time_w13"
+    },
+    {
+      "prompt": "o’clock",
+      "answer": "heures",
+      "removed": false,
+      "id": "time_w14"
+    },
+    {
+      "prompt": "past",
+      "answer": "passé",
+      "removed": false,
+      "id": "time_w15"
+    },
+    {
+      "prompt": "quarter",
+      "answer": "quart",
+      "removed": false,
+      "id": "time_w16"
+    },
+    {
+      "prompt": "second",
+      "answer": "seconde",
+      "removed": false,
+      "id": "time_w17"
+    },
+    {
+      "prompt": "time",
+      "answer": "temps",
+      "removed": false,
+      "id": "time_w18"
+    },
+    {
+      "prompt": "today",
+      "answer": "aujourd’hui",
+      "removed": false,
+      "id": "time_w19"
+    },
+    {
+      "prompt": "tomorrow",
+      "answer": "demain",
+      "removed": false,
+      "id": "time_w20"
+    },
+    {
+      "prompt": "week",
+      "answer": "semaine",
+      "removed": false,
+      "id": "time_w21"
+    },
+    {
+      "prompt": "weekend",
+      "answer": "week-end",
+      "removed": false,
+      "id": "time_w22"
+    },
+    {
+      "prompt": "year",
+      "answer": "année",
+      "removed": false,
+      "id": "time_w23"
+    },
+    {
+      "prompt": "yesterday",
+      "answer": "hier",
+      "removed": false,
+      "id": "time_w24"
+    }
   ]
 }

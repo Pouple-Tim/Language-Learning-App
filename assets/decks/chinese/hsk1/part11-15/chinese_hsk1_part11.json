@@ -5,17 +5,77 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "xiànzài", "answer": "现在", "meaning": "maintenant", "removed": false},
-    {"prompt": "diǎn", "answer": "点", "meaning": "heure (classificateur de l’heure)", "removed": false},
-    {"prompt": "fēn", "answer": "分", "meaning": "minute", "removed": false},
-    {"prompt": "zhōngwǔ", "answer": "中午", "meaning": "midi", "removed": false},
-    {"prompt": "chīfàn", "answer": "吃饭", "meaning": "manger un repas", "removed": false},
-    {"prompt": "shíhou", "answer": "时候", "meaning": "moment, temps", "removed": false},
-    {"prompt": "huí", "answer": "回", "meaning": "revenir, retourner", "removed": false},
-    {"prompt": "wǒmen", "answer": "我们", "meaning": "nous", "removed": false},
-    {"prompt": "diànyǐng", "answer": "电影", "meaning": "film", "removed": false},
-    {"prompt": "zhù", "answer": "住", "meaning": "habiter", "removed": false},
-    {"prompt": "qián", "answer": "钱", "meaning": "argent", "removed": false},
-    {"prompt": "Běijīng", "answer": "北京", "meaning": "Pékin", "removed": false}
+    {
+      "prompt": "xiànzài",
+      "answer": "现在",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w1"
+    },
+    {
+      "prompt": "diǎn",
+      "answer": "点",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w2"
+    },
+    {
+      "prompt": "fēn",
+      "answer": "分",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w3"
+    },
+    {
+      "prompt": "zhōngwǔ",
+      "answer": "中午",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w4"
+    },
+    {
+      "prompt": "chīfàn",
+      "answer": "吃饭",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w5"
+    },
+    {
+      "prompt": "shíhou",
+      "answer": "时候",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w6"
+    },
+    {
+      "prompt": "huí",
+      "answer": "回",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w7"
+    },
+    {
+      "prompt": "wǒmen",
+      "answer": "我们",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w8"
+    },
+    {
+      "prompt": "diànyǐng",
+      "answer": "电影",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w9"
+    },
+    {
+      "prompt": "zhù",
+      "answer": "住",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w10"
+    },
+    {
+      "prompt": "qián",
+      "answer": "钱",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w11"
+    },
+    {
+      "prompt": "Běijīng",
+      "answer": "北京",
+      "removed": false,
+      "id": "chinese_hsk1_part11_w12"
+    }
   ]
 }

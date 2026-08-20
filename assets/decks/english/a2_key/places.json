@@ -5,40 +5,215 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "airport", "answer": "aéroport", "removed": false},
-    {"prompt": "bank", "answer": "banque", "removed": false},
-    {"prompt": "beach", "answer": "plage", "removed": false},
-    {"prompt": "bridge", "answer": "pont", "removed": false},
-    {"prompt": "building", "answer": "bâtiment", "removed": false},
-    {"prompt": "bus station", "answer": "gare routière", "removed": false},
-    {"prompt": "café", "answer": "café", "removed": false},
-    {"prompt": "castle", "answer": "château", "removed": false},
-    {"prompt": "centre", "answer": "centre", "removed": false},
-    {"prompt": "church", "answer": "église", "removed": false},
-    {"prompt": "city", "answer": "ville", "removed": false},
-    {"prompt": "country", "answer": "pays", "removed": false},
-    {"prompt": "countryside", "answer": "campagne", "removed": false},
-    {"prompt": "farm", "answer": "ferme", "removed": false},
-    {"prompt": "forest", "answer": "forêt", "removed": false},
-    {"prompt": "hospital", "answer": "hôpital", "removed": false},
-    {"prompt": "hotel", "answer": "hôtel", "removed": false},
-    {"prompt": "house", "answer": "maison", "removed": false},
-    {"prompt": "island", "answer": "île", "removed": false},
-    {"prompt": "library", "answer": "bibliothèque", "removed": false},
-    {"prompt": "market", "answer": "marché", "removed": false},
-    {"prompt": "museum", "answer": "musée", "removed": false},
-    {"prompt": "park", "answer": "parc", "removed": false},
-    {"prompt": "place", "answer": "lieu", "removed": false},
-    {"prompt": "restaurant", "answer": "restaurant", "removed": false},
-    {"prompt": "river", "answer": "rivière", "removed": false},
-    {"prompt": "school", "answer": "école", "removed": false},
-    {"prompt": "shopping centre", "answer": "centre commercial", "removed": false},
-    {"prompt": "square", "answer": "place", "removed": false},
-    {"prompt": "station", "answer": "gare", "removed": false},
-    {"prompt": "street", "answer": "rue", "removed": false},
-    {"prompt": "supermarket", "answer": "supermarché", "removed": false},
-    {"prompt": "town", "answer": "ville", "removed": false},
-    {"prompt": "village", "answer": "village", "removed": false},
-    {"prompt": "zoo", "answer": "zoo", "removed": false}
+    {
+      "prompt": "airport",
+      "answer": "aéroport",
+      "removed": false,
+      "id": "places_w1"
+    },
+    {
+      "prompt": "bank",
+      "answer": "banque",
+      "removed": false,
+      "id": "places_w2"
+    },
+    {
+      "prompt": "beach",
+      "answer": "plage",
+      "removed": false,
+      "id": "places_w3"
+    },
+    {
+      "prompt": "bridge",
+      "answer": "pont",
+      "removed": false,
+      "id": "places_w4"
+    },
+    {
+      "prompt": "building",
+      "answer": "bâtiment",
+      "removed": false,
+      "id": "places_w5"
+    },
+    {
+      "prompt": "bus station",
+      "answer": "gare routière",
+      "removed": false,
+      "id": "places_w6"
+    },
+    {
+      "prompt": "café",
+      "answer": "café",
+      "removed": false,
+      "id": "places_w7"
+    },
+    {
+      "prompt": "castle",
+      "answer": "château",
+      "removed": false,
+      "id": "places_w8"
+    },
+    {
+      "prompt": "centre",
+      "answer": "centre",
+      "removed": false,
+      "id": "places_w9"
+    },
+    {
+      "prompt": "church",
+      "answer": "église",
+      "removed": false,
+      "id": "places_w10"
+    },
+    {
+      "prompt": "city",
+      "answer": "ville",
+      "removed": false,
+      "id": "places_w11"
+    },
+    {
+      "prompt": "country",
+      "answer": "pays",
+      "removed": false,
+      "id": "places_w12"
+    },
+    {
+      "prompt": "countryside",
+      "answer": "campagne",
+      "removed": false,
+      "id": "places_w13"
+    },
+    {
+      "prompt": "farm",
+      "answer": "ferme",
+      "removed": false,
+      "id": "places_w14"
+    },
+    {
+      "prompt": "forest",
+      "answer": "forêt",
+      "removed": false,
+      "id": "places_w15"
+    },
+    {
+      "prompt": "hospital",
+      "answer": "hôpital",
+      "removed": false,
+      "id": "places_w16"
+    },
+    {
+      "prompt": "hotel",
+      "answer": "hôtel",
+      "removed": false,
+      "id": "places_w17"
+    },
+    {
+      "prompt": "house",
+      "answer": "maison",
+      "removed": false,
+      "id": "places_w18"
+    },
+    {
+      "prompt": "island",
+      "answer": "île",
+      "removed": false,
+      "id": "places_w19"
+    },
+    {
+      "prompt": "library",
+      "answer": "bibliothèque",
+      "removed": false,
+      "id": "places_w20"
+    },
+    {
+      "prompt": "market",
+      "answer": "marché",
+      "removed": false,
+      "id": "places_w21"
+    },
+    {
+      "prompt": "museum",
+      "answer": "musée",
+      "removed": false,
+      "id": "places_w22"
+    },
+    {
+      "prompt": "park",
+      "answer": "parc",
+      "removed": false,
+      "id": "places_w23"
+    },
+    {
+      "prompt": "place",
+      "answer": "lieu",
+      "removed": false,
+      "id": "places_w24"
+    },
+    {
+      "prompt": "restaurant",
+      "answer": "restaurant",
+      "removed": false,
+      "id": "places_w25"
+    },
+    {
+      "prompt": "river",
+      "answer": "rivière",
+      "removed": false,
+      "id": "places_w26"
+    },
+    {
+      "prompt": "school",
+      "answer": "école",
+      "removed": false,
+      "id": "places_w27"
+    },
+    {
+      "prompt": "shopping centre",
+      "answer": "centre commercial",
+      "removed": false,
+      "id": "places_w28"
+    },
+    {
+      "prompt": "square",
+      "answer": "place",
+      "removed": false,
+      "id": "places_w29"
+    },
+    {
+      "prompt": "station",
+      "answer": "gare",
+      "removed": false,
+      "id": "places_w30"
+    },
+    {
+      "prompt": "street",
+      "answer": "rue",
+      "removed": false,
+      "id": "places_w31"
+    },
+    {
+      "prompt": "supermarket",
+      "answer": "supermarché",
+      "removed": false,
+      "id": "places_w32"
+    },
+    {
+      "prompt": "town",
+      "answer": "ville",
+      "removed": false,
+      "id": "places_w33"
+    },
+    {
+      "prompt": "village",
+      "answer": "village",
+      "removed": false,
+      "id": "places_w34"
+    },
+    {
+      "prompt": "zoo",
+      "answer": "zoo",
+      "removed": false,
+      "id": "places_w35"
+    }
   ]
 }

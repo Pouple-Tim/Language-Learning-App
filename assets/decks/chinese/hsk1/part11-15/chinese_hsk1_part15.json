@@ -5,14 +5,59 @@
   "inputType": "draw",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "rènshi", "answer": "认识", "meaning": "connaître (quelqu’un)", "removed": false},
-    {"prompt": "nián", "answer": "年", "meaning": "année", "removed": false},
-    {"prompt": "dàxué", "answer": "大学", "meaning": "université", "removed": false},
-    {"prompt": "fàndiàn", "answer": "饭店", "meaning": "restaurant, hôtel", "removed": false},
-    {"prompt": "chūzūchē", "answer": "出租车", "meaning": "taxi", "removed": false},
-    {"prompt": "yīqǐ", "answer": "一起", "meaning": "ensemble", "removed": false},
-    {"prompt": "gāoxìng", "answer": "高兴", "meaning": "content, heureux", "removed": false},
-    {"prompt": "tīng", "answer": "听", "meaning": "écouter, entendre", "removed": false},
-    {"prompt": "fēijī", "answer": "飞机", "meaning": "avion", "removed": false}
+    {
+      "prompt": "rènshi",
+      "answer": "认识",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w1"
+    },
+    {
+      "prompt": "nián",
+      "answer": "年",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w2"
+    },
+    {
+      "prompt": "dàxué",
+      "answer": "大学",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w3"
+    },
+    {
+      "prompt": "fàndiàn",
+      "answer": "饭店",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w4"
+    },
+    {
+      "prompt": "chūzūchē",
+      "answer": "出租车",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w5"
+    },
+    {
+      "prompt": "yīqǐ",
+      "answer": "一起",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w6"
+    },
+    {
+      "prompt": "gāoxìng",
+      "answer": "高兴",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w7"
+    },
+    {
+      "prompt": "tīng",
+      "answer": "听",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w8"
+    },
+    {
+      "prompt": "fēijī",
+      "answer": "飞机",
+      "removed": false,
+      "id": "chinese_hsk1_part15_w9"
+    }
   ]
 }

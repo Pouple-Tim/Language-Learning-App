@@ -5,29 +5,149 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "answer", "answer": "réponse", "removed": false},
-    {"prompt": "board", "answer": "tableau", "removed": false},
-    {"prompt": "book", "answer": "livre", "removed": false},
-    {"prompt": "class", "answer": "classe", "removed": false},
-    {"prompt": "classroom", "answer": "salle de classe", "removed": false},
-    {"prompt": "course", "answer": "cours", "removed": false},
-    {"prompt": "dictionary", "answer": "dictionnaire", "removed": false},
-    {"prompt": "exam", "answer": "examen", "removed": false},
-    {"prompt": "exercise", "answer": "exercice", "removed": false},
-    {"prompt": "homework", "answer": "devoirs", "removed": false},
-    {"prompt": "learn", "answer": "apprendre", "removed": false},
-    {"prompt": "lesson", "answer": "leçon", "removed": false},
-    {"prompt": "library", "answer": "bibliothèque", "removed": false},
-    {"prompt": "notebook", "answer": "cahier", "removed": false},
-    {"prompt": "page", "answer": "page", "removed": false},
-    {"prompt": "pen", "answer": "stylo", "removed": false},
-    {"prompt": "pencil", "answer": "crayon", "removed": false},
-    {"prompt": "question", "answer": "question", "removed": false},
-    {"prompt": "school", "answer": "école", "removed": false},
-    {"prompt": "student", "answer": "étudiant", "removed": false},
-    {"prompt": "study", "answer": "étudier", "removed": false},
-    {"prompt": "teacher", "answer": "professeur", "removed": false},
-    {"prompt": "test", "answer": "test", "removed": false},
-    {"prompt": "textbook", "answer": "manuel scolaire", "removed": false}
+    {
+      "prompt": "answer",
+      "answer": "réponse",
+      "removed": false,
+      "id": "education_w1"
+    },
+    {
+      "prompt": "board",
+      "answer": "tableau",
+      "removed": false,
+      "id": "education_w2"
+    },
+    {
+      "prompt": "book",
+      "answer": "livre",
+      "removed": false,
+      "id": "education_w3"
+    },
+    {
+      "prompt": "class",
+      "answer": "classe",
+      "removed": false,
+      "id": "education_w4"
+    },
+    {
+      "prompt": "classroom",
+      "answer": "salle de classe",
+      "removed": false,
+      "id": "education_w5"
+    },
+    {
+      "prompt": "course",
+      "answer": "cours",
+      "removed": false,
+      "id": "education_w6"
+    },
+    {
+      "prompt": "dictionary",
+      "answer": "dictionnaire",
+      "removed": false,
+      "id": "education_w7"
+    },
+    {
+      "prompt": "exam",
+      "answer": "examen",
+      "removed": false,
+      "id": "education_w8"
+    },
+    {
+      "prompt": "exercise",
+      "answer": "exercice",
+      "removed": false,
+      "id": "education_w9"
+    },
+    {
+      "prompt": "homework",
+      "answer": "devoirs",
+      "removed": false,
+      "id": "education_w10"
+    },
+    {
+      "prompt": "learn",
+      "answer": "apprendre",
+      "removed": false,
+      "id": "education_w11"
+    },
+    {
+      "prompt": "lesson",
+      "answer": "leçon",
+      "removed": false,
+      "id": "education_w12"
+    },
+    {
+      "prompt": "library",
+      "answer": "bibliothèque",
+      "removed": false,
+      "id": "education_w13"
+    },
+    {
+      "prompt": "notebook",
+      "answer": "cahier",
+      "removed": false,
+      "id": "education_w14"
+    },
+    {
+      "prompt": "page",
+      "answer": "page",
+      "removed": false,
+      "id": "education_w15"
+    },
+    {
+      "prompt": "pen",
+      "answer": "stylo",
+      "removed": false,
+      "id": "education_w16"
+    },
+    {
+      "prompt": "pencil",
+      "answer": "crayon",
+      "removed": false,
+      "id": "education_w17"
+    },
+    {
+      "prompt": "question",
+      "answer": "question",
+      "removed": false,
+      "id": "education_w18"
+    },
+    {
+      "prompt": "school",
+      "answer": "école",
+      "removed": false,
+      "id": "education_w19"
+    },
+    {
+      "prompt": "student",
+      "answer": "étudiant",
+      "removed": false,
+      "id": "education_w20"
+    },
+    {
+      "prompt": "study",
+      "answer": "étudier",
+      "removed": false,
+      "id": "education_w21"
+    },
+    {
+      "prompt": "teacher",
+      "answer": "professeur",
+      "removed": false,
+      "id": "education_w22"
+    },
+    {
+      "prompt": "test",
+      "answer": "test",
+      "removed": false,
+      "id": "education_w23"
+    },
+    {
+      "prompt": "textbook",
+      "answer": "manuel scolaire",
+      "removed": false,
+      "id": "education_w24"
+    }
   ]
 }

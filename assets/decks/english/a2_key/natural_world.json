@@ -5,38 +5,203 @@
   "inputType": "text",
   "reverseInputType": "text",
   "words": [
-    {"prompt": "animal", "answer": "animal", "removed": false},
-    {"prompt": "beach", "answer": "plage", "removed": false},
-    {"prompt": "bird", "answer": "oiseau", "removed": false},
-    {"prompt": "cat", "answer": "chat", "removed": false},
-    {"prompt": "climate", "answer": "climat", "removed": false},
-    {"prompt": "cloud", "answer": "nuage", "removed": false},
-    {"prompt": "cow", "answer": "vache", "removed": false},
-    {"prompt": "dog", "answer": "chien", "removed": false},
-    {"prompt": "elephant", "answer": "éléphant", "removed": false},
-    {"prompt": "farm", "answer": "ferme", "removed": false},
-    {"prompt": "flower", "answer": "fleur", "removed": false},
-    {"prompt": "forest", "answer": "forêt", "removed": false},
-    {"prompt": "fruit", "answer": "fruit", "removed": false},
-    {"prompt": "grass", "answer": "herbe", "removed": false},
-    {"prompt": "horse", "answer": "cheval", "removed": false},
-    {"prompt": "insect", "answer": "insecte", "removed": false},
-    {"prompt": "island", "answer": "île", "removed": false},
-    {"prompt": "lake", "answer": "lac", "removed": false},
-    {"prompt": "leaf", "answer": "feuille", "removed": false},
-    {"prompt": "monkey", "answer": "singe", "removed": false},
-    {"prompt": "mountain", "answer": "montagne", "removed": false},
-    {"prompt": "nature", "answer": "nature", "removed": false},
-    {"prompt": "ocean", "answer": "océan", "removed": false},
-    {"prompt": "plant", "answer": "plante", "removed": false},
-    {"prompt": "river", "answer": "rivière", "removed": false},
-    {"prompt": "sea", "answer": "mer", "removed": false},
-    {"prompt": "sheep", "answer": "mouton", "removed": false},
-    {"prompt": "snake", "answer": "serpent", "removed": false},
-    {"prompt": "star", "answer": "étoile", "removed": false},
-    {"prompt": "sun", "answer": "soleil", "removed": false},
-    {"prompt": "tree", "answer": "arbre", "removed": false},
-    {"prompt": "weather", "answer": "temps / météo", "removed": false},
-    {"prompt": "wind", "answer": "vent", "removed": false}
+    {
+      "prompt": "animal",
+      "answer": "animal",
+      "removed": false,
+      "id": "natural_world_w1"
+    },
+    {
+      "prompt": "beach",
+      "answer": "plage",
+      "removed": false,
+      "id": "natural_world_w2"
+    },
+    {
+      "prompt": "bird",
+      "answer": "oiseau",
+      "removed": false,
+      "id": "natural_world_w3"
+    },
+    {
+      "prompt": "cat",
+      "answer": "chat",
+      "removed": false,
+      "id": "natural_world_w4"
+    },
+    {
+      "prompt": "climate",
+      "answer": "climat",
+      "removed": false,
+      "id": "natural_world_w5"
+    },
+    {
+      "prompt": "cloud",
+      "answer": "nuage",
+      "removed": false,
+      "id": "natural_world_w6"
+    },
+    {
+      "prompt": "cow",
+      "answer": "vache",
+      "removed": false,
+      "id": "natural_world_w7"
+    },
+    {
+      "prompt": "dog",
+      "answer": "chien",
+      "removed": false,
+      "id": "natural_world_w8"
+    },
+    {
+      "prompt": "elephant",
+      "answer": "éléphant",
+      "removed": false,
+      "id": "natural_world_w9"
+    },
+    {
+      "prompt": "farm",
+      "answer": "ferme",
+      "removed": false,
+      "id": "natural_world_w10"
+    },
+    {
+      "prompt": "flower",
+      "answer": "fleur",
+      "removed": false,
+      "id": "natural_world_w11"
+    },
+    {
+      "prompt": "forest",
+      "answer": "forêt",
+      "removed": false,
+      "id": "natural_world_w12"
+    },
+    {
+      "prompt": "fruit",
+      "answer": "fruit",
+      "removed": false,
+      "id": "natural_world_w13"
+    },
+    {
+      "prompt": "grass",
+      "answer": "herbe",
+      "removed": false,
+      "id": "natural_world_w14"
+    },
+    {
+      "prompt": "horse",
+      "answer": "cheval",
+      "removed": false,
+      "id": "natural_world_w15"
+    },
+    {
+      "prompt": "insect",
+      "answer": "insecte",
+      "removed": false,
+      "id": "natural_world_w16"
+    },
+    {
+      "prompt": "island",
+      "answer": "île",
+      "removed": false,
+      "id": "natural_world_w17"
+    },
+    {
+      "prompt": "lake",
+      "answer": "lac",
+      "removed": false,
+      "id": "natural_world_w18"
+    },
+    {
+      "prompt": "leaf",
+      "answer": "feuille",
+      "removed": false,
+      "id": "natural_world_w19"
+    },
+    {
+      "prompt": "monkey",
+      "answer": "singe",
+      "removed": false,
+      "id": "natural_world_w20"
+    },
+    {
+      "prompt": "mountain",
+      "answer": "montagne",
+      "removed": false,
+      "id": "natural_world_w21"
+    },
+    {
+      "prompt": "nature",
+      "answer": "nature",
+      "removed": false,
+      "id": "natural_world_w22"
+    },
+    {
+      "prompt": "ocean",
+      "answer": "océan",
+      "removed": false,
+      "id": "natural_world_w23"
+    },
+    {
+      "prompt": "plant",
+      "answer": "plante",
+      "removed": false,
+      "id": "natural_world_w24"
+    },
+    {
+      "prompt": "river",
+      "answer": "rivière",
+      "removed": false,
+      "id": "natural_world_w25"
+    },
+    {
+      "prompt": "sea",
+      "answer": "mer",
+      "removed": false,
+      "id": "natural_world_w26"
+    },
+    {
+      "prompt": "sheep",
+      "answer": "mouton",
+      "removed": false,
+      "id": "natural_world_w27"
+    },
+    {
+      "prompt": "snake",
+      "answer": "serpent",
+      "removed": false,
+      "id": "natural_world_w28"
+    },
+    {
+      "prompt": "star",
+      "answer": "étoile",
+      "removed": false,
+      "id": "natural_world_w29"
+    },
+    {
+      "prompt": "sun",
+      "answer": "soleil",
+      "removed": false,
+      "id": "natural_world_w30"
+    },
+    {
+      "prompt": "tree",
+      "answer": "arbre",
+      "removed": false,
+      "id": "natural_world_w31"
+    },
+    {
+      "prompt": "weather",
+      "answer": "temps / météo",
+      "removed": false,
+      "id": "natural_world_w32"
+    },
+    {
+      "prompt": "wind",
+      "answer": "vent",
+      "removed": false,
+      "id": "natural_world_w33"
+    }
   ]
 }
