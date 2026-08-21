@@ -265,111 +265,127 @@ class HomeScreen extends StatelessWidget {
     final cardColor = theme.cardTheme.color;
     // On utilise une ombre plus légère définie dans le thème si possible, sinon défaut
     final shadowColor = theme.cardTheme.shadowColor ?? Colors.black.withValues(alpha: 0.05);
+    final selectedDeck = context.watch<DeckProvider>().selectedDeck;
+    final isUnavailable = mode.type == GameType.sentence && (selectedDeck?.sentences.isEmpty ?? false);
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: cardColor,
-        boxShadow: [
-          BoxShadow(
-            color: shadowColor,
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () {
-            final deckProvider = context.read<DeckProvider>();
-            final gameProvider = context.read<GameProvider>();
+    return Opacity(
+      opacity: isUnavailable ? 0.4 : 1.0,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: cardColor,
+          boxShadow: [
+            BoxShadow(
+              color: shadowColor,
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {
+              final deckProvider = context.read<DeckProvider>();
+              final gameProvider = context.read<GameProvider>();
+              final l10n = AppLocalizations.of(context)!;
 
-            if (deckProvider.selectedDeck == null) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(AppLocalizations.of(context)!.noDeckSelected),
-                  backgroundColor: AppColors.error,
-                  action: SnackBarAction(
-                    label: AppLocalizations.of(context)!.selectDeck,
-                    textColor: Colors.white,
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const DecksScreen()),
+              if (deckProvider.selectedDeck == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(l10n.noDeckSelected),
+                    backgroundColor: AppColors.error,
+                    action: SnackBarAction(
+                      label: l10n.selectDeck,
+                      textColor: Colors.white,
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const DecksScreen()),
+                      ),
                     ),
+                  ),
+                );
+                return;
+              }
+
+              if (isUnavailable) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(l10n.noSentencesInDeck),
+                    backgroundColor: AppColors.warning,
+                  ),
+                );
+                return;
+              }
+
+              gameProvider.setDeck(
+                deckProvider.selectedDeck!,
+                gameMode: mode.type,
+              );
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GameScreen(
+                    gameTitle: mode.title,
                   ),
                 ),
               );
-              return;
-            }
-
-            gameProvider.setDeck(
-              deckProvider.selectedDeck!,
-              gameMode: mode.type,
-            );
-
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => GameScreen(
-                  gameTitle: mode.title, 
-                ),
-              ),
-            );
-          },
-          borderRadius: BorderRadius.circular(16),
-          child: Padding(
-            padding: const EdgeInsets.all(14), // Padding légèrement ajusté
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min, // Important pour éviter que le contenu s'étire bizarrement
-              children: [
-                // En-tête avec Icone
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: mode.color.withValues(alpha: 0.1),
-                        shape: BoxShape.circle,
+            },
+            borderRadius: BorderRadius.circular(16),
+            child: Padding(
+              padding: const EdgeInsets.all(14), // Padding légèrement ajusté
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min, // Important pour éviter que le contenu s'étire bizarrement
+                children: [
+                  // En-tête avec Icone
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: mode.color.withValues(alpha: 0.1),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          mode.icon,
+                          size: 20,
+                          color: mode.color,
+                        ),
                       ),
-                      child: Icon(
-                        mode.icon,
-                        size: 20,
-                        color: mode.color,
-                      ),
+                    ],
+                  ),
+
+                  const Spacer(), // Pousse le texte vers le bas, mais s'adapte à la hauteur fixe
+
+                  // Titre
+                  Text(
+                    mode.title,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      height: 1.1,
                     ),
-                  ],
-                ),
-                
-                const Spacer(), // Pousse le texte vers le bas, mais s'adapte à la hauteur fixe
-                
-                // Titre
-                Text(
-                  mode.title,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    height: 1.1,
+                    // maxLines: 1,
+                    // overflow: TextOverflow.ellipsis,
                   ),
-                  // maxLines: 1,
-                  // overflow: TextOverflow.ellipsis,
-                ),
-                
-                const SizedBox(height: 4),
-                
-                // Description
-                Text(
-                  mode.description,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    fontSize: 11,
-                    height: 1.2,
+
+                  const SizedBox(height: 4),
+
+                  // Description
+                  Text(
+                    mode.description,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontSize: 11,
+                      height: 1.2,
+                    ),
+                    // maxLines: 2,
+                    // overflow: TextOverflow.ellipsis,
                   ),
-                  // maxLines: 2, 
-                  // overflow: TextOverflow.ellipsis,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

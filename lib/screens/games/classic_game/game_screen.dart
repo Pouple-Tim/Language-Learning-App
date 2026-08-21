@@ -15,6 +15,7 @@ import 'widgets/sentence_builder_widget.dart';
 import 'widgets/game_header.dart';
 import 'widgets/game_progress_bar.dart';
 import 'widgets/completed_card.dart';
+import 'widgets/no_sentences_card.dart';
 import 'widgets/remaining_words_sheet.dart';
 
 class GameScreen extends StatelessWidget {
@@ -81,7 +82,14 @@ class GameScreen extends StatelessWidget {
                                 progress: gameProvider.progress,
                               ),
                               const SizedBox(height: 12),
-                              if (gameProvider.isCompleted)
+                              if (gameProvider.currentGameType == GameType.sentence &&
+                                  gameProvider.currentDeck!.sentences.isEmpty)
+                                const Expanded(
+                                  child: Center(
+                                    child: NoSentencesCard(),
+                                  ),
+                                )
+                              else if (gameProvider.isCompleted)
                                 Expanded(
                                   child: Center(
                                     child: CompletedCard(onRestart: gameProvider.resetDeck),

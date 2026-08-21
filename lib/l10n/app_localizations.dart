@@ -231,8 +231,32 @@ abstract class AppLocalizations {
   /// No description provided for @resetDeckMessage.
   ///
   /// In en, this message translates to:
-  /// **'Do you want to restart this deck from the beginning? All your progress will be lost.'**
+  /// **'Choose which mode\'s progress you want to reset for this deck.'**
   String get resetDeckMessage;
+
+  /// No description provided for @resetThisMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset this mode'**
+  String get resetThisMode;
+
+  /// No description provided for @resetAllModes.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all modes'**
+  String get resetAllModes;
+
+  /// No description provided for @modeReset.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode} reset!'**
+  String modeReset(String mode);
+
+  /// No description provided for @noSentencesInDeck.
+  ///
+  /// In en, this message translates to:
+  /// **'This deck doesn\'t have any sentences yet.'**
+  String get noSentencesInDeck;
 
   /// No description provided for @cancel.
   ///

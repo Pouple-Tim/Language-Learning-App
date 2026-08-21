@@ -79,7 +79,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resetDeckMessage =>
-      'Do you want to restart this deck from the beginning? All your progress will be lost.';
+      'Choose which mode\'s progress you want to reset for this deck.';
+
+  @override
+  String get resetThisMode => 'Reset this mode';
+
+  @override
+  String get resetAllModes => 'Reset all modes';
+
+  @override
+  String modeReset(String mode) {
+    return '$mode reset!';
+  }
+
+  @override
+  String get noSentencesInDeck => 'This deck doesn\'t have any sentences yet.';
 
   @override
   String get cancel => 'Cancel';

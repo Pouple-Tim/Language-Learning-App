@@ -216,4 +216,49 @@ void main() {
       expect(provider.currentDeck!.sentences.every((s) => !s.completed), isTrue);
     });
   });
+
+  group('GameProvider.resetModeProgress', () {
+    test('wipes saved progress for a mode other than the one currently loaded, without touching the loaded mode', () async {
+      final repo = DeckRepository();
+      final savedQuiz = _buildDeck()..words.first.removed = true;
+      await repo.saveProgress('deck1', GameType.quiz.storageId, savedQuiz);
+
+      final provider = GameProvider();
+      await provider.setDeck(_buildDeck(), gameMode: GameType.classic);
+      provider.currentDeck!.words.first.removed = true;
+
+      await provider.resetModeProgress('deck1', GameType.quiz);
+
+      expect(await repo.loadProgress('deck1', GameType.quiz.storageId), isNull);
+      // The in-memory classic session, being a different mode, is untouched.
+      expect(provider.currentDeck!.words.first.removed, isTrue);
+    });
+
+    test('resets the in-memory session when the target mode is the one currently loaded', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_buildDeck(), gameMode: GameType.classic);
+      provider.currentDeck!.words.first.removed = true;
+
+      await provider.resetModeProgress('deck1', GameType.classic);
+
+      expect(provider.currentDeck!.words.every((w) => !w.removed), isTrue);
+    });
+  });
+
+  group('GameProvider.resetAllModesProgress', () {
+    test('wipes saved progress for every mode of a deck, and resets the in-memory session if it belongs to that deck', () async {
+      final repo = DeckRepository();
+      final savedQuiz = _buildDeck()..words.first.removed = true;
+      await repo.saveProgress('deck1', GameType.quiz.storageId, savedQuiz);
+
+      final provider = GameProvider();
+      await provider.setDeck(_buildDeck(), gameMode: GameType.classic);
+      provider.currentDeck!.words.first.removed = true;
+
+      await provider.resetAllModesProgress('deck1');
+
+      expect(await repo.loadProgress('deck1', GameType.quiz.storageId), isNull);
+      expect(provider.currentDeck!.words.every((w) => !w.removed), isTrue);
+    });
+  });
 }

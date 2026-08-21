@@ -386,6 +386,25 @@ class GameProvider extends ChangeNotifier {
     spinWheel();
   }
 
+  /// Réinitialise la progression sauvegardée d'un seul mode d'un deck.
+  /// Si ce mode est celui actuellement chargé en mémoire, la session en
+  /// cours est aussi réinitialisée pour rester cohérente avec le disque.
+  Future<void> resetModeProgress(String deckId, GameType mode) async {
+    if (deckId == _currentDeckId && mode == _currentGameType) {
+      await resetDeck();
+      return;
+    }
+    await _repository.resetProgress(deckId, mode.storageId);
+  }
+
+  /// Réinitialise la progression sauvegardée de tous les modes d'un deck.
+  Future<void> resetAllModesProgress(String deckId) async {
+    await _repository.resetAllProgressForDeck(deckId);
+    if (deckId == _currentDeckId) {
+      await resetDeck();
+    }
+  }
+
   Future<void> checkDailyReset(DateTime lastReset) async {
     if (_currentProgressDeck == null) return;
 

@@ -25,7 +25,11 @@
   
   "reset": "Restablecer",
   "resetDeck": "¿Restablecer el mazo?",
-  "resetDeckMessage": "¿Quieres reiniciar este mazo desde el principio? Se perderán todos tus progresos.",
+  "resetDeckMessage": "Elige el modo cuyo progreso quieres restablecer para este mazo.",
+  "resetThisMode": "Restablecer este modo",
+  "resetAllModes": "Restablecer todos los modos",
+  "modeReset": "¡{mode} restablecido!",
+  "noSentencesInDeck": "Este mazo aún no tiene frases.",
   "cancel": "Cancelar",
   
   "decksAvailable": "Mazos disponibles",
