@@ -65,9 +65,12 @@ class HomeScreen extends StatelessWidget {
     // La largeur d'une seule carte
     final itemWidth = availableWidth / 2;
     // La hauteur fixe désirée (ajustez cette valeur si vous voulez plus/moins haut)
-    const targetHeight = 140.0; 
-    // Le ratio dynamique : Largeur / Hauteur
-    final childAspectRatio = itemWidth / targetHeight;
+    const targetHeight = 140.0;
+    // Le ratio dynamique : Largeur / Hauteur. MediaQuery peut occasionnellement
+    // rapporter une taille nulle/dégénérée sur la toute première frame (avant
+    // que le gestionnaire de fenêtres n'ait fini d'assigner la taille réelle),
+    // ce qui rendrait itemWidth <= 0 et violerait l'assertion childAspectRatio > 0.
+    final childAspectRatio = (itemWidth / targetHeight).clamp(0.1, double.infinity);
     // -----------------------------------------
 
     return Scaffold(
