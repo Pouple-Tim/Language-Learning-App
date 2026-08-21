@@ -292,7 +292,7 @@ class HomeScreen extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {
+            onTap: () async {
               final deckProvider = context.read<DeckProvider>();
               final gameProvider = context.read<GameProvider>();
               final l10n = AppLocalizations.of(context)!;
@@ -325,8 +325,25 @@ class HomeScreen extends StatelessWidget {
                 return;
               }
 
+              var deck = deckProvider.selectedDeck!;
+              if (deck.type == DeckType.base && deck.words.isEmpty && deck.sentences.isEmpty) {
+                await deckProvider.selectDeck(deck);
+                if (!context.mounted) return;
+                final error = deckProvider.downloadError;
+                if (error != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(l10n.deckDownloadFailed),
+                      backgroundColor: AppColors.error,
+                    ),
+                  );
+                  return;
+                }
+                deck = deckProvider.selectedDeck!;
+              }
+
               gameProvider.setDeck(
-                deckProvider.selectedDeck!,
+                deck,
                 gameMode: mode.type,
               );
 
