@@ -140,6 +140,7 @@ class DeckProvider extends ChangeNotifier {
   /// Recharge les decks (utile après des modifications)
   Future<void> reloadDecks() async {
     _isInitialized = false;
+    await _repository.clearDownloadedDeckContent();
     _repository.clearCache();
     await loadDecks();
   }
