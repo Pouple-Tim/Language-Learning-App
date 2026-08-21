@@ -5,6 +5,7 @@ import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/word.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
+import 'package:language_learning_app/core/constants/app_constants.dart';
 
 Deck _buildDeck() {
   return Deck(
@@ -82,6 +83,19 @@ void main() {
       await repo.saveCustomDecks([_buildDeck()]);
 
       final loaded = await repo.loadCustomDecks();
+      expect(loaded.length, 1);
+      expect(loaded.first.id, 'deck1');
+    });
+
+    test('loadCustomDecks skips a malformed entry instead of discarding every custom deck', () async {
+      final repo = DeckRepository();
+      await StorageHelper.saveJsonList(AppConstants.keyCustomDecks, [
+        _buildDeck().toJson(),
+        {'not': 'a valid deck'},
+      ]);
+
+      final loaded = await repo.loadCustomDecks();
+
       expect(loaded.length, 1);
       expect(loaded.first.id, 'deck1');
     });

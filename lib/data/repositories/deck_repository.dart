@@ -73,14 +73,18 @@ class DeckRepository {
   // ========== DECKS PERSONNALISÉS (STRUCTURE UNIQUEMENT) ==========
 
   Future<List<Deck>> loadCustomDecks() async {
-    try {
-      final jsonList = StorageHelper.getJsonList(AppConstants.keyCustomDecks);
-      if (jsonList == null) return [];
-      return jsonList.map((json) => Deck.fromJson(json)).toList();
-    } catch (e) {
-      debugPrint('Erreur loadCustomDecks: $e');
-      return [];
+    final jsonList = StorageHelper.getJsonList(AppConstants.keyCustomDecks);
+    if (jsonList == null) return [];
+
+    final decks = <Deck>[];
+    for (final json in jsonList) {
+      try {
+        decks.add(Deck.fromJson(json));
+      } catch (e) {
+        debugPrint('❌ Erreur loadCustomDecks (deck ignoré): $e');
+      }
     }
+    return decks;
   }
 
   Future<void> saveCustomDecks(List<Deck> decks) async {
