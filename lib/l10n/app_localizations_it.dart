@@ -271,6 +271,10 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String get deckDownloadFailed =>
+      'Impossibile scaricare questo mazzo. Controlla la connessione e riprova.';
+
+  @override
   String deckCreated(String name) {
     return 'Mazzo \"$name\" creato!';
   }

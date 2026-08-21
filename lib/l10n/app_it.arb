@@ -92,6 +92,7 @@
   "madeWithLove": "Creato con passione",
   
   "deckSelected": "Mazzo \"{name}\" selezionato",
+  "deckDownloadFailed": "Impossibile scaricare questo mazzo. Controlla la connessione e riprova.",
   "deckCreated": "Mazzo \"{name}\" creato!",
   "deckModified": "Mazzo \"{name}\" modificato!",
   "deckDeleted": "Mazzo \"{name}\" eliminato",
