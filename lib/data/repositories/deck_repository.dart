@@ -42,16 +42,15 @@ class DeckRepository {
 
       for (final entry in _manifest!.decks) {
         final cached = await _loadCachedDeckContent(entry.id);
-        decks.add(cached ??
-            Deck(
-              id: entry.id,
-              name: entry.name,
-              type: DeckType.base,
-              inputType: entry.inputType,
-              reverseInputType: entry.reverseInputType,
-              words: [],
-              sentences: [],
-            ));
+        decks.add(Deck(
+          id: entry.id,
+          name: entry.name,
+          type: DeckType.base,
+          inputType: entry.inputType,
+          reverseInputType: entry.reverseInputType,
+          words: cached?.words ?? [],
+          sentences: cached?.sentences ?? [],
+        ));
       }
 
       _cachedBaseDecks = decks;
@@ -215,5 +214,13 @@ class DeckRepository {
     _manifest = null;
     _decksByCategory = null;
     _deckMetadata = null;
+  }
+
+  /// Supprime tout le contenu de deck mis en cache localement, forçant un
+  /// futur `loadBaseDecks()` à re-télécharger le contenu depuis Supabase.
+  Future<void> clearDownloadedDeckContent() async {
+    for (final key in StorageHelper.getKeysWithPrefix('downloaded_deck_')) {
+      await StorageHelper.remove(key);
+    }
   }
 }
