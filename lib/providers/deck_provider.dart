@@ -8,13 +8,17 @@ import 'package:language_learning_app/data/repositories/deck_repository.dart';
 /// 
 /// Il NE gère PAS la progression des jeux (c'est le rôle de GameProvider)
 class DeckProvider extends ChangeNotifier {
-  final DeckRepository _repository = DeckRepository();
-  
+  final DeckRepository _repository;
+
+  DeckProvider({DeckRepository? repository}) : _repository = repository ?? DeckRepository();
+
   List<Deck> _baseDecks = [];
   List<Deck> _customDecks = [];
   Deck? _selectedDeck;
   bool _isLoading = false;
   bool _isInitialized = false;
+  String? _downloadingDeckId;
+  String? _downloadError;
 
   // Getters
   List<Deck> get baseDecks => _baseDecks;
@@ -24,6 +28,8 @@ class DeckProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
   DeckRepository get repository => _repository;
   bool get isInitialized => _isInitialized;
+  bool isDownloadingDeck(String deckId) => _downloadingDeckId == deckId;
+  String? get downloadError => _downloadError;
 
   /// Charge tous les decks disponibles et sélectionne le dernier utilisé
   Future<void> loadDecks() async {
@@ -58,12 +64,39 @@ class DeckProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Sélectionne un deck pour l'utiliser dans les jeux
+  /// Sélectionne un deck pour l'utiliser dans les jeux. Si c'est un deck de
+  /// base sans contenu chargé/en cache, télécharge son contenu depuis
+  /// Supabase avant de le sélectionner.
   Future<void> selectDeck(Deck deck) async {
-    _selectedDeck = deck;
-    await _repository.saveSelectedDeckId(deck.id);
-    debugPrint('✅ Deck sélectionné: ${deck.name}');
+    final needsDownload = deck.type == DeckType.base && deck.words.isEmpty && deck.sentences.isEmpty;
+
+    if (!needsDownload) {
+      _selectedDeck = deck;
+      await _repository.saveSelectedDeckId(deck.id);
+      debugPrint('✅ Deck sélectionné: ${deck.name}');
+      notifyListeners();
+      return;
+    }
+
+    _downloadingDeckId = deck.id;
+    _downloadError = null;
     notifyListeners();
+
+    try {
+      final populated = await _repository.downloadDeckContent(deck);
+      final index = _baseDecks.indexWhere((d) => d.id == populated.id);
+      if (index != -1) _baseDecks[index] = populated;
+
+      _selectedDeck = populated;
+      await _repository.saveSelectedDeckId(populated.id);
+      debugPrint('✅ Deck téléchargé et sélectionné: ${populated.name}');
+    } catch (e) {
+      _downloadError = e.toString();
+      debugPrint('❌ Erreur téléchargement deck ${deck.id}: $e');
+    } finally {
+      _downloadingDeckId = null;
+      notifyListeners();
+    }
   }
 
   /// Ajoute un deck personnalisé
