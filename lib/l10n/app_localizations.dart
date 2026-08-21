@@ -588,6 +588,12 @@ abstract class AppLocalizations {
   /// **'Deck \"{name}\" selected'**
   String deckSelected(String name);
 
+  /// No description provided for @deckDownloadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t download this deck. Check your connection and try again.'**
+  String get deckDownloadFailed;
+
   /// No description provided for @deckCreated.
   ///
   /// In en, this message translates to:

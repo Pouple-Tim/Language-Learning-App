@@ -18,6 +18,8 @@ Deck _buildDeck() {
 }
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await StorageHelper.init();
@@ -98,6 +100,66 @@ void main() {
 
       expect(loaded.length, 1);
       expect(loaded.first.id, 'deck1');
+    });
+  });
+
+  group('DeckRepository - downloadDeckContent', () {
+    Deck metadataOnlyDeck() => Deck(
+          id: 'deck1',
+          name: 'Test Deck',
+          type: DeckType.base,
+          inputType: InputType.text,
+          words: [],
+        );
+
+    test('merges fetched content into the metadata-only deck and caches it', () async {
+      final repo = DeckRepository(
+        fetchDeckContent: (id) async => {
+          'words': [
+            {'id': 'w1', 'prompt': 'un', 'answer': 'one'},
+          ],
+          'sentences': [],
+        },
+      );
+
+      final populated = await repo.downloadDeckContent(metadataOnlyDeck());
+
+      expect(populated.words.length, 1);
+      expect(populated.words.first.id, 'w1');
+      expect(populated.name, 'Test Deck');
+    });
+
+    test('throws when the server has no content for that deck id', () async {
+      final repo = DeckRepository(fetchDeckContent: (id) async => null);
+
+      expect(() => repo.downloadDeckContent(metadataOnlyDeck()), throwsException);
+    });
+
+    test('a downloaded deck is cached and returned by loadBaseDecks on a later call', () async {
+      var fetchCount = 0;
+      final firstRepo = DeckRepository(
+        fetchDeckContent: (id) async {
+          fetchCount++;
+          return {
+            'words': [
+              {'id': 'w1', 'prompt': 'un', 'answer': 'one'},
+            ],
+            'sentences': [],
+          };
+        },
+      );
+
+      final decks = await firstRepo.loadBaseDecks();
+      final target = decks.first;
+      await firstRepo.downloadDeckContent(target);
+      expect(fetchCount, 1);
+
+      // Simulate a fresh app launch: new repository instance, same local storage.
+      final secondRepo = DeckRepository();
+      final reloaded = await secondRepo.loadBaseDecks();
+      final reloadedTarget = reloaded.firstWhere((d) => d.id == target.id);
+
+      expect(reloadedTarget.words.length, 1);
     });
   });
 

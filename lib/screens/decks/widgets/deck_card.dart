@@ -30,6 +30,9 @@ class DeckCard extends StatelessWidget {
     final deckProvider = context.watch<DeckProvider>();
     final isSelected = deckProvider.selectedDeck?.id == deck.id;
     final metadata = isBase ? deckProvider.repository.getDeckMetadata(deck.id) : null;
+    final needsDownload = isBase && deck.words.isEmpty && deck.sentences.isEmpty;
+    final isDownloading = deckProvider.isDownloadingDeck(deck.id);
+    final wordCount = isBase && metadata != null ? metadata.wordCount : deck.totalWords;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
@@ -49,7 +52,7 @@ class DeckCard extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildDeckIcon(isSelected),
+              _buildDeckIcon(isSelected, needsDownload, isDownloading),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -80,7 +83,7 @@ class DeckCard extends StatelessWidget {
                             Icon(Icons.style, size: 12, color: Colors.grey.shade500),
                             const SizedBox(width: 4),
                             Text(
-                              l10n.totalWords(deck.totalWords),
+                              l10n.totalWords(wordCount),
                               style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
                             ),
                           ],
@@ -118,7 +121,13 @@ class DeckCard extends StatelessWidget {
   }
 
   // ... (Le reste : _buildDeckIcon, _buildDifficultyChip, _buildActions reste identique)
-  Widget _buildDeckIcon(bool isSelected) {
+  Widget _buildDeckIcon(bool isSelected, bool needsDownload, bool isDownloading) {
+    final icon = isDownloading
+        ? null
+        : needsDownload
+            ? Icons.cloud_download_outlined
+            : (deck.inputType == InputType.text ? Icons.keyboard : Icons.draw);
+
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -127,11 +136,20 @@ class DeckCard extends StatelessWidget {
             : Colors.grey.shade100,
         borderRadius: BorderRadius.circular(8),
       ),
-      child: Icon(
-        deck.inputType == InputType.text ? Icons.keyboard : Icons.draw,
-        color: isSelected ? AppColors.primary : Colors.grey.shade600,
-        size: 20,
-      ),
+      child: isDownloading
+          ? SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                color: isSelected ? AppColors.primary : Colors.grey.shade600,
+              ),
+            )
+          : Icon(
+              icon,
+              color: isSelected ? AppColors.primary : Colors.grey.shade600,
+              size: 20,
+            ),
     );
   }
 

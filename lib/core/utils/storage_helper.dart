@@ -74,6 +74,11 @@ class StorageHelper {
     return await _prefs!.remove(key);
   }
 
+  // Récupérer toutes les clés commençant par un préfixe donné
+  static Set<String> getKeysWithPrefix(String prefix) {
+    return (_prefs?.getKeys() ?? <String>{}).where((key) => key.startsWith(prefix)).toSet();
+  }
+
   // Tout supprimer
   static Future<bool> clear() async {
     _prefs ??= await SharedPreferences.getInstance();

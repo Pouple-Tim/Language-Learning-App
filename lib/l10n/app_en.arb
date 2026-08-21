@@ -148,6 +148,7 @@
       }
     }
   },
+  "deckDownloadFailed": "Couldn't download this deck. Check your connection and try again.",
   "deckCreated": "Deck \"{name}\" created!",
   "@deckCreated": {
     "placeholders": {

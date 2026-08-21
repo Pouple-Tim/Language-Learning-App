@@ -271,6 +271,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get deckDownloadFailed =>
+      'Couldn\'t download this deck. Check your connection and try again.';
+
+  @override
   String deckCreated(String name) {
     return 'Deck \"$name\" created!';
   }

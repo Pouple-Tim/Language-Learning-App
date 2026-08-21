@@ -92,6 +92,7 @@
   "madeWithLove": "Fait avec passion",
   
   "deckSelected": "Deck \"{name}\" sélectionné",
+  "deckDownloadFailed": "Impossible de télécharger ce deck. Vérifie ta connexion et réessaie.",
   "deckCreated": "Deck \"{name}\" créé !",
   "deckModified": "Deck \"{name}\" modifié !",
   "deckDeleted": "Deck \"{name}\" supprimé",

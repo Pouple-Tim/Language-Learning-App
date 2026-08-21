@@ -5,6 +5,7 @@ import 'package:language_learning_app/screens/settings/settings_screen.dart';
 import 'package:language_learning_app/screens/games/classic_game/game_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
+import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/core/extensions/strings_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
@@ -265,8 +266,14 @@ class HomeScreen extends StatelessWidget {
     final cardColor = theme.cardTheme.color;
     // On utilise une ombre plus légère définie dans le thème si possible, sinon défaut
     final shadowColor = theme.cardTheme.shadowColor ?? Colors.black.withValues(alpha: 0.05);
-    final selectedDeck = context.watch<DeckProvider>().selectedDeck;
-    final isUnavailable = mode.type == GameType.sentence && (selectedDeck?.sentences.isEmpty ?? false);
+    final deckProvider = context.watch<DeckProvider>();
+    final selectedDeck = deckProvider.selectedDeck;
+    final hasSentences = selectedDeck == null
+        ? false
+        : selectedDeck.type == DeckType.custom
+            ? selectedDeck.sentences.isNotEmpty
+            : (deckProvider.repository.getDeckMetadata(selectedDeck.id)?.hasSentences ?? false);
+    final isUnavailable = mode.type == GameType.sentence && !hasSentences;
 
     return Opacity(
       opacity: isUnavailable ? 0.4 : 1.0,
@@ -285,7 +292,7 @@ class HomeScreen extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {
+            onTap: () async {
               final deckProvider = context.read<DeckProvider>();
               final gameProvider = context.read<GameProvider>();
               final l10n = AppLocalizations.of(context)!;
@@ -318,8 +325,25 @@ class HomeScreen extends StatelessWidget {
                 return;
               }
 
+              var deck = deckProvider.selectedDeck!;
+              if (deck.type == DeckType.base && deck.words.isEmpty && deck.sentences.isEmpty) {
+                await deckProvider.selectDeck(deck);
+                if (!context.mounted) return;
+                final error = deckProvider.downloadError;
+                if (error != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(l10n.deckDownloadFailed),
+                      backgroundColor: AppColors.error,
+                    ),
+                  );
+                  return;
+                }
+                deck = deckProvider.selectedDeck!;
+              }
+
               gameProvider.setDeck(
-                deckProvider.selectedDeck!,
+                deck,
                 gameMode: mode.type,
               );
 

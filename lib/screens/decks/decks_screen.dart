@@ -365,15 +365,27 @@ class _DecksScreenState extends State<DecksScreen> {
     final deckProvider = context.read<DeckProvider>();
     await deckProvider.selectDeck(deck);
 
-    if (context.mounted) {
-      context.read<GameProvider>().setDeck(deck);
+    if (!context.mounted) return;
+
+    final error = deckProvider.downloadError;
+    if (error != null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.deckSelected(deck.localizedName(context))),
-          duration: const Duration(seconds: 1),
+          content: Text(AppLocalizations.of(context)!.deckDownloadFailed),
+          backgroundColor: AppColors.error,
         ),
       );
+      return;
     }
+
+    final selected = deckProvider.selectedDeck!;
+    context.read<GameProvider>().setDeck(selected);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.deckSelected(selected.localizedName(context))),
+        duration: const Duration(seconds: 1),
+      ),
+    );
   }
 
   void _showDeckPreview(BuildContext context, Deck deck) {

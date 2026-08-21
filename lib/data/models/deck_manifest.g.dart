@@ -27,10 +27,32 @@ DeckEntry _$DeckEntryFromJson(Map<String, dynamic> json) => DeckEntry(
       .map((e) => e as String)
       .toList(),
   difficulty: json['difficulty'] as String? ?? 'beginner',
+  id: json['id'] as String,
+  name: json['name'] as String,
+  inputType: $enumDecode(
+    _$InputTypeEnumMap,
+    json['inputType'],
+    unknownValue: InputType.text,
+  ),
+  reverseInputType: $enumDecodeNullable(
+    _$InputTypeEnumMap,
+    json['reverseInputType'],
+    unknownValue: InputType.text,
+  ),
+  wordCount: (json['wordCount'] as num).toInt(),
+  hasSentences: json['hasSentences'] as bool,
 );
 
 Map<String, dynamic> _$DeckEntryToJson(DeckEntry instance) => <String, dynamic>{
   'path': instance.path,
   'categories': instance.categories,
   'difficulty': instance.difficulty,
+  'id': instance.id,
+  'name': instance.name,
+  'inputType': _$InputTypeEnumMap[instance.inputType]!,
+  'reverseInputType': _$InputTypeEnumMap[instance.reverseInputType],
+  'wordCount': instance.wordCount,
+  'hasSentences': instance.hasSentences,
 };
+
+const _$InputTypeEnumMap = {InputType.text: 'text', InputType.draw: 'draw'};
