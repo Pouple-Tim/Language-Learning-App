@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/deck_manifest.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
@@ -12,6 +13,21 @@ class DeckRepository {
   DeckManifest? _manifest;
   Map<String, List<Deck>>? _decksByCategory;
   Map<String, DeckEntry>? _deckMetadata;
+
+  final Future<Map<String, dynamic>?> Function(String deckId) fetchDeckContent;
+
+  DeckRepository({
+    Future<Map<String, dynamic>?> Function(String deckId)? fetchDeckContent,
+  }) : fetchDeckContent = fetchDeckContent ?? _defaultFetchDeckContent;
+
+  static Future<Map<String, dynamic>?> _defaultFetchDeckContent(String deckId) async {
+    final row = await Supabase.instance.client
+        .from('decks')
+        .select('content')
+        .eq('id', deckId)
+        .maybeSingle();
+    return row?['content'] as Map<String, dynamic>?;
+  }
 
   // ========== DECKS DE BASE (STRUCTURE UNIQUEMENT) ==========
 
@@ -41,6 +57,38 @@ class DeckRepository {
     } catch (e) {
       debugPrint('💥 Erreur chargement base decks: $e');
       return [];
+    }
+  }
+
+  /// Récupère le contenu (mots/phrases) d'un deck de base depuis Supabase,
+  /// le fusionne dans le deck (métadonnées seules) fourni, met le résultat
+  /// en cache local, et le renvoie.
+  Future<Deck> downloadDeckContent(Deck metadataOnlyDeck) async {
+    final content = await fetchDeckContent(metadataOnlyDeck.id);
+    if (content == null) {
+      throw Exception('Deck content not found on server: ${metadataOnlyDeck.id}');
+    }
+
+    final populated = Deck.fromJson({
+      ...metadataOnlyDeck.toJson(),
+      'words': content['words'],
+      'sentences': content['sentences'] ?? [],
+    });
+
+    await StorageHelper.saveJson('downloaded_deck_${populated.id}', populated.toJson());
+    return populated;
+  }
+
+  // Wired into loadBaseDecks() by Task 7 (not this task) to serve cached content.
+  // ignore: unused_element
+  Future<Deck?> _loadCachedDeckContent(String deckId) async {
+    final json = StorageHelper.getJson('downloaded_deck_$deckId');
+    if (json == null) return null;
+    try {
+      return Deck.fromJson(json);
+    } catch (e) {
+      debugPrint('❌ Erreur lecture cache deck ($deckId), ignoré: $e');
+      return null;
     }
   }
 
