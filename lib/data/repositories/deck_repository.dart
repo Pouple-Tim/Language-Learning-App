@@ -41,13 +41,17 @@ class DeckRepository {
       _manifest = DeckManifest.fromJson(manifestData);
 
       for (final entry in _manifest!.decks) {
-        try {
-          final jsonString = await rootBundle.loadString(entry.path);
-          final jsonData = jsonDecode(jsonString) as Map<String, dynamic>;
-          decks.add(Deck.fromJson(jsonData));
-        } catch (e) {
-          debugPrint('❌ Erreur: ${entry.path} - $e');
-        }
+        final cached = await _loadCachedDeckContent(entry.id);
+        decks.add(cached ??
+            Deck(
+              id: entry.id,
+              name: entry.name,
+              type: DeckType.base,
+              inputType: entry.inputType,
+              reverseInputType: entry.reverseInputType,
+              words: [],
+              sentences: [],
+            ));
       }
 
       _cachedBaseDecks = decks;
@@ -79,8 +83,7 @@ class DeckRepository {
     return populated;
   }
 
-  // Wired into loadBaseDecks() by Task 7 (not this task) to serve cached content.
-  // ignore: unused_element
+  // Wired into loadBaseDecks() to serve cached content.
   Future<Deck?> _loadCachedDeckContent(String deckId) async {
     final json = StorageHelper.getJson('downloaded_deck_$deckId');
     if (json == null) return null;
