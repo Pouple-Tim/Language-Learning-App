@@ -46,7 +46,18 @@
   
   "reset": "Reset",
   "resetDeck": "Reset deck?",
-  "resetDeckMessage": "Do you want to restart this deck from the beginning? All your progress will be lost.",
+  "resetDeckMessage": "Choose which mode's progress you want to reset for this deck.",
+  "resetThisMode": "Reset this mode",
+  "resetAllModes": "Reset all modes",
+  "modeReset": "{mode} reset!",
+  "@modeReset": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
+  "noSentencesInDeck": "This deck doesn't have any sentences yet.",
   "cancel": "Cancel",
   
   "decksAvailable": "Available Decks",

@@ -79,7 +79,21 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get resetDeckMessage =>
-      'Vuoi ricominciare questo mazzo dall’inizio? Tutti i tuoi progressi andranno persi.';
+      'Scegli la modalità di cui vuoi reimpostare i progressi per questo mazzo.';
+
+  @override
+  String get resetThisMode => 'Reimposta questa modalità';
+
+  @override
+  String get resetAllModes => 'Reimposta tutte le modalità';
+
+  @override
+  String modeReset(String mode) {
+    return '$mode reimpostato!';
+  }
+
+  @override
+  String get noSentencesInDeck => 'Questo mazzo non contiene ancora frasi.';
 
   @override
   String get cancel => 'Annulla';

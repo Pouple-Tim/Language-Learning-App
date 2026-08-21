@@ -79,7 +79,21 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get resetDeckMessage =>
-      '¿Quieres reiniciar este mazo desde el principio? Se perderán todos tus progresos.';
+      'Elige el modo cuyo progreso quieres restablecer para este mazo.';
+
+  @override
+  String get resetThisMode => 'Restablecer este modo';
+
+  @override
+  String get resetAllModes => 'Restablecer todos los modos';
+
+  @override
+  String modeReset(String mode) {
+    return '¡$mode restablecido!';
+  }
+
+  @override
+  String get noSentencesInDeck => 'Este mazo aún no tiene frases.';
 
   @override
   String get cancel => 'Cancelar';

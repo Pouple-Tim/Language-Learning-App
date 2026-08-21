@@ -25,7 +25,11 @@
   
   "reset": "Reimposta",
   "resetDeck": "Reimpostare il mazzo?",
-  "resetDeckMessage": "Vuoi ricominciare questo mazzo dall’inizio? Tutti i tuoi progressi andranno persi.",
+  "resetDeckMessage": "Scegli la modalità di cui vuoi reimpostare i progressi per questo mazzo.",
+  "resetThisMode": "Reimposta questa modalità",
+  "resetAllModes": "Reimposta tutte le modalità",
+  "modeReset": "{mode} reimpostato!",
+  "noSentencesInDeck": "Questo mazzo non contiene ancora frasi.",
   "cancel": "Annulla",
   
   "decksAvailable": "Mazzi disponibili",

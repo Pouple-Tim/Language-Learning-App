@@ -25,7 +25,11 @@
   
   "reset": "Réinitialiser",
   "resetDeck": "Réinitialiser le deck ?",
-  "resetDeckMessage": "Veux-tu recommencer ce deck depuis le début ? Tous tes progrès seront perdus.",
+  "resetDeckMessage": "Choisis le mode dont tu veux réinitialiser la progression pour ce deck.",
+  "resetThisMode": "Réinitialiser ce mode",
+  "resetAllModes": "Réinitialiser tous les modes",
+  "modeReset": "{mode} réinitialisé !",
+  "noSentencesInDeck": "Ce deck ne contient pas encore de phrases.",
   "cancel": "Annuler",
   
   "decksAvailable": "Decks disponibles",
