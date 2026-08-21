@@ -18,6 +18,8 @@ Deck _buildDeck() {
 }
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     await StorageHelper.init();
