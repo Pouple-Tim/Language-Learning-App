@@ -1,20 +1,32 @@
 {
   "version": "1.0.0",
-  "lastUpdate": "2026-08-20",
+  "lastUpdate": "2026-08-21",
   "decks": [
     {
       "path": "assets/decks/spanish_basics.json",
       "categories": [
         "Autres"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "spanish_basics_base",
+      "name": "Espagnol - Basique",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 10,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/japanese_hiragana.json",
       "categories": [
         "Autres"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "japanese_hiragana_base",
+      "name": "Japonais - Hiragana",
+      "inputType": "text",
+      "reverseInputType": "draw",
+      "wordCount": 10,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/chinese_hsk1_all.json",
@@ -22,7 +34,13 @@
         "Chinois",
         "HSK 1"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_all",
+      "name": "Chinois - HSK1 (Tous les mots)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 167,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1.json",
@@ -31,7 +49,13 @@
         "HSK 1",
         "Parties 1 à 5"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part1",
+      "name": "Chinois - HSK1 (Partie 1)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 6,
+      "hasSentences": true
     },
     {
       "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part4.json",
@@ -40,7 +64,13 @@
         "HSK 1",
         "Parties 1 à 5"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part4",
+      "name": "Chinois - HSK1 (Partie 4)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 10,
+      "hasSentences": true
     },
     {
       "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part1_5.json",
@@ -49,7 +79,13 @@
         "HSK 1",
         "Parties 1 à 5"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part1_5",
+      "name": "Chinois - HSK1 (Parties 1 à 5)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 41,
+      "hasSentences": true
     },
     {
       "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part3.json",
@@ -58,7 +94,13 @@
         "HSK 1",
         "Parties 1 à 5"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part3",
+      "name": "Chinois - HSK1 (Partie 3)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 11,
+      "hasSentences": true
     },
     {
       "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part2.json",
@@ -67,7 +109,13 @@
         "HSK 1",
         "Parties 1 à 5"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part2",
+      "name": "Chinois - HSK1 (Partie 2)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 4,
+      "hasSentences": true
     },
     {
       "path": "assets/decks/chinese/hsk1/part1-5/chinese_hsk1_part5.json",
@@ -76,7 +124,13 @@
         "HSK 1",
         "Parties 1 à 5"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part5",
+      "name": "Chinois - HSK1 (Partie 5)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 10,
+      "hasSentences": true
     },
     {
       "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part14.json",
@@ -85,7 +139,13 @@
         "HSK 1",
         "Parties 11 à 15"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part14",
+      "name": "Chinois - HSK1 (Partie 14)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 17,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part13.json",
@@ -94,7 +154,13 @@
         "HSK 1",
         "Parties 11 à 15"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part13",
+      "name": "Chinois - HSK1 (Partie 13)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 10,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part11.json",
@@ -103,7 +169,13 @@
         "HSK 1",
         "Parties 11 à 15"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part11",
+      "name": "Chinois - HSK1 (Partie 11)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 12,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part15.json",
@@ -112,7 +184,13 @@
         "HSK 1",
         "Parties 11 à 15"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part15",
+      "name": "Chinois - HSK1 (Partie 15)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 9,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part12.json",
@@ -121,7 +199,13 @@
         "HSK 1",
         "Parties 11 à 15"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part12",
+      "name": "Chinois - HSK1 (Partie 12)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 15,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part11-15/chinese_hsk1_part11_15.json",
@@ -130,7 +214,13 @@
         "HSK 1",
         "Parties 11 à 15"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part11-15",
+      "name": "Chinois - HSK1 (Parties 11 à 15)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 63,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part6.json",
@@ -139,7 +229,13 @@
         "HSK 1",
         "Parties 6 à 10"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part6",
+      "name": "Chinois - HSK1 (Partie 6)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 12,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part9.json",
@@ -148,7 +244,13 @@
         "HSK 1",
         "Parties 6 à 10"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part9",
+      "name": "Chinois - HSK1 (Partie 9)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 13,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part6_10.json",
@@ -157,7 +259,13 @@
         "HSK 1",
         "Parties 6 à 10"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part6_10",
+      "name": "Chinois - HSK1 (Parties 6 à 10)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 56,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part10.json",
@@ -166,7 +274,13 @@
         "HSK 1",
         "Parties 6 à 10"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part10",
+      "name": "Chinois - HSK1 (Partie 10)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 12,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part7.json",
@@ -175,7 +289,13 @@
         "HSK 1",
         "Parties 6 à 10"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part7",
+      "name": "Chinois - HSK1 (Partie 7)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 12,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/chinese/hsk1/part6-10/chinese_hsk1_part8.json",
@@ -184,7 +304,13 @@
         "HSK 1",
         "Parties 6 à 10"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "chinese_hsk1_part8",
+      "name": "Chinois - HSK1 (Partie 8)",
+      "inputType": "draw",
+      "reverseInputType": "text",
+      "wordCount": 15,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/house_and_home.json",
@@ -192,7 +318,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "house_and_home",
+      "name": "House and Home",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 27,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/food_and_drink.json",
@@ -200,7 +332,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "food_and_drink",
+      "name": "Food and Drink",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 45,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/education.json",
@@ -208,7 +346,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "education",
+      "name": "Education",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 24,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/services.json",
@@ -216,7 +360,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "services",
+      "name": "Services",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 16,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/hobbies_and_leisure.json",
@@ -224,7 +374,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "hobbies_and_leisure",
+      "name": "Hobbies and Leisure",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 26,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/places.json",
@@ -232,7 +388,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "places",
+      "name": "Places (Buildings, Countryside, Town/City)",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 35,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/family_and_friends.json",
@@ -240,7 +402,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "family_and_friends",
+      "name": "Family and Friends",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 24,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/shopping.json",
@@ -248,7 +416,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "shopping",
+      "name": "Shopping",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 18,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/personal_feelings_opinions_experiences.json",
@@ -256,7 +430,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "personal_feelings_opinions_experiences",
+      "name": "Personal Feelings, Opinions and Experiences",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 33,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/colours.json",
@@ -264,7 +444,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "colours",
+      "name": "Colours",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 16,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/clothes_accessories.json",
@@ -272,7 +458,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "clothes_and_accessories",
+      "name": "Clothes and Accessories",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 50,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/documents_and_texts.json",
@@ -280,7 +472,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "documents_and_texts",
+      "name": "Documents and Texts",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 20,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/weather.json",
@@ -288,7 +486,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "weather",
+      "name": "Weather",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 15,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/measurements.json",
@@ -296,7 +500,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "measurements",
+      "name": "Measurements",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 15,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/travel_and_transport.json",
@@ -304,7 +514,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "travel_and_transport",
+      "name": "Travel and Transport",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 24,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/entertainment_and_media.json",
@@ -312,7 +528,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "entertainment_and_media",
+      "name": "Entertainment and Media",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 31,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/time.json",
@@ -320,7 +542,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "time",
+      "name": "Time",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 24,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/health_medicine_exercise.json",
@@ -328,7 +556,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "health_medicine_exercise",
+      "name": "Health, Medicine and Exercise",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 29,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/communication_technology.json",
@@ -336,7 +570,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "communication_and_technology",
+      "name": "Communication and Technology",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 40,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/appliances.json",
@@ -344,7 +584,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "appliances",
+      "name": "Appliances",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 24,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/natural_world.json",
@@ -352,7 +598,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "natural_world",
+      "name": "The Natural World",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 33,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/work_and_jobs.json",
@@ -360,7 +612,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "work_and_jobs",
+      "name": "Work and Jobs",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 21,
+      "hasSentences": false
     },
     {
       "path": "assets/decks/english/a2_key/sport.json",
@@ -368,7 +626,13 @@
         "English",
         "A2 Key"
       ],
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "id": "sport",
+      "name": "Sport",
+      "inputType": "text",
+      "reverseInputType": "text",
+      "wordCount": 16,
+      "hasSentences": false
     }
   ]
 }

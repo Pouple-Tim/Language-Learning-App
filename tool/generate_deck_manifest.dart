@@ -46,10 +46,19 @@ void main() async {
           difficulty = 'advanced';
         }
 
+        final words = json['words'] as List?;
+        final sentences = json['sentences'] as List?;
+
         deckFiles.add({
           'path': path,
           'categories': categories,
           'difficulty': difficulty,
+          'id': json['id'],
+          'name': name,
+          'inputType': json['inputType'] ?? 'text',
+          if (json['reverseInputType'] != null) 'reverseInputType': json['reverseInputType'],
+          'wordCount': words?.length ?? 0,
+          'hasSentences': sentences?.isNotEmpty ?? false,
         });
 
         stdout.writeln('  ✅ $name → ${categories.join(' > ')}');
