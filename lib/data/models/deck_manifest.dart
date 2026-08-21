@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'deck.dart';
 
 part 'deck_manifest.g.dart';
 
@@ -23,15 +24,32 @@ class DeckManifest {
 class DeckEntry {
   final String path;
   final List<String> categories; // 👈 Hiérarchie de catégories
-  
+
   @JsonKey(defaultValue: 'beginner')
   final String difficulty;
-  
+
+  final String id;
+  final String name;
+
+  @JsonKey(unknownEnumValue: InputType.text)
+  final InputType inputType;
+
+  @JsonKey(unknownEnumValue: InputType.text)
+  final InputType? reverseInputType;
+
+  final int wordCount;
+  final bool hasSentences;
 
   DeckEntry({
     required this.path,
     required this.categories,
     this.difficulty = 'beginner',
+    required this.id,
+    required this.name,
+    required this.inputType,
+    this.reverseInputType,
+    required this.wordCount,
+    required this.hasSentences,
   });
 
   // Helpers pour compatibilité
