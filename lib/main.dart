@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/utils/storage_helper.dart';
+import 'core/config/supabase_config.dart';
 import 'providers/theme_provider.dart';
 import 'providers/game_provider.dart';
 import 'providers/deck_provider.dart';
@@ -12,6 +14,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await StorageHelper.init();
+  await Supabase.initialize(
+    url: SupabaseConfig.url,
+    publishableKey: SupabaseConfig.anonKey,
+  );
 
   runApp(
     MultiProvider(

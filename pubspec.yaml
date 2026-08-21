@@ -40,6 +40,9 @@ dependencies:
   # Drapeaux des pays
   country_flags: ^4.0.0
 
+  # Backend (contenu des decks de base)
+  supabase_flutter: ^2.17.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
