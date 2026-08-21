@@ -321,11 +321,10 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 12),
 
               // Liste des fonctionnalités demandées
-              _buildFeatureItem(Icons.bar_chart_rounded, "Nouvelle page de statistique"),
-              _buildFeatureItem(Icons.language, "Nouvelle langue : Italien"),
-              _buildFeatureItem(Icons.swap_horizontal_circle_outlined, "Nouveau mode de jeu : Reverse"),
-              _buildFeatureItem(Icons.style, "Nouvel ensemble de deck : A2 key"),
-              _buildFeatureItem(Icons.auto_fix_high, "Optimisation et amélioration du visuel"),
+              _buildFeatureItem(Icons.segment_rounded, "Nouveau mode de jeu : Phrase"),
+              _buildFeatureItem(Icons.restart_alt, "Réinitialisation de la progression par mode de jeu"),
+              _buildFeatureItem(Icons.cloud_download_outlined, "App allégée : les decks se téléchargent à la demande"),
+              _buildFeatureItem(Icons.bug_report_outlined, "Nombreuses corrections de fiabilité et de stabilité"),
 
               // --- Footer existant ---
               const SizedBox(height: 24),
