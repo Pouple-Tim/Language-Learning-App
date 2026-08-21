@@ -58,12 +58,6 @@ flutter:
   
   # Assets
   assets:
-    - assets/decks/
-    - assets/decks/chinese/
-    - assets/decks/chinese/hsk1/
-    - assets/decks/chinese/hsk1/part1-5/
-    - assets/decks/chinese/hsk1/part6-10/
-    - assets/decks/chinese/hsk1/part11-15/
-    - assets/decks/english/a2_key/
+    - assets/decks/manifest.json
   
   generate: true
