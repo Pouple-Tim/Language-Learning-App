@@ -68,6 +68,7 @@ class DeckProvider extends ChangeNotifier {
   /// base sans contenu chargé/en cache, télécharge son contenu depuis
   /// Supabase avant de le sélectionner.
   Future<void> selectDeck(Deck deck) async {
+    _downloadError = null;
     final needsDownload = deck.type == DeckType.base && deck.words.isEmpty && deck.sentences.isEmpty;
 
     if (!needsDownload) {
@@ -79,7 +80,6 @@ class DeckProvider extends ChangeNotifier {
     }
 
     _downloadingDeckId = deck.id;
-    _downloadError = null;
     notifyListeners();
 
     try {
