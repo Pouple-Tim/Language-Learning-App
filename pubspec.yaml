@@ -26,7 +26,7 @@ dependencies:
   provider: ^6.1.2
   
   # Stockage local
-  shared_preferences: ^2.3.3
+  shared_preferences: ^2.5.5
   
   # JSON Serialization
   json_annotation: ^4.9.0
