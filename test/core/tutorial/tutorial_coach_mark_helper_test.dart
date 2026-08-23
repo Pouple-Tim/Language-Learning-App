@@ -41,10 +41,7 @@ void main() {
     );
 
     await tester.tap(find.text('Show'));
-    // Pump multiple times to allow overlay and animations to render
-    for (int i = 0; i < 20; i++) {
-      await tester.pump(const Duration(milliseconds: 100));
-    }
+    await tester.pumpAndSettle();
 
     expect(find.text('Test Title'), findsOneWidget);
     expect(find.text('Test Description'), findsOneWidget);

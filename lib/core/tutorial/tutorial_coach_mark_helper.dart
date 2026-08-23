@@ -55,5 +55,6 @@ void showTutorial({
     opacityShadow: 0.85,
     textSkip: skipLabel,
     onFinish: onFinish,
+    pulseEnable: false,
   ).show(context: context);
 }
