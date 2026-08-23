@@ -95,5 +95,73 @@
       "removed": false,
       "id": "chinese_hsk1_part12_w15"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p12",
+      "original": "Comment est le temps aujourd'hui ?",
+      "translation": "今天天气怎么样？",
+      "blocks": ["今天", "天气", "怎么样", "？", "热", "冷", "下雨"]
+    },
+    {
+      "id": "s2_p12",
+      "original": "Il fait trop chaud aujourd'hui !",
+      "translation": "今天太热了",
+      "blocks": ["今天", "太", "热", "了", "冷", "天气", "下雨"]
+    },
+    {
+      "id": "s3_p12",
+      "original": "Demain, il va pleuvoir.",
+      "translation": "明天下雨",
+      "blocks": ["明天", "下", "雨", "今天", "天气", "冷"]
+    },
+    {
+      "id": "s4_p12",
+      "original": "Il fait trop froid !",
+      "translation": "太冷了",
+      "blocks": ["太", "冷", "了", "热", "天气", "下雨"]
+    },
+    {
+      "id": "s5_p12",
+      "original": "Comment va ta santé ?",
+      "translation": "你身体怎么样？",
+      "blocks": ["你", "身体", "怎么样", "？", "天气", "冷", "热"]
+    },
+    {
+      "id": "s6_p12",
+      "original": "J'aime les fruits.",
+      "translation": "我爱水果",
+      "blocks": ["我", "爱", "水果", "水", "些", "喝"]
+    },
+    {
+      "id": "s7_p12",
+      "original": "Je voudrais boire un peu d'eau.",
+      "translation": "我想喝些水",
+      "blocks": ["我", "想", "喝", "些", "水", "水果", "茶", "吃"]
+    },
+    {
+      "id": "s8_p12",
+      "original": "Mademoiselle, venez ici s'il vous plaît.",
+      "translation": "小姐请来这儿",
+      "blocks": ["小姐", "请", "来", "这儿", "那儿", "身体", "天气"]
+    },
+    {
+      "id": "s9_p12",
+      "original": "Elle vient demain.",
+      "translation": "她明天来",
+      "blocks": ["她", "明天", "来", "今天", "昨天", "小姐"]
+    },
+    {
+      "id": "s10_p12",
+      "original": "Les fruits sont très bons.",
+      "translation": "水果很好吃",
+      "blocks": ["水果", "很", "好吃", "水", "茶", "爱"]
+    },
+    {
+      "id": "s11_p12",
+      "original": "J'aime beaucoup ma mère.",
+      "translation": "我很爱妈妈",
+      "blocks": ["我", "很", "爱", "妈妈", "爸爸", "水果", "身体"]
+    }
   ]
 }

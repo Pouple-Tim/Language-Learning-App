@@ -1,4 +1,7 @@
 # Miscellaneous
+# Source PDFs (e.g. HSK textbooks used to write deck content) are working
+# references, not app assets, and can exceed GitHub's 100MB file limit.
+docs/resources/
 *.class
 *.log
 *.pyc

@@ -95,5 +95,73 @@
       "removed": false,
       "id": "chinese_hsk1_part8_w15"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p8",
+      "original": "Je voudrais boire du thé.",
+      "translation": "我想喝茶",
+      "blocks": ["我", "想", "喝", "茶", "吃", "米饭", "买"]
+    },
+    {
+      "id": "s2_p8",
+      "original": "Je voudrais manger du riz.",
+      "translation": "我想吃米饭",
+      "blocks": ["我", "想", "吃", "米饭", "喝", "茶", "买"]
+    },
+    {
+      "id": "s3_p8",
+      "original": "Cet après-midi, je vais au magasin.",
+      "translation": "下午我去商店",
+      "blocks": ["下午", "我", "去", "商店", "买", "今天", "明天"]
+    },
+    {
+      "id": "s4_p8",
+      "original": "Combien coûte cette tasse ?",
+      "translation": "这个杯子多少钱？",
+      "blocks": ["这", "个", "杯子", "多少", "钱", "？", "那", "块", "买"]
+    },
+    {
+      "id": "s5_p8",
+      "original": "Ça coûte dix yuans.",
+      "translation": "十块钱",
+      "blocks": ["十", "块", "钱", "多少", "这", "那"]
+    },
+    {
+      "id": "s6_p8",
+      "original": "Je voudrais acheter cette tasse.",
+      "translation": "我想买这个杯子",
+      "blocks": ["我", "想", "买", "这", "个", "杯子", "那", "多少", "钱"]
+    },
+    {
+      "id": "s7_p8",
+      "original": "Combien ça coûte ?",
+      "translation": "这多少钱？",
+      "blocks": ["这", "多少", "钱", "？", "那", "块", "买"]
+    },
+    {
+      "id": "s8_p8",
+      "original": "Cet après-midi, je voudrais boire du thé.",
+      "translation": "下午我想喝茶",
+      "blocks": ["下午", "我", "想", "喝", "茶", "吃", "米饭", "商店"]
+    },
+    {
+      "id": "s9_p8",
+      "original": "Il va au magasin acheter une tasse.",
+      "translation": "他去商店买杯子",
+      "blocks": ["他", "去", "商店", "买", "杯子", "个", "这", "那"]
+    },
+    {
+      "id": "s10_p8",
+      "original": "Et ça, c'est combien ?",
+      "translation": "那多少钱？",
+      "blocks": ["那", "多少", "钱", "？", "这", "块", "买"]
+    },
+    {
+      "id": "s11_p8",
+      "original": "Cette tasse coûte huit yuans.",
+      "translation": "这个杯子八块钱",
+      "blocks": ["这", "个", "杯子", "八", "块", "钱", "那", "多少", "买"]
+    }
   ]
 }

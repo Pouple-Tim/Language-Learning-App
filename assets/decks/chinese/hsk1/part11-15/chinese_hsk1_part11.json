@@ -67,7 +67,7 @@
     },
     {
       "prompt": "qián",
-      "answer": "钱",
+      "answer": "前",
       "removed": false,
       "id": "chinese_hsk1_part11_w11"
     },
@@ -76,6 +76,74 @@
       "answer": "北京",
       "removed": false,
       "id": "chinese_hsk1_part11_w12"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p11",
+      "original": "Quelle heure est-il maintenant ?",
+      "translation": "现在几点？",
+      "blocks": ["现在", "几", "点", "？", "分", "中午", "回"]
+    },
+    {
+      "id": "s2_p11",
+      "original": "C'est midi, nous mangeons.",
+      "translation": "中午我们吃饭",
+      "blocks": ["中午", "我们", "吃饭", "现在", "回", "电影"]
+    },
+    {
+      "id": "s3_p11",
+      "original": "À quelle heure rentres-tu ?",
+      "translation": "你什么时候回？",
+      "blocks": ["你", "什么", "时候", "回", "？", "现在", "我们", "住"]
+    },
+    {
+      "id": "s4_p11",
+      "original": "Nous allons voir un film.",
+      "translation": "我们去看电影",
+      "blocks": ["我们", "去", "看", "电影", "回", "住", "北京"]
+    },
+    {
+      "id": "s5_p11",
+      "original": "Il habite à Pékin.",
+      "translation": "他住在北京",
+      "blocks": ["他", "住", "在", "北京", "我们", "回", "现在"]
+    },
+    {
+      "id": "s6_p11",
+      "original": "Il est trois heures dix.",
+      "translation": "三点十分",
+      "blocks": ["三", "点", "十", "分", "现在", "中午", "几"]
+    },
+    {
+      "id": "s7_p11",
+      "original": "Quand manges-tu ?",
+      "translation": "你什么时候吃饭？",
+      "blocks": ["你", "什么", "时候", "吃饭", "？", "现在", "我们", "回"]
+    },
+    {
+      "id": "s8_p11",
+      "original": "Habites-tu à Pékin ?",
+      "translation": "你住在北京吗？",
+      "blocks": ["你", "住", "在", "北京", "吗", "？", "我们", "回", "现在"]
+    },
+    {
+      "id": "s9_p11",
+      "original": "Nous regardons un film à midi.",
+      "translation": "中午我们看电影",
+      "blocks": ["中午", "我们", "看", "电影", "现在", "吃饭", "回"]
+    },
+    {
+      "id": "s10_p11",
+      "original": "Je reviens avant trois heures.",
+      "translation": "我三点前回",
+      "blocks": ["我", "三", "点", "前", "回", "现在", "中午", "住"]
+    },
+    {
+      "id": "s11_p11",
+      "original": "Maintenant, je rentre.",
+      "translation": "我现在回",
+      "blocks": ["我", "现在", "回", "中午", "住", "北京"]
     }
   ]
 }

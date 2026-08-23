@@ -77,5 +77,73 @@
       "removed": false,
       "id": "chinese_hsk1_part7_w12"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p7",
+      "original": "Excusez-moi, quelle est la date aujourd'hui ?",
+      "translation": "请问今天几号？",
+      "blocks": ["请", "问", "今天", "几", "号", "？", "明天", "月", "星期"]
+    },
+    {
+      "id": "s2_p7",
+      "original": "Aujourd'hui, c'est le 15.",
+      "translation": "今天十五号",
+      "blocks": ["今天", "十五", "号", "昨天", "明天", "月"]
+    },
+    {
+      "id": "s3_p7",
+      "original": "Quel jour de la semaine sommes-nous ?",
+      "translation": "今天星期几？",
+      "blocks": ["今天", "星期", "几", "？", "号", "月", "明天"]
+    },
+    {
+      "id": "s4_p7",
+      "original": "Hier, c'était lundi.",
+      "translation": "昨天星期一",
+      "blocks": ["昨天", "星期", "一", "今天", "明天", "几"]
+    },
+    {
+      "id": "s5_p7",
+      "original": "Demain, je vais à l'école.",
+      "translation": "明天我去学校",
+      "blocks": ["明天", "我", "去", "学校", "看", "书", "今天"]
+    },
+    {
+      "id": "s6_p7",
+      "original": "Je vais à l'école lire un livre.",
+      "translation": "我去学校看书",
+      "blocks": ["我", "去", "学校", "看", "书", "明天", "今天", "老师"]
+    },
+    {
+      "id": "s7_p7",
+      "original": "Lis-tu un livre ?",
+      "translation": "你看书吗？",
+      "blocks": ["你", "看", "书", "吗", "？", "去", "学校", "今天"]
+    },
+    {
+      "id": "s8_p7",
+      "original": "Nous sommes en quel mois ?",
+      "translation": "今天几月？",
+      "blocks": ["今天", "几", "月", "？", "号", "星期", "昨天"]
+    },
+    {
+      "id": "s9_p7",
+      "original": "Le professeur va à l'école demain.",
+      "translation": "老师明天去学校",
+      "blocks": ["老师", "明天", "去", "学校", "今天", "看", "书"]
+    },
+    {
+      "id": "s10_p7",
+      "original": "Excuse-moi, comment t'appelles-tu ?",
+      "translation": "请问你叫什么名字？",
+      "blocks": ["请", "问", "你", "叫", "什么", "名字", "？", "是", "老师"]
+    },
+    {
+      "id": "s11_p7",
+      "original": "Demain, elle va à l'école lire un livre.",
+      "translation": "她明天去学校看书",
+      "blocks": ["她", "明天", "去", "学校", "看", "书", "今天", "昨天", "老师"]
+    }
   ]
 }

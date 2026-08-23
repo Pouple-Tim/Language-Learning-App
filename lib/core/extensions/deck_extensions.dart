@@ -167,13 +167,6 @@ final Map<String, Map<String, String>> _deckTranslations = {
   /// - Couleurs : Rojo, Azul, Verde, Amarillo
   /// - Aliments : Pan, Agua, Leche, Café
   ///
-  /// **Niveau :** A1
-  /// **Fichier JSON :** `assets/decks/spanish_basics.json`
-  'spanish_basics': {
-    'fr': 'Espagnol - Bases',
-    'en': 'Spanish - Basics',
-  },
-  
   /// Conjugaison des verbes espagnols courants.
   ///
   /// Contient les 50 verbes les plus utilisés au présent :

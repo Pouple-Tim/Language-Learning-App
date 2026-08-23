@@ -1006,6 +1006,110 @@
       "answer": "飞机",
       "removed": false,
       "id": "chinese_hsk1_all_w167"
+    },
+    {
+      "prompt": "qián",
+      "answer": "前",
+      "removed": false,
+      "id": "chinese_hsk1_all_w168"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_all",
+      "original": "Bonjour (lit. Toi Bien).",
+      "translation": "你好",
+      "blocks": ["你", "好", "您", "们"]
+    },
+    {
+      "id": "s2_all",
+      "original": "Merci !",
+      "translation": "谢谢",
+      "blocks": ["谢谢", "不", "好", "客气"]
+    },
+    {
+      "id": "s3_all",
+      "original": "Comment t'appelles-tu ?",
+      "translation": "你叫什么名字？",
+      "blocks": ["你", "叫", "什么", "名字", "？", "我", "吗"]
+    },
+    {
+      "id": "s4_all",
+      "original": "Qui est-il ?",
+      "translation": "他是谁？",
+      "blocks": ["他", "是", "谁", "？", "她", "哪", "国"]
+    },
+    {
+      "id": "s5_all",
+      "original": "Combien de personnes y a-t-il dans ta famille ?",
+      "translation": "你家有几口人？",
+      "blocks": ["你", "家", "有", "几", "口", "人", "？", "岁", "了"]
+    },
+    {
+      "id": "s6_all",
+      "original": "Sais-tu parler chinois ?",
+      "translation": "你会说汉语吗？",
+      "blocks": ["你", "会", "说", "汉语", "吗", "？", "不", "老师"]
+    },
+    {
+      "id": "s7_all",
+      "original": "Quel jour de la semaine sommes-nous ?",
+      "translation": "今天星期几？",
+      "blocks": ["今天", "星期", "几", "？", "号", "月", "明天"]
+    },
+    {
+      "id": "s8_all",
+      "original": "Combien coûte cette tasse ?",
+      "translation": "这个杯子多少钱？",
+      "blocks": ["这", "个", "杯子", "多少", "钱", "？", "那", "块", "买"]
+    },
+    {
+      "id": "s9_all",
+      "original": "Où est le petit chat ?",
+      "translation": "小猫在哪儿？",
+      "blocks": ["小", "猫", "在", "哪儿", "？", "狗", "那儿", "椅子"]
+    },
+    {
+      "id": "s10_all",
+      "original": "Puis-je m'asseoir ici ?",
+      "translation": "我能坐这儿吗？",
+      "blocks": ["我", "能", "坐", "这儿", "吗", "？", "桌子", "里", "没有"]
+    },
+    {
+      "id": "s11_all",
+      "original": "Quelle heure est-il maintenant ?",
+      "translation": "现在几点？",
+      "blocks": ["现在", "几", "点", "？", "分", "中午", "回"]
+    },
+    {
+      "id": "s12_all",
+      "original": "Comment est le temps aujourd'hui ?",
+      "translation": "今天天气怎么样？",
+      "blocks": ["今天", "天气", "怎么样", "？", "热", "冷", "下雨"]
+    },
+    {
+      "id": "s13_all",
+      "original": "Téléphone-moi, d'accord ?",
+      "translation": "给我打电话吧",
+      "blocks": ["给", "我", "打电话", "吧", "你", "他", "喜欢"]
+    },
+    {
+      "id": "s14_all",
+      "original": "Elle a acheté pas mal de vêtements.",
+      "translation": "她买了不少衣服",
+      "blocks": ["她", "买", "了", "不少", "衣服", "漂亮", "东西", "这些"]
+    },
+    {
+      "id": "s15_all",
+      "original": "Je suis venu en avion.",
+      "translation": "我是坐飞机来的",
+      "blocks": ["我", "是", "坐", "飞机", "来", "的", "出租车", "大学", "一起"]
+    },
+    {
+      "id": "s16_all",
+      "original": "Demain, mon fils va à l'hôpital voir le médecin.",
+      "translation": "明天我儿子去医院看医生",
+      "blocks": ["明天", "我", "儿子", "去", "医院", "看", "医生", "学校", "工作", "爸爸"]
     }
   ]
 }

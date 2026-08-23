@@ -150,7 +150,7 @@ class DeckRepository {
 
   Future<String> getSelectedDeckId() async {
     return StorageHelper.getString(AppConstants.keyCurrentDeck) ??
-           AppConstants.deckJapaneseHiragana;
+           AppConstants.deckDefault;
   }
 
   Future<void> saveSelectedDeckId(String deckId) async {

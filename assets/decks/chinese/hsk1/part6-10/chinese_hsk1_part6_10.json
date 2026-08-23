@@ -341,5 +341,79 @@
       "removed": false,
       "id": "chinese_hsk1_part6_10_w56"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p6_10",
+      "original": "Sais-tu parler chinois ?",
+      "translation": "你会说汉语吗？",
+      "blocks": ["你", "会", "说", "汉语", "吗", "？", "不", "老师"]
+    },
+    {
+      "id": "s2_p6_10",
+      "original": "Le plat de ma mère est très bon.",
+      "translation": "妈妈的菜很好吃",
+      "blocks": ["妈妈", "的", "菜", "很", "好吃", "老师", "是", "写"]
+    },
+    {
+      "id": "s3_p6_10",
+      "original": "Quel jour de la semaine sommes-nous ?",
+      "translation": "今天星期几？",
+      "blocks": ["今天", "星期", "几", "？", "号", "月", "明天"]
+    },
+    {
+      "id": "s4_p6_10",
+      "original": "Je vais à l'école lire un livre.",
+      "translation": "我去学校看书",
+      "blocks": ["我", "去", "学校", "看", "书", "明天", "今天", "老师"]
+    },
+    {
+      "id": "s5_p6_10",
+      "original": "Combien coûte cette tasse ?",
+      "translation": "这个杯子多少钱？",
+      "blocks": ["这", "个", "杯子", "多少", "钱", "？", "那", "块", "买"]
+    },
+    {
+      "id": "s6_p6_10",
+      "original": "Je voudrais manger du riz.",
+      "translation": "我想吃米饭",
+      "blocks": ["我", "想", "吃", "米饭", "喝", "茶", "买"]
+    },
+    {
+      "id": "s7_p6_10",
+      "original": "Où est le petit chat ?",
+      "translation": "小猫在哪儿？",
+      "blocks": ["小", "猫", "在", "哪儿", "？", "狗", "那儿", "椅子"]
+    },
+    {
+      "id": "s8_p6_10",
+      "original": "Il travaille à l'hôpital.",
+      "translation": "他在医院工作",
+      "blocks": ["他", "在", "医院", "工作", "医生", "爸爸", "儿子"]
+    },
+    {
+      "id": "s9_p6_10",
+      "original": "Puis-je m'asseoir ici ?",
+      "translation": "我能坐这儿吗？",
+      "blocks": ["我", "能", "坐", "这儿", "吗", "？", "桌子", "里", "没有"]
+    },
+    {
+      "id": "s10_p6_10",
+      "original": "Il y a un ordinateur et un livre sur la table.",
+      "translation": "桌子上有电脑和书",
+      "blocks": ["桌子", "上", "有", "电脑", "和", "书", "本", "里", "没有"]
+    },
+    {
+      "id": "s11_p6_10",
+      "original": "Demain après-midi, je vais au magasin acheter une tasse.",
+      "translation": "明天下午我去商店买杯子",
+      "blocks": ["明天", "下午", "我", "去", "商店", "买", "杯子", "今天", "茶", "米饭"]
+    },
+    {
+      "id": "s12_p6_10",
+      "original": "Mon fils lit un livre à l'école.",
+      "translation": "我儿子在学校看书",
+      "blocks": ["我", "儿子", "在", "学校", "看", "书", "医院", "工作", "爸爸"]
+    }
   ]
 }

@@ -65,5 +65,73 @@
       "removed": false,
       "id": "chinese_hsk1_part13_w10"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p13",
+      "original": "Allô ! Qui est à l'appareil ?",
+      "translation": "喂你是谁？",
+      "blocks": ["喂", "你", "是", "谁", "？", "什么", "名字", "老师"]
+    },
+    {
+      "id": "s2_p13",
+      "original": "Il est en train de regarder la télé.",
+      "translation": "他在看电视呢",
+      "blocks": ["他", "在", "看", "电视", "呢", "睡觉", "学习", "书"]
+    },
+    {
+      "id": "s3_p13",
+      "original": "Je suis en train d'étudier le chinois.",
+      "translation": "我在学习汉语呢",
+      "blocks": ["我", "在", "学习", "汉语", "呢", "睡觉", "电视", "看"]
+    },
+    {
+      "id": "s4_p13",
+      "original": "Moi aussi, j'aime le chinois.",
+      "translation": "我也喜欢汉语",
+      "blocks": ["我", "也", "喜欢", "汉语", "学习", "电视", "喝"]
+    },
+    {
+      "id": "s5_p13",
+      "original": "Le matin, je vais à l'école.",
+      "translation": "上午我去学校",
+      "blocks": ["上午", "我", "去", "学校", "下午", "今天", "睡觉"]
+    },
+    {
+      "id": "s6_p13",
+      "original": "Il dort l'après-midi.",
+      "translation": "他下午睡觉",
+      "blocks": ["他", "下午", "睡觉", "上午", "电视", "学习"]
+    },
+    {
+      "id": "s7_p13",
+      "original": "Téléphone-moi, d'accord ?",
+      "translation": "给我打电话吧",
+      "blocks": ["给", "我", "打电话", "吧", "你", "他", "喜欢"]
+    },
+    {
+      "id": "s8_p13",
+      "original": "Allons-y, d'accord ?",
+      "translation": "我们去吧",
+      "blocks": ["我们", "去", "吧", "学校", "上午", "喂"]
+    },
+    {
+      "id": "s9_p13",
+      "original": "Elle aussi aime regarder la télé.",
+      "translation": "她也喜欢看电视",
+      "blocks": ["她", "也", "喜欢", "看", "电视", "学习", "睡觉", "给"]
+    },
+    {
+      "id": "s10_p13",
+      "original": "Je téléphone à ma mère.",
+      "translation": "我给妈妈打电话",
+      "blocks": ["我", "给", "妈妈", "打电话", "爸爸", "吧", "喂"]
+    },
+    {
+      "id": "s11_p13",
+      "original": "J'aime beaucoup étudier le chinois.",
+      "translation": "我很喜欢学习汉语",
+      "blocks": ["我", "很", "喜欢", "学习", "汉语", "电视", "睡觉", "也"]
+    }
   ]
 }

@@ -59,5 +59,61 @@
       "removed": false,
       "id": "chinese_hsk1_part15_w9"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p15",
+      "original": "Je suis très content de te connaître.",
+      "translation": "认识你我很高兴",
+      "blocks": ["认识", "你", "我", "很", "高兴", "一起", "飞机", "出租车"]
+    },
+    {
+      "id": "s2_p15",
+      "original": "Je suis venu en avion.",
+      "translation": "我是坐飞机来的",
+      "blocks": ["我", "是", "坐", "飞机", "来", "的", "出租车", "大学", "一起"]
+    },
+    {
+      "id": "s3_p15",
+      "original": "Il est venu en taxi.",
+      "translation": "他是坐出租车来的",
+      "blocks": ["他", "是", "坐", "出租车", "来", "的", "飞机", "饭店", "大学"]
+    },
+    {
+      "id": "s4_p15",
+      "original": "J'étudie à l'université.",
+      "translation": "我在大学学习",
+      "blocks": ["我", "在", "大学", "学习", "饭店", "工作", "认识"]
+    },
+    {
+      "id": "s5_p15",
+      "original": "Il travaille dans un restaurant.",
+      "translation": "他在饭店工作",
+      "blocks": ["他", "在", "饭店", "工作", "大学", "医院", "认识"]
+    },
+    {
+      "id": "s6_p15",
+      "original": "Allons-y ensemble !",
+      "translation": "我们一起去吧",
+      "blocks": ["我们", "一起", "去", "吧", "高兴", "听", "认识"]
+    },
+    {
+      "id": "s7_p15",
+      "original": "Je suis très content(e) aujourd'hui.",
+      "translation": "我今天很高兴",
+      "blocks": ["我", "今天", "很", "高兴", "认识", "一起", "昨天"]
+    },
+    {
+      "id": "s8_p15",
+      "original": "Cette année, je vais à l'université.",
+      "translation": "我今年去大学",
+      "blocks": ["我", "今年", "去", "大学", "饭店", "医院", "一起"]
+    },
+    {
+      "id": "s9_p15",
+      "original": "Enchanté(e) !",
+      "translation": "认识你很高兴",
+      "blocks": ["认识", "你", "很", "高兴", "我们", "一起", "飞机"]
+    }
   ]
 }

@@ -20,7 +20,7 @@ class Settings {
   factory Settings.defaultSettings() {
     return Settings(
       isDarkMode: false,
-      currentDeckId: 'japanese_hiragana_base',
+      currentDeckId: 'chinese_hsk1_part1',
       lastReset: DateTime.now(),
     );
   }

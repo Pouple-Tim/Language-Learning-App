@@ -7,7 +7,7 @@ void main() {
       final settings = Settings.defaultSettings();
       
       expect(settings.isDarkMode, isFalse);
-      expect(settings.currentDeckId, 'japanese_hiragana_base');
+      expect(settings.currentDeckId, 'chinese_hsk1_part1');
       // On vérifie que la date est proche de maintenant
       expect(
         settings.lastReset.difference(DateTime.now()).inSeconds.abs(), 

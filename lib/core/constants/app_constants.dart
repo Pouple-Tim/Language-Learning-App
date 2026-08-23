@@ -109,7 +109,7 @@ class AppConstants {
   /// Permet de restaurer le deck actif au redémarrage de l'application.
   ///
   /// **Valeurs possibles :**
-  /// - ID d'un deck de base : [deckJapaneseHiragana], [deckKoreanHangul], etc.
+  /// - ID d'un deck de base : [deckDefault], [deckKoreanHangul], etc.
   /// - ID d'un deck custom : `"custom-{uuid}"`
   /// - `null` si aucun deck n'est sélectionné
   ///
@@ -152,19 +152,12 @@ class AppConstants {
   // Identifiants des decks de base (préinstallés)
   // ═══════════════════════════════════════════════════════════════════════════
   
-  /// ID du deck Hiragana japonais de base.
-  ///
-  /// Contient les 46 caractères Hiragana de base :
-  /// - あ (a), い (i), う (u), え (e), お (o)
-  /// - か (ka), き (ki), く (ku), け (ke), こ (ko)
-  /// - etc.
-  ///
-  /// **Fichier source :** `assets/decks/japanese_hiragana_base.json`
+  /// ID du deck chargé par défaut quand aucune sélection n'a encore été faite.
   ///
   /// **Voir aussi :**
   /// - [DeckProvider.loadPresetDecks]
-  static const String deckJapaneseHiragana = 'japanese_hiragana_base';
-  
+  static const String deckDefault = 'chinese_hsk1_part1';
+
   /// ID du deck Hangul coréen de base.
   ///
   /// Contient les consonnes et voyelles de base du Hangul :
@@ -176,20 +169,6 @@ class AppConstants {
   /// **Voir aussi :**
   /// - [DeckProvider.loadPresetDecks]
   static const String deckKoreanHangul = 'korean_hangul_base';
-  
-  /// ID du deck d'espagnol de base.
-  ///
-  /// Contient du vocabulaire espagnol courant :
-  /// - Salutations : Hola, Buenos días, Gracias
-  /// - Nombres : Uno, Dos, Tres
-  /// - Couleurs : Rojo, Azul, Verde
-  /// - Nourriture : Pan, Agua, Café
-  ///
-  /// **Fichier source :** `assets/decks/spanish_basics_base.json`
-  ///
-  /// **Voir aussi :**
-  /// - [DeckProvider.loadPresetDecks]
-  static const String deckSpanishBasics = 'spanish_basics_base';
   
   // ═══════════════════════════════════════════════════════════════════════════
   // Paramètres d'animation

@@ -107,5 +107,85 @@
       "removed": false,
       "id": "chinese_hsk1_part14_w17"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p14",
+      "original": "Elle a acheté pas mal de vêtements.",
+      "translation": "她买了不少衣服",
+      "blocks": ["她", "买", "了", "不少", "衣服", "漂亮", "东西", "这些"]
+    },
+    {
+      "id": "s2_p14",
+      "original": "Ces vêtements sont tous très beaux !",
+      "translation": "这些衣服都很漂亮啊",
+      "blocks": ["这些", "衣服", "都", "很", "漂亮", "啊", "少", "不少", "东西"]
+    },
+    {
+      "id": "s3_p14",
+      "original": "J'ai vu Monsieur Li.",
+      "translation": "我看见了李先生",
+      "blocks": ["我", "看见", "了", "李", "先生", "回来", "东西"]
+    },
+    {
+      "id": "s4_p14",
+      "original": "Il conduit une voiture.",
+      "translation": "他开车",
+      "blocks": ["他", "开", "车", "回来", "分钟", "先生"]
+    },
+    {
+      "id": "s5_p14",
+      "original": "Il revient dans dix minutes.",
+      "translation": "他十分钟后回来",
+      "blocks": ["他", "十", "分钟", "后", "回来", "开", "车", "一点儿"]
+    },
+    {
+      "id": "s6_p14",
+      "original": "Je voudrais acheter un peu de fruits.",
+      "translation": "我想买一点儿苹果",
+      "blocks": ["我", "想", "买", "一点儿", "苹果", "水果", "东西", "衣服"]
+    },
+    {
+      "id": "s7_p14",
+      "original": "Qu'est-ce que c'est, ces choses ?",
+      "translation": "这些东西是什么？",
+      "blocks": ["这些", "东西", "是", "什么", "？", "衣服", "苹果", "都"]
+    },
+    {
+      "id": "s8_p14",
+      "original": "Elle est très belle !",
+      "translation": "她很漂亮啊",
+      "blocks": ["她", "很", "漂亮", "啊", "衣服", "先生", "都"]
+    },
+    {
+      "id": "s9_p14",
+      "original": "Il n'a pas beaucoup d'argent.",
+      "translation": "他没有多少钱",
+      "blocks": ["他", "没有", "多少", "钱", "不少", "少", "东西"]
+    },
+    {
+      "id": "s10_p14",
+      "original": "Ces étudiants sont tous mes amis.",
+      "translation": "这些学生都是我的朋友",
+      "blocks": ["这些", "学生", "都", "是", "我", "的", "朋友", "同学", "先生"]
+    },
+    {
+      "id": "s11_p14",
+      "original": "Il est rentré.",
+      "translation": "他回来了",
+      "blocks": ["他", "回来", "了", "开", "车", "先生", "分钟"]
+    },
+    {
+      "id": "s12_p14",
+      "original": "As-tu vu Monsieur Wang ?",
+      "translation": "你看见王先生了吗？",
+      "blocks": ["你", "看见", "王", "先生", "了", "吗", "？", "李", "回来"]
+    },
+    {
+      "id": "s13_p14",
+      "original": "Ces vêtements ne sont pas beaux.",
+      "translation": "这些衣服不漂亮",
+      "blocks": ["这些", "衣服", "不", "漂亮", "都", "啊", "东西"]
+    }
   ]
 }

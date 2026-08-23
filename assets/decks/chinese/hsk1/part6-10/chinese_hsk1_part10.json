@@ -77,5 +77,73 @@
       "removed": false,
       "id": "chinese_hsk1_part10_w12"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p10",
+      "original": "Puis-je m'asseoir ici ?",
+      "translation": "我能坐这儿吗？",
+      "blocks": ["我", "能", "坐", "这儿", "吗", "？", "桌子", "里", "没有"]
+    },
+    {
+      "id": "s2_p10",
+      "original": "Il y a un ordinateur et un livre sur la table.",
+      "translation": "桌子上有电脑和书",
+      "blocks": ["桌子", "上", "有", "电脑", "和", "书", "本", "里", "没有"]
+    },
+    {
+      "id": "s3_p10",
+      "original": "Il n'y a pas d'ordinateur ici.",
+      "translation": "这儿没有电脑",
+      "blocks": ["这儿", "没有", "电脑", "桌子", "里", "本"]
+    },
+    {
+      "id": "s4_p10",
+      "original": "Assieds-toi, s'il te plaît.",
+      "translation": "请坐",
+      "blocks": ["请", "坐", "能", "这儿", "吗"]
+    },
+    {
+      "id": "s5_p10",
+      "original": "Devant la table, il y a une chaise.",
+      "translation": "桌子前面有椅子",
+      "blocks": ["桌子", "前面", "有", "椅子", "后面", "里", "上"]
+    },
+    {
+      "id": "s6_p10",
+      "original": "Derrière l'hôpital, il y a une école.",
+      "translation": "医院后面有学校",
+      "blocks": ["医院", "后面", "有", "学校", "前面", "里", "桌子"]
+    },
+    {
+      "id": "s7_p10",
+      "original": "Dans l'école, il y a un professeur et des étudiants.",
+      "translation": "学校里有老师和学生",
+      "blocks": ["学校", "里", "有", "老师", "和", "学生", "桌子", "电脑", "本"]
+    },
+    {
+      "id": "s8_p10",
+      "original": "Puis-je m'asseoir devant ?",
+      "translation": "我能坐前面吗？",
+      "blocks": ["我", "能", "坐", "前面", "吗", "？", "后面", "这儿", "桌子"]
+    },
+    {
+      "id": "s9_p10",
+      "original": "Il n'y a pas de chaise ici.",
+      "translation": "这儿没有椅子",
+      "blocks": ["这儿", "没有", "椅子", "桌子", "里", "电脑"]
+    },
+    {
+      "id": "s10_p10",
+      "original": "Le chat est assis sous la table.",
+      "translation": "猫坐在桌子下面",
+      "blocks": ["猫", "坐", "在", "桌子", "下面", "上", "前面", "后面"]
+    },
+    {
+      "id": "s11_p10",
+      "original": "Sur la table, il y a un livre.",
+      "translation": "桌子上有一本书",
+      "blocks": ["桌子", "上", "有", "一", "本", "书", "电脑", "里", "和"]
+    }
   ]
 }

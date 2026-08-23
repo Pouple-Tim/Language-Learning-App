@@ -1,13 +1,5 @@
 final Map<String, Map<String, String>> deckTranslationsJapanese = {
 
-  // Japonais - Hiragana
-  'japanese_hiragana_base': {
-    'fr': 'Japonais - Hiragana',
-    'en': 'Japanese - Hiragana',
-    'es': 'Japonés - Hiragana',
-    'it': 'Giapponese - Hiragana',
-  },
-
   // Japonais - Katakana
   'japanese_katakana_base': {
     'fr': 'Japonais - Katakana',

@@ -83,5 +83,73 @@
       "removed": false,
       "id": "chinese_hsk1_part9_w13"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p9",
+      "original": "Où est le petit chat ?",
+      "translation": "小猫在哪儿？",
+      "blocks": ["小", "猫", "在", "哪儿", "？", "狗", "那儿", "椅子"]
+    },
+    {
+      "id": "s2_p9",
+      "original": "Le petit chien est sous la chaise.",
+      "translation": "小狗在椅子下面",
+      "blocks": ["小", "狗", "在", "椅子", "下面", "猫", "那儿", "哪儿"]
+    },
+    {
+      "id": "s3_p9",
+      "original": "Où travaille ton fils ?",
+      "translation": "你儿子在哪儿工作？",
+      "blocks": ["你", "儿子", "在", "哪儿", "工作", "？", "爸爸", "医院", "医生"]
+    },
+    {
+      "id": "s4_p9",
+      "original": "Mon père est médecin.",
+      "translation": "我爸爸是医生",
+      "blocks": ["我", "爸爸", "是", "医生", "儿子", "医院", "工作"]
+    },
+    {
+      "id": "s5_p9",
+      "original": "Il travaille à l'hôpital.",
+      "translation": "他在医院工作",
+      "blocks": ["他", "在", "医院", "工作", "医生", "爸爸", "儿子"]
+    },
+    {
+      "id": "s6_p9",
+      "original": "Mon fils travaille à l'hôpital, et le tien ?",
+      "translation": "我儿子在医院工作你呢？",
+      "blocks": ["我", "儿子", "在", "医院", "工作", "你", "呢", "？", "爸爸"]
+    },
+    {
+      "id": "s7_p9",
+      "original": "Le chat n'est pas là-bas.",
+      "translation": "猫不在那儿",
+      "blocks": ["猫", "不", "在", "那儿", "狗", "哪儿", "椅子"]
+    },
+    {
+      "id": "s8_p9",
+      "original": "Où est ton père ?",
+      "translation": "你爸爸在哪儿？",
+      "blocks": ["你", "爸爸", "在", "哪儿", "？", "儿子", "医生", "工作"]
+    },
+    {
+      "id": "s9_p9",
+      "original": "Le petit chien est là-bas.",
+      "translation": "小狗在那儿",
+      "blocks": ["小", "狗", "在", "那儿", "猫", "椅子", "哪儿"]
+    },
+    {
+      "id": "s10_p9",
+      "original": "Es-tu médecin ?",
+      "translation": "你是医生吗？",
+      "blocks": ["你", "是", "医生", "吗", "？", "医院", "工作", "爸爸"]
+    },
+    {
+      "id": "s11_p9",
+      "original": "Où travaille le médecin ?",
+      "translation": "医生在哪儿工作？",
+      "blocks": ["医生", "在", "哪儿", "工作", "？", "医院", "爸爸", "儿子"]
+    }
   ]
 }

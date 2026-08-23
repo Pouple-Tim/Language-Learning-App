@@ -67,7 +67,7 @@
     },
     {
       "prompt": "qián",
-      "answer": "钱",
+      "answer": "前",
       "removed": false,
       "id": "chinese_hsk1_part11-15_w11"
     },
@@ -382,6 +382,80 @@
       "answer": "飞机",
       "removed": false,
       "id": "chinese_hsk1_part11-15_w63"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p11_15",
+      "original": "Quelle heure est-il maintenant ?",
+      "translation": "现在几点？",
+      "blocks": ["现在", "几", "点", "？", "分", "中午", "回"]
+    },
+    {
+      "id": "s2_p11_15",
+      "original": "Il habite à Pékin.",
+      "translation": "他住在北京",
+      "blocks": ["他", "住", "在", "北京", "我们", "回", "现在"]
+    },
+    {
+      "id": "s3_p11_15",
+      "original": "Comment est le temps aujourd'hui ?",
+      "translation": "今天天气怎么样？",
+      "blocks": ["今天", "天气", "怎么样", "？", "热", "冷", "下雨"]
+    },
+    {
+      "id": "s4_p11_15",
+      "original": "J'aime les fruits.",
+      "translation": "我爱水果",
+      "blocks": ["我", "爱", "水果", "水", "些", "喝"]
+    },
+    {
+      "id": "s5_p11_15",
+      "original": "Je suis en train d'étudier le chinois.",
+      "translation": "我在学习汉语呢",
+      "blocks": ["我", "在", "学习", "汉语", "呢", "睡觉", "电视", "看"]
+    },
+    {
+      "id": "s6_p11_15",
+      "original": "Téléphone-moi, d'accord ?",
+      "translation": "给我打电话吧",
+      "blocks": ["给", "我", "打电话", "吧", "你", "他", "喜欢"]
+    },
+    {
+      "id": "s7_p11_15",
+      "original": "Elle a acheté pas mal de vêtements.",
+      "translation": "她买了不少衣服",
+      "blocks": ["她", "买", "了", "不少", "衣服", "漂亮", "东西", "这些"]
+    },
+    {
+      "id": "s8_p11_15",
+      "original": "Il revient dans dix minutes.",
+      "translation": "他十分钟后回来",
+      "blocks": ["他", "十", "分钟", "后", "回来", "开", "车", "一点儿"]
+    },
+    {
+      "id": "s9_p11_15",
+      "original": "Je suis venu en avion.",
+      "translation": "我是坐飞机来的",
+      "blocks": ["我", "是", "坐", "飞机", "来", "的", "出租车", "大学", "一起"]
+    },
+    {
+      "id": "s10_p11_15",
+      "original": "Allons-y ensemble !",
+      "translation": "我们一起去吧",
+      "blocks": ["我们", "一起", "去", "吧", "高兴", "听", "认识"]
+    },
+    {
+      "id": "s11_p11_15",
+      "original": "Il fait trop froid, je veux rentrer.",
+      "translation": "太冷了我想回",
+      "blocks": ["太", "冷", "了", "我", "想", "回", "热", "天气", "北京"]
+    },
+    {
+      "id": "s12_p11_15",
+      "original": "Je suis très content d'étudier à l'université.",
+      "translation": "我在大学学习很高兴",
+      "blocks": ["我", "在", "大学", "学习", "很", "高兴", "医院", "工作", "喜欢"]
     }
   ]
 }

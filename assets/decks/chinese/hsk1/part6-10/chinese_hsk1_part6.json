@@ -77,5 +77,73 @@
       "removed": false,
       "id": "chinese_hsk1_part6_w12"
     }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p6",
+      "original": "Je sais parler chinois.",
+      "translation": "我会说汉语",
+      "blocks": ["我", "会", "说", "汉语", "汉字", "写", "读"]
+    },
+    {
+      "id": "s2_p6",
+      "original": "Sais-tu parler chinois ?",
+      "translation": "你会说汉语吗？",
+      "blocks": ["你", "会", "说", "汉语", "吗", "？", "不", "老师"]
+    },
+    {
+      "id": "s3_p6",
+      "original": "Le plat de ma mère est très bon.",
+      "translation": "妈妈的菜很好吃",
+      "blocks": ["妈妈", "的", "菜", "很", "好吃", "老师", "是", "写"]
+    },
+    {
+      "id": "s4_p6",
+      "original": "Je fais la cuisine.",
+      "translation": "我做菜",
+      "blocks": ["我", "做", "菜", "妈妈", "很", "好吃", "写"]
+    },
+    {
+      "id": "s5_p6",
+      "original": "Il écrit des caractères chinois.",
+      "translation": "他写汉字",
+      "blocks": ["他", "写", "汉字", "会", "说", "字", "读"]
+    },
+    {
+      "id": "s6_p6",
+      "original": "Comment ce caractère s'écrit-il ?",
+      "translation": "字怎么写？",
+      "blocks": ["字", "怎么", "写", "？", "读", "汉字", "说", "会"]
+    },
+    {
+      "id": "s7_p6",
+      "original": "Comment ce caractère se lit-il ?",
+      "translation": "字怎么读？",
+      "blocks": ["字", "怎么", "读", "？", "写", "汉字", "会", "说"]
+    },
+    {
+      "id": "s8_p6",
+      "original": "Ma mère est professeur.",
+      "translation": "妈妈是老师",
+      "blocks": ["妈妈", "是", "老师", "学生", "你", "会"]
+    },
+    {
+      "id": "s9_p6",
+      "original": "Sait-il écrire des caractères chinois ?",
+      "translation": "他会写汉字吗？",
+      "blocks": ["他", "会", "写", "汉字", "吗", "？", "说", "读", "字"]
+    },
+    {
+      "id": "s10_p6",
+      "original": "Je ne sais pas parler chinois.",
+      "translation": "我不会说汉语",
+      "blocks": ["我", "不", "会", "说", "汉语", "汉字", "写", "读"]
+    },
+    {
+      "id": "s11_p6",
+      "original": "Ce plat est très bon.",
+      "translation": "菜很好吃",
+      "blocks": ["菜", "很", "好吃", "妈妈", "的", "做"]
+    }
   ]
 }
