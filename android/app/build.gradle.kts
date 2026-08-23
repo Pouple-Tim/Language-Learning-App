@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.language_learning_app"
+    namespace = "com.timouss.linguo"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -17,8 +17,7 @@ android {
 
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.language_learning_app"
+        applicationId = "com.timouss.linguo"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

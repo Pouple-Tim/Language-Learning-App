@@ -1,4 +1,4 @@
-package com.example.language_learning_app
+package com.timouss.linguo
 
 import io.flutter.embedding.android.FlutterActivity
 
