@@ -118,14 +118,22 @@ class SettingsScreen extends StatelessWidget {
                       subtitle: l10n.replayWelcomeTutorialSubtitle,
                       icon: Icons.waving_hand_outlined,
                       iconColor: AppColors.primary,
-                      onTap: () => _replayTutorial(context, TutorialService.resetWelcome),
+                      onTap: () => _replayTutorial(
+                        context,
+                        TutorialService.resetWelcome,
+                        l10n.tutorialReplayWelcomeSnackbar,
+                      ),
                     ),
                     SettingsTile(
                       title: l10n.replayDecksTutorialTitle,
                       subtitle: l10n.replayDecksTutorialSubtitle,
                       icon: Icons.library_books_outlined,
                       iconColor: AppColors.primary,
-                      onTap: () => _replayTutorial(context, TutorialService.resetDecks),
+                      onTap: () => _replayTutorial(
+                        context,
+                        TutorialService.resetDecks,
+                        l10n.tutorialReplaySnackbar,
+                      ),
                     ),
                     SettingsTile(
                       title: l10n.replayGameTutorialTitle,
@@ -133,7 +141,11 @@ class SettingsScreen extends StatelessWidget {
                       icon: Icons.videogame_asset_outlined,
                       iconColor: AppColors.primary,
                       showDivider: false,
-                      onTap: () => _replayTutorial(context, TutorialService.resetGame),
+                      onTap: () => _replayTutorial(
+                        context,
+                        TutorialService.resetGame,
+                        l10n.tutorialReplaySnackbar,
+                      ),
                     ),
                   ],
                 ),
@@ -165,12 +177,16 @@ class SettingsScreen extends StatelessWidget {
   // WIDGETS DE CONTENU
   // ---------------------------------------------------------------------------
 
-  Future<void> _replayTutorial(BuildContext context, Future<void> Function() reset) async {
+  Future<void> _replayTutorial(
+    BuildContext context,
+    Future<void> Function() reset,
+    String message,
+  ) async {
     await reset();
     if (!context.mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.tutorialReplaySnackbar)),
+      SnackBar(content: Text(message)),
     );
   }
 

@@ -1011,13 +1011,13 @@ abstract class AppLocalizations {
   /// No description provided for @tutorialGamePlayTitle.
   ///
   /// In en, this message translates to:
-  /// **'Answer here'**
+  /// **'Your deck & mode'**
   String get tutorialGamePlayTitle;
 
   /// No description provided for @tutorialGamePlayDesc.
   ///
   /// In en, this message translates to:
-  /// **'Spin, type, draw, or pick the right answer depending on the mode — then move to the next word.'**
+  /// **'This shows the deck you\'re reviewing and which game mode you\'re in.'**
   String get tutorialGamePlayDesc;
 
   /// No description provided for @settingsTutorialsSectionTitle.
@@ -1067,6 +1067,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You\'ll see it again next time you open that screen'**
   String get tutorialReplaySnackbar;
+
+  /// No description provided for @tutorialReplayWelcomeSnackbar.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll see it again next time you open the app'**
+  String get tutorialReplayWelcomeSnackbar;
 }
 
 class _AppLocalizationsDelegate

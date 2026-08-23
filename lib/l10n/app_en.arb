@@ -280,8 +280,8 @@
   "tutorialDecksCreateDesc": "Tap here to build a custom deck with your own words and sentences.",
   "tutorialGameRemainingTitle": "Track your progress",
   "tutorialGameRemainingDesc": "This shows how many words are left to review in this session.",
-  "tutorialGamePlayTitle": "Answer here",
-  "tutorialGamePlayDesc": "Spin, type, draw, or pick the right answer depending on the mode — then move to the next word.",
+  "tutorialGamePlayTitle": "Your deck & mode",
+  "tutorialGamePlayDesc": "This shows the deck you're reviewing and which game mode you're in.",
   "settingsTutorialsSectionTitle": "Tutorials",
   "replayWelcomeTutorialTitle": "Replay welcome tour",
   "replayWelcomeTutorialSubtitle": "Show the home screen tour again",
@@ -289,5 +289,6 @@
   "replayDecksTutorialSubtitle": "Show the deck screen hints again",
   "replayGameTutorialTitle": "Replay game tutorial",
   "replayGameTutorialSubtitle": "Show the game screen hints again",
-  "tutorialReplaySnackbar": "You'll see it again next time you open that screen"
+  "tutorialReplaySnackbar": "You'll see it again next time you open that screen",
+  "tutorialReplayWelcomeSnackbar": "You'll see it again next time you open the app"
 }

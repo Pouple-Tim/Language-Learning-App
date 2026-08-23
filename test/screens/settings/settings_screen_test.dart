@@ -59,7 +59,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(TutorialService.hasSeenWelcome(), isFalse);
-    expect(find.text("You'll see it again next time you open that screen"), findsOneWidget);
+    expect(find.text("You'll see it again next time you open the app"), findsOneWidget);
   });
 
   testWidgets('replaying the decks tutorial only resets the decks flag', (tester) async {

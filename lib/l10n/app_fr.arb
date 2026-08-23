@@ -172,8 +172,8 @@
   "tutorialDecksCreateDesc": "Appuie ici pour créer un deck personnalisé avec tes propres mots et phrases.",
   "tutorialGameRemainingTitle": "Suis ta progression",
   "tutorialGameRemainingDesc": "Ceci indique combien de mots il reste à réviser dans cette session.",
-  "tutorialGamePlayTitle": "Réponds ici",
-  "tutorialGamePlayDesc": "Fais tourner la roue, écris, dessine ou choisis la bonne réponse selon le mode — puis passe au mot suivant.",
+  "tutorialGamePlayTitle": "Ton deck et ton mode",
+  "tutorialGamePlayDesc": "Ceci indique le deck que tu révises et le mode de jeu en cours.",
   "settingsTutorialsSectionTitle": "Tutoriels",
   "replayWelcomeTutorialTitle": "Revoir la visite guidée",
   "replayWelcomeTutorialSubtitle": "Réafficher la visite de l'accueil",
@@ -181,5 +181,6 @@
   "replayDecksTutorialSubtitle": "Réafficher les astuces de l'écran decks",
   "replayGameTutorialTitle": "Revoir le tutoriel du jeu",
   "replayGameTutorialSubtitle": "Réafficher les astuces de l'écran de jeu",
-  "tutorialReplaySnackbar": "Tu la reverras la prochaine fois que tu ouvriras cet écran"
+  "tutorialReplaySnackbar": "Tu la reverras la prochaine fois que tu ouvriras cet écran",
+  "tutorialReplayWelcomeSnackbar": "Tu la reverras la prochaine fois que tu ouvriras l'application"
 }

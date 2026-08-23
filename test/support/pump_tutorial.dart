@@ -13,6 +13,8 @@ import 'package:flutter_test/flutter_test.dart';
 /// (as in `tutorial_coach_mark_helper_test.dart`) already flushes the first
 /// hop before `pumpAndSettle()` starts, so it doesn't need this helper.
 Future<void> pumpTutorial(WidgetTester tester) async {
+  // 20×100ms = 2s of simulated time, comfortably over tutorial_coach_mark's
+  // 600ms default focus-animation duration.
   for (var i = 0; i < 20; i++) {
     await tester.pump(const Duration(milliseconds: 100));
   }

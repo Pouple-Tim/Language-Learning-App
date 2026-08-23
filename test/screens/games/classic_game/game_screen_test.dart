@@ -67,4 +67,20 @@ void main() {
 
     expect(find.text('Track your progress'), findsNothing);
   });
+
+  testWidgets('shows the game tour once a deck loads after the screen is already showing', (tester) async {
+    final gameProvider = GameProvider();
+
+    await tester.pumpWidget(_wrap(const GameScreen(), gameProvider));
+    await tester.pump(); // let initState/postFrame register the listener while currentDeck is still null
+    expect(TutorialService.hasSeenGame(), isFalse);
+    expect(find.text('Track your progress'), findsNothing);
+
+    await gameProvider.setDeck(_buildDeck()); // triggers notifyListeners -> listener fires -> tour proceeds
+
+    await pumpTutorial(tester);
+
+    expect(find.text('Track your progress'), findsOneWidget);
+    expect(TutorialService.hasSeenGame(), isTrue);
+  });
 }

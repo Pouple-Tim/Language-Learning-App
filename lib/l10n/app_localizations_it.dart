@@ -504,11 +504,11 @@ class AppLocalizationsIt extends AppLocalizations {
       'Mostra quante parole restano da ripassare in questa sessione.';
 
   @override
-  String get tutorialGamePlayTitle => 'Rispondi qui';
+  String get tutorialGamePlayTitle => 'Il tuo mazzo e modalità';
 
   @override
   String get tutorialGamePlayDesc =>
-      'Gira, scrivi, disegna o scegli la risposta giusta a seconda della modalità, poi passa alla parola successiva.';
+      'Mostra il mazzo che stai ripassando e la modalità di gioco attuale.';
 
   @override
   String get settingsTutorialsSectionTitle => 'Tutorial';
@@ -537,4 +537,8 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get tutorialReplaySnackbar =>
       'La rivedrai la prossima volta che aprirai quella schermata';
+
+  @override
+  String get tutorialReplayWelcomeSnackbar =>
+      'La rivedrai la prossima volta che aprirai l\'app';
 }

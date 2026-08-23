@@ -503,11 +503,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ceci indique combien de mots il reste à réviser dans cette session.';
 
   @override
-  String get tutorialGamePlayTitle => 'Réponds ici';
+  String get tutorialGamePlayTitle => 'Ton deck et ton mode';
 
   @override
   String get tutorialGamePlayDesc =>
-      'Fais tourner la roue, écris, dessine ou choisis la bonne réponse selon le mode — puis passe au mot suivant.';
+      'Ceci indique le deck que tu révises et le mode de jeu en cours.';
 
   @override
   String get settingsTutorialsSectionTitle => 'Tutoriels';
@@ -536,4 +536,8 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get tutorialReplaySnackbar =>
       'Tu la reverras la prochaine fois que tu ouvriras cet écran';
+
+  @override
+  String get tutorialReplayWelcomeSnackbar =>
+      'Tu la reverras la prochaine fois que tu ouvriras l\'application';
 }

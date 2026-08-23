@@ -172,8 +172,8 @@
   "tutorialDecksCreateDesc": "Tocca qui per creare un mazzo personalizzato con le tue parole e frasi.",
   "tutorialGameRemainingTitle": "Segui i tuoi progressi",
   "tutorialGameRemainingDesc": "Mostra quante parole restano da ripassare in questa sessione.",
-  "tutorialGamePlayTitle": "Rispondi qui",
-  "tutorialGamePlayDesc": "Gira, scrivi, disegna o scegli la risposta giusta a seconda della modalità, poi passa alla parola successiva.",
+  "tutorialGamePlayTitle": "Il tuo mazzo e modalità",
+  "tutorialGamePlayDesc": "Mostra il mazzo che stai ripassando e la modalità di gioco attuale.",
   "settingsTutorialsSectionTitle": "Tutorial",
   "replayWelcomeTutorialTitle": "Rivedi il tour di benvenuto",
   "replayWelcomeTutorialSubtitle": "Mostra di nuovo il tour della home",
@@ -181,5 +181,6 @@
   "replayDecksTutorialSubtitle": "Mostra di nuovo i suggerimenti della schermata mazzi",
   "replayGameTutorialTitle": "Rivedi il tutorial del gioco",
   "replayGameTutorialSubtitle": "Mostra di nuovo i suggerimenti della schermata di gioco",
-  "tutorialReplaySnackbar": "La rivedrai la prossima volta che aprirai quella schermata"
+  "tutorialReplaySnackbar": "La rivedrai la prossima volta che aprirai quella schermata",
+  "tutorialReplayWelcomeSnackbar": "La rivedrai la prossima volta che aprirai l'app"
 }
