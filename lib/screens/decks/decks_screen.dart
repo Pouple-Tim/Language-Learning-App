@@ -12,6 +12,9 @@ import 'deck_editor_screen.dart';
 import 'widgets/deck_card.dart';
 import 'widgets/deck_preview_sheet.dart';
 import 'package:language_learning_app/core/utils/deck_hierarchy_utils.dart';
+import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
+import 'package:language_learning_app/core/tutorial/tutorial_coach_mark_helper.dart';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 class DecksScreen extends StatefulWidget {
   const DecksScreen({super.key});
@@ -24,10 +27,68 @@ class _DecksScreenState extends State<DecksScreen> {
   // Sets pour garder en mémoire quels accordéons sont ouverts
   final Set<String> _expandedNodes = {};
 
+  final GlobalKey _decksListKey = GlobalKey();
+  final GlobalKey _createDeckKey = GlobalKey();
+  VoidCallback? _decksLoadListener;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowDecksTour());
+  }
+
+  @override
+  void dispose() {
+    final listener = _decksLoadListener;
+    if (listener != null) {
+      context.read<DeckProvider>().removeListener(listener);
+    }
+    super.dispose();
+  }
+
+  void _maybeShowDecksTour() {
+    if (!mounted || TutorialService.hasSeenDecks()) return;
+
+    final deckProvider = context.read<DeckProvider>();
+    if (deckProvider.isLoading) {
+      _decksLoadListener = () {
+        if (!deckProvider.isLoading) {
+          deckProvider.removeListener(_decksLoadListener!);
+          _decksLoadListener = null;
+          _maybeShowDecksTour();
+        }
+      };
+      deckProvider.addListener(_decksLoadListener!);
+      return;
+    }
+
+    final l10n = AppLocalizations.of(context)!;
+    TutorialService.markDecksSeen();
+    showTutorial(
+      context: context,
+      skipLabel: l10n.tutorialSkipButton,
+      targets: [
+        buildTutorialTarget(
+          identify: 'decks_select',
+          keyTarget: _decksListKey,
+          title: l10n.tutorialDecksSelectTitle,
+          description: l10n.tutorialDecksSelectDesc,
+        ),
+        buildTutorialTarget(
+          identify: 'decks_create',
+          keyTarget: _createDeckKey,
+          title: l10n.tutorialDecksCreateTitle,
+          description: l10n.tutorialDecksCreateDesc,
+          align: ContentAlign.top,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    
+
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.myDecks),
@@ -47,7 +108,10 @@ class _DecksScreenState extends State<DecksScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildBaseDecksSection(context, deckProvider),
+                    Container(
+                      key: _decksListKey,
+                      child: _buildBaseDecksSection(context, deckProvider),
+                    ),
                     const SizedBox(height: 32),
                     _buildCustomDecksSection(context, deckProvider),
                     const SizedBox(height: 80), // Espace pour le FAB
@@ -59,6 +123,7 @@ class _DecksScreenState extends State<DecksScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
+        key: _createDeckKey,
         onPressed: () => _navigateToEditor(context, null),
         icon: const Icon(Icons.add),
         label: Text(l10n.createDeck),
