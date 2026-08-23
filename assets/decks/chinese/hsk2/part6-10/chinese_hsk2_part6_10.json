@@ -1,0 +1,538 @@
+{
+  "id": "chinese_hsk2_part6_10",
+  "name": "Chinois - HSK2 (Parties 6 à 10)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    {
+      "prompt": "mén",
+      "answer": "门",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w1"
+    },
+    {
+      "prompt": "wài",
+      "answer": "外",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w2"
+    },
+    {
+      "prompt": "zìxíngchē",
+      "answer": "自行车",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w3"
+    },
+    {
+      "prompt": "yángròu",
+      "answer": "羊肉",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w4"
+    },
+    {
+      "prompt": "hǎochī",
+      "answer": "好吃",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w5"
+    },
+    {
+      "prompt": "miàntiáo",
+      "answer": "面条",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w6"
+    },
+    {
+      "prompt": "dǎ lánqiú",
+      "answer": "打篮球",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w7"
+    },
+    {
+      "prompt": "yīnwèi",
+      "answer": "因为",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w8"
+    },
+    {
+      "prompt": "suǒyǐ",
+      "answer": "所以",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w9"
+    },
+    {
+      "prompt": "yóuyǒng",
+      "answer": "游泳",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w10"
+    },
+    {
+      "prompt": "jīngcháng",
+      "answer": "经常",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w11"
+    },
+    {
+      "prompt": "gōngjīn",
+      "answer": "公斤",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w12"
+    },
+    {
+      "prompt": "jiějie",
+      "answer": "姐姐",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w13"
+    },
+    {
+      "prompt": "jiàoshì",
+      "answer": "教室",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w14"
+    },
+    {
+      "prompt": "jīchǎng",
+      "answer": "机场",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w15"
+    },
+    {
+      "prompt": "lù",
+      "answer": "路",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w16"
+    },
+    {
+      "prompt": "lí",
+      "answer": "离",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w17"
+    },
+    {
+      "prompt": "gōngsī",
+      "answer": "公司",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w18"
+    },
+    {
+      "prompt": "yuǎn",
+      "answer": "远",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w19"
+    },
+    {
+      "prompt": "gōnggòng qìchē",
+      "answer": "公共汽车",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w20"
+    },
+    {
+      "prompt": "xiǎoshí",
+      "answer": "小时",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w21"
+    },
+    {
+      "prompt": "màn",
+      "answer": "慢",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w22"
+    },
+    {
+      "prompt": "kuài",
+      "answer": "快",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w23"
+    },
+    {
+      "prompt": "guò",
+      "answer": "过",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w24"
+    },
+    {
+      "prompt": "zǒu",
+      "answer": "走",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w25"
+    },
+    {
+      "prompt": "dào",
+      "answer": "到",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w26"
+    },
+    {
+      "prompt": "zài",
+      "answer": "再",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w27"
+    },
+    {
+      "prompt": "ràng",
+      "answer": "让",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w28"
+    },
+    {
+      "prompt": "gàosù",
+      "answer": "告诉",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w29"
+    },
+    {
+      "prompt": "děng",
+      "answer": "等",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w30"
+    },
+    {
+      "prompt": "zhǎo",
+      "answer": "找",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w31"
+    },
+    {
+      "prompt": "shìqing",
+      "answer": "事情",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w32"
+    },
+    {
+      "prompt": "fúwùyuán",
+      "answer": "服务员",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w33"
+    },
+    {
+      "prompt": "bái",
+      "answer": "白",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w34"
+    },
+    {
+      "prompt": "hēi",
+      "answer": "黑",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w35"
+    },
+    {
+      "prompt": "guì",
+      "answer": "贵",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w36"
+    },
+    {
+      "prompt": "cuò",
+      "answer": "错",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w37"
+    },
+    {
+      "prompt": "cóng",
+      "answer": "从",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w38"
+    },
+    {
+      "prompt": "tiàowǔ",
+      "answer": "跳舞",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w39"
+    },
+    {
+      "prompt": "dìyī",
+      "answer": "第一",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w40"
+    },
+    {
+      "prompt": "xīwàng",
+      "answer": "希望",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w41"
+    },
+    {
+      "prompt": "wèntí",
+      "answer": "问题",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w42"
+    },
+    {
+      "prompt": "huānyíng",
+      "answer": "欢迎",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w43"
+    },
+    {
+      "prompt": "shàng bān",
+      "answer": "上班",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w44"
+    },
+    {
+      "prompt": "dǒng",
+      "answer": "懂",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w45"
+    },
+    {
+      "prompt": "wán",
+      "answer": "完",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w46"
+    },
+    {
+      "prompt": "tí",
+      "answer": "题",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w47"
+    },
+    {
+      "prompt": "kè",
+      "answer": "课",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w48"
+    },
+    {
+      "prompt": "bāngzhù",
+      "answer": "帮助",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w49"
+    },
+    {
+      "prompt": "bié",
+      "answer": "别",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w50"
+    },
+    {
+      "prompt": "gēge",
+      "answer": "哥哥",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w51"
+    },
+    {
+      "prompt": "jīdàn",
+      "answer": "鸡蛋",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w52"
+    },
+    {
+      "prompt": "xīguā",
+      "answer": "西瓜",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w53"
+    },
+    {
+      "prompt": "zhèngzài",
+      "answer": "正在",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w54"
+    },
+    {
+      "prompt": "shǒujī",
+      "answer": "手机",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w55"
+    },
+    {
+      "prompt": "xǐ",
+      "answer": "洗",
+      "removed": false,
+      "id": "chinese_hsk2_part6_10_w56"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p6_10",
+      "original": "Comme il fait froid, je ne vais pas nager.",
+      "translation": "因为很冷所以我不游泳",
+      "blocks": [
+        "因为",
+        "很",
+        "冷",
+        "所以",
+        "我",
+        "不",
+        "游泳",
+        "经常",
+        "打篮球"
+      ]
+    },
+    {
+      "id": "s2_p6_10",
+      "original": "Aimes-tu jouer au basket ?",
+      "translation": "你喜欢打篮球吗？",
+      "blocks": [
+        "你",
+        "喜欢",
+        "打篮球",
+        "吗",
+        "？",
+        "游泳",
+        "踢足球",
+        "经常"
+      ]
+    },
+    {
+      "id": "s3_p6_10",
+      "original": "Ta maison est loin de la compagnie ?",
+      "translation": "你家离公司远吗？",
+      "blocks": [
+        "你",
+        "家",
+        "离",
+        "公司",
+        "远",
+        "吗",
+        "？",
+        "机场",
+        "慢"
+      ]
+    },
+    {
+      "id": "s4_p6_10",
+      "original": "Il faut combien d'heures pour arriver à l'école ?",
+      "translation": "到学校要几个小时？",
+      "blocks": [
+        "到",
+        "学校",
+        "要",
+        "几",
+        "个",
+        "小时",
+        "？",
+        "走",
+        "公司"
+      ]
+    },
+    {
+      "id": "s5_p6_10",
+      "original": "Attends-moi un instant, d'accord ?",
+      "translation": "你等我一下好吗？",
+      "blocks": [
+        "你",
+        "等",
+        "我",
+        "一下",
+        "好",
+        "吗",
+        "？",
+        "让",
+        "找"
+      ]
+    },
+    {
+      "id": "s6_p6_10",
+      "original": "C'est trop cher !",
+      "translation": "太贵了",
+      "blocks": [
+        "太",
+        "贵",
+        "了",
+        "白",
+        "黑",
+        "新"
+      ]
+    },
+    {
+      "id": "s7_p6_10",
+      "original": "As-tu compris ?",
+      "translation": "你听懂了吗？",
+      "blocks": [
+        "你",
+        "听",
+        "懂",
+        "了",
+        "吗",
+        "？",
+        "问题",
+        "完",
+        "错"
+      ]
+    },
+    {
+      "id": "s8_p6_10",
+      "original": "Il va travailler dès sept heures.",
+      "translation": "他七点就去上班",
+      "blocks": [
+        "他",
+        "七",
+        "点",
+        "就",
+        "去",
+        "上班",
+        "从",
+        "第一",
+        "跳舞"
+      ]
+    },
+    {
+      "id": "s9_p6_10",
+      "original": "Ne cherche plus, le téléphone est sur la table.",
+      "translation": "别找了手机在桌子上呢",
+      "blocks": [
+        "别",
+        "找",
+        "了",
+        "手机",
+        "在",
+        "桌子",
+        "上",
+        "呢",
+        "课",
+        "哥哥"
+      ]
+    },
+    {
+      "id": "s10_p6_10",
+      "original": "Il est très gentil avec moi.",
+      "translation": "他对我很好",
+      "blocks": [
+        "他",
+        "对",
+        "我",
+        "很",
+        "好",
+        "帮助",
+        "课",
+        "手机"
+      ]
+    },
+    {
+      "id": "s11_p6_10",
+      "original": "Ma sœur travaille dès huit heures.",
+      "translation": "我姐姐从八点开始上班",
+      "blocks": [
+        "我",
+        "姐姐",
+        "从",
+        "八",
+        "点",
+        "开始",
+        "上班",
+        "经常",
+        "懂",
+        "课"
+      ]
+    },
+    {
+      "id": "s12_p6_10",
+      "original": "L'aéroport n'est pas loin de l'école, on peut y aller à pied.",
+      "translation": "机场离学校不远可以走路去",
+      "blocks": [
+        "机场",
+        "离",
+        "学校",
+        "不",
+        "远",
+        "可以",
+        "走",
+        "路",
+        "去",
+        "公司",
+        "快"
+      ]
+    }
+  ]
+}

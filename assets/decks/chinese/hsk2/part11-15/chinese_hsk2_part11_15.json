@@ -1,0 +1,480 @@
+{
+  "id": "chinese_hsk2_part11_15",
+  "name": "Chinois - HSK2 (Parties 11 à 15)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    {
+      "prompt": "chànggē",
+      "answer": "唱歌",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w1"
+    },
+    {
+      "prompt": "nán",
+      "answer": "男",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w2"
+    },
+    {
+      "prompt": "nǚ",
+      "answer": "女",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w3"
+    },
+    {
+      "prompt": "háizi",
+      "answer": "孩子",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w4"
+    },
+    {
+      "prompt": "yòubian",
+      "answer": "右边",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w5"
+    },
+    {
+      "prompt": "bǐ",
+      "answer": "比",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w6"
+    },
+    {
+      "prompt": "piányi",
+      "answer": "便宜",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w7"
+    },
+    {
+      "prompt": "shuō huà",
+      "answer": "说话",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w8"
+    },
+    {
+      "prompt": "kěnéng",
+      "answer": "可能",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w9"
+    },
+    {
+      "prompt": "qùnián",
+      "answer": "去年",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w10"
+    },
+    {
+      "prompt": "xìng",
+      "answer": "姓",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w11"
+    },
+    {
+      "prompt": "de",
+      "answer": "得",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w12"
+    },
+    {
+      "prompt": "qīzi",
+      "answer": "妻子",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w13"
+    },
+    {
+      "prompt": "xuě",
+      "answer": "雪",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w14"
+    },
+    {
+      "prompt": "líng",
+      "answer": "零",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w15"
+    },
+    {
+      "prompt": "dù",
+      "answer": "度",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w16"
+    },
+    {
+      "prompt": "chuān",
+      "answer": "穿",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w17"
+    },
+    {
+      "prompt": "jìn",
+      "answer": "进",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w18"
+    },
+    {
+      "prompt": "dìdi",
+      "answer": "弟弟",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w19"
+    },
+    {
+      "prompt": "jìn",
+      "answer": "近",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w20"
+    },
+    {
+      "prompt": "zhe",
+      "answer": "着",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w21"
+    },
+    {
+      "prompt": "shǒu",
+      "answer": "手",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w22"
+    },
+    {
+      "prompt": "ná",
+      "answer": "拿",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w23"
+    },
+    {
+      "prompt": "qiānbǐ",
+      "answer": "铅笔",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w24"
+    },
+    {
+      "prompt": "bān",
+      "answer": "班",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w25"
+    },
+    {
+      "prompt": "zhǎng",
+      "answer": "长",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w26"
+    },
+    {
+      "prompt": "xiào",
+      "answer": "笑",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w27"
+    },
+    {
+      "prompt": "bīnguǎn",
+      "answer": "宾馆",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w28"
+    },
+    {
+      "prompt": "yìzhí",
+      "answer": "一直",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w29"
+    },
+    {
+      "prompt": "wǎng",
+      "answer": "往",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w30"
+    },
+    {
+      "prompt": "lùkǒu",
+      "answer": "路口",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w31"
+    },
+    {
+      "prompt": "Yáng Xiàoxiao",
+      "answer": "杨笑笑",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w32"
+    },
+    {
+      "prompt": "yìsi",
+      "answer": "意思",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w33"
+    },
+    {
+      "prompt": "dànshì",
+      "answer": "但是",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w34"
+    },
+    {
+      "prompt": "suīrán",
+      "answer": "虽然",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w35"
+    },
+    {
+      "prompt": "cì",
+      "answer": "次",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w36"
+    },
+    {
+      "prompt": "wánr",
+      "answer": "玩儿",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w37"
+    },
+    {
+      "prompt": "qíng",
+      "answer": "晴",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w38"
+    },
+    {
+      "prompt": "bǎi",
+      "answer": "百",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w39"
+    },
+    {
+      "prompt": "rì",
+      "answer": "日",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w40"
+    },
+    {
+      "prompt": "xīnnián",
+      "answer": "新年",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w41"
+    },
+    {
+      "prompt": "piào",
+      "answer": "票",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w42"
+    },
+    {
+      "prompt": "huǒchēzhàn",
+      "answer": "火车站",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w43"
+    },
+    {
+      "prompt": "dàjiā",
+      "answer": "大家",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w44"
+    },
+    {
+      "prompt": "gèng",
+      "answer": "更",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w45"
+    },
+    {
+      "prompt": "mèimei",
+      "answer": "妹妹",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w46"
+    },
+    {
+      "prompt": "yīn",
+      "answer": "阴",
+      "removed": false,
+      "id": "chinese_hsk2_part11_15_w47"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_p11_15",
+      "original": "Il est plus grand que moi.",
+      "translation": "他比我高",
+      "blocks": [
+        "他",
+        "比",
+        "我",
+        "高",
+        "便宜",
+        "可能",
+        "去年"
+      ]
+    },
+    {
+      "id": "s2_p11_15",
+      "original": "Il se peut qu'il ne vienne pas.",
+      "translation": "他可能不来",
+      "blocks": [
+        "他",
+        "可能",
+        "不",
+        "来",
+        "便宜",
+        "说话",
+        "去年"
+      ]
+    },
+    {
+      "id": "s3_p11_15",
+      "original": "Tu es habillé trop légèrement.",
+      "translation": "你穿得太少了",
+      "blocks": [
+        "你",
+        "穿",
+        "得",
+        "太",
+        "少",
+        "了",
+        "弟弟",
+        "妻子",
+        "近"
+      ]
+    },
+    {
+      "id": "s4_p11_15",
+      "original": "Il neige dehors.",
+      "translation": "外面下雪了",
+      "blocks": [
+        "外面",
+        "下",
+        "雪",
+        "了",
+        "雨",
+        "冷",
+        "度"
+      ]
+    },
+    {
+      "id": "s5_p11_15",
+      "original": "La porte est ouverte.",
+      "translation": "门开着呢",
+      "blocks": [
+        "门",
+        "开",
+        "着",
+        "呢",
+        "笑",
+        "拿",
+        "手"
+      ]
+    },
+    {
+      "id": "s6_p11_15",
+      "original": "N'est-ce pas notre professeur ?",
+      "translation": "他不是我们的老师吗？",
+      "blocks": [
+        "他",
+        "不",
+        "是",
+        "我们",
+        "的",
+        "老师",
+        "吗",
+        "？",
+        "学生",
+        "笑"
+      ]
+    },
+    {
+      "id": "s7_p11_15",
+      "original": "As-tu déjà vu ce film ?",
+      "translation": "你看过那个电影吗？",
+      "blocks": [
+        "你",
+        "看",
+        "过",
+        "那",
+        "个",
+        "电影",
+        "吗",
+        "？",
+        "意思",
+        "次"
+      ]
+    },
+    {
+      "id": "s8_p11_15",
+      "original": "Bien qu'il fasse froid, je vais quand même nager.",
+      "translation": "虽然很冷但是我还要去游泳",
+      "blocks": [
+        "虽然",
+        "很",
+        "冷",
+        "但是",
+        "我",
+        "还",
+        "要",
+        "去",
+        "游泳",
+        "晴"
+      ]
+    },
+    {
+      "id": "s9_p11_15",
+      "original": "Le Nouvel An arrive bientôt.",
+      "translation": "新年就要到了",
+      "blocks": [
+        "新年",
+        "就",
+        "要",
+        "到",
+        "了",
+        "火车站",
+        "票",
+        "妹妹"
+      ]
+    },
+    {
+      "id": "s10_p11_15",
+      "original": "Tout le monde est déjà là.",
+      "translation": "大家都来了",
+      "blocks": [
+        "大家",
+        "都",
+        "来",
+        "了",
+        "妹妹",
+        "票",
+        "新年"
+      ]
+    },
+    {
+      "id": "s11_p11_15",
+      "original": "Mon petit frère aime chanter encore plus que moi.",
+      "translation": "我弟弟比我更喜欢唱歌",
+      "blocks": [
+        "我",
+        "弟弟",
+        "比",
+        "我",
+        "更",
+        "喜欢",
+        "唱歌",
+        "妹妹",
+        "可能",
+        "虽然"
+      ]
+    },
+    {
+      "id": "s12_p11_15",
+      "original": "Bien que la gare soit loin, nous continuons tout droit.",
+      "translation": "虽然火车站很远但是我们一直往前走",
+      "blocks": [
+        "虽然",
+        "火车站",
+        "很",
+        "远",
+        "但是",
+        "我们",
+        "一直",
+        "往",
+        "前",
+        "走",
+        "路口"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "chinese_hsk2_part4",
+  "name": "Chinois - HSK2 (Partie 4)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "shēngrì", "answer": "生日", "removed": false, "id": "chinese_hsk2_part4_w1" },
+    { "prompt": "kuàilè", "answer": "快乐", "removed": false, "id": "chinese_hsk2_part4_w2" },
+    { "prompt": "gěi", "answer": "给", "removed": false, "id": "chinese_hsk2_part4_w3" },
+    { "prompt": "jiē", "answer": "接", "removed": false, "id": "chinese_hsk2_part4_w4" },
+    { "prompt": "wǎnshang", "answer": "晚上", "removed": false, "id": "chinese_hsk2_part4_w5" },
+    { "prompt": "wèn", "answer": "问", "removed": false, "id": "chinese_hsk2_part4_w6" },
+    { "prompt": "fēicháng", "answer": "非常", "removed": false, "id": "chinese_hsk2_part4_w7" },
+    { "prompt": "kāishǐ", "answer": "开始", "removed": false, "id": "chinese_hsk2_part4_w8" },
+    { "prompt": "yǐjīng", "answer": "已经", "removed": false, "id": "chinese_hsk2_part4_w9" },
+    { "prompt": "cháng", "answer": "长", "removed": false, "id": "chinese_hsk2_part4_w10" },
+    { "prompt": "liǎng", "answer": "两", "removed": false, "id": "chinese_hsk2_part4_w11" },
+    { "prompt": "bāng", "answer": "帮", "removed": false, "id": "chinese_hsk2_part4_w12" },
+    { "prompt": "jièshào", "answer": "介绍", "removed": false, "id": "chinese_hsk2_part4_w13" }
+  ],
+  "sentences": [
+    { "id": "s1_p4", "original": "Ce travail, c'est lui qui me l'a présenté.", "translation": "这个工作是他介绍给我的", "blocks": ["这", "个", "工作", "是", "他", "介绍", "给", "我", "的", "帮", "已经"] },
+    { "id": "s2_p4", "original": "Joyeux anniversaire !", "translation": "生日快乐", "blocks": ["生日", "快乐", "非常", "已经", "开始"] },
+    { "id": "s3_p4", "original": "Quand j'avais dix ans...", "translation": "我十岁的时候", "blocks": ["我", "十", "岁", "的", "时候", "已经", "长", "两"] },
+    { "id": "s4_p4", "original": "Le soir a déjà commencé.", "translation": "晚上已经开始了", "blocks": ["晚上", "已经", "开始", "了", "问", "非常", "长"] },
+    { "id": "s5_p4", "original": "Je suis très content aujourd'hui.", "translation": "我今天非常高兴", "blocks": ["我", "今天", "非常", "高兴", "快乐", "已经", "开始"] },
+    { "id": "s6_p4", "original": "Peux-tu m'aider à demander ?", "translation": "你能帮我问一下吗？", "blocks": ["你", "能", "帮", "我", "问", "一下", "吗", "？", "已经"] },
+    { "id": "s7_p4", "original": "Laisse-moi te présenter mon mari.", "translation": "我给你介绍我的丈夫", "blocks": ["我", "给", "你", "介绍", "我", "的", "丈夫", "帮", "晚上"] },
+    { "id": "s8_p4", "original": "Ça fait déjà longtemps.", "translation": "已经很长时间了", "blocks": ["已经", "很", "长", "时间", "了", "两", "非常", "开始"] },
+    { "id": "s9_p4", "original": "Il y a deux personnes dans la chambre.", "translation": "房间里有两个人", "blocks": ["房间", "里", "有", "两", "个", "人", "三", "长", "已经"] },
+    { "id": "s10_p4", "original": "Aide-moi, s'il te plaît.", "translation": "请帮我", "blocks": ["请", "帮", "我", "问", "介绍", "给"] },
+    { "id": "s11_p4", "original": "Le jour de son anniversaire, il était très content.", "translation": "他生日的时候很高兴", "blocks": ["他", "生日", "的", "时候", "很", "高兴", "快乐", "已经", "长"] }
+  ]
+}

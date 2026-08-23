@@ -1,0 +1,33 @@
+{
+  "id": "chinese_hsk2_part9",
+  "name": "Chinois - HSK2 (Partie 9)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "cuò", "answer": "错", "removed": false, "id": "chinese_hsk2_part9_w1" },
+    { "prompt": "cóng", "answer": "从", "removed": false, "id": "chinese_hsk2_part9_w2" },
+    { "prompt": "tiàowǔ", "answer": "跳舞", "removed": false, "id": "chinese_hsk2_part9_w3" },
+    { "prompt": "dìyī", "answer": "第一", "removed": false, "id": "chinese_hsk2_part9_w4" },
+    { "prompt": "xīwàng", "answer": "希望", "removed": false, "id": "chinese_hsk2_part9_w5" },
+    { "prompt": "wèntí", "answer": "问题", "removed": false, "id": "chinese_hsk2_part9_w6" },
+    { "prompt": "huānyíng", "answer": "欢迎", "removed": false, "id": "chinese_hsk2_part9_w7" },
+    { "prompt": "shàng bān", "answer": "上班", "removed": false, "id": "chinese_hsk2_part9_w8" },
+    { "prompt": "dǒng", "answer": "懂", "removed": false, "id": "chinese_hsk2_part9_w9" },
+    { "prompt": "wán", "answer": "完", "removed": false, "id": "chinese_hsk2_part9_w10" },
+    { "prompt": "tí", "answer": "题", "removed": false, "id": "chinese_hsk2_part9_w11" }
+  ],
+  "sentences": [
+    { "id": "s1_p9", "original": "As-tu compris ?", "translation": "你听懂了吗？", "blocks": ["你", "听", "懂", "了", "吗", "？", "问题", "完", "错"] },
+    { "id": "s2_p9", "original": "J'ai fini l'exercice.", "translation": "我做完题了", "blocks": ["我", "做", "完", "题", "了", "懂", "错", "问题"] },
+    { "id": "s3_p9", "original": "Tu t'es trompé.", "translation": "你错了", "blocks": ["你", "错", "了", "懂", "完", "对"] },
+    { "id": "s4_p9", "original": "Bienvenue !", "translation": "欢迎你", "blocks": ["欢迎", "你", "希望", "懂", "错"] },
+    { "id": "s5_p9", "original": "J'espère que tu comprendras ce problème.", "translation": "我希望你懂这个问题", "blocks": ["我", "希望", "你", "懂", "这", "个", "问题", "完", "错"] },
+    { "id": "s6_p9", "original": "Il va travailler dès sept heures.", "translation": "他七点就去上班", "blocks": ["他", "七", "点", "就", "去", "上班", "从", "第一", "跳舞"] },
+    { "id": "s7_p9", "original": "Aujourd'hui, c'est mon premier jour de travail.", "translation": "今天是我第一天上班", "blocks": ["今天", "是", "我", "第一", "天", "上班", "希望", "懂", "从"] },
+    { "id": "s8_p9", "original": "Elle danse à partir de huit heures.", "translation": "她从八点跳舞", "blocks": ["她", "从", "八", "点", "跳舞", "上班", "懂", "希望"] },
+    { "id": "s9_p9", "original": "Cette question, je ne l'ai pas comprise.", "translation": "这个问题我没听懂", "blocks": ["这", "个", "问题", "我", "没", "听", "懂", "完", "错"] },
+    { "id": "s10_p9", "original": "Il va au travail depuis l'école.", "translation": "他从学校去上班", "blocks": ["他", "从", "学校", "去", "上班", "公司", "懂", "问题"] },
+    { "id": "s11_p9", "original": "J'aime beaucoup danser.", "translation": "我很喜欢跳舞", "blocks": ["我", "很", "喜欢", "跳舞", "上班", "懂", "希望"] }
+  ]
+}

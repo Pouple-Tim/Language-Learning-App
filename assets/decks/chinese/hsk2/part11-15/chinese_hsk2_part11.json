@@ -1,0 +1,33 @@
+{
+  "id": "chinese_hsk2_part11",
+  "name": "Chinois - HSK2 (Partie 11)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "chànggē", "answer": "唱歌", "removed": false, "id": "chinese_hsk2_part11_w1" },
+    { "prompt": "nán", "answer": "男", "removed": false, "id": "chinese_hsk2_part11_w2" },
+    { "prompt": "nǚ", "answer": "女", "removed": false, "id": "chinese_hsk2_part11_w3" },
+    { "prompt": "háizi", "answer": "孩子", "removed": false, "id": "chinese_hsk2_part11_w4" },
+    { "prompt": "yòubian", "answer": "右边", "removed": false, "id": "chinese_hsk2_part11_w5" },
+    { "prompt": "bǐ", "answer": "比", "removed": false, "id": "chinese_hsk2_part11_w6" },
+    { "prompt": "piányi", "answer": "便宜", "removed": false, "id": "chinese_hsk2_part11_w7" },
+    { "prompt": "shuō huà", "answer": "说话", "removed": false, "id": "chinese_hsk2_part11_w8" },
+    { "prompt": "kěnéng", "answer": "可能", "removed": false, "id": "chinese_hsk2_part11_w9" },
+    { "prompt": "qùnián", "answer": "去年", "removed": false, "id": "chinese_hsk2_part11_w10" },
+    { "prompt": "xìng", "answer": "姓", "removed": false, "id": "chinese_hsk2_part11_w11" }
+  ],
+  "sentences": [
+    { "id": "s1_p11", "original": "Le garçon assis à droite est en train de chanter.", "translation": "坐在右边的男孩子在唱歌", "blocks": ["坐", "在", "右边", "的", "男", "孩子", "在", "唱歌", "女", "便宜"] },
+    { "id": "s2_p11", "original": "Il est plus grand que moi.", "translation": "他比我高", "blocks": ["他", "比", "我", "高", "便宜", "可能", "去年"] },
+    { "id": "s3_p11", "original": "Cette montre est moins chère que celle-là.", "translation": "这个手表比那个便宜", "blocks": ["这", "个", "手表", "比", "那", "个", "便宜", "贵", "可能"] },
+    { "id": "s4_p11", "original": "Quel est ton nom de famille ?", "translation": "你姓什么？", "blocks": ["你", "姓", "什么", "？", "叫", "名字", "可能"] },
+    { "id": "s5_p11", "original": "Il se peut qu'il ne vienne pas.", "translation": "他可能不来", "blocks": ["他", "可能", "不", "来", "便宜", "说话", "去年"] },
+    { "id": "s6_p11", "original": "L'année dernière, j'étais à Pékin.", "translation": "去年我在北京", "blocks": ["去年", "我", "在", "北京", "今年", "可能", "说话"] },
+    { "id": "s7_p11", "original": "Cette fille aime chanter.", "translation": "这个女孩子喜欢唱歌", "blocks": ["这", "个", "女", "孩子", "喜欢", "唱歌", "男", "右边", "说话"] },
+    { "id": "s8_p11", "original": "Tu parles très vite.", "translation": "你说话很快", "blocks": ["你", "说话", "很", "快", "慢", "可能", "便宜"] },
+    { "id": "s9_p11", "original": "Il y a combien de garçons et de filles ?", "translation": "有几个男孩子和女孩子？", "blocks": ["有", "几", "个", "男", "孩子", "和", "女", "孩子", "？", "说话"] },
+    { "id": "s10_p11", "original": "Cette pastèque est moins chère que l'année dernière.", "translation": "这个西瓜比去年便宜", "blocks": ["这", "个", "西瓜", "比", "去年", "便宜", "贵", "可能"] },
+    { "id": "s11_p11", "original": "Le garçon à droite s'appelle Wang.", "translation": "右边的男孩子姓王", "blocks": ["右边", "的", "男", "孩子", "姓", "王", "女", "说话"] }
+  ]
+}

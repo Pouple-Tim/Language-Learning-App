@@ -1,0 +1,31 @@
+{
+  "id": "chinese_hsk2_part12",
+  "name": "Chinois - HSK2 (Partie 12)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "de", "answer": "得", "removed": false, "id": "chinese_hsk2_part12_w1" },
+    { "prompt": "qīzi", "answer": "妻子", "removed": false, "id": "chinese_hsk2_part12_w2" },
+    { "prompt": "xuě", "answer": "雪", "removed": false, "id": "chinese_hsk2_part12_w3" },
+    { "prompt": "líng", "answer": "零", "removed": false, "id": "chinese_hsk2_part12_w4" },
+    { "prompt": "dù", "answer": "度", "removed": false, "id": "chinese_hsk2_part12_w5" },
+    { "prompt": "chuān", "answer": "穿", "removed": false, "id": "chinese_hsk2_part12_w6" },
+    { "prompt": "jìn", "answer": "进", "removed": false, "id": "chinese_hsk2_part12_w7" },
+    { "prompt": "dìdi", "answer": "弟弟", "removed": false, "id": "chinese_hsk2_part12_w8" },
+    { "prompt": "jìn", "answer": "近", "removed": false, "id": "chinese_hsk2_part12_w9" }
+  ],
+  "sentences": [
+    { "id": "s1_p12", "original": "Tu es habillé trop légèrement.", "translation": "你穿得太少了", "blocks": ["你", "穿", "得", "太", "少", "了", "弟弟", "妻子", "近"] },
+    { "id": "s2_p12", "original": "Il neige dehors.", "translation": "外面下雪了", "blocks": ["外面", "下", "雪", "了", "雨", "冷", "度"] },
+    { "id": "s3_p12", "original": "Il fait zéro degré aujourd'hui.", "translation": "今天零度", "blocks": ["今天", "零", "度", "冷", "热", "雪"] },
+    { "id": "s4_p12", "original": "Ma femme entre dans la chambre.", "translation": "妻子进房间", "blocks": ["妻子", "进", "房间", "弟弟", "近", "穿"] },
+    { "id": "s5_p12", "original": "Mon petit frère habite près de l'école.", "translation": "弟弟住得离学校很近", "blocks": ["弟弟", "住", "得", "离", "学校", "很", "近", "妻子", "远"] },
+    { "id": "s6_p12", "original": "Il court plus vite que moi.", "translation": "他跑得比我快", "blocks": ["他", "跑", "得", "比", "我", "快", "慢", "穿", "近"] },
+    { "id": "s7_p12", "original": "Elle s'habille très joliment.", "translation": "她穿得很漂亮", "blocks": ["她", "穿", "得", "很", "漂亮", "近", "雪", "妻子"] },
+    { "id": "s8_p12", "original": "Mon petit frère est plus grand que moi.", "translation": "弟弟比我高", "blocks": ["弟弟", "比", "我", "高", "妻子", "近", "穿"] },
+    { "id": "s9_p12", "original": "Il fait moins dix degrés aujourd'hui.", "translation": "今天零下十度", "blocks": ["今天", "零", "下", "十", "度", "冷", "雪", "穿"] },
+    { "id": "s10_p12", "original": "Entre, s'il te plaît.", "translation": "请进", "blocks": ["请", "进", "近", "穿", "弟弟"] },
+    { "id": "s11_p12", "original": "Ma maison est près de la compagnie.", "translation": "我家离公司很近", "blocks": ["我", "家", "离", "公司", "很", "近", "远", "穿"] }
+  ]
+}

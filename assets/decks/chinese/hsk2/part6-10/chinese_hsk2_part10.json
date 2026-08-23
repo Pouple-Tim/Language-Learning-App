@@ -1,0 +1,31 @@
+{
+  "id": "chinese_hsk2_part10",
+  "name": "Chinois - HSK2 (Partie 10)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "kè", "answer": "课", "removed": false, "id": "chinese_hsk2_part10_w1" },
+    { "prompt": "bāngzhù", "answer": "帮助", "removed": false, "id": "chinese_hsk2_part10_w2" },
+    { "prompt": "bié", "answer": "别", "removed": false, "id": "chinese_hsk2_part10_w3" },
+    { "prompt": "gēge", "answer": "哥哥", "removed": false, "id": "chinese_hsk2_part10_w4" },
+    { "prompt": "jīdàn", "answer": "鸡蛋", "removed": false, "id": "chinese_hsk2_part10_w5" },
+    { "prompt": "xīguā", "answer": "西瓜", "removed": false, "id": "chinese_hsk2_part10_w6" },
+    { "prompt": "zhèngzài", "answer": "正在", "removed": false, "id": "chinese_hsk2_part10_w7" },
+    { "prompt": "shǒujī", "answer": "手机", "removed": false, "id": "chinese_hsk2_part10_w8" },
+    { "prompt": "xǐ", "answer": "洗", "removed": false, "id": "chinese_hsk2_part10_w9" }
+  ],
+  "sentences": [
+    { "id": "s1_p10", "original": "Ne cherche plus, le téléphone est sur la table.", "translation": "别找了手机在桌子上呢", "blocks": ["别", "找", "了", "手机", "在", "桌子", "上", "呢", "课", "哥哥"] },
+    { "id": "s2_p10", "original": "Merci pour ton aide.", "translation": "谢谢你的帮助", "blocks": ["谢谢", "你", "的", "帮助", "哥哥", "鸡蛋", "课"] },
+    { "id": "s3_p10", "original": "Mon frère est en train de laver la pastèque.", "translation": "哥哥正在洗西瓜", "blocks": ["哥哥", "正在", "洗", "西瓜", "鸡蛋", "手机", "课"] },
+    { "id": "s4_p10", "original": "Je suis en train de manger des œufs.", "translation": "我正在吃鸡蛋", "blocks": ["我", "正在", "吃", "鸡蛋", "西瓜", "洗", "课"] },
+    { "id": "s5_p10", "original": "Ce cours est très bien.", "translation": "这个课很好", "blocks": ["这", "个", "课", "很", "好", "手机", "帮助", "西瓜"] },
+    { "id": "s6_p10", "original": "Il est très gentil avec moi.", "translation": "他对我很好", "blocks": ["他", "对", "我", "很", "好", "帮助", "课", "手机"] },
+    { "id": "s7_p10", "original": "Aide-moi à laver la pastèque, s'il te plaît.", "translation": "请帮我洗西瓜", "blocks": ["请", "帮", "我", "洗", "西瓜", "鸡蛋", "手机", "课"] },
+    { "id": "s8_p10", "original": "Ne sois plus malade.", "translation": "别生病了", "blocks": ["别", "生病", "了", "洗", "课", "手机"] },
+    { "id": "s9_p10", "original": "Mon téléphone a un problème.", "translation": "我的手机有问题", "blocks": ["我", "的", "手机", "有", "问题", "帮助", "课", "西瓜"] },
+    { "id": "s10_p10", "original": "Mon frère est en train de travailler.", "translation": "哥哥正在上班", "blocks": ["哥哥", "正在", "上班", "洗", "课", "西瓜"] },
+    { "id": "s11_p10", "original": "Ne va plus au magasin.", "translation": "别去商店了", "blocks": ["别", "去", "商店", "了", "洗", "课", "手机"] }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "chinese_hsk2_part8",
+  "name": "Chinois - HSK2 (Partie 8)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "zài", "answer": "再", "removed": false, "id": "chinese_hsk2_part8_w1" },
+    { "prompt": "ràng", "answer": "让", "removed": false, "id": "chinese_hsk2_part8_w2" },
+    { "prompt": "gàosù", "answer": "告诉", "removed": false, "id": "chinese_hsk2_part8_w3" },
+    { "prompt": "děng", "answer": "等", "removed": false, "id": "chinese_hsk2_part8_w4" },
+    { "prompt": "zhǎo", "answer": "找", "removed": false, "id": "chinese_hsk2_part8_w5" },
+    { "prompt": "shìqing", "answer": "事情", "removed": false, "id": "chinese_hsk2_part8_w6" },
+    { "prompt": "fúwùyuán", "answer": "服务员", "removed": false, "id": "chinese_hsk2_part8_w7" },
+    { "prompt": "bái", "answer": "白", "removed": false, "id": "chinese_hsk2_part8_w8" },
+    { "prompt": "hēi", "answer": "黑", "removed": false, "id": "chinese_hsk2_part8_w9" },
+    { "prompt": "guì", "answer": "贵", "removed": false, "id": "chinese_hsk2_part8_w10" }
+  ],
+  "sentences": [
+    { "id": "s1_p8", "original": "Attends-moi un instant, d'accord ?", "translation": "你等我一下好吗？", "blocks": ["你", "等", "我", "一下", "好", "吗", "？", "让", "找"] },
+    { "id": "s2_p8", "original": "Laisse-moi réfléchir encore un peu.", "translation": "让我再想想", "blocks": ["让", "我", "再", "想", "想", "告诉", "等", "找"] },
+    { "id": "s3_p8", "original": "Dis-moi ce qui se passe.", "translation": "告诉我这件事情", "blocks": ["告诉", "我", "这", "件", "事情", "找", "等", "让"] },
+    { "id": "s4_p8", "original": "Le serveur est en train de me chercher.", "translation": "服务员在找我", "blocks": ["服务员", "在", "找", "我", "告诉", "等", "让"] },
+    { "id": "s5_p8", "original": "C'est trop cher !", "translation": "太贵了", "blocks": ["太", "贵", "了", "白", "黑", "新"] },
+    { "id": "s6_p8", "original": "Cette tasse blanche est très jolie.", "translation": "这个白杯子很漂亮", "blocks": ["这", "个", "白", "杯子", "很", "漂亮", "黑", "贵"] },
+    { "id": "s7_p8", "original": "Son chat est noir.", "translation": "他的猫是黑的", "blocks": ["他", "的", "猫", "是", "黑", "的", "白", "贵"] },
+    { "id": "s8_p8", "original": "Trouve-moi un serveur, s'il te plaît.", "translation": "请帮我找服务员", "blocks": ["请", "帮", "我", "找", "服务员", "告诉", "等", "让"] },
+    { "id": "s9_p8", "original": "Je te le redirai demain, d'accord ?", "translation": "我明天再告诉你好吗？", "blocks": ["我", "明天", "再", "告诉", "你", "好", "吗", "？", "等"] },
+    { "id": "s10_p8", "original": "Attends un peu, laisse-moi réfléchir.", "translation": "等一下让我想想", "blocks": ["等", "一下", "让", "我", "想", "想", "告诉", "找", "事情"] },
+    { "id": "s11_p8", "original": "Ce n'est pas cher.", "translation": "不贵", "blocks": ["不", "贵", "白", "黑", "新"] }
+  ]
+}

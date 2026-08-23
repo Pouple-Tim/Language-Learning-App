@@ -1,0 +1,34 @@
+{
+  "id": "chinese_hsk2_part13",
+  "name": "Chinois - HSK2 (Partie 13)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "zhe", "answer": "着", "removed": false, "id": "chinese_hsk2_part13_w1" },
+    { "prompt": "shǒu", "answer": "手", "removed": false, "id": "chinese_hsk2_part13_w2" },
+    { "prompt": "ná", "answer": "拿", "removed": false, "id": "chinese_hsk2_part13_w3" },
+    { "prompt": "qiānbǐ", "answer": "铅笔", "removed": false, "id": "chinese_hsk2_part13_w4" },
+    { "prompt": "bān", "answer": "班", "removed": false, "id": "chinese_hsk2_part13_w5" },
+    { "prompt": "zhǎng", "answer": "长", "removed": false, "id": "chinese_hsk2_part13_w6" },
+    { "prompt": "xiào", "answer": "笑", "removed": false, "id": "chinese_hsk2_part13_w7" },
+    { "prompt": "bīnguǎn", "answer": "宾馆", "removed": false, "id": "chinese_hsk2_part13_w8" },
+    { "prompt": "yìzhí", "answer": "一直", "removed": false, "id": "chinese_hsk2_part13_w9" },
+    { "prompt": "wǎng", "answer": "往", "removed": false, "id": "chinese_hsk2_part13_w10" },
+    { "prompt": "lùkǒu", "answer": "路口", "removed": false, "id": "chinese_hsk2_part13_w11" },
+    { "prompt": "Yáng Xiàoxiao", "answer": "杨笑笑", "removed": false, "id": "chinese_hsk2_part13_w12" }
+  ],
+  "sentences": [
+    { "id": "s1_p13", "original": "La porte est ouverte.", "translation": "门开着呢", "blocks": ["门", "开", "着", "呢", "笑", "拿", "手"] },
+    { "id": "s2_p13", "original": "Il tient un crayon à la main.", "translation": "他手里拿着铅笔", "blocks": ["他", "手", "里", "拿", "着", "铅笔", "笑", "班", "长"] },
+    { "id": "s3_p13", "original": "N'est-ce pas notre professeur ?", "translation": "他不是我们的老师吗？", "blocks": ["他", "不", "是", "我们", "的", "老师", "吗", "？", "学生", "笑"] },
+    { "id": "s4_p13", "original": "Tourne à droite au carrefour.", "translation": "在路口往右边走", "blocks": ["在", "路口", "往", "右边", "走", "左边", "宾馆", "一直"] },
+    { "id": "s5_p13", "original": "Va tout droit, l'hôtel est devant.", "translation": "一直往前走宾馆就在前面", "blocks": ["一直", "往", "前", "走", "宾馆", "就", "在", "前面", "路口"] },
+    { "id": "s6_p13", "original": "Il est le chef de classe.", "translation": "他是班长", "blocks": ["他", "是", "班", "长", "笑", "拿", "着"] },
+    { "id": "s7_p13", "original": "Pourquoi ris-tu ?", "translation": "你笑什么？", "blocks": ["你", "笑", "什么", "？", "拿", "着", "班"] },
+    { "id": "s8_p13", "original": "Il tient toujours un livre à la main.", "translation": "他手里一直拿着书", "blocks": ["他", "手", "里", "一直", "拿", "着", "书", "铅笔", "笑"] },
+    { "id": "s9_p13", "original": "N'est-ce pas cher ?", "translation": "这不是很贵吗？", "blocks": ["这", "不", "是", "很", "贵", "吗", "？", "便宜", "笑"] },
+    { "id": "s10_p13", "original": "L'hôtel est à côté du carrefour.", "translation": "宾馆在路口旁边", "blocks": ["宾馆", "在", "路口", "旁边", "一直", "往", "拿"] },
+    { "id": "s11_p13", "original": "Elle rit tout le temps.", "translation": "她一直笑着", "blocks": ["她", "一直", "笑", "着", "拿", "班", "长"] }
+  ]
+}

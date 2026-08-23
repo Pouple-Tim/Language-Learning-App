@@ -1,0 +1,36 @@
+{
+  "id": "chinese_hsk2_part2",
+  "name": "Chinois - HSK2 (Partie 2)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "shēng bìng", "answer": "生病", "removed": false, "id": "chinese_hsk2_part2_w1" },
+    { "prompt": "měi", "answer": "每", "removed": false, "id": "chinese_hsk2_part2_w2" },
+    { "prompt": "zǎoshang", "answer": "早上", "removed": false, "id": "chinese_hsk2_part2_w3" },
+    { "prompt": "pǎo bù", "answer": "跑步", "removed": false, "id": "chinese_hsk2_part2_w4" },
+    { "prompt": "qǐ chuáng", "answer": "起床", "removed": false, "id": "chinese_hsk2_part2_w5" },
+    { "prompt": "yào", "answer": "药", "removed": false, "id": "chinese_hsk2_part2_w6" },
+    { "prompt": "shēntǐ", "answer": "身体", "removed": false, "id": "chinese_hsk2_part2_w7" },
+    { "prompt": "chū yuàn", "answer": "出院", "removed": false, "id": "chinese_hsk2_part2_w8" },
+    { "prompt": "gāo", "answer": "高", "removed": false, "id": "chinese_hsk2_part2_w9" },
+    { "prompt": "mǐ", "answer": "米", "removed": false, "id": "chinese_hsk2_part2_w10" },
+    { "prompt": "zhīdào", "answer": "知道", "removed": false, "id": "chinese_hsk2_part2_w11" },
+    { "prompt": "xiūxi", "answer": "休息", "removed": false, "id": "chinese_hsk2_part2_w12" },
+    { "prompt": "máng", "answer": "忙", "removed": false, "id": "chinese_hsk2_part2_w13" },
+    { "prompt": "shíjiān", "answer": "时间", "removed": false, "id": "chinese_hsk2_part2_w14" }
+  ],
+  "sentences": [
+    { "id": "s1_p2", "original": "Je me lève à six heures tous les matins.", "translation": "我每天早上六点起床", "blocks": ["我", "每", "天", "早上", "六", "点", "起床", "忙", "休息"] },
+    { "id": "s2_p2", "original": "Es-tu malade ?", "translation": "你是不是生病了？", "blocks": ["你", "是不是", "生病", "了", "？", "身体", "休息", "忙"] },
+    { "id": "s3_p2", "original": "Il est sorti de l'hôpital.", "translation": "他出院了", "blocks": ["他", "出院", "了", "生病", "身体", "休息"] },
+    { "id": "s4_p2", "original": "Comment va ta santé ?", "translation": "你的身体怎么样？", "blocks": ["你", "的", "身体", "怎么样", "？", "忙", "时间", "休息"] },
+    { "id": "s5_p2", "original": "Je suis très occupé, je n'ai pas le temps de me reposer.", "translation": "我很忙没有时间休息", "blocks": ["我", "很", "忙", "没有", "时间", "休息", "生病", "身体", "起床"] },
+    { "id": "s6_p2", "original": "Chaque étudiant le sait.", "translation": "每个学生都知道", "blocks": ["每", "个", "学生", "都", "知道", "老师", "忙", "时间"] },
+    { "id": "s7_p2", "original": "À quelle heure te lèves-tu chaque matin ?", "translation": "你每天早上几点起床？", "blocks": ["你", "每", "天", "早上", "几", "点", "起床", "？", "忙"] },
+    { "id": "s8_p2", "original": "Il court tous les jours.", "translation": "他每天跑步", "blocks": ["他", "每", "天", "跑步", "起床", "忙", "身体"] },
+    { "id": "s9_p2", "original": "Je ne sais pas s'il est malade.", "translation": "我不知道他是不是生病了", "blocks": ["我", "不", "知道", "他", "是不是", "生病", "了", "身体", "忙"] },
+    { "id": "s10_p2", "original": "Repose-toi bien.", "translation": "你要多休息", "blocks": ["你", "要", "多", "休息", "忙", "身体", "起床"] },
+    { "id": "s11_p2", "original": "Quelle taille fait-il ?", "translation": "他多高？", "blocks": ["他", "多", "高", "？", "米", "忙", "身体"] }
+  ]
+}

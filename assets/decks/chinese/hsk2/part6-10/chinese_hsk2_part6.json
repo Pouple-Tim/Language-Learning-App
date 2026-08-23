@@ -1,0 +1,35 @@
+{
+  "id": "chinese_hsk2_part6",
+  "name": "Chinois - HSK2 (Partie 6)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "mén", "answer": "门", "removed": false, "id": "chinese_hsk2_part6_w1" },
+    { "prompt": "wài", "answer": "外", "removed": false, "id": "chinese_hsk2_part6_w2" },
+    { "prompt": "zìxíngchē", "answer": "自行车", "removed": false, "id": "chinese_hsk2_part6_w3" },
+    { "prompt": "yángròu", "answer": "羊肉", "removed": false, "id": "chinese_hsk2_part6_w4" },
+    { "prompt": "hǎochī", "answer": "好吃", "removed": false, "id": "chinese_hsk2_part6_w5" },
+    { "prompt": "miàntiáo", "answer": "面条", "removed": false, "id": "chinese_hsk2_part6_w6" },
+    { "prompt": "dǎ lánqiú", "answer": "打篮球", "removed": false, "id": "chinese_hsk2_part6_w7" },
+    { "prompt": "yīnwèi", "answer": "因为", "removed": false, "id": "chinese_hsk2_part6_w8" },
+    { "prompt": "suǒyǐ", "answer": "所以", "removed": false, "id": "chinese_hsk2_part6_w9" },
+    { "prompt": "yóuyǒng", "answer": "游泳", "removed": false, "id": "chinese_hsk2_part6_w10" },
+    { "prompt": "jīngcháng", "answer": "经常", "removed": false, "id": "chinese_hsk2_part6_w11" },
+    { "prompt": "gōngjīn", "answer": "公斤", "removed": false, "id": "chinese_hsk2_part6_w12" },
+    { "prompt": "jiějie", "answer": "姐姐", "removed": false, "id": "chinese_hsk2_part6_w13" }
+  ],
+  "sentences": [
+    { "id": "s1_p6", "original": "Pourquoi ne manges-tu plus ?", "translation": "你怎么不吃了？", "blocks": ["你", "怎么", "不", "吃", "了", "？", "好吃", "面条", "姐姐"] },
+    { "id": "s2_p6", "original": "Comme il fait froid, je ne vais pas nager.", "translation": "因为很冷所以我不游泳", "blocks": ["因为", "很", "冷", "所以", "我", "不", "游泳", "经常", "打篮球"] },
+    { "id": "s3_p6", "original": "Ma sœur nage souvent.", "translation": "姐姐经常游泳", "blocks": ["姐姐", "经常", "游泳", "打篮球", "因为", "所以"] },
+    { "id": "s4_p6", "original": "Les nouilles à la viande de mouton sont délicieuses.", "translation": "羊肉面条很好吃", "blocks": ["羊肉", "面条", "很", "好吃", "姐姐", "自行车", "门"] },
+    { "id": "s5_p6", "original": "Il pèse combien de kilos ?", "translation": "他多少公斤？", "blocks": ["他", "多少", "公斤", "？", "米", "高", "经常"] },
+    { "id": "s6_p6", "original": "Il y a un vélo dehors.", "translation": "门外有自行车", "blocks": ["门", "外", "有", "自行车", "房间", "旁边", "姐姐"] },
+    { "id": "s7_p6", "original": "Aimes-tu jouer au basket ?", "translation": "你喜欢打篮球吗？", "blocks": ["你", "喜欢", "打篮球", "吗", "？", "游泳", "踢足球", "经常"] },
+    { "id": "s8_p6", "original": "Comme je suis malade, je ne joue pas au foot.", "translation": "因为我生病了所以不踢足球", "blocks": ["因为", "我", "生病", "了", "所以", "不", "踢足球", "游泳", "打篮球"] },
+    { "id": "s9_p6", "original": "Ma sœur va souvent nager.", "translation": "姐姐经常去游泳", "blocks": ["姐姐", "经常", "去", "游泳", "打篮球", "自行车", "面条"] },
+    { "id": "s10_p6", "original": "J'aime les nouilles, donc j'en mange souvent.", "translation": "我喜欢面条所以经常吃", "blocks": ["我", "喜欢", "面条", "所以", "经常", "吃", "羊肉", "好吃", "因为"] },
+    { "id": "s11_p6", "original": "Pourquoi n'aimes-tu pas nager ?", "translation": "你怎么不喜欢游泳？", "blocks": ["你", "怎么", "不", "喜欢", "游泳", "？", "打篮球", "经常", "姐姐"] }
+  ]
+}

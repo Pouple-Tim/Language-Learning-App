@@ -1,0 +1,1278 @@
+{
+  "id": "chinese_hsk2_all",
+  "name": "Chinois - HSK2 (Tous les mots)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    {
+      "prompt": "lǚyóu",
+      "answer": "旅游",
+      "removed": false,
+      "id": "chinese_hsk2_all_w1"
+    },
+    {
+      "prompt": "juéde",
+      "answer": "觉得",
+      "removed": false,
+      "id": "chinese_hsk2_all_w2"
+    },
+    {
+      "prompt": "zuì",
+      "answer": "最",
+      "removed": false,
+      "id": "chinese_hsk2_all_w3"
+    },
+    {
+      "prompt": "wèishénme",
+      "answer": "为什么",
+      "removed": false,
+      "id": "chinese_hsk2_all_w4"
+    },
+    {
+      "prompt": "yě",
+      "answer": "也",
+      "removed": false,
+      "id": "chinese_hsk2_all_w5"
+    },
+    {
+      "prompt": "yùndòng",
+      "answer": "运动",
+      "removed": false,
+      "id": "chinese_hsk2_all_w6"
+    },
+    {
+      "prompt": "tī zúqiú",
+      "answer": "踢足球",
+      "removed": false,
+      "id": "chinese_hsk2_all_w7"
+    },
+    {
+      "prompt": "yìqǐ",
+      "answer": "一起",
+      "removed": false,
+      "id": "chinese_hsk2_all_w8"
+    },
+    {
+      "prompt": "yào",
+      "answer": "要",
+      "removed": false,
+      "id": "chinese_hsk2_all_w9"
+    },
+    {
+      "prompt": "xīn",
+      "answer": "新",
+      "removed": false,
+      "id": "chinese_hsk2_all_w10"
+    },
+    {
+      "prompt": "tā",
+      "answer": "它",
+      "removed": false,
+      "id": "chinese_hsk2_all_w11"
+    },
+    {
+      "prompt": "yǎnjing",
+      "answer": "眼睛",
+      "removed": false,
+      "id": "chinese_hsk2_all_w12"
+    },
+    {
+      "prompt": "Huāhua",
+      "answer": "花花",
+      "removed": false,
+      "id": "chinese_hsk2_all_w13"
+    },
+    {
+      "prompt": "shēng bìng",
+      "answer": "生病",
+      "removed": false,
+      "id": "chinese_hsk2_all_w14"
+    },
+    {
+      "prompt": "měi",
+      "answer": "每",
+      "removed": false,
+      "id": "chinese_hsk2_all_w15"
+    },
+    {
+      "prompt": "zǎoshang",
+      "answer": "早上",
+      "removed": false,
+      "id": "chinese_hsk2_all_w16"
+    },
+    {
+      "prompt": "pǎo bù",
+      "answer": "跑步",
+      "removed": false,
+      "id": "chinese_hsk2_all_w17"
+    },
+    {
+      "prompt": "qǐ chuáng",
+      "answer": "起床",
+      "removed": false,
+      "id": "chinese_hsk2_all_w18"
+    },
+    {
+      "prompt": "yào",
+      "answer": "药",
+      "removed": false,
+      "id": "chinese_hsk2_all_w19"
+    },
+    {
+      "prompt": "shēntǐ",
+      "answer": "身体",
+      "removed": false,
+      "id": "chinese_hsk2_all_w20"
+    },
+    {
+      "prompt": "chū yuàn",
+      "answer": "出院",
+      "removed": false,
+      "id": "chinese_hsk2_all_w21"
+    },
+    {
+      "prompt": "gāo",
+      "answer": "高",
+      "removed": false,
+      "id": "chinese_hsk2_all_w22"
+    },
+    {
+      "prompt": "mǐ",
+      "answer": "米",
+      "removed": false,
+      "id": "chinese_hsk2_all_w23"
+    },
+    {
+      "prompt": "zhīdào",
+      "answer": "知道",
+      "removed": false,
+      "id": "chinese_hsk2_all_w24"
+    },
+    {
+      "prompt": "xiūxi",
+      "answer": "休息",
+      "removed": false,
+      "id": "chinese_hsk2_all_w25"
+    },
+    {
+      "prompt": "máng",
+      "answer": "忙",
+      "removed": false,
+      "id": "chinese_hsk2_all_w26"
+    },
+    {
+      "prompt": "shíjiān",
+      "answer": "时间",
+      "removed": false,
+      "id": "chinese_hsk2_all_w27"
+    },
+    {
+      "prompt": "shǒubiǎo",
+      "answer": "手表",
+      "removed": false,
+      "id": "chinese_hsk2_all_w28"
+    },
+    {
+      "prompt": "qiān",
+      "answer": "千",
+      "removed": false,
+      "id": "chinese_hsk2_all_w29"
+    },
+    {
+      "prompt": "bàozhǐ",
+      "answer": "报纸",
+      "removed": false,
+      "id": "chinese_hsk2_all_w30"
+    },
+    {
+      "prompt": "sòng",
+      "answer": "送",
+      "removed": false,
+      "id": "chinese_hsk2_all_w31"
+    },
+    {
+      "prompt": "yíxià",
+      "answer": "一下",
+      "removed": false,
+      "id": "chinese_hsk2_all_w32"
+    },
+    {
+      "prompt": "niúnǎi",
+      "answer": "牛奶",
+      "removed": false,
+      "id": "chinese_hsk2_all_w33"
+    },
+    {
+      "prompt": "fángjiān",
+      "answer": "房间",
+      "removed": false,
+      "id": "chinese_hsk2_all_w34"
+    },
+    {
+      "prompt": "zhàngfu",
+      "answer": "丈夫",
+      "removed": false,
+      "id": "chinese_hsk2_all_w35"
+    },
+    {
+      "prompt": "pángbiān",
+      "answer": "旁边",
+      "removed": false,
+      "id": "chinese_hsk2_all_w36"
+    },
+    {
+      "prompt": "zhēn",
+      "answer": "真",
+      "removed": false,
+      "id": "chinese_hsk2_all_w37"
+    },
+    {
+      "prompt": "fěnsè",
+      "answer": "粉色",
+      "removed": false,
+      "id": "chinese_hsk2_all_w38"
+    },
+    {
+      "prompt": "yánsè",
+      "answer": "颜色",
+      "removed": false,
+      "id": "chinese_hsk2_all_w39"
+    },
+    {
+      "prompt": "zuǒbian",
+      "answer": "左边",
+      "removed": false,
+      "id": "chinese_hsk2_all_w40"
+    },
+    {
+      "prompt": "hóngsè",
+      "answer": "红色",
+      "removed": false,
+      "id": "chinese_hsk2_all_w41"
+    },
+    {
+      "prompt": "shēngrì",
+      "answer": "生日",
+      "removed": false,
+      "id": "chinese_hsk2_all_w42"
+    },
+    {
+      "prompt": "kuàilè",
+      "answer": "快乐",
+      "removed": false,
+      "id": "chinese_hsk2_all_w43"
+    },
+    {
+      "prompt": "gěi",
+      "answer": "给",
+      "removed": false,
+      "id": "chinese_hsk2_all_w44"
+    },
+    {
+      "prompt": "jiē",
+      "answer": "接",
+      "removed": false,
+      "id": "chinese_hsk2_all_w45"
+    },
+    {
+      "prompt": "wǎnshang",
+      "answer": "晚上",
+      "removed": false,
+      "id": "chinese_hsk2_all_w46"
+    },
+    {
+      "prompt": "wèn",
+      "answer": "问",
+      "removed": false,
+      "id": "chinese_hsk2_all_w47"
+    },
+    {
+      "prompt": "fēicháng",
+      "answer": "非常",
+      "removed": false,
+      "id": "chinese_hsk2_all_w48"
+    },
+    {
+      "prompt": "kāishǐ",
+      "answer": "开始",
+      "removed": false,
+      "id": "chinese_hsk2_all_w49"
+    },
+    {
+      "prompt": "yǐjīng",
+      "answer": "已经",
+      "removed": false,
+      "id": "chinese_hsk2_all_w50"
+    },
+    {
+      "prompt": "cháng",
+      "answer": "长",
+      "removed": false,
+      "id": "chinese_hsk2_all_w51"
+    },
+    {
+      "prompt": "liǎng",
+      "answer": "两",
+      "removed": false,
+      "id": "chinese_hsk2_all_w52"
+    },
+    {
+      "prompt": "bāng",
+      "answer": "帮",
+      "removed": false,
+      "id": "chinese_hsk2_all_w53"
+    },
+    {
+      "prompt": "jièshào",
+      "answer": "介绍",
+      "removed": false,
+      "id": "chinese_hsk2_all_w54"
+    },
+    {
+      "prompt": "wàimiàn",
+      "answer": "外面",
+      "removed": false,
+      "id": "chinese_hsk2_all_w55"
+    },
+    {
+      "prompt": "zhǔnbèi",
+      "answer": "准备",
+      "removed": false,
+      "id": "chinese_hsk2_all_w56"
+    },
+    {
+      "prompt": "jiù",
+      "answer": "就",
+      "removed": false,
+      "id": "chinese_hsk2_all_w57"
+    },
+    {
+      "prompt": "yú",
+      "answer": "鱼",
+      "removed": false,
+      "id": "chinese_hsk2_all_w58"
+    },
+    {
+      "prompt": "ba",
+      "answer": "吧",
+      "removed": false,
+      "id": "chinese_hsk2_all_w59"
+    },
+    {
+      "prompt": "jiàn",
+      "answer": "件",
+      "removed": false,
+      "id": "chinese_hsk2_all_w60"
+    },
+    {
+      "prompt": "hái",
+      "answer": "还",
+      "removed": false,
+      "id": "chinese_hsk2_all_w61"
+    },
+    {
+      "prompt": "kěyǐ",
+      "answer": "可以",
+      "removed": false,
+      "id": "chinese_hsk2_all_w62"
+    },
+    {
+      "prompt": "búcuò",
+      "answer": "不错",
+      "removed": false,
+      "id": "chinese_hsk2_all_w63"
+    },
+    {
+      "prompt": "kǎoshì",
+      "answer": "考试",
+      "removed": false,
+      "id": "chinese_hsk2_all_w64"
+    },
+    {
+      "prompt": "kāfēi",
+      "answer": "咖啡",
+      "removed": false,
+      "id": "chinese_hsk2_all_w65"
+    },
+    {
+      "prompt": "duì",
+      "answer": "对",
+      "removed": false,
+      "id": "chinese_hsk2_all_w66"
+    },
+    {
+      "prompt": "yǐhòu",
+      "answer": "以后",
+      "removed": false,
+      "id": "chinese_hsk2_all_w67"
+    },
+    {
+      "prompt": "mén",
+      "answer": "门",
+      "removed": false,
+      "id": "chinese_hsk2_all_w68"
+    },
+    {
+      "prompt": "wài",
+      "answer": "外",
+      "removed": false,
+      "id": "chinese_hsk2_all_w69"
+    },
+    {
+      "prompt": "zìxíngchē",
+      "answer": "自行车",
+      "removed": false,
+      "id": "chinese_hsk2_all_w70"
+    },
+    {
+      "prompt": "yángròu",
+      "answer": "羊肉",
+      "removed": false,
+      "id": "chinese_hsk2_all_w71"
+    },
+    {
+      "prompt": "hǎochī",
+      "answer": "好吃",
+      "removed": false,
+      "id": "chinese_hsk2_all_w72"
+    },
+    {
+      "prompt": "miàntiáo",
+      "answer": "面条",
+      "removed": false,
+      "id": "chinese_hsk2_all_w73"
+    },
+    {
+      "prompt": "dǎ lánqiú",
+      "answer": "打篮球",
+      "removed": false,
+      "id": "chinese_hsk2_all_w74"
+    },
+    {
+      "prompt": "yīnwèi",
+      "answer": "因为",
+      "removed": false,
+      "id": "chinese_hsk2_all_w75"
+    },
+    {
+      "prompt": "suǒyǐ",
+      "answer": "所以",
+      "removed": false,
+      "id": "chinese_hsk2_all_w76"
+    },
+    {
+      "prompt": "yóuyǒng",
+      "answer": "游泳",
+      "removed": false,
+      "id": "chinese_hsk2_all_w77"
+    },
+    {
+      "prompt": "jīngcháng",
+      "answer": "经常",
+      "removed": false,
+      "id": "chinese_hsk2_all_w78"
+    },
+    {
+      "prompt": "gōngjīn",
+      "answer": "公斤",
+      "removed": false,
+      "id": "chinese_hsk2_all_w79"
+    },
+    {
+      "prompt": "jiějie",
+      "answer": "姐姐",
+      "removed": false,
+      "id": "chinese_hsk2_all_w80"
+    },
+    {
+      "prompt": "jiàoshì",
+      "answer": "教室",
+      "removed": false,
+      "id": "chinese_hsk2_all_w81"
+    },
+    {
+      "prompt": "jīchǎng",
+      "answer": "机场",
+      "removed": false,
+      "id": "chinese_hsk2_all_w82"
+    },
+    {
+      "prompt": "lù",
+      "answer": "路",
+      "removed": false,
+      "id": "chinese_hsk2_all_w83"
+    },
+    {
+      "prompt": "lí",
+      "answer": "离",
+      "removed": false,
+      "id": "chinese_hsk2_all_w84"
+    },
+    {
+      "prompt": "gōngsī",
+      "answer": "公司",
+      "removed": false,
+      "id": "chinese_hsk2_all_w85"
+    },
+    {
+      "prompt": "yuǎn",
+      "answer": "远",
+      "removed": false,
+      "id": "chinese_hsk2_all_w86"
+    },
+    {
+      "prompt": "gōnggòng qìchē",
+      "answer": "公共汽车",
+      "removed": false,
+      "id": "chinese_hsk2_all_w87"
+    },
+    {
+      "prompt": "xiǎoshí",
+      "answer": "小时",
+      "removed": false,
+      "id": "chinese_hsk2_all_w88"
+    },
+    {
+      "prompt": "màn",
+      "answer": "慢",
+      "removed": false,
+      "id": "chinese_hsk2_all_w89"
+    },
+    {
+      "prompt": "kuài",
+      "answer": "快",
+      "removed": false,
+      "id": "chinese_hsk2_all_w90"
+    },
+    {
+      "prompt": "guò",
+      "answer": "过",
+      "removed": false,
+      "id": "chinese_hsk2_all_w91"
+    },
+    {
+      "prompt": "zǒu",
+      "answer": "走",
+      "removed": false,
+      "id": "chinese_hsk2_all_w92"
+    },
+    {
+      "prompt": "dào",
+      "answer": "到",
+      "removed": false,
+      "id": "chinese_hsk2_all_w93"
+    },
+    {
+      "prompt": "zài",
+      "answer": "再",
+      "removed": false,
+      "id": "chinese_hsk2_all_w94"
+    },
+    {
+      "prompt": "ràng",
+      "answer": "让",
+      "removed": false,
+      "id": "chinese_hsk2_all_w95"
+    },
+    {
+      "prompt": "gàosù",
+      "answer": "告诉",
+      "removed": false,
+      "id": "chinese_hsk2_all_w96"
+    },
+    {
+      "prompt": "děng",
+      "answer": "等",
+      "removed": false,
+      "id": "chinese_hsk2_all_w97"
+    },
+    {
+      "prompt": "zhǎo",
+      "answer": "找",
+      "removed": false,
+      "id": "chinese_hsk2_all_w98"
+    },
+    {
+      "prompt": "shìqing",
+      "answer": "事情",
+      "removed": false,
+      "id": "chinese_hsk2_all_w99"
+    },
+    {
+      "prompt": "fúwùyuán",
+      "answer": "服务员",
+      "removed": false,
+      "id": "chinese_hsk2_all_w100"
+    },
+    {
+      "prompt": "bái",
+      "answer": "白",
+      "removed": false,
+      "id": "chinese_hsk2_all_w101"
+    },
+    {
+      "prompt": "hēi",
+      "answer": "黑",
+      "removed": false,
+      "id": "chinese_hsk2_all_w102"
+    },
+    {
+      "prompt": "guì",
+      "answer": "贵",
+      "removed": false,
+      "id": "chinese_hsk2_all_w103"
+    },
+    {
+      "prompt": "cuò",
+      "answer": "错",
+      "removed": false,
+      "id": "chinese_hsk2_all_w104"
+    },
+    {
+      "prompt": "cóng",
+      "answer": "从",
+      "removed": false,
+      "id": "chinese_hsk2_all_w105"
+    },
+    {
+      "prompt": "tiàowǔ",
+      "answer": "跳舞",
+      "removed": false,
+      "id": "chinese_hsk2_all_w106"
+    },
+    {
+      "prompt": "dìyī",
+      "answer": "第一",
+      "removed": false,
+      "id": "chinese_hsk2_all_w107"
+    },
+    {
+      "prompt": "xīwàng",
+      "answer": "希望",
+      "removed": false,
+      "id": "chinese_hsk2_all_w108"
+    },
+    {
+      "prompt": "wèntí",
+      "answer": "问题",
+      "removed": false,
+      "id": "chinese_hsk2_all_w109"
+    },
+    {
+      "prompt": "huānyíng",
+      "answer": "欢迎",
+      "removed": false,
+      "id": "chinese_hsk2_all_w110"
+    },
+    {
+      "prompt": "shàng bān",
+      "answer": "上班",
+      "removed": false,
+      "id": "chinese_hsk2_all_w111"
+    },
+    {
+      "prompt": "dǒng",
+      "answer": "懂",
+      "removed": false,
+      "id": "chinese_hsk2_all_w112"
+    },
+    {
+      "prompt": "wán",
+      "answer": "完",
+      "removed": false,
+      "id": "chinese_hsk2_all_w113"
+    },
+    {
+      "prompt": "tí",
+      "answer": "题",
+      "removed": false,
+      "id": "chinese_hsk2_all_w114"
+    },
+    {
+      "prompt": "kè",
+      "answer": "课",
+      "removed": false,
+      "id": "chinese_hsk2_all_w115"
+    },
+    {
+      "prompt": "bāngzhù",
+      "answer": "帮助",
+      "removed": false,
+      "id": "chinese_hsk2_all_w116"
+    },
+    {
+      "prompt": "bié",
+      "answer": "别",
+      "removed": false,
+      "id": "chinese_hsk2_all_w117"
+    },
+    {
+      "prompt": "gēge",
+      "answer": "哥哥",
+      "removed": false,
+      "id": "chinese_hsk2_all_w118"
+    },
+    {
+      "prompt": "jīdàn",
+      "answer": "鸡蛋",
+      "removed": false,
+      "id": "chinese_hsk2_all_w119"
+    },
+    {
+      "prompt": "xīguā",
+      "answer": "西瓜",
+      "removed": false,
+      "id": "chinese_hsk2_all_w120"
+    },
+    {
+      "prompt": "zhèngzài",
+      "answer": "正在",
+      "removed": false,
+      "id": "chinese_hsk2_all_w121"
+    },
+    {
+      "prompt": "shǒujī",
+      "answer": "手机",
+      "removed": false,
+      "id": "chinese_hsk2_all_w122"
+    },
+    {
+      "prompt": "xǐ",
+      "answer": "洗",
+      "removed": false,
+      "id": "chinese_hsk2_all_w123"
+    },
+    {
+      "prompt": "chànggē",
+      "answer": "唱歌",
+      "removed": false,
+      "id": "chinese_hsk2_all_w124"
+    },
+    {
+      "prompt": "nán",
+      "answer": "男",
+      "removed": false,
+      "id": "chinese_hsk2_all_w125"
+    },
+    {
+      "prompt": "nǚ",
+      "answer": "女",
+      "removed": false,
+      "id": "chinese_hsk2_all_w126"
+    },
+    {
+      "prompt": "háizi",
+      "answer": "孩子",
+      "removed": false,
+      "id": "chinese_hsk2_all_w127"
+    },
+    {
+      "prompt": "yòubian",
+      "answer": "右边",
+      "removed": false,
+      "id": "chinese_hsk2_all_w128"
+    },
+    {
+      "prompt": "bǐ",
+      "answer": "比",
+      "removed": false,
+      "id": "chinese_hsk2_all_w129"
+    },
+    {
+      "prompt": "piányi",
+      "answer": "便宜",
+      "removed": false,
+      "id": "chinese_hsk2_all_w130"
+    },
+    {
+      "prompt": "shuō huà",
+      "answer": "说话",
+      "removed": false,
+      "id": "chinese_hsk2_all_w131"
+    },
+    {
+      "prompt": "kěnéng",
+      "answer": "可能",
+      "removed": false,
+      "id": "chinese_hsk2_all_w132"
+    },
+    {
+      "prompt": "qùnián",
+      "answer": "去年",
+      "removed": false,
+      "id": "chinese_hsk2_all_w133"
+    },
+    {
+      "prompt": "xìng",
+      "answer": "姓",
+      "removed": false,
+      "id": "chinese_hsk2_all_w134"
+    },
+    {
+      "prompt": "de",
+      "answer": "得",
+      "removed": false,
+      "id": "chinese_hsk2_all_w135"
+    },
+    {
+      "prompt": "qīzi",
+      "answer": "妻子",
+      "removed": false,
+      "id": "chinese_hsk2_all_w136"
+    },
+    {
+      "prompt": "xuě",
+      "answer": "雪",
+      "removed": false,
+      "id": "chinese_hsk2_all_w137"
+    },
+    {
+      "prompt": "líng",
+      "answer": "零",
+      "removed": false,
+      "id": "chinese_hsk2_all_w138"
+    },
+    {
+      "prompt": "dù",
+      "answer": "度",
+      "removed": false,
+      "id": "chinese_hsk2_all_w139"
+    },
+    {
+      "prompt": "chuān",
+      "answer": "穿",
+      "removed": false,
+      "id": "chinese_hsk2_all_w140"
+    },
+    {
+      "prompt": "jìn",
+      "answer": "进",
+      "removed": false,
+      "id": "chinese_hsk2_all_w141"
+    },
+    {
+      "prompt": "dìdi",
+      "answer": "弟弟",
+      "removed": false,
+      "id": "chinese_hsk2_all_w142"
+    },
+    {
+      "prompt": "jìn",
+      "answer": "近",
+      "removed": false,
+      "id": "chinese_hsk2_all_w143"
+    },
+    {
+      "prompt": "zhe",
+      "answer": "着",
+      "removed": false,
+      "id": "chinese_hsk2_all_w144"
+    },
+    {
+      "prompt": "shǒu",
+      "answer": "手",
+      "removed": false,
+      "id": "chinese_hsk2_all_w145"
+    },
+    {
+      "prompt": "ná",
+      "answer": "拿",
+      "removed": false,
+      "id": "chinese_hsk2_all_w146"
+    },
+    {
+      "prompt": "qiānbǐ",
+      "answer": "铅笔",
+      "removed": false,
+      "id": "chinese_hsk2_all_w147"
+    },
+    {
+      "prompt": "bān",
+      "answer": "班",
+      "removed": false,
+      "id": "chinese_hsk2_all_w148"
+    },
+    {
+      "prompt": "zhǎng",
+      "answer": "长",
+      "removed": false,
+      "id": "chinese_hsk2_all_w149"
+    },
+    {
+      "prompt": "xiào",
+      "answer": "笑",
+      "removed": false,
+      "id": "chinese_hsk2_all_w150"
+    },
+    {
+      "prompt": "bīnguǎn",
+      "answer": "宾馆",
+      "removed": false,
+      "id": "chinese_hsk2_all_w151"
+    },
+    {
+      "prompt": "yìzhí",
+      "answer": "一直",
+      "removed": false,
+      "id": "chinese_hsk2_all_w152"
+    },
+    {
+      "prompt": "wǎng",
+      "answer": "往",
+      "removed": false,
+      "id": "chinese_hsk2_all_w153"
+    },
+    {
+      "prompt": "lùkǒu",
+      "answer": "路口",
+      "removed": false,
+      "id": "chinese_hsk2_all_w154"
+    },
+    {
+      "prompt": "Yáng Xiàoxiao",
+      "answer": "杨笑笑",
+      "removed": false,
+      "id": "chinese_hsk2_all_w155"
+    },
+    {
+      "prompt": "yìsi",
+      "answer": "意思",
+      "removed": false,
+      "id": "chinese_hsk2_all_w156"
+    },
+    {
+      "prompt": "dànshì",
+      "answer": "但是",
+      "removed": false,
+      "id": "chinese_hsk2_all_w157"
+    },
+    {
+      "prompt": "suīrán",
+      "answer": "虽然",
+      "removed": false,
+      "id": "chinese_hsk2_all_w158"
+    },
+    {
+      "prompt": "cì",
+      "answer": "次",
+      "removed": false,
+      "id": "chinese_hsk2_all_w159"
+    },
+    {
+      "prompt": "wánr",
+      "answer": "玩儿",
+      "removed": false,
+      "id": "chinese_hsk2_all_w160"
+    },
+    {
+      "prompt": "qíng",
+      "answer": "晴",
+      "removed": false,
+      "id": "chinese_hsk2_all_w161"
+    },
+    {
+      "prompt": "bǎi",
+      "answer": "百",
+      "removed": false,
+      "id": "chinese_hsk2_all_w162"
+    },
+    {
+      "prompt": "rì",
+      "answer": "日",
+      "removed": false,
+      "id": "chinese_hsk2_all_w163"
+    },
+    {
+      "prompt": "xīnnián",
+      "answer": "新年",
+      "removed": false,
+      "id": "chinese_hsk2_all_w164"
+    },
+    {
+      "prompt": "piào",
+      "answer": "票",
+      "removed": false,
+      "id": "chinese_hsk2_all_w165"
+    },
+    {
+      "prompt": "huǒchēzhàn",
+      "answer": "火车站",
+      "removed": false,
+      "id": "chinese_hsk2_all_w166"
+    },
+    {
+      "prompt": "dàjiā",
+      "answer": "大家",
+      "removed": false,
+      "id": "chinese_hsk2_all_w167"
+    },
+    {
+      "prompt": "gèng",
+      "answer": "更",
+      "removed": false,
+      "id": "chinese_hsk2_all_w168"
+    },
+    {
+      "prompt": "mèimei",
+      "answer": "妹妹",
+      "removed": false,
+      "id": "chinese_hsk2_all_w169"
+    },
+    {
+      "prompt": "yīn",
+      "answer": "阴",
+      "removed": false,
+      "id": "chinese_hsk2_all_w170"
+    }
+  ],
+  "sentences": [
+    {
+      "id": "s1_all",
+      "original": "Septembre est le meilleur moment pour voyager à Pékin.",
+      "translation": "九月去北京旅游最好",
+      "blocks": [
+        "九",
+        "月",
+        "去",
+        "北京",
+        "旅游",
+        "最",
+        "好",
+        "六",
+        "运动"
+      ]
+    },
+    {
+      "id": "s2_all",
+      "original": "Es-tu malade ?",
+      "translation": "你是不是生病了？",
+      "blocks": [
+        "你",
+        "是不是",
+        "生病",
+        "了",
+        "？",
+        "身体",
+        "休息",
+        "忙"
+      ]
+    },
+    {
+      "id": "s3_all",
+      "original": "Quelle est ta couleur préférée ?",
+      "translation": "你最喜欢什么颜色？",
+      "blocks": [
+        "你",
+        "最",
+        "喜欢",
+        "什么",
+        "颜色",
+        "？",
+        "红色",
+        "粉色",
+        "手表"
+      ]
+    },
+    {
+      "id": "s4_all",
+      "original": "Joyeux anniversaire !",
+      "translation": "生日快乐",
+      "blocks": [
+        "生日",
+        "快乐",
+        "非常",
+        "已经",
+        "开始"
+      ]
+    },
+    {
+      "id": "s5_all",
+      "original": "Prenons celui-là, d'accord ?",
+      "translation": "就买这件吧",
+      "blocks": [
+        "就",
+        "买",
+        "这",
+        "件",
+        "吧",
+        "不错",
+        "可以",
+        "还"
+      ]
+    },
+    {
+      "id": "s6_all",
+      "original": "Pourquoi ne manges-tu plus ?",
+      "translation": "你怎么不吃了？",
+      "blocks": [
+        "你",
+        "怎么",
+        "不",
+        "吃",
+        "了",
+        "？",
+        "好吃",
+        "面条",
+        "姐姐"
+      ]
+    },
+    {
+      "id": "s7_all",
+      "original": "Ta maison est loin de la compagnie ?",
+      "translation": "你家离公司远吗？",
+      "blocks": [
+        "你",
+        "家",
+        "离",
+        "公司",
+        "远",
+        "吗",
+        "？",
+        "机场",
+        "慢"
+      ]
+    },
+    {
+      "id": "s8_all",
+      "original": "C'est trop cher !",
+      "translation": "太贵了",
+      "blocks": [
+        "太",
+        "贵",
+        "了",
+        "白",
+        "黑",
+        "新"
+      ]
+    },
+    {
+      "id": "s9_all",
+      "original": "As-tu compris ?",
+      "translation": "你听懂了吗？",
+      "blocks": [
+        "你",
+        "听",
+        "懂",
+        "了",
+        "吗",
+        "？",
+        "问题",
+        "完",
+        "错"
+      ]
+    },
+    {
+      "id": "s10_all",
+      "original": "Ne cherche plus, le téléphone est sur la table.",
+      "translation": "别找了手机在桌子上呢",
+      "blocks": [
+        "别",
+        "找",
+        "了",
+        "手机",
+        "在",
+        "桌子",
+        "上",
+        "呢",
+        "课",
+        "哥哥"
+      ]
+    },
+    {
+      "id": "s11_all",
+      "original": "Il est plus grand que moi.",
+      "translation": "他比我高",
+      "blocks": [
+        "他",
+        "比",
+        "我",
+        "高",
+        "便宜",
+        "可能",
+        "去年"
+      ]
+    },
+    {
+      "id": "s12_all",
+      "original": "Tu es habillé trop légèrement.",
+      "translation": "你穿得太少了",
+      "blocks": [
+        "你",
+        "穿",
+        "得",
+        "太",
+        "少",
+        "了",
+        "弟弟",
+        "妻子",
+        "近"
+      ]
+    },
+    {
+      "id": "s13_all",
+      "original": "La porte est ouverte.",
+      "translation": "门开着呢",
+      "blocks": [
+        "门",
+        "开",
+        "着",
+        "呢",
+        "笑",
+        "拿",
+        "手"
+      ]
+    },
+    {
+      "id": "s14_all",
+      "original": "As-tu déjà vu ce film ?",
+      "translation": "你看过那个电影吗？",
+      "blocks": [
+        "你",
+        "看",
+        "过",
+        "那",
+        "个",
+        "电影",
+        "吗",
+        "？",
+        "意思",
+        "次"
+      ]
+    },
+    {
+      "id": "s15_all",
+      "original": "Le Nouvel An arrive bientôt.",
+      "translation": "新年就要到了",
+      "blocks": [
+        "新年",
+        "就",
+        "要",
+        "到",
+        "了",
+        "火车站",
+        "票",
+        "妹妹"
+      ]
+    },
+    {
+      "id": "s16_all",
+      "original": "Bien que le Nouvel An arrive bientôt, je dois quand même aller travailler.",
+      "translation": "虽然新年就要到了但是我还要上班",
+      "blocks": [
+        "虽然",
+        "新年",
+        "就",
+        "要",
+        "到",
+        "了",
+        "但是",
+        "我",
+        "还",
+        "要",
+        "上班",
+        "大家"
+      ]
+    }
+  ]
+}

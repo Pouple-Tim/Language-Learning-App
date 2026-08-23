@@ -1,0 +1,30 @@
+{
+  "id": "chinese_hsk2_part15",
+  "name": "Chinois - HSK2 (Partie 15)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "rì", "answer": "日", "removed": false, "id": "chinese_hsk2_part15_w1" },
+    { "prompt": "xīnnián", "answer": "新年", "removed": false, "id": "chinese_hsk2_part15_w2" },
+    { "prompt": "piào", "answer": "票", "removed": false, "id": "chinese_hsk2_part15_w3" },
+    { "prompt": "huǒchēzhàn", "answer": "火车站", "removed": false, "id": "chinese_hsk2_part15_w4" },
+    { "prompt": "dàjiā", "answer": "大家", "removed": false, "id": "chinese_hsk2_part15_w5" },
+    { "prompt": "gèng", "answer": "更", "removed": false, "id": "chinese_hsk2_part15_w6" },
+    { "prompt": "mèimei", "answer": "妹妹", "removed": false, "id": "chinese_hsk2_part15_w7" },
+    { "prompt": "yīn", "answer": "阴", "removed": false, "id": "chinese_hsk2_part15_w8" }
+  ],
+  "sentences": [
+    { "id": "s1_p15", "original": "Le Nouvel An arrive bientôt.", "translation": "新年就要到了", "blocks": ["新年", "就", "要", "到", "了", "火车站", "票", "妹妹"] },
+    { "id": "s2_p15", "original": "Tout le monde est déjà là.", "translation": "大家都来了", "blocks": ["大家", "都", "来", "了", "妹妹", "票", "新年"] },
+    { "id": "s3_p15", "original": "Ma petite sœur est plus grande que moi.", "translation": "妹妹比我更高", "blocks": ["妹妹", "比", "我", "更", "高", "大家", "票", "新年"] },
+    { "id": "s4_p15", "original": "J'ai déjà acheté le billet.", "translation": "我已经买了票", "blocks": ["我", "已经", "买", "了", "票", "火车站", "新年", "大家"] },
+    { "id": "s5_p15", "original": "La gare est loin d'ici ?", "translation": "火车站离这儿远吗？", "blocks": ["火车站", "离", "这儿", "远", "吗", "？", "机场", "票", "近"] },
+    { "id": "s6_p15", "original": "Le ciel est couvert aujourd'hui.", "translation": "今天阴天", "blocks": ["今天", "阴", "天", "晴", "雨", "冷"] },
+    { "id": "s7_p15", "original": "Il est plus occupé que moi.", "translation": "他比我更忙", "blocks": ["他", "比", "我", "更", "忙", "高", "妹妹", "大家"] },
+    { "id": "s8_p15", "original": "Tout le monde est déjà parti.", "translation": "大家都走了", "blocks": ["大家", "都", "走", "了", "来", "新年", "票"] },
+    { "id": "s9_p15", "original": "Ma petite sœur va bientôt aller à la gare.", "translation": "妹妹要去火车站了", "blocks": ["妹妹", "要", "去", "火车站", "了", "新年", "大家", "票"] },
+    { "id": "s10_p15", "original": "Le Nouvel An arrive bientôt, tout le monde est très content.", "translation": "新年就要到了大家都很高兴", "blocks": ["新年", "就", "要", "到", "了", "大家", "都", "很", "高兴", "妹妹"] },
+    { "id": "s11_p15", "original": "Quelle est la date d'aujourd'hui ?", "translation": "今天是几月几日？", "blocks": ["今天", "是", "几", "月", "几", "日", "？", "号", "新年"] }
+  ]
+}

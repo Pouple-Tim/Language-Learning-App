@@ -1,0 +1,36 @@
+{
+  "id": "chinese_hsk2_part3",
+  "name": "Chinois - HSK2 (Partie 3)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "shǒubiǎo", "answer": "手表", "removed": false, "id": "chinese_hsk2_part3_w1" },
+    { "prompt": "qiān", "answer": "千", "removed": false, "id": "chinese_hsk2_part3_w2" },
+    { "prompt": "bàozhǐ", "answer": "报纸", "removed": false, "id": "chinese_hsk2_part3_w3" },
+    { "prompt": "sòng", "answer": "送", "removed": false, "id": "chinese_hsk2_part3_w4" },
+    { "prompt": "yíxià", "answer": "一下", "removed": false, "id": "chinese_hsk2_part3_w5" },
+    { "prompt": "niúnǎi", "answer": "牛奶", "removed": false, "id": "chinese_hsk2_part3_w6" },
+    { "prompt": "fángjiān", "answer": "房间", "removed": false, "id": "chinese_hsk2_part3_w7" },
+    { "prompt": "zhàngfu", "answer": "丈夫", "removed": false, "id": "chinese_hsk2_part3_w8" },
+    { "prompt": "pángbiān", "answer": "旁边", "removed": false, "id": "chinese_hsk2_part3_w9" },
+    { "prompt": "zhēn", "answer": "真", "removed": false, "id": "chinese_hsk2_part3_w10" },
+    { "prompt": "fěnsè", "answer": "粉色", "removed": false, "id": "chinese_hsk2_part3_w11" },
+    { "prompt": "yánsè", "answer": "颜色", "removed": false, "id": "chinese_hsk2_part3_w12" },
+    { "prompt": "zuǒbian", "answer": "左边", "removed": false, "id": "chinese_hsk2_part3_w13" },
+    { "prompt": "hóngsè", "answer": "红色", "removed": false, "id": "chinese_hsk2_part3_w14" }
+  ],
+  "sentences": [
+    { "id": "s1_p3", "original": "La montre rouge à gauche est à moi.", "translation": "左边那个红色的手表是我的", "blocks": ["左边", "那", "个", "红色", "的", "手表", "是", "我", "的", "颜色", "粉色"] },
+    { "id": "s2_p3", "original": "Quelle est ta couleur préférée ?", "translation": "你最喜欢什么颜色？", "blocks": ["你", "最", "喜欢", "什么", "颜色", "？", "红色", "粉色", "手表"] },
+    { "id": "s3_p3", "original": "Jette un œil à ce journal.", "translation": "你看一下这个报纸", "blocks": ["你", "看", "一下", "这", "个", "报纸", "手表", "牛奶", "颜色"] },
+    { "id": "s4_p3", "original": "Il m'envoie du lait.", "translation": "他给我送牛奶", "blocks": ["他", "给", "我", "送", "牛奶", "报纸", "房间", "丈夫"] },
+    { "id": "s5_p3", "original": "Son mari est dans la chambre.", "translation": "她丈夫在房间里", "blocks": ["她", "丈夫", "在", "房间", "里", "旁边", "牛奶", "送"] },
+    { "id": "s6_p3", "original": "C'est vraiment joli !", "translation": "真漂亮", "blocks": ["真", "漂亮", "颜色", "红色", "新"] },
+    { "id": "s7_p3", "original": "Le journal est à côté de la table.", "translation": "报纸在桌子旁边", "blocks": ["报纸", "在", "桌子", "旁边", "手表", "房间", "牛奶"] },
+    { "id": "s8_p3", "original": "Combien coûte cette montre rose ?", "translation": "这个粉色的手表多少钱？", "blocks": ["这", "个", "粉色", "的", "手表", "多少", "钱", "？", "红色"] },
+    { "id": "s9_p3", "original": "Mille yuans.", "translation": "一千块钱", "blocks": ["一", "千", "块", "钱", "多少", "手表", "颜色"] },
+    { "id": "s10_p3", "original": "Écris-le une fois.", "translation": "你写一下", "blocks": ["你", "写", "一下", "看", "说", "一起"] },
+    { "id": "s11_p3", "original": "Le rouge est très joli.", "translation": "红色很漂亮", "blocks": ["红色", "很", "漂亮", "粉色", "颜色", "新"] }
+  ]
+}

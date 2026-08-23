@@ -1,0 +1,35 @@
+{
+  "id": "chinese_hsk2_part5",
+  "name": "Chinois - HSK2 (Partie 5)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "wàimiàn", "answer": "外面", "removed": false, "id": "chinese_hsk2_part5_w1" },
+    { "prompt": "zhǔnbèi", "answer": "准备", "removed": false, "id": "chinese_hsk2_part5_w2" },
+    { "prompt": "jiù", "answer": "就", "removed": false, "id": "chinese_hsk2_part5_w3" },
+    { "prompt": "yú", "answer": "鱼", "removed": false, "id": "chinese_hsk2_part5_w4" },
+    { "prompt": "ba", "answer": "吧", "removed": false, "id": "chinese_hsk2_part5_w5" },
+    { "prompt": "jiàn", "answer": "件", "removed": false, "id": "chinese_hsk2_part5_w6" },
+    { "prompt": "hái", "answer": "还", "removed": false, "id": "chinese_hsk2_part5_w7" },
+    { "prompt": "kěyǐ", "answer": "可以", "removed": false, "id": "chinese_hsk2_part5_w8" },
+    { "prompt": "búcuò", "answer": "不错", "removed": false, "id": "chinese_hsk2_part5_w9" },
+    { "prompt": "kǎoshì", "answer": "考试", "removed": false, "id": "chinese_hsk2_part5_w10" },
+    { "prompt": "kāfēi", "answer": "咖啡", "removed": false, "id": "chinese_hsk2_part5_w11" },
+    { "prompt": "duì", "answer": "对", "removed": false, "id": "chinese_hsk2_part5_w12" },
+    { "prompt": "yǐhòu", "answer": "以后", "removed": false, "id": "chinese_hsk2_part5_w13" }
+  ],
+  "sentences": [
+    { "id": "s1_p5", "original": "Prenons celui-là, d'accord ?", "translation": "就买这件吧", "blocks": ["就", "买", "这", "件", "吧", "不错", "可以", "还"] },
+    { "id": "s2_p5", "original": "C'est pas mal !", "translation": "不错", "blocks": ["不错", "可以", "还", "对"] },
+    { "id": "s3_p5", "original": "Il fait froid dehors.", "translation": "外面很冷", "blocks": ["外面", "很", "冷", "准备", "还", "天气"] },
+    { "id": "s4_p5", "original": "Je me prépare pour l'examen.", "translation": "我准备考试", "blocks": ["我", "准备", "考试", "咖啡", "以后", "还"] },
+    { "id": "s5_p5", "original": "Après ça, je bois un café.", "translation": "以后我喝咖啡", "blocks": ["以后", "我", "喝", "咖啡", "茶", "准备", "对"] },
+    { "id": "s6_p5", "original": "As-tu encore du poisson ?", "translation": "你还有鱼吗？", "blocks": ["你", "还", "有", "鱼", "吗", "？", "咖啡", "不错", "件"] },
+    { "id": "s7_p5", "original": "C'est exact.", "translation": "对", "blocks": ["对", "不错", "还", "可以"] },
+    { "id": "s8_p5", "original": "Puis-je regarder un peu ?", "translation": "我可以看一下吗？", "blocks": ["我", "可以", "看", "一下", "吗", "？", "还", "准备"] },
+    { "id": "s9_p5", "original": "Ce poisson est vraiment délicieux.", "translation": "这个鱼真好吃", "blocks": ["这", "个", "鱼", "真", "好吃", "咖啡", "不错", "件"] },
+    { "id": "s10_p5", "original": "Je te prépare un café.", "translation": "我给你准备咖啡", "blocks": ["我", "给", "你", "准备", "咖啡", "以后", "还", "对"] },
+    { "id": "s11_p5", "original": "Après l'examen, je pars en voyage.", "translation": "考试以后我去旅游", "blocks": ["考试", "以后", "我", "去", "旅游", "准备", "咖啡", "还"] }
+  ]
+}

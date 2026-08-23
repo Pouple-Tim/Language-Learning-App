@@ -1,0 +1,29 @@
+{
+  "id": "chinese_hsk2_part14",
+  "name": "Chinois - HSK2 (Partie 14)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "yìsi", "answer": "意思", "removed": false, "id": "chinese_hsk2_part14_w1" },
+    { "prompt": "dànshì", "answer": "但是", "removed": false, "id": "chinese_hsk2_part14_w2" },
+    { "prompt": "suīrán", "answer": "虽然", "removed": false, "id": "chinese_hsk2_part14_w3" },
+    { "prompt": "cì", "answer": "次", "removed": false, "id": "chinese_hsk2_part14_w4" },
+    { "prompt": "wánr", "answer": "玩儿", "removed": false, "id": "chinese_hsk2_part14_w5" },
+    { "prompt": "qíng", "answer": "晴", "removed": false, "id": "chinese_hsk2_part14_w6" },
+    { "prompt": "bǎi", "answer": "百", "removed": false, "id": "chinese_hsk2_part14_w7" }
+  ],
+  "sentences": [
+    { "id": "s1_p14", "original": "As-tu déjà vu ce film ?", "translation": "你看过那个电影吗？", "blocks": ["你", "看", "过", "那", "个", "电影", "吗", "？", "意思", "次"] },
+    { "id": "s2_p14", "original": "Bien qu'il fasse froid, je vais quand même nager.", "translation": "虽然很冷但是我还要去游泳", "blocks": ["虽然", "很", "冷", "但是", "我", "还", "要", "去", "游泳", "晴"] },
+    { "id": "s3_p14", "original": "Qu'est-ce que ça veut dire ?", "translation": "这是什么意思？", "blocks": ["这", "是", "什么", "意思", "？", "但是", "虽然", "次"] },
+    { "id": "s4_p14", "original": "Je suis allé à Pékin trois fois.", "translation": "我去过三次北京", "blocks": ["我", "去", "过", "三", "次", "北京", "玩儿", "晴", "意思"] },
+    { "id": "s5_p14", "original": "Il fait beau aujourd'hui.", "translation": "今天晴天", "blocks": ["今天", "晴", "天", "雨", "冷", "热"] },
+    { "id": "s6_p14", "original": "Allons jouer !", "translation": "我们去玩儿吧", "blocks": ["我们", "去", "玩儿", "吧", "旅游", "运动", "次"] },
+    { "id": "s7_p14", "original": "Bien que ce soit cher, c'est vraiment délicieux.", "translation": "虽然很贵但是真好吃", "blocks": ["虽然", "很", "贵", "但是", "真", "好吃", "便宜", "意思", "次"] },
+    { "id": "s8_p14", "original": "J'ai cent yuans.", "translation": "我有一百块钱", "blocks": ["我", "有", "一", "百", "块", "钱", "千", "意思", "次"] },
+    { "id": "s9_p14", "original": "Je ne comprends pas le sens de ce caractère.", "translation": "这个字我不懂意思", "blocks": ["这", "个", "字", "我", "不", "懂", "意思", "但是", "虽然"] },
+    { "id": "s10_p14", "original": "As-tu déjà mangé des nouilles au mouton ?", "translation": "你吃过羊肉面条吗？", "blocks": ["你", "吃", "过", "羊肉", "面条", "吗", "？", "次", "意思"] },
+    { "id": "s11_p14", "original": "Bien qu'il soit occupé, il est quand même venu.", "translation": "虽然他很忙但是他来了", "blocks": ["虽然", "他", "很", "忙", "但是", "他", "来", "了", "意思", "次"] }
+  ]
+}

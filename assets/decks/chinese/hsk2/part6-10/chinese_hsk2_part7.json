@@ -1,0 +1,35 @@
+{
+  "id": "chinese_hsk2_part7",
+  "name": "Chinois - HSK2 (Partie 7)",
+  "type": "base",
+  "inputType": "draw",
+  "reverseInputType": "text",
+  "words": [
+    { "prompt": "jiàoshì", "answer": "教室", "removed": false, "id": "chinese_hsk2_part7_w1" },
+    { "prompt": "jīchǎng", "answer": "机场", "removed": false, "id": "chinese_hsk2_part7_w2" },
+    { "prompt": "lù", "answer": "路", "removed": false, "id": "chinese_hsk2_part7_w3" },
+    { "prompt": "lí", "answer": "离", "removed": false, "id": "chinese_hsk2_part7_w4" },
+    { "prompt": "gōngsī", "answer": "公司", "removed": false, "id": "chinese_hsk2_part7_w5" },
+    { "prompt": "yuǎn", "answer": "远", "removed": false, "id": "chinese_hsk2_part7_w6" },
+    { "prompt": "gōnggòng qìchē", "answer": "公共汽车", "removed": false, "id": "chinese_hsk2_part7_w7" },
+    { "prompt": "xiǎoshí", "answer": "小时", "removed": false, "id": "chinese_hsk2_part7_w8" },
+    { "prompt": "màn", "answer": "慢", "removed": false, "id": "chinese_hsk2_part7_w9" },
+    { "prompt": "kuài", "answer": "快", "removed": false, "id": "chinese_hsk2_part7_w10" },
+    { "prompt": "guò", "answer": "过", "removed": false, "id": "chinese_hsk2_part7_w11" },
+    { "prompt": "zǒu", "answer": "走", "removed": false, "id": "chinese_hsk2_part7_w12" },
+    { "prompt": "dào", "answer": "到", "removed": false, "id": "chinese_hsk2_part7_w13" }
+  ],
+  "sentences": [
+    { "id": "s1_p7", "original": "Ta maison est loin de la compagnie ?", "translation": "你家离公司远吗？", "blocks": ["你", "家", "离", "公司", "远", "吗", "？", "机场", "慢"] },
+    { "id": "s2_p7", "original": "L'aéroport est loin d'ici.", "translation": "机场离这儿很远", "blocks": ["机场", "离", "这儿", "很", "远", "公司", "教室", "快"] },
+    { "id": "s3_p7", "original": "Marche un peu plus lentement.", "translation": "走慢一点儿", "blocks": ["走", "慢", "一点儿", "快", "路", "到"] },
+    { "id": "s4_p7", "original": "Le bus roule vite.", "translation": "公共汽车很快", "blocks": ["公共汽车", "很", "快", "慢", "路", "机场"] },
+    { "id": "s5_p7", "original": "Il faut combien d'heures pour arriver à l'école ?", "translation": "到学校要几个小时？", "blocks": ["到", "学校", "要", "几", "个", "小时", "？", "走", "公司"] },
+    { "id": "s6_p7", "original": "Comment vas-tu à la compagnie ?", "translation": "你怎么去公司？", "blocks": ["你", "怎么", "去", "公司", "？", "走", "机场", "远"] },
+    { "id": "s7_p7", "original": "Je prends le bus pour aller à l'école.", "translation": "我坐公共汽车去学校", "blocks": ["我", "坐", "公共汽车", "去", "学校", "机场", "公司", "快"] },
+    { "id": "s8_p7", "original": "L'école est loin de l'aéroport.", "translation": "学校离机场很远", "blocks": ["学校", "离", "机场", "很", "远", "公司", "快", "慢"] },
+    { "id": "s9_p7", "original": "Il marche très lentement.", "translation": "他走路很慢", "blocks": ["他", "走", "路", "很", "慢", "快", "到", "机场"] },
+    { "id": "s10_p7", "original": "Combien de temps faut-il pour arriver à la compagnie ?", "translation": "到公司要几个小时？", "blocks": ["到", "公司", "要", "几", "个", "小时", "？", "机场", "学校"] },
+    { "id": "s11_p7", "original": "La maison du professeur est loin de l'école.", "translation": "老师家离学校很远", "blocks": ["老师", "家", "离", "学校", "很", "远", "公司", "机场"] }
+  ]
+}
