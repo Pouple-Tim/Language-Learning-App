@@ -456,4 +456,84 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get quizModeDesc => 'Choisis la bonne réponse parmi 4 propositions.';
+
+  @override
+  String get tutorialSkipButton => 'Passer';
+
+  @override
+  String get tutorialWelcomeDeckTitle => 'Ton deck';
+
+  @override
+  String get tutorialWelcomeDeckDesc =>
+      'Ceci affiche le deck que tu es en train de réviser. Appuie dessus pour parcourir ou gérer tes decks.';
+
+  @override
+  String get tutorialWelcomeGamesTitle => 'Modes de jeu';
+
+  @override
+  String get tutorialWelcomeGamesDesc =>
+      'Choisis comment t\'entraîner : classique, inversé, quiz, ou reconstitue la phrase.';
+
+  @override
+  String get tutorialWelcomeSettingsTitle => 'Réglages';
+
+  @override
+  String get tutorialWelcomeSettingsDesc =>
+      'Change le thème, la langue de l\'appli, ou réinitialise ta progression ici.';
+
+  @override
+  String get tutorialDecksSelectTitle => 'Choisis un deck';
+
+  @override
+  String get tutorialDecksSelectDesc =>
+      'Appuie sur un deck pour le sélectionner — il sera utilisé dans tous les modes de jeu.';
+
+  @override
+  String get tutorialDecksCreateTitle => 'Crée le tien';
+
+  @override
+  String get tutorialDecksCreateDesc =>
+      'Appuie ici pour créer un deck personnalisé avec tes propres mots et phrases.';
+
+  @override
+  String get tutorialGameRemainingTitle => 'Suis ta progression';
+
+  @override
+  String get tutorialGameRemainingDesc =>
+      'Ceci indique combien de mots il reste à réviser dans cette session.';
+
+  @override
+  String get tutorialGamePlayTitle => 'Réponds ici';
+
+  @override
+  String get tutorialGamePlayDesc =>
+      'Fais tourner la roue, écris, dessine ou choisis la bonne réponse selon le mode — puis passe au mot suivant.';
+
+  @override
+  String get settingsTutorialsSectionTitle => 'Tutoriels';
+
+  @override
+  String get replayWelcomeTutorialTitle => 'Revoir la visite guidée';
+
+  @override
+  String get replayWelcomeTutorialSubtitle =>
+      'Réafficher la visite de l\'accueil';
+
+  @override
+  String get replayDecksTutorialTitle => 'Revoir le tutoriel des decks';
+
+  @override
+  String get replayDecksTutorialSubtitle =>
+      'Réafficher les astuces de l\'écran decks';
+
+  @override
+  String get replayGameTutorialTitle => 'Revoir le tutoriel du jeu';
+
+  @override
+  String get replayGameTutorialSubtitle =>
+      'Réafficher les astuces de l\'écran de jeu';
+
+  @override
+  String get tutorialReplaySnackbar =>
+      'Tu la reverras la prochaine fois que tu ouvriras cet écran';
 }
