@@ -43,6 +43,7 @@ dependencies:
   # Backend (contenu des decks de base)
   supabase_flutter: ^2.17.2
   sentry_flutter: ^9.0.0
+  tutorial_coach_mark: ^1.3.3
 
 dev_dependencies:
   flutter_test:
