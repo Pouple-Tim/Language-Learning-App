@@ -49,7 +49,10 @@ class SettingsSection extends StatelessWidget {
             ],
           ),
           clipBehavior: Clip.hardEdge,
-          child: Column(children: children),
+          child: Material(
+            color: Colors.transparent,
+            child: Column(children: children),
+          ),
         ),
       ],
     );

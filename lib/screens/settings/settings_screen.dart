@@ -6,6 +6,7 @@ import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/locale_provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/data/models/deck.dart';
+import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
 import 'package:language_learning_app/screens/stats/statistics_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
@@ -107,6 +108,38 @@ class SettingsScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
+                // --- TUTORIELS ---
+                SettingsSection(
+                  title: l10n.settingsTutorialsSectionTitle,
+                  icon: Icons.school_outlined,
+                  children: [
+                    SettingsTile(
+                      title: l10n.replayWelcomeTutorialTitle,
+                      subtitle: l10n.replayWelcomeTutorialSubtitle,
+                      icon: Icons.waving_hand_outlined,
+                      iconColor: AppColors.primary,
+                      onTap: () => _replayTutorial(context, TutorialService.resetWelcome),
+                    ),
+                    SettingsTile(
+                      title: l10n.replayDecksTutorialTitle,
+                      subtitle: l10n.replayDecksTutorialSubtitle,
+                      icon: Icons.library_books_outlined,
+                      iconColor: AppColors.primary,
+                      onTap: () => _replayTutorial(context, TutorialService.resetDecks),
+                    ),
+                    SettingsTile(
+                      title: l10n.replayGameTutorialTitle,
+                      subtitle: l10n.replayGameTutorialSubtitle,
+                      icon: Icons.videogame_asset_outlined,
+                      iconColor: AppColors.primary,
+                      showDivider: false,
+                      onTap: () => _replayTutorial(context, TutorialService.resetGame),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 24),
+
                 // --- À PROPOS ---
                 _buildAboutSection(context, l10n),
                 
@@ -131,6 +164,15 @@ class SettingsScreen extends StatelessWidget {
   // ---------------------------------------------------------------------------
   // WIDGETS DE CONTENU
   // ---------------------------------------------------------------------------
+
+  Future<void> _replayTutorial(BuildContext context, Future<void> Function() reset) async {
+    await reset();
+    if (!context.mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(AppLocalizations.of(context)!.tutorialReplaySnackbar)),
+    );
+  }
 
   Widget _buildThemeSwitch(BuildContext context, AppLocalizations l10n) {
     return Consumer<ThemeProvider>(
