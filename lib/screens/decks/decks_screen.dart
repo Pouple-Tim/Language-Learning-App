@@ -31,12 +31,6 @@ class _DecksScreenState extends State<DecksScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.myDecks),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () => _handleRefresh(context),
-          ),
-        ],
       ),
       body: Consumer<DeckProvider>(
         builder: (context, deckProvider, _) {
