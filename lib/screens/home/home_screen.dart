@@ -175,16 +175,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 32),
 
                 Column(
+                  key: _gameModesKey,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      // Anchors the welcome tour's "game modes" step to just
-                      // this compact header row rather than the whole grid
-                      // below -- the grid's height grows with the number of
-                      // modes and can extend past the viewport, but the
-                      // tutorial_coach_mark package doesn't auto-scroll to
-                      // keep an off-screen target visible.
-                      key: _gameModesKey,
                       children: [
                         Icon(Icons.videogame_asset_outlined,
                             color: theme.iconTheme.color?.withValues(alpha: 0.7),
