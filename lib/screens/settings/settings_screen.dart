@@ -120,7 +120,7 @@ class SettingsScreen extends StatelessWidget {
                       iconColor: AppColors.primary,
                       onTap: () => _replayTutorial(
                         context,
-                        TutorialService.resetWelcome,
+                        TutorialService.resetAll,
                         l10n.tutorialReplayWelcomeSnackbar,
                       ),
                     ),

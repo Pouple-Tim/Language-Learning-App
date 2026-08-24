@@ -40,8 +40,10 @@ void main() {
     await StorageHelper.init();
   });
 
-  testWidgets('replaying the welcome tutorial resets its seen flag and confirms', (tester) async {
+  testWidgets('replaying the welcome tutorial resets every tutorial\'s seen flag', (tester) async {
     await TutorialService.markWelcomeSeen();
+    await TutorialService.markDecksSeen();
+    await TutorialService.markGameSeen();
 
     await tester.pumpWidget(_wrap(const SettingsScreen()));
     await tester.pumpAndSettle();
@@ -59,6 +61,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(TutorialService.hasSeenWelcome(), isFalse);
+    expect(TutorialService.hasSeenDecks(), isFalse);
+    expect(TutorialService.hasSeenGame(), isFalse);
     expect(find.text("You'll see it again next time you open the app"), findsOneWidget);
   });
 

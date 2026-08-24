@@ -43,5 +43,17 @@ void main() {
       await TutorialService.resetGame();
       expect(TutorialService.hasSeenGame(), isFalse);
     });
+
+    test('resetAll resets every tutorial\'s seen flag', () async {
+      await TutorialService.markWelcomeSeen();
+      await TutorialService.markDecksSeen();
+      await TutorialService.markGameSeen();
+
+      await TutorialService.resetAll();
+
+      expect(TutorialService.hasSeenWelcome(), isFalse);
+      expect(TutorialService.hasSeenDecks(), isFalse);
+      expect(TutorialService.hasSeenGame(), isFalse);
+    });
   });
 }

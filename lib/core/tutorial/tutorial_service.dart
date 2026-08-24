@@ -18,4 +18,12 @@ class TutorialService {
   static bool hasSeenGame() => StorageHelper.getBool(_keyGame) ?? false;
   static Future<void> markGameSeen() => StorageHelper.saveBool(_keyGame, true);
   static Future<void> resetGame() => StorageHelper.saveBool(_keyGame, false);
+
+  /// Resets every tutorial's "seen" flag — used by the welcome tour's
+  /// replay control, which restarts the whole onboarding experience.
+  static Future<void> resetAll() async {
+    await resetWelcome();
+    await resetDecks();
+    await resetGame();
+  }
 }

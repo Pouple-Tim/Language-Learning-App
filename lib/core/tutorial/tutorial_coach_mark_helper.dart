@@ -54,6 +54,11 @@ void showTutorial({
     colorShadow: AppColors.primary,
     opacityShadow: 0.85,
     textSkip: skipLabel,
+    textStyleSkip: const TextStyle(
+      color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+    ),
     onFinish: onFinish,
     pulseEnable: false,
   ).show(context: context);

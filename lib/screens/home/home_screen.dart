@@ -141,10 +141,13 @@ class _HomeScreenState extends State<HomeScreen> {
               iconSize: 32,
               icon: Icon(Icons.settings_outlined, 
                   color: theme.iconTheme.color),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              ),
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                );
+                _maybeShowWelcomeTour();
+              },
             ),
           ),
         ],
