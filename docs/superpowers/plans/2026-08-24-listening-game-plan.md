@@ -17,7 +17,7 @@
 - Every `GameType` switch in the codebase is exhaustive (compiler-enforced) — adding the enum value means filling in every `switch`, not just the ones this plan touches.
 - TTS speaks `Word.answer` (hanzi), never `Word.prompt` (romanized pinyin) — a `zh-CN` voice would mispronounce/misread the latter.
 - Work happens on a new branch off `develop`, per this repo's git-flow (`develop` persistent, never delete it; see project memory `project-branch-workflow`).
-- No automated test for `TtsService`/`ListenPromptCard` — platform-channel/widget code isn't unit-tested in this repo (see `docs/superpowers/specs/2026-08-21-phase2-supabase-decks-design.md`'s Testing section: "No widget/integration tests... verified via `flutter analyze` + `flutter test` plus a manual pass"). Manual verification step is Task 6.
+- No automated test for `TtsService`/`ListenPromptCard` — platform-channel/widget code isn't unit-tested in this repo (see `docs/superpowers/specs/2026-08-21-phase2-supabase-decks-design.md`'s Testing section: "No widget/integration tests... verified via `flutter analyze` + `flutter test` plus a manual pass"). Manual verification step is Task 7.
 
 ---
 
