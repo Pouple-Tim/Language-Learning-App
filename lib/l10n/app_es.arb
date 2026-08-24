@@ -159,6 +159,10 @@
 
     "quizModeTitle": "Quiz Rápido",
     "quizModeDesc": "Elige la respuesta correcta entre 4 opciones.",
+    "listeningModeTitle": "Escucha",
+    "listeningModeDesc": "Escucha y elige el carácter correcto.",
+    "listenButtonLabel": "Escuchar",
+    "listenButtonTooltip": "Reproducir pronunciación",
   "tutorialSkipButton": "Saltar",
   "tutorialWelcomeDeckTitle": "Tu mazo",
   "tutorialWelcomeDeckDesc": "Aquí se muestra el mazo que estás repasando. Tócalo para explorar o gestionar tus mazos.",

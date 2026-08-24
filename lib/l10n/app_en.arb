@@ -267,6 +267,10 @@
 
   "quizModeTitle": "Quick Quiz",
   "quizModeDesc": "Choose the correct answer from 4 options.",
+  "listeningModeTitle": "Listening",
+  "listeningModeDesc": "Listen and pick the right character.",
+  "listenButtonLabel": "Listen",
+  "listenButtonTooltip": "Play pronunciation",
   "tutorialSkipButton": "Skip",
   "tutorialWelcomeDeckTitle": "Your deck",
   "tutorialWelcomeDeckDesc": "This shows the deck you're currently reviewing. Tap it to browse or manage your decks.",

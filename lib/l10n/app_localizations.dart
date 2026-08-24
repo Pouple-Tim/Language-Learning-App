@@ -930,6 +930,30 @@ abstract class AppLocalizations {
   /// **'Choose the correct answer from 4 options.'**
   String get quizModeDesc;
 
+  /// No description provided for @listeningModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening'**
+  String get listeningModeTitle;
+
+  /// No description provided for @listeningModeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen and pick the right character.'**
+  String get listeningModeDesc;
+
+  /// No description provided for @listenButtonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get listenButtonLabel;
+
+  /// No description provided for @listenButtonTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Play pronunciation'**
+  String get listenButtonTooltip;
+
   /// No description provided for @tutorialSkipButton.
   ///
   /// In en, this message translates to:

@@ -458,6 +458,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quizModeDesc => 'Choose the correct answer from 4 options.';
 
   @override
+  String get listeningModeTitle => 'Listening';
+
+  @override
+  String get listeningModeDesc => 'Listen and pick the right character.';
+
+  @override
+  String get listenButtonLabel => 'Listen';
+
+  @override
+  String get listenButtonTooltip => 'Play pronunciation';
+
+  @override
   String get tutorialSkipButton => 'Skip';
 
   @override
