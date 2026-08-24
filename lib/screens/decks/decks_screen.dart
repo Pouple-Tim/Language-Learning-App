@@ -75,6 +75,12 @@ class _DecksScreenState extends State<DecksScreen> {
           description: l10n.tutorialDecksSelectDesc,
         ),
         buildTutorialTarget(
+          identify: 'decks_hierarchy',
+          keyTarget: _decksListKey,
+          title: l10n.tutorialDecksHierarchyTitle,
+          description: l10n.tutorialDecksHierarchyDesc,
+        ),
+        buildTutorialTarget(
           identify: 'decks_create',
           keyTarget: _createDeckKey,
           title: l10n.tutorialDecksCreateTitle,

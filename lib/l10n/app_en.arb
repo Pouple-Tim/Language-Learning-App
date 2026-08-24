@@ -278,6 +278,8 @@
   "tutorialDecksSelectDesc": "Tap any deck to select it — it becomes the deck used in every game mode.",
   "tutorialDecksCreateTitle": "Create your own",
   "tutorialDecksCreateDesc": "Tap here to build a custom deck with your own words and sentences.",
+  "tutorialDecksHierarchyTitle": "Browse & download",
+  "tutorialDecksHierarchyDesc": "Decks are grouped by language and category — tap a category to expand it. Base decks download automatically the first time you select them.",
   "tutorialGameRemainingTitle": "Track your progress",
   "tutorialGameRemainingDesc": "This shows how many words are left to review in this session.",
   "tutorialGamePlayTitle": "Your deck & mode",

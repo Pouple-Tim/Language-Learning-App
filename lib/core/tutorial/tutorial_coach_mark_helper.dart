@@ -59,6 +59,10 @@ void showTutorial({
       fontSize: 16,
       fontWeight: FontWeight.bold,
     ),
+    // Bottom-right is where this app puts its FABs (e.g. "create a deck"),
+    // so a bottom-right skip button collides with bottom-right content
+    // bubbles. Bottom-left stays clear of every current tour's content.
+    alignSkip: Alignment.bottomLeft,
     onFinish: onFinish,
     pulseEnable: false,
   ).show(context: context);

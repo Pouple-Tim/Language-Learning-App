@@ -170,6 +170,8 @@
   "tutorialDecksSelectDesc": "Appuie sur un deck pour le sélectionner — il sera utilisé dans tous les modes de jeu.",
   "tutorialDecksCreateTitle": "Crée le tien",
   "tutorialDecksCreateDesc": "Appuie ici pour créer un deck personnalisé avec tes propres mots et phrases.",
+  "tutorialDecksHierarchyTitle": "Parcours et téléchargement",
+  "tutorialDecksHierarchyDesc": "Les decks sont regroupés par langue et catégorie — appuie sur une catégorie pour l'ouvrir. Les decks de base se téléchargent automatiquement dès leur première sélection.",
   "tutorialGameRemainingTitle": "Suis ta progression",
   "tutorialGameRemainingDesc": "Ceci indique combien de mots il reste à réviser dans cette session.",
   "tutorialGamePlayTitle": "Ton deck et ton mode",

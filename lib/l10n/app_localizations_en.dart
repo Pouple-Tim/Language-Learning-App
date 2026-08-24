@@ -496,6 +496,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Tap here to build a custom deck with your own words and sentences.';
 
   @override
+  String get tutorialDecksHierarchyTitle => 'Browse & download';
+
+  @override
+  String get tutorialDecksHierarchyDesc =>
+      'Decks are grouped by language and category — tap a category to expand it. Base decks download automatically the first time you select them.';
+
+  @override
   String get tutorialGameRemainingTitle => 'Track your progress';
 
   @override

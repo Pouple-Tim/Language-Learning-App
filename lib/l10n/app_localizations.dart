@@ -996,6 +996,18 @@ abstract class AppLocalizations {
   /// **'Tap here to build a custom deck with your own words and sentences.'**
   String get tutorialDecksCreateDesc;
 
+  /// No description provided for @tutorialDecksHierarchyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Browse & download'**
+  String get tutorialDecksHierarchyTitle;
+
+  /// No description provided for @tutorialDecksHierarchyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Decks are grouped by language and category — tap a category to expand it. Base decks download automatically the first time you select them.'**
+  String get tutorialDecksHierarchyDesc;
+
   /// No description provided for @tutorialGameRemainingTitle.
   ///
   /// In en, this message translates to:

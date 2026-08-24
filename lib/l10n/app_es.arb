@@ -170,6 +170,8 @@
   "tutorialDecksSelectDesc": "Toca cualquier mazo para seleccionarlo — se usará en todos los modos de juego.",
   "tutorialDecksCreateTitle": "Crea el tuyo",
   "tutorialDecksCreateDesc": "Toca aquí para crear un mazo personalizado con tus propias palabras y frases.",
+  "tutorialDecksHierarchyTitle": "Explora y descarga",
+  "tutorialDecksHierarchyDesc": "Los mazos están agrupados por idioma y categoría — toca una categoría para expandirla. Los mazos base se descargan automáticamente la primera vez que los seleccionas.",
   "tutorialGameRemainingTitle": "Sigue tu progreso",
   "tutorialGameRemainingDesc": "Esto muestra cuántas palabras quedan por repasar en esta sesión.",
   "tutorialGamePlayTitle": "Tu mazo y modo",

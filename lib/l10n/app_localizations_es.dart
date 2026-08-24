@@ -496,6 +496,13 @@ class AppLocalizationsEs extends AppLocalizations {
       'Toca aquí para crear un mazo personalizado con tus propias palabras y frases.';
 
   @override
+  String get tutorialDecksHierarchyTitle => 'Explora y descarga';
+
+  @override
+  String get tutorialDecksHierarchyDesc =>
+      'Los mazos están agrupados por idioma y categoría — toca una categoría para expandirla. Los mazos base se descargan automáticamente la primera vez que los seleccionas.';
+
+  @override
   String get tutorialGameRemainingTitle => 'Sigue tu progreso';
 
   @override
