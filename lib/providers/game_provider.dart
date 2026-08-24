@@ -29,10 +29,6 @@ class GameProvider extends ChangeNotifier {
   List<String> _quizOptions = [];
   List<String> get quizOptions => _quizOptions;
 
-  // Animation
-  bool _isSpinning = false;
-  double _wheelRotation = 0.0;
-
   GameProvider({this.statisticsProvider});
 
   // ===========================================================================
@@ -45,9 +41,6 @@ class GameProvider extends ChangeNotifier {
 
   List<String> get availableBlocks => _availableBlocks;
   List<String> get selectedBlocks => _selectedBlocks;
-
-  bool get isSpinning => _isSpinning;
-  double get wheelRotation => _wheelRotation;
 
   /// Enum-based mode identity -- the single source of truth for behavior.
   GameType? get currentGameType => _currentGameType;
@@ -176,7 +169,6 @@ class GameProvider extends ChangeNotifier {
     // Reset des pointeurs
     _currentWord = null;
     _currentSentence = null;
-    _wheelRotation = 0.0;
     notifyListeners();
   }
 
@@ -186,8 +178,6 @@ class GameProvider extends ChangeNotifier {
 
   Future<void> spinWheel() async {
     if (_currentProgressDeck == null) return;
-
-    if (_isSpinning && _currentGameType != GameType.sentence) return;
 
     if (_currentGameType == GameType.sentence) {
       _loadNextSentence();
@@ -201,9 +191,6 @@ class GameProvider extends ChangeNotifier {
       return;
     }
 
-    _isSpinning = true;
-    notifyListeners();
-
     final random = Random();
     _currentWord = activeWords[random.nextInt(activeWords.length)];
 
@@ -211,12 +198,6 @@ class GameProvider extends ChangeNotifier {
       _generateQuizOptions(activeWords);
     }
 
-    final rotations = 5 + random.nextDouble() * 3;
-    _wheelRotation = rotations * 2 * pi;
-
-    await Future.delayed(const Duration(milliseconds: 2000));
-
-    _isSpinning = false;
     notifyListeners();
   }
 
@@ -337,7 +318,6 @@ class GameProvider extends ChangeNotifier {
 
   void resetCurrentWord() {
     _currentWord = null;
-    _wheelRotation = 0.0;
     notifyListeners();
   }
 
@@ -378,7 +358,6 @@ class GameProvider extends ChangeNotifier {
 
     _currentWord = null;
     _currentSentence = null;
-    _wheelRotation = 0.0;
 
     await _saveProgress();
     debugPrint('🔄 Deck réinitialisé');

@@ -16,13 +16,14 @@ class ListenPromptCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final word = context.watch<GameProvider>().currentWord;
 
+    final borderRadius = BorderRadius.circular(20);
+
     return Container(
       width: double.infinity,
       constraints: const BoxConstraints(maxWidth: 500),
-      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
       decoration: BoxDecoration(
         gradient: AppColors.primaryGradient,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: borderRadius,
         boxShadow: [
           BoxShadow(
             color: AppColors.primary.withValues(alpha: 0.3),
@@ -31,22 +32,30 @@ class ListenPromptCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          IconButton(
-            iconSize: 56,
-            color: Colors.white,
-            icon: const Icon(Icons.volume_up_rounded),
-            tooltip: l10n.listenButtonTooltip,
-            onPressed: word == null ? null : () => TtsService.speak(word.answer),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: borderRadius,
+          onTap: word == null ? null : () => TtsService.speak(word.answer),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+            child: Semantics(
+              button: true,
+              label: l10n.listenButtonTooltip,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.volume_up_rounded, size: 56, color: Colors.white),
+                  const SizedBox(height: 4),
+                  Text(
+                    l10n.listenButtonLabel,
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+            ),
           ),
-          const SizedBox(height: 4),
-          Text(
-            l10n.listenButtonLabel,
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-          ),
-        ],
+        ),
       ),
     );
   }

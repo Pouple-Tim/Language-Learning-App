@@ -11,7 +11,6 @@ import 'package:language_learning_app/core/tutorial/tutorial_coach_mark_helper.d
 // Imports des widgets d'input
 import 'widgets/text_input_widget.dart';
 import 'widgets/drawing_widget.dart';
-import 'widgets/wheel_widget.dart';
 import 'widgets/quiz_widget.dart';
 import 'widgets/listen_prompt_card.dart';
 import 'widgets/sentence_builder_widget.dart';
@@ -164,13 +163,20 @@ class _GameScreenState extends State<GameScreen> {
                                 )
                               else if (gameProvider.currentWord == null && gameProvider.currentSentence == null)
                                 Expanded(
-                                  child: Center(
-                                    child: WheelWidget(
-                                      words: gameProvider.currentDeck!.activeWords,
-                                      isSpinning: gameProvider.isSpinning,
-                                      selectedWord: gameProvider.currentWord,
-                                      onSpin: () => gameProvider.spinWheel(),
-                                    ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      // No wheel to spin anymore -- pick the
+                                      // first word/sentence automatically as
+                                      // soon as we detect there isn't one yet.
+                                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                                        if (mounted &&
+                                            gameProvider.currentWord == null &&
+                                            gameProvider.currentSentence == null) {
+                                          gameProvider.spinWheel();
+                                        }
+                                      });
+                                      return const Center(child: CircularProgressIndicator());
+                                    },
                                   ),
                                 )
                               else ...[
