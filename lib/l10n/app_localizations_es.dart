@@ -456,4 +456,88 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get quizModeDesc => 'Elige la respuesta correcta entre 4 opciones.';
+
+  @override
+  String get tutorialSkipButton => 'Saltar';
+
+  @override
+  String get tutorialWelcomeDeckTitle => 'Tu mazo';
+
+  @override
+  String get tutorialWelcomeDeckDesc =>
+      'Aquí se muestra el mazo que estás repasando. Tócalo para explorar o gestionar tus mazos.';
+
+  @override
+  String get tutorialWelcomeGamesTitle => 'Modos de juego';
+
+  @override
+  String get tutorialWelcomeGamesDesc =>
+      'Elige cómo quieres practicar: clásico, inverso, quiz o construir la frase.';
+
+  @override
+  String get tutorialWelcomeSettingsTitle => 'Ajustes';
+
+  @override
+  String get tutorialWelcomeSettingsDesc =>
+      'Cambia el tema, el idioma de la app o reinicia tu progreso desde aquí.';
+
+  @override
+  String get tutorialDecksSelectTitle => 'Elige un mazo';
+
+  @override
+  String get tutorialDecksSelectDesc =>
+      'Los mazos están agrupados por idioma y categoría — toca una categoría para abrirla y luego un mazo para seleccionarlo (se usará en todas partes). Los mazos base se descargan automáticamente la primera vez que los eliges.';
+
+  @override
+  String get tutorialDecksCreateTitle => 'Crea el tuyo';
+
+  @override
+  String get tutorialDecksCreateDesc =>
+      'Toca aquí para crear un mazo personalizado con tus propias palabras y frases.';
+
+  @override
+  String get tutorialGameRemainingTitle => 'Sigue tu progreso';
+
+  @override
+  String get tutorialGameRemainingDesc =>
+      'Esto muestra cuántas palabras quedan por repasar en esta sesión.';
+
+  @override
+  String get tutorialGamePlayTitle => 'Tu mazo y modo';
+
+  @override
+  String get tutorialGamePlayDesc =>
+      'Esto muestra el mazo que estás repasando y el modo de juego actual.';
+
+  @override
+  String get settingsTutorialsSectionTitle => 'Tutoriales';
+
+  @override
+  String get replayWelcomeTutorialTitle => 'Repetir la visita guiada';
+
+  @override
+  String get replayWelcomeTutorialSubtitle =>
+      'Vuelve a mostrar la visita de inicio';
+
+  @override
+  String get replayDecksTutorialTitle => 'Repetir el tutorial de mazos';
+
+  @override
+  String get replayDecksTutorialSubtitle =>
+      'Vuelve a mostrar las pistas de la pantalla de mazos';
+
+  @override
+  String get replayGameTutorialTitle => 'Repetir el tutorial del juego';
+
+  @override
+  String get replayGameTutorialSubtitle =>
+      'Vuelve a mostrar las pistas de la pantalla de juego';
+
+  @override
+  String get tutorialReplaySnackbar =>
+      'La volverás a ver la próxima vez que abras esa pantalla';
+
+  @override
+  String get tutorialReplayWelcomeSnackbar =>
+      'La volverás a ver la próxima vez que abras la aplicación';
 }

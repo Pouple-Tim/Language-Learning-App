@@ -456,4 +456,85 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get quizModeDesc => 'Choose the correct answer from 4 options.';
+
+  @override
+  String get tutorialSkipButton => 'Skip';
+
+  @override
+  String get tutorialWelcomeDeckTitle => 'Your deck';
+
+  @override
+  String get tutorialWelcomeDeckDesc =>
+      'This shows the deck you\'re currently reviewing. Tap it to browse or manage your decks.';
+
+  @override
+  String get tutorialWelcomeGamesTitle => 'Game modes';
+
+  @override
+  String get tutorialWelcomeGamesDesc =>
+      'Pick how you want to practice: classic, reverse, quiz, or build the sentence.';
+
+  @override
+  String get tutorialWelcomeSettingsTitle => 'Settings';
+
+  @override
+  String get tutorialWelcomeSettingsDesc =>
+      'Change the theme, app language, or reset your progress from here.';
+
+  @override
+  String get tutorialDecksSelectTitle => 'Choose a deck';
+
+  @override
+  String get tutorialDecksSelectDesc =>
+      'Decks are grouped by language and category — tap a category to open it, then tap any deck to select it (it becomes the deck used everywhere). Base decks download automatically the first time you pick them.';
+
+  @override
+  String get tutorialDecksCreateTitle => 'Create your own';
+
+  @override
+  String get tutorialDecksCreateDesc =>
+      'Tap here to build a custom deck with your own words and sentences.';
+
+  @override
+  String get tutorialGameRemainingTitle => 'Track your progress';
+
+  @override
+  String get tutorialGameRemainingDesc =>
+      'This shows how many words are left to review in this session.';
+
+  @override
+  String get tutorialGamePlayTitle => 'Your deck & mode';
+
+  @override
+  String get tutorialGamePlayDesc =>
+      'This shows the deck you\'re reviewing and which game mode you\'re in.';
+
+  @override
+  String get settingsTutorialsSectionTitle => 'Tutorials';
+
+  @override
+  String get replayWelcomeTutorialTitle => 'Replay welcome tour';
+
+  @override
+  String get replayWelcomeTutorialSubtitle => 'Show the home screen tour again';
+
+  @override
+  String get replayDecksTutorialTitle => 'Replay decks tutorial';
+
+  @override
+  String get replayDecksTutorialSubtitle => 'Show the deck screen hints again';
+
+  @override
+  String get replayGameTutorialTitle => 'Replay game tutorial';
+
+  @override
+  String get replayGameTutorialSubtitle => 'Show the game screen hints again';
+
+  @override
+  String get tutorialReplaySnackbar =>
+      'You\'ll see it again next time you open that screen';
+
+  @override
+  String get tutorialReplayWelcomeSnackbar =>
+      'You\'ll see it again next time you open the app';
 }

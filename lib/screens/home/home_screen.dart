@@ -10,6 +10,8 @@ import 'package:language_learning_app/core/extensions/strings_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
+import 'package:language_learning_app/core/tutorial/tutorial_coach_mark_helper.dart';
 
 List<GameMode> _buildGameModes(AppLocalizations l10n) {
   return [
@@ -44,8 +46,54 @@ List<GameMode> _buildGameModes(AppLocalizations l10n) {
   ];
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey _deckBannerKey = GlobalKey();
+  final GlobalKey _gameModesKey = GlobalKey();
+  final GlobalKey _settingsKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowWelcomeTour());
+  }
+
+  void _maybeShowWelcomeTour() {
+    if (!mounted || TutorialService.hasSeenWelcome()) return;
+
+    final l10n = AppLocalizations.of(context)!;
+    TutorialService.markWelcomeSeen();
+    showTutorial(
+      context: context,
+      skipLabel: l10n.tutorialSkipButton,
+      targets: [
+        buildTutorialTarget(
+          identify: 'welcome_deck',
+          keyTarget: _deckBannerKey,
+          title: l10n.tutorialWelcomeDeckTitle,
+          description: l10n.tutorialWelcomeDeckDesc,
+        ),
+        buildTutorialTarget(
+          identify: 'welcome_games',
+          keyTarget: _gameModesKey,
+          title: l10n.tutorialWelcomeGamesTitle,
+          description: l10n.tutorialWelcomeGamesDesc,
+        ),
+        buildTutorialTarget(
+          identify: 'welcome_settings',
+          keyTarget: _settingsKey,
+          title: l10n.tutorialWelcomeSettingsTitle,
+          description: l10n.tutorialWelcomeSettingsDesc,
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,13 +137,17 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: IconButton(
+              key: _settingsKey,
               iconSize: 32,
               icon: Icon(Icons.settings_outlined, 
                   color: theme.iconTheme.color),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              ),
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                );
+                _maybeShowWelcomeTour();
+              },
             ),
           ),
         ],
@@ -108,43 +160,51 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildDeckManagementBanner(context, l10n),
-                
+                Container(
+                  key: _deckBannerKey,
+                  child: _buildDeckManagementBanner(context, l10n),
+                ),
+
                 const SizedBox(height: 32),
-                
-                Row(
+
+                Column(
+                  key: _gameModesKey,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.videogame_asset_outlined, 
-                        color: theme.iconTheme.color?.withValues(alpha: 0.7), 
-                        size: 28),
-                    const SizedBox(width: 10),
-                    Text(
-                      l10n.gameModesTitle,
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                    Row(
+                      children: [
+                        Icon(Icons.videogame_asset_outlined,
+                            color: theme.iconTheme.color?.withValues(alpha: 0.7),
+                            size: 28),
+                        const SizedBox(width: 10),
+                        Text(
+                          l10n.gameModesTitle,
+                          style: theme.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+
+                    GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: gameModes.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: spacing,
+                        mainAxisSpacing: spacing,
+                        childAspectRatio: childAspectRatio,
                       ),
+                      itemBuilder: (context, index) {
+                        return _buildGameModeCard(context, gameModes[index]);
+                      },
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
-                
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: gameModes.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, 
-                    crossAxisSpacing: spacing,
-                    mainAxisSpacing: spacing,
-                    // Utilisation du ratio calculé dynamiquement
-                    childAspectRatio: childAspectRatio,
-                  ),
-                  itemBuilder: (context, index) {
-                    return _buildGameModeCard(context, gameModes[index]);
-                  },
-                ),
-                
+
                 const SizedBox(height: 40),
               ],
             ),
