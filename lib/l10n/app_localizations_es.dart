@@ -486,7 +486,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tutorialDecksSelectDesc =>
-      'Toca cualquier mazo para seleccionarlo — se usará en todos los modos de juego.';
+      'Los mazos están agrupados por idioma y categoría — toca una categoría para abrirla y luego un mazo para seleccionarlo (se usará en todas partes). Los mazos base se descargan automáticamente la primera vez que los eliges.';
 
   @override
   String get tutorialDecksCreateTitle => 'Crea el tuyo';
@@ -494,13 +494,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get tutorialDecksCreateDesc =>
       'Toca aquí para crear un mazo personalizado con tus propias palabras y frases.';
-
-  @override
-  String get tutorialDecksHierarchyTitle => 'Explora y descarga';
-
-  @override
-  String get tutorialDecksHierarchyDesc =>
-      'Los mazos están agrupados por idioma y categoría — toca una categoría para expandirla. Los mazos base se descargan automáticamente la primera vez que los seleccionas.';
 
   @override
   String get tutorialGameRemainingTitle => 'Sigue tu progreso';

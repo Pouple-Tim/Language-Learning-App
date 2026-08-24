@@ -486,7 +486,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tutorialDecksSelectDesc =>
-      'Appuie sur un deck pour le sélectionner — il sera utilisé dans tous les modes de jeu.';
+      'Les decks sont regroupés par langue et catégorie — appuie sur une catégorie pour l\'ouvrir, puis sur un deck pour le sélectionner (il sera utilisé partout). Les decks de base se téléchargent automatiquement dès leur première sélection.';
 
   @override
   String get tutorialDecksCreateTitle => 'Crée le tien';
@@ -494,13 +494,6 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get tutorialDecksCreateDesc =>
       'Appuie ici pour créer un deck personnalisé avec tes propres mots et phrases.';
-
-  @override
-  String get tutorialDecksHierarchyTitle => 'Parcours et téléchargement';
-
-  @override
-  String get tutorialDecksHierarchyDesc =>
-      'Les decks sont regroupés par langue et catégorie — appuie sur une catégorie pour l\'ouvrir. Les decks de base se téléchargent automatiquement dès leur première sélection.';
 
   @override
   String get tutorialGameRemainingTitle => 'Suis ta progression';

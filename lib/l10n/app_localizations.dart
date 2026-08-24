@@ -981,7 +981,7 @@ abstract class AppLocalizations {
   /// No description provided for @tutorialDecksSelectDesc.
   ///
   /// In en, this message translates to:
-  /// **'Tap any deck to select it — it becomes the deck used in every game mode.'**
+  /// **'Decks are grouped by language and category — tap a category to open it, then tap any deck to select it (it becomes the deck used everywhere). Base decks download automatically the first time you pick them.'**
   String get tutorialDecksSelectDesc;
 
   /// No description provided for @tutorialDecksCreateTitle.
@@ -995,18 +995,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap here to build a custom deck with your own words and sentences.'**
   String get tutorialDecksCreateDesc;
-
-  /// No description provided for @tutorialDecksHierarchyTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Browse & download'**
-  String get tutorialDecksHierarchyTitle;
-
-  /// No description provided for @tutorialDecksHierarchyDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Decks are grouped by language and category — tap a category to expand it. Base decks download automatically the first time you select them.'**
-  String get tutorialDecksHierarchyDesc;
 
   /// No description provided for @tutorialGameRemainingTitle.
   ///
