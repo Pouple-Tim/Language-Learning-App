@@ -200,6 +200,17 @@ void main() {
     });
   });
 
+  group('GameProvider - listening mode', () {
+    test('spinWheel in listening mode populates 4 quiz options including the correct answer', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_buildDeck(wordCount: 5), gameMode: GameType.listening);
+      await provider.spinWheel();
+
+      expect(provider.quizOptions.length, 4);
+      expect(provider.quizOptions.contains(provider.currentWord!.answer), isTrue);
+    });
+  });
+
   group('GameProvider.resetDeck', () {
     test('resets all removed words and completed sentences', () async {
       final provider = GameProvider();

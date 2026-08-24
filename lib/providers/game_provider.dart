@@ -207,7 +207,7 @@ class GameProvider extends ChangeNotifier {
     final random = Random();
     _currentWord = activeWords[random.nextInt(activeWords.length)];
 
-    if (_currentGameType == GameType.quiz) {
+    if (_currentGameType == GameType.quiz || _currentGameType == GameType.listening) {
       _generateQuizOptions(activeWords);
     }
 
