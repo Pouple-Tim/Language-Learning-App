@@ -34,7 +34,26 @@ class _DecksScreenState extends State<DecksScreen> {
   @override
   void initState() {
     super.initState();
+    // Auto-expand the first category so the hierarchy tour step has a
+    // concrete, already-open example to point at instead of an all-collapsed
+    // list. Must happen before the first build (not via setState afterwards,
+    // since ExpansionTile only reads `initiallyExpanded` once) and only when
+    // the tour is about to show, so regular visits keep everything collapsed.
+    if (!TutorialService.hasSeenDecks()) {
+      final deckProvider = context.read<DeckProvider>();
+      if (!deckProvider.isLoading) {
+        _autoExpandFirstCategoryForTour(deckProvider);
+      }
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowDecksTour());
+  }
+
+  void _autoExpandFirstCategoryForTour(DeckProvider deckProvider) {
+    final hierarchy = DeckHierarchyUtils.buildHierarchyMap(deckProvider);
+    final topKeys = hierarchy.keys.where((key) => key != '_decks').toList()..sort();
+    if (topKeys.isNotEmpty) {
+      _expandedNodes.add(topKeys.first);
+    }
   }
 
   @override
