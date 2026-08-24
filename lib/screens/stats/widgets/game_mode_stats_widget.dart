@@ -127,6 +127,7 @@ class GameModeStatsWidget extends StatelessWidget {
       case GameType.quiz:
         return Colors.orange;
       case GameType.sentence:
+      case GameType.listening:
       case GameType.memory:
         return Colors.teal;
     }
@@ -141,6 +142,7 @@ class GameModeStatsWidget extends StatelessWidget {
       case GameType.quiz:
         return Icons.timer;
       case GameType.sentence:
+      case GameType.listening:
       case GameType.memory:
         return Icons.gamepad;
     }
