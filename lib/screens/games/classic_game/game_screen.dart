@@ -14,6 +14,7 @@ import 'widgets/drawing_widget.dart';
 import 'widgets/quiz_widget.dart';
 import 'widgets/listen_prompt_card.dart';
 import 'widgets/pronunciation_prompt_card.dart';
+import 'widgets/pronunciation_widget.dart';
 import 'widgets/sentence_builder_widget.dart';
 import 'widgets/game_header.dart';
 import 'widgets/game_progress_bar.dart';
@@ -207,6 +208,8 @@ class _GameScreenState extends State<GameScreen> {
       case GameType.quiz:
       case GameType.listening:
         return const QuizWidget();
+      case GameType.pronunciation:
+        return const PronunciationWidget();
       case GameType.sentence:
         return const SentenceBuilderWidget();
       case GameType.classic:
