@@ -48,6 +48,9 @@ dependencies:
   # Audio (jeu d'écoute)
   flutter_tts: ^4.2.5
 
+  # Audio (jeu de prononciation)
+  speech_to_text: ^7.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
