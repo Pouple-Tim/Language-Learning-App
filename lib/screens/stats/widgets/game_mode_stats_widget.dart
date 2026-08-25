@@ -126,6 +126,8 @@ class GameModeStatsWidget extends StatelessWidget {
         return AppColors.secondary;
       case GameType.quiz:
         return Colors.orange;
+      case GameType.pronunciation:
+        return Colors.pink;
       case GameType.sentence:
       case GameType.listening:
       case GameType.memory:
@@ -141,6 +143,8 @@ class GameModeStatsWidget extends StatelessWidget {
         return Icons.swap_horiz;
       case GameType.quiz:
         return Icons.timer;
+      case GameType.pronunciation:
+        return Icons.mic_rounded;
       case GameType.sentence:
       case GameType.listening:
       case GameType.memory:

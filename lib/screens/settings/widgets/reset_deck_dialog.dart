@@ -16,9 +16,14 @@ class ResetDeckDialog {
     if (deck == null) return;
 
     // Le mode Phrase n'a rien à réinitialiser si ce deck ne contient aucune phrase.
-    final resettableModes = [GameType.classic, GameType.reverse, GameType.quiz, GameType.sentence, GameType.listening]
-        .where((type) => type != GameType.sentence || deck.sentences.isNotEmpty)
-        .toList();
+    final resettableModes = [
+      GameType.classic,
+      GameType.reverse,
+      GameType.quiz,
+      GameType.sentence,
+      GameType.listening,
+      GameType.pronunciation,
+    ].where((type) => type != GameType.sentence || deck.sentences.isNotEmpty).toList();
     var selectedMode = gameProvider.currentGameType ?? GameType.classic;
     if (!resettableModes.contains(selectedMode)) {
       selectedMode = resettableModes.first;
