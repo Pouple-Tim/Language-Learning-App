@@ -44,6 +44,13 @@ List<GameMode> _buildGameModes(AppLocalizations l10n) {
       color: Colors.teal,
     ),
     GameMode(
+      type: GameType.pronunciation,
+      title: l10n.pronunciationModeTitle,
+      description: l10n.pronunciationModeDesc,
+      icon: Icons.mic_rounded,
+      color: Colors.pink,
+    ),
+    GameMode(
       type: GameType.sentence,
       title: "Phrase",
       description: "Reconstitue la phrase correcte.",

@@ -470,6 +470,22 @@ class AppLocalizationsFr extends AppLocalizations {
   String get listenButtonTooltip => 'Jouer la prononciation';
 
   @override
+  String get pronunciationModeTitle => 'Prononciation';
+
+  @override
+  String get pronunciationModeDesc => 'Prononce le mot à voix haute.';
+
+  @override
+  String get pronunciationHoldToSpeak => 'Maintenir pour parler';
+
+  @override
+  String get pronunciationListening => 'Écoute en cours...';
+
+  @override
+  String get pronunciationMicUnavailable =>
+      'Microphone indisponible. Vérifie les autorisations de l\'application.';
+
+  @override
   String get tutorialSkipButton => 'Passer';
 
   @override

@@ -470,6 +470,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get listenButtonTooltip => 'Play pronunciation';
 
   @override
+  String get pronunciationModeTitle => 'Pronunciation';
+
+  @override
+  String get pronunciationModeDesc => 'Say the word out loud.';
+
+  @override
+  String get pronunciationHoldToSpeak => 'Hold to speak';
+
+  @override
+  String get pronunciationListening => 'Listening...';
+
+  @override
+  String get pronunciationMicUnavailable =>
+      'Microphone unavailable. Check app permissions.';
+
+  @override
   String get tutorialSkipButton => 'Skip';
 
   @override

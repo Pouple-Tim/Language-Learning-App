@@ -954,6 +954,36 @@ abstract class AppLocalizations {
   /// **'Play pronunciation'**
   String get listenButtonTooltip;
 
+  /// No description provided for @pronunciationModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pronunciation'**
+  String get pronunciationModeTitle;
+
+  /// No description provided for @pronunciationModeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Say the word out loud.'**
+  String get pronunciationModeDesc;
+
+  /// No description provided for @pronunciationHoldToSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to speak'**
+  String get pronunciationHoldToSpeak;
+
+  /// No description provided for @pronunciationListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening...'**
+  String get pronunciationListening;
+
+  /// No description provided for @pronunciationMicUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone unavailable. Check app permissions.'**
+  String get pronunciationMicUnavailable;
+
   /// No description provided for @tutorialSkipButton.
   ///
   /// In en, this message translates to:
