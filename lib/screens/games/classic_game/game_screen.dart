@@ -13,6 +13,7 @@ import 'widgets/text_input_widget.dart';
 import 'widgets/drawing_widget.dart';
 import 'widgets/quiz_widget.dart';
 import 'widgets/listen_prompt_card.dart';
+import 'widgets/pronunciation_prompt_card.dart';
 import 'widgets/sentence_builder_widget.dart';
 import 'widgets/game_header.dart';
 import 'widgets/game_progress_bar.dart';
@@ -221,11 +222,14 @@ class _GameScreenState extends State<GameScreen> {
   Widget _buildWordDisplay(BuildContext context, GameProvider gameProvider) {
     final l10n = AppLocalizations.of(context)!;
     final isListening = gameProvider.currentGameType == GameType.listening;
+    final isPronunciation = gameProvider.currentGameType == GameType.pronunciation;
 
     return Column(
       children: [
         if (isListening)
           const ListenPromptCard()
+        else if (isPronunciation)
+          const PronunciationPromptCard()
         else
           Container(
             width: double.infinity,
@@ -261,7 +265,8 @@ class _GameScreenState extends State<GameScreen> {
           ),
         if (gameProvider.currentGameType != GameType.quiz &&
             gameProvider.currentGameType != GameType.sentence &&
-            gameProvider.currentGameType != GameType.listening)
+            gameProvider.currentGameType != GameType.listening &&
+            gameProvider.currentGameType != GameType.pronunciation)
           TextButton.icon(
             onPressed: gameProvider.resetCurrentWord,
             icon: const Icon(Icons.refresh, size: 18),
