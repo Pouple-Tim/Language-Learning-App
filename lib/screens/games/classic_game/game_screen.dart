@@ -268,8 +268,7 @@ class _GameScreenState extends State<GameScreen> {
           ),
         if (gameProvider.currentGameType != GameType.quiz &&
             gameProvider.currentGameType != GameType.sentence &&
-            gameProvider.currentGameType != GameType.listening &&
-            gameProvider.currentGameType != GameType.pronunciation)
+            gameProvider.currentGameType != GameType.listening)
           TextButton.icon(
             onPressed: gameProvider.resetCurrentWord,
             icon: const Icon(Icons.refresh, size: 18),

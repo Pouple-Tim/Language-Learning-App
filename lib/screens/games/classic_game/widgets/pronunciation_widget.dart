@@ -22,6 +22,7 @@ class _PronunciationWidgetState extends State<PronunciationWidget> {
   bool _lastCorrect = false;
 
   Future<void> _handleFinalResult(String recognizedWords, GameProvider provider) async {
+    if (!mounted) return;
     final isCorrect = await provider.checkAnswer(recognizedWords);
     if (!mounted) return;
 
@@ -47,7 +48,10 @@ class _PronunciationWidgetState extends State<PronunciationWidget> {
 
   Future<void> _startRecording(GameProvider provider) async {
     setState(() => _isListening = true);
-    final started = await SpeechService.startListening((text) => _handleFinalResult(text, provider));
+    final started = await SpeechService.startListening(
+      (text) => _handleFinalResult(text, provider),
+      onDone: _handleDone,
+    );
     if (!started && mounted) {
       final l10n = AppLocalizations.of(context)!;
       setState(() => _isListening = false);
@@ -59,6 +63,23 @@ class _PronunciationWidgetState extends State<PronunciationWidget> {
 
   void _stopRecording() {
     SpeechService.stopListening();
+  }
+
+  /// Called when the recognition session ends for any reason. If no final
+  /// result ever arrived (silence, no speech model, etc), [_isChecked] is
+  /// still false here -- reset [_isListening] so the UI doesn't get stuck
+  /// saying "Listening...". Harmless no-op if a final result already handled
+  /// things (that path sets [_isChecked] to true first).
+  void _handleDone() {
+    if (mounted && _isListening && !_isChecked) {
+      setState(() => _isListening = false);
+    }
+  }
+
+  @override
+  void dispose() {
+    SpeechService.stopListening();
+    super.dispose();
   }
 
   @override
@@ -77,7 +98,7 @@ class _PronunciationWidgetState extends State<PronunciationWidget> {
       mainAxisSize: MainAxisSize.min,
       children: [
         GestureDetector(
-          onLongPressStart: _isChecked ? null : (_) => _startRecording(provider),
+          onLongPressStart: (_isChecked || _isListening) ? null : (_) => _startRecording(provider),
           onLongPressEnd: _isChecked ? null : (_) => _stopRecording(),
           child: CircleAvatar(
             radius: 40,
