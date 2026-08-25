@@ -21,14 +21,25 @@ class _PronunciationWidgetState extends State<PronunciationWidget> {
   bool _isChecked = false;
   bool _lastCorrect = false;
 
+  // True from the moment a final result starts being checked until the UI
+  // has settled into a definite correct/incorrect state. Guards _handleDone
+  // against the window where checkAnswer() is still awaiting -- the
+  // speech_to_text package fires the `done` status synchronously right after
+  // delivering a final result, on every recognition (not just the no-result
+  // case), so without this flag _handleDone would wrongly clear _isListening
+  // while a check is still in flight and re-enable the mic button early.
+  bool _isProcessingResult = false;
+
   Future<void> _handleFinalResult(String recognizedWords, GameProvider provider) async {
     if (!mounted) return;
+    _isProcessingResult = true;
     final isCorrect = await provider.checkAnswer(recognizedWords);
     if (!mounted) return;
 
     setState(() {
       _isListening = false;
       _isChecked = true;
+      _isProcessingResult = false;
       _lastCorrect = isCorrect;
     });
 
@@ -66,12 +77,16 @@ class _PronunciationWidgetState extends State<PronunciationWidget> {
   }
 
   /// Called when the recognition session ends for any reason. If no final
-  /// result ever arrived (silence, no speech model, etc), [_isChecked] is
-  /// still false here -- reset [_isListening] so the UI doesn't get stuck
-  /// saying "Listening...". Harmless no-op if a final result already handled
-  /// things (that path sets [_isChecked] to true first).
+  /// result ever arrived (silence, no speech model, etc), [_isChecked] and
+  /// [_isProcessingResult] are both still false here -- reset [_isListening]
+  /// so the UI doesn't get stuck saying "Listening...". Harmless no-op if a
+  /// final result already handled things (that path sets [_isChecked] to
+  /// true), or if one is currently being checked (that path sets
+  /// [_isProcessingResult] to true for the duration of the await) -- in the
+  /// latter case [_isListening] must stay true so the mic button stays
+  /// disabled until the check resolves.
   void _handleDone() {
-    if (mounted && _isListening && !_isChecked) {
+    if (mounted && _isListening && !_isChecked && !_isProcessingResult) {
       setState(() => _isListening = false);
     }
   }
