@@ -11,8 +11,8 @@ import 'package:language_learning_app/core/tutorial/tutorial_coach_mark_helper.d
 // Imports des widgets d'input
 import 'widgets/text_input_widget.dart';
 import 'widgets/drawing_widget.dart';
-import 'widgets/wheel_widget.dart';
 import 'widgets/quiz_widget.dart';
+import 'widgets/listen_prompt_card.dart';
 import 'widgets/sentence_builder_widget.dart';
 import 'widgets/game_header.dart';
 import 'widgets/game_progress_bar.dart';
@@ -163,13 +163,20 @@ class _GameScreenState extends State<GameScreen> {
                                 )
                               else if (gameProvider.currentWord == null && gameProvider.currentSentence == null)
                                 Expanded(
-                                  child: Center(
-                                    child: WheelWidget(
-                                      words: gameProvider.currentDeck!.activeWords,
-                                      isSpinning: gameProvider.isSpinning,
-                                      selectedWord: gameProvider.currentWord,
-                                      onSpin: () => gameProvider.spinWheel(),
-                                    ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      // No wheel to spin anymore -- pick the
+                                      // first word/sentence automatically as
+                                      // soon as we detect there isn't one yet.
+                                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                                        if (mounted &&
+                                            gameProvider.currentWord == null &&
+                                            gameProvider.currentSentence == null) {
+                                          gameProvider.spinWheel();
+                                        }
+                                      });
+                                      return const Center(child: CircularProgressIndicator());
+                                    },
                                   ),
                                 )
                               else ...[
@@ -197,6 +204,7 @@ class _GameScreenState extends State<GameScreen> {
   Widget _buildGameInputArea(BuildContext context, GameProvider gameProvider) {
     switch (gameProvider.currentGameType) {
       case GameType.quiz:
+      case GameType.listening:
         return const QuizWidget();
       case GameType.sentence:
         return const SentenceBuilderWidget();
@@ -212,41 +220,48 @@ class _GameScreenState extends State<GameScreen> {
 
   Widget _buildWordDisplay(BuildContext context, GameProvider gameProvider) {
     final l10n = AppLocalizations.of(context)!;
+    final isListening = gameProvider.currentGameType == GameType.listening;
+
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          constraints: const BoxConstraints(maxWidth: 500),
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
-          decoration: BoxDecoration(
-            gradient: AppColors.primaryGradient,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primary.withValues(alpha: 0.3),
-                blurRadius: 15,
-                offset: const Offset(0, 8),
-              ),
-            ],
-          ),
-          child: Column(
-            children: [
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  gameProvider.currentQuestionText,
-                  style: const TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
+        if (isListening)
+          const ListenPromptCard()
+        else
+          Container(
+            width: double.infinity,
+            constraints: const BoxConstraints(maxWidth: 500),
+            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+            decoration: BoxDecoration(
+              gradient: AppColors.primaryGradient,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withValues(alpha: 0.3),
+                  blurRadius: 15,
+                  offset: const Offset(0, 8),
                 ),
-              ),
-            ],
+              ],
+            ),
+            child: Column(
+              children: [
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    gameProvider.currentQuestionText,
+                    style: const TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        if (gameProvider.currentGameType != GameType.quiz && gameProvider.currentGameType != GameType.sentence)
+        if (gameProvider.currentGameType != GameType.quiz &&
+            gameProvider.currentGameType != GameType.sentence &&
+            gameProvider.currentGameType != GameType.listening)
           TextButton.icon(
             onPressed: gameProvider.resetCurrentWord,
             icon: const Icon(Icons.refresh, size: 18),

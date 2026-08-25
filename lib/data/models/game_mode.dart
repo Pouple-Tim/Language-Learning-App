@@ -5,6 +5,7 @@ enum GameType {
   reverse,
   quiz,
   sentence,
+  listening,
   memory, // Futur
 }
 
@@ -38,6 +39,8 @@ extension GameTypeIdentity on GameType {
         return 'QUIZ MODE';
       case GameType.sentence:
         return 'PHRASE';
+      case GameType.listening:
+        return 'ÉCOUTE';
       case GameType.memory:
         return 'MEMORY';
     }
@@ -54,6 +57,8 @@ extension GameTypeIdentity on GameType {
         return 'Quiz';
       case GameType.sentence:
         return 'Phrase';
+      case GameType.listening:
+        return 'Écoute';
       case GameType.memory:
         return 'Mémoire';
     }

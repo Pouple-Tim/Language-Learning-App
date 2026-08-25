@@ -159,6 +159,10 @@
 
   "quizModeTitle": "Quiz Rapide",
   "quizModeDesc": "Choisis la bonne réponse parmi 4 propositions.",
+  "listeningModeTitle": "Écoute",
+  "listeningModeDesc": "Écoute et choisis le bon caractère.",
+  "listenButtonLabel": "Écouter",
+  "listenButtonTooltip": "Jouer la prononciation",
   "tutorialSkipButton": "Passer",
   "tutorialWelcomeDeckTitle": "Ton deck",
   "tutorialWelcomeDeckDesc": "Ceci affiche le deck que tu es en train de réviser. Appuie dessus pour parcourir ou gérer tes decks.",
