@@ -52,12 +52,27 @@ TargetFocus buildTutorialTarget({
 }
 
 /// Shows a tour made of [targets], one spotlighted step at a time.
-void showTutorial({
+///
+/// A completed frame (see [buildTutorialTarget]'s doc) isn't quite enough on
+/// its own: on a real device, system UI insets (status bar height, notably
+/// while a transient status icon like the screen-recording indicator is
+/// animating in/out) can still settle a frame or two *after* our own
+/// addPostFrameCallback fires but *before* the package's first measurement --
+/// confirmed by locking/unlocking the screen (forces Android to resend
+/// metrics, which the package listens for via didChangeMetrics and uses to
+/// correct the target rect) fixing an otherwise-misplaced first target. A
+/// short delay here gives that settling time to finish before we ever
+/// measure, which is simpler than trying to hook the same metrics-change
+/// signal ourselves.
+Future<void> showTutorial({
   required BuildContext context,
   required List<TargetFocus> targets,
   required String skipLabel,
   VoidCallback? onFinish,
-}) {
+}) async {
+  await Future.delayed(const Duration(milliseconds: 300));
+  if (!context.mounted) return;
+
   TutorialCoachMark(
     targets: targets,
     colorShadow: AppColors.primary,
