@@ -2,6 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 
+/// Measures [key]'s current on-screen rect directly, instead of letting
+/// tutorial_coach_mark measure it via [TargetFocus.keyTarget]. The package
+/// (1.3.3) schedules that measurement with `Future.delayed(Duration.zero)`
+/// (see AnimatedFocusLight._runFocus) -- a timer, not a frame callback, so
+/// it can read a stale/mid-layout RenderBox when the tour is triggered from
+/// an async listener (as the Decks/Game tours are, once their provider
+/// finishes loading) rather than a screen's own first frame. Callers must
+/// only call this once a real frame has completed (e.g. from
+/// WidgetsBinding.instance.addPostFrameCallback), or it'll just move the
+/// same race earlier.
+TargetPosition _measureTarget(GlobalKey key) {
+  final renderBox = key.currentContext!.findRenderObject() as RenderBox;
+  return TargetPosition(renderBox.size, renderBox.localToGlobal(Offset.zero));
+}
+
 /// Builds one spotlighted step for a tutorial, styled consistently across all tours.
 TargetFocus buildTutorialTarget({
   required String identify,
@@ -12,7 +27,7 @@ TargetFocus buildTutorialTarget({
 }) {
   return TargetFocus(
     identify: identify,
-    keyTarget: keyTarget,
+    targetPosition: _measureTarget(keyTarget),
     shape: ShapeLightFocus.RRect,
     radius: 12,
     contents: [

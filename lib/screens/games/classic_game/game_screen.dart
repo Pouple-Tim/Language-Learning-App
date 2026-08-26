@@ -65,26 +65,32 @@ class _GameScreenState extends State<GameScreen> {
       return;
     }
 
-    final l10n = AppLocalizations.of(context)!;
-    TutorialService.markGameSeen();
-    showTutorial(
-      context: context,
-      skipLabel: l10n.tutorialSkipButton,
-      targets: [
-        buildTutorialTarget(
-          identify: 'game_remaining',
-          keyTarget: _remainingWordsKey,
-          title: l10n.tutorialGameRemainingTitle,
-          description: l10n.tutorialGameRemainingDesc,
-        ),
-        buildTutorialTarget(
-          identify: 'game_play',
-          keyTarget: _gameHeaderKey,
-          title: l10n.tutorialGamePlayTitle,
-          description: l10n.tutorialGamePlayDesc,
-        ),
-      ],
-    );
+    // Wait for a real completed frame before measuring target rects -- this
+    // may run from a provider listener fired mid-rebuild (see
+    // _measureTarget's doc comment).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final l10n = AppLocalizations.of(context)!;
+      TutorialService.markGameSeen();
+      showTutorial(
+        context: context,
+        skipLabel: l10n.tutorialSkipButton,
+        targets: [
+          buildTutorialTarget(
+            identify: 'game_remaining',
+            keyTarget: _remainingWordsKey,
+            title: l10n.tutorialGameRemainingTitle,
+            description: l10n.tutorialGameRemainingDesc,
+          ),
+          buildTutorialTarget(
+            identify: 'game_play',
+            keyTarget: _gameHeaderKey,
+            title: l10n.tutorialGamePlayTitle,
+            description: l10n.tutorialGamePlayDesc,
+          ),
+        ],
+      );
+    });
   }
 
   @override
