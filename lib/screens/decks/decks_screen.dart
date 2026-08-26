@@ -81,27 +81,33 @@ class _DecksScreenState extends State<DecksScreen> {
       return;
     }
 
-    final l10n = AppLocalizations.of(context)!;
-    TutorialService.markDecksSeen();
-    showTutorial(
-      context: context,
-      skipLabel: l10n.tutorialSkipButton,
-      targets: [
-        buildTutorialTarget(
-          identify: 'decks_select',
-          keyTarget: _decksListKey,
-          title: l10n.tutorialDecksSelectTitle,
-          description: l10n.tutorialDecksSelectDesc,
-        ),
-        buildTutorialTarget(
-          identify: 'decks_create',
-          keyTarget: _createDeckKey,
-          title: l10n.tutorialDecksCreateTitle,
-          description: l10n.tutorialDecksCreateDesc,
-          align: ContentAlign.top,
-        ),
-      ],
-    );
+    // Wait for a real completed frame before measuring target rects -- this
+    // may run from a provider listener fired mid-rebuild (see
+    // _measureTarget's doc comment in tutorial_coach_mark_helper.dart).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final l10n = AppLocalizations.of(context)!;
+      TutorialService.markDecksSeen();
+      showTutorial(
+        context: context,
+        skipLabel: l10n.tutorialSkipButton,
+        targets: [
+          buildTutorialTarget(
+            identify: 'decks_select',
+            keyTarget: _decksListKey,
+            title: l10n.tutorialDecksSelectTitle,
+            description: l10n.tutorialDecksSelectDesc,
+          ),
+          buildTutorialTarget(
+            identify: 'decks_create',
+            keyTarget: _createDeckKey,
+            title: l10n.tutorialDecksCreateTitle,
+            description: l10n.tutorialDecksCreateDesc,
+            align: ContentAlign.top,
+          ),
+        ],
+      );
+    });
   }
 
   @override

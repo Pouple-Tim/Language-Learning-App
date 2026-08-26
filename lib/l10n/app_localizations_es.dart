@@ -458,6 +458,61 @@ class AppLocalizationsEs extends AppLocalizations {
   String get quizModeDesc => 'Elige la respuesta correcta entre 4 opciones.';
 
   @override
+  String get listeningModeTitle => 'Escucha';
+
+  @override
+  String get listeningModeDesc => 'Escucha y elige el carácter correcto.';
+
+  @override
+  String get listenButtonLabel => 'Escuchar';
+
+  @override
+  String get listenButtonTooltip => 'Reproducir pronunciación';
+
+  @override
+  String get sentenceModeTitle => 'Frase';
+
+  @override
+  String get classicModeGoal =>
+      'Memorizar cómo se escriben las palabras en el idioma que estás aprendiendo.';
+
+  @override
+  String get classicModeHowTo =>
+      'Se muestra la palabra a aprender. Escríbela, o dibújala si el idioma usa caracteres (como el chino), y valida para comprobar tu respuesta.';
+
+  @override
+  String get reverseModeGoal =>
+      'El mismo entrenamiento que el modo clásico, pero en sentido contrario.';
+
+  @override
+  String get reverseModeHowTo =>
+      'Lo que normalmente es la respuesta en el modo clásico se muestra como pregunta. Escribe o dibuja lo que normalmente era la pregunta, y valida para comprobar tu respuesta.';
+
+  @override
+  String get quizModeGoal =>
+      'Reconocer rápidamente una palabra entre varias opciones, sin tener que escribirla.';
+
+  @override
+  String get quizModeHowTo =>
+      'Se muestra la palabra a aprender. Elige la respuesta correcta entre las 4 opciones.';
+
+  @override
+  String get listeningModeGoal =>
+      'Entrenar el oído para reconocer una palabra pronunciada en voz alta.';
+
+  @override
+  String get listeningModeHowTo =>
+      'Toca el altavoz para escuchar la palabra (repite tantas veces como quieras) y elige la respuesta correcta entre las 4 opciones.';
+
+  @override
+  String get sentenceModeGoal =>
+      'Aprender a construir frases correctas, no solo palabras sueltas.';
+
+  @override
+  String get sentenceModeHowTo =>
+      'Se muestra la traducción de la frase. Reconstruye la frase en el idioma que estás aprendiendo colocando los bloques de palabras en el orden correcto.';
+
+  @override
   String get tutorialSkipButton => 'Saltar';
 
   @override
@@ -532,6 +587,22 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get replayGameTutorialSubtitle =>
       'Vuelve a mostrar las pistas de la pantalla de juego';
+
+  @override
+  String get gameGuideSettingsTitle => 'Guía de los modos de juego';
+
+  @override
+  String get gameGuideSettingsSubtitle =>
+      'Entiende el objetivo y las reglas de cada juego';
+
+  @override
+  String get gameGuideScreenTitle => 'Guía de juegos';
+
+  @override
+  String get gameGuideGoalLabel => 'Objetivo';
+
+  @override
+  String get gameGuideHowToLabel => 'Cómo jugar';
 
   @override
   String get tutorialReplaySnackbar =>

@@ -37,6 +37,13 @@ List<GameMode> _buildGameModes(AppLocalizations l10n) {
       color: Colors.orange,
     ),
     GameMode(
+      type: GameType.listening,
+      title: l10n.listeningModeTitle,
+      description: l10n.listeningModeDesc,
+      icon: Icons.headphones_rounded,
+      color: Colors.teal,
+    ),
+    GameMode(
       type: GameType.sentence,
       title: "Phrase",
       description: "Reconstitue la phrase correcte.",

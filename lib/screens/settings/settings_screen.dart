@@ -9,6 +9,7 @@ import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
 import 'package:language_learning_app/screens/stats/statistics_screen.dart';
+import 'game_guide_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/core/extensions/deck_extensions.dart';
 import 'widgets/settings_section.dart';
@@ -140,11 +141,21 @@ class SettingsScreen extends StatelessWidget {
                       subtitle: l10n.replayGameTutorialSubtitle,
                       icon: Icons.videogame_asset_outlined,
                       iconColor: AppColors.primary,
-                      showDivider: false,
                       onTap: () => _replayTutorial(
                         context,
                         TutorialService.resetGame,
                         l10n.tutorialReplaySnackbar,
+                      ),
+                    ),
+                    SettingsTile(
+                      title: l10n.gameGuideSettingsTitle,
+                      subtitle: l10n.gameGuideSettingsSubtitle,
+                      icon: Icons.menu_book_outlined,
+                      iconColor: AppColors.primary,
+                      showDivider: false,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const GameGuideScreen()),
                       ),
                     ),
                   ],

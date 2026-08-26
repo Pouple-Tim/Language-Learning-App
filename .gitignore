@@ -15,6 +15,13 @@ docs/resources/
 .swiftpm/
 migrate_working_dir/
 
+# Git worktrees used for isolated feature work
+.worktrees/
+
+# Local Sentry Native crash-handler runtime cache (installation id, crash
+# dumps, breadcrumbs) — machine-local state, never meant to be versioned.
+.sentry-native/
+
 # IntelliJ related
 *.iml
 *.ipr

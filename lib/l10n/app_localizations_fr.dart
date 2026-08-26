@@ -458,6 +458,61 @@ class AppLocalizationsFr extends AppLocalizations {
   String get quizModeDesc => 'Choisis la bonne réponse parmi 4 propositions.';
 
   @override
+  String get listeningModeTitle => 'Écoute';
+
+  @override
+  String get listeningModeDesc => 'Écoute et choisis le bon caractère.';
+
+  @override
+  String get listenButtonLabel => 'Écouter';
+
+  @override
+  String get listenButtonTooltip => 'Jouer la prononciation';
+
+  @override
+  String get sentenceModeTitle => 'Phrase';
+
+  @override
+  String get classicModeGoal =>
+      'Mémoriser l\'écriture des mots dans la langue que tu apprends.';
+
+  @override
+  String get classicModeHowTo =>
+      'Le mot à retenir s\'affiche. Écris-le, ou dessine-le si la langue utilise des caractères (comme le chinois), puis valide pour vérifier ta réponse.';
+
+  @override
+  String get reverseModeGoal =>
+      'Le même entraînement que le mode classique, mais dans l\'autre sens.';
+
+  @override
+  String get reverseModeHowTo =>
+      'Ce qui est normalement la réponse en mode classique s\'affiche comme question. Écris ou dessine ce qui était normalement la question, puis valide pour vérifier ta réponse.';
+
+  @override
+  String get quizModeGoal =>
+      'Reconnaître rapidement un mot parmi plusieurs choix, sans avoir à l\'écrire.';
+
+  @override
+  String get quizModeHowTo =>
+      'Le mot à apprendre s\'affiche. Choisis la bonne réponse parmi les 4 propositions.';
+
+  @override
+  String get listeningModeGoal =>
+      'Entraîner l\'oreille à reconnaître un mot prononcé à voix haute.';
+
+  @override
+  String get listeningModeHowTo =>
+      'Appuie sur le haut-parleur pour écouter le mot (répète autant de fois que besoin), puis choisis la bonne réponse parmi les 4 propositions.';
+
+  @override
+  String get sentenceModeGoal =>
+      'Apprendre à construire des phrases correctes, pas seulement des mots isolés.';
+
+  @override
+  String get sentenceModeHowTo =>
+      'La traduction de la phrase s\'affiche. Reconstruis la phrase dans la langue apprise en plaçant les blocs de mots dans le bon ordre.';
+
+  @override
   String get tutorialSkipButton => 'Passer';
 
   @override
@@ -532,6 +587,22 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get replayGameTutorialSubtitle =>
       'Réafficher les astuces de l\'écran de jeu';
+
+  @override
+  String get gameGuideSettingsTitle => 'Guide des modes de jeu';
+
+  @override
+  String get gameGuideSettingsSubtitle =>
+      'Comprendre le but et les règles de chaque jeu';
+
+  @override
+  String get gameGuideScreenTitle => 'Guide des jeux';
+
+  @override
+  String get gameGuideGoalLabel => 'Objectif';
+
+  @override
+  String get gameGuideHowToLabel => 'Comment jouer';
 
   @override
   String get tutorialReplaySnackbar =>
