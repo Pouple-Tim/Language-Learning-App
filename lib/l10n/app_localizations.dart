@@ -954,6 +954,72 @@ abstract class AppLocalizations {
   /// **'Play pronunciation'**
   String get listenButtonTooltip;
 
+  /// No description provided for @sentenceModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sentence'**
+  String get sentenceModeTitle;
+
+  /// No description provided for @classicModeGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Memorize how words are written in the language you\'re learning.'**
+  String get classicModeGoal;
+
+  /// No description provided for @classicModeHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'The word to learn is shown. Write it, or draw it if the language uses characters (like Chinese), then submit to check your answer.'**
+  String get classicModeHowTo;
+
+  /// No description provided for @reverseModeGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'The same training as Classic mode, but in the other direction.'**
+  String get reverseModeGoal;
+
+  /// No description provided for @reverseModeHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s normally the answer in Classic mode is shown as the question. Write or draw what was normally the question, then submit to check your answer.'**
+  String get reverseModeHowTo;
+
+  /// No description provided for @quizModeGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Quickly recognize a word among several choices, without having to write it.'**
+  String get quizModeGoal;
+
+  /// No description provided for @quizModeHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'The word to learn is shown. Pick the correct answer among the 4 options.'**
+  String get quizModeHowTo;
+
+  /// No description provided for @listeningModeGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Train your ear to recognize a word spoken aloud.'**
+  String get listeningModeGoal;
+
+  /// No description provided for @listeningModeHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the speaker to hear the word (replay as many times as you like), then pick the correct answer among the 4 options.'**
+  String get listeningModeHowTo;
+
+  /// No description provided for @sentenceModeGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn to build correct sentences, not just isolated words.'**
+  String get sentenceModeGoal;
+
+  /// No description provided for @sentenceModeHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'The sentence\'s translation is shown. Rebuild the sentence in the language you\'re learning by placing the word blocks in the right order.'**
+  String get sentenceModeHowTo;
+
   /// No description provided for @tutorialSkipButton.
   ///
   /// In en, this message translates to:
@@ -1085,6 +1151,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show the game screen hints again'**
   String get replayGameTutorialSubtitle;
+
+  /// No description provided for @gameGuideSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Game modes guide'**
+  String get gameGuideSettingsTitle;
+
+  /// No description provided for @gameGuideSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Understand the goal and rules of each game'**
+  String get gameGuideSettingsSubtitle;
+
+  /// No description provided for @gameGuideScreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Game guide'**
+  String get gameGuideScreenTitle;
+
+  /// No description provided for @gameGuideGoalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal'**
+  String get gameGuideGoalLabel;
+
+  /// No description provided for @gameGuideHowToLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'How to play'**
+  String get gameGuideHowToLabel;
 
   /// No description provided for @tutorialReplaySnackbar.
   ///
