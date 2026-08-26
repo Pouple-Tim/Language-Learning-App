@@ -22,6 +22,11 @@ migrate_working_dir/
 # dumps, breadcrumbs) — machine-local state, never meant to be versioned.
 .sentry-native/
 
+# Locally installed Claude Code skills (via `npx skills add`), machine-local.
+skills-lock.json
+.claude/skills/
+.agents/
+
 # IntelliJ related
 *.iml
 *.ipr

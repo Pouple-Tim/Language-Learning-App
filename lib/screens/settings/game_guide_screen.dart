@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 
 class _GuidePage {
-  final IconData icon;
-  final Color color;
+  final GameType type;
   final String title;
   final String goal;
   final String howTo;
 
   const _GuidePage({
-    required this.icon,
-    required this.color,
+    required this.type,
     required this.title,
     required this.goal,
     required this.howTo,
   });
+
+  IconData get icon => type.icon;
+  Color get color => type.color;
 }
 
 /// Full-screen, swipeable explanation of each game mode's goal and rules --
@@ -40,36 +41,31 @@ class _GameGuideScreenState extends State<GameGuideScreen> {
 
   List<_GuidePage> _pages(AppLocalizations l10n) => [
         _GuidePage(
-          icon: Icons.school_rounded,
-          color: AppColors.primary,
+          type: GameType.classic,
           title: l10n.classicModeTitle,
           goal: l10n.classicModeGoal,
           howTo: l10n.classicModeHowTo,
         ),
         _GuidePage(
-          icon: Icons.swap_horiz_rounded,
-          color: AppColors.secondary,
+          type: GameType.reverse,
           title: l10n.reverseModeTitle,
           goal: l10n.reverseModeGoal,
           howTo: l10n.reverseModeHowTo,
         ),
         _GuidePage(
-          icon: Icons.quiz_rounded,
-          color: Colors.orange,
+          type: GameType.quiz,
           title: l10n.quizModeTitle,
           goal: l10n.quizModeGoal,
           howTo: l10n.quizModeHowTo,
         ),
         _GuidePage(
-          icon: Icons.headphones_rounded,
-          color: Colors.teal,
+          type: GameType.listening,
           title: l10n.listeningModeTitle,
           goal: l10n.listeningModeGoal,
           howTo: l10n.listeningModeHowTo,
         ),
         _GuidePage(
-          icon: Icons.segment_rounded,
-          color: Colors.purple,
+          type: GameType.sentence,
           title: l10n.sentenceModeTitle,
           goal: l10n.sentenceModeGoal,
           howTo: l10n.sentenceModeHowTo,

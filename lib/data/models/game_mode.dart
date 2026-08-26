@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:language_learning_app/core/theme/app_colors.dart';
 
 enum GameType {
   classic,
@@ -63,20 +64,52 @@ extension GameTypeIdentity on GameType {
         return 'Mémoire';
     }
   }
+
+  /// Icon shown wherever a mode needs a visual identity (home cards, guide).
+  IconData get icon {
+    switch (this) {
+      case GameType.classic:
+        return Icons.school_rounded;
+      case GameType.reverse:
+        return Icons.swap_horiz_rounded;
+      case GameType.quiz:
+        return Icons.quiz_rounded;
+      case GameType.sentence:
+        return Icons.segment_rounded;
+      case GameType.listening:
+        return Icons.headphones_rounded;
+      case GameType.memory:
+        return Icons.psychology_rounded;
+    }
+  }
+
+  /// Accent color shown wherever a mode needs a visual identity (home cards, guide).
+  Color get color {
+    switch (this) {
+      case GameType.classic:
+        return AppColors.primary;
+      case GameType.reverse:
+        return AppColors.secondary;
+      case GameType.quiz:
+        return Colors.orange;
+      case GameType.sentence:
+        return Colors.purple;
+      case GameType.listening:
+        return Colors.teal;
+      case GameType.memory:
+        return Colors.indigo;
+    }
+  }
 }
 
 class GameMode {
   final GameType type;
   final String title;
   final String description;
-  final IconData icon;
-  final Color color;
 
   const GameMode({
     required this.type,
     required this.title,
     required this.description,
-    required this.icon,
-    required this.color,
   });
 }
