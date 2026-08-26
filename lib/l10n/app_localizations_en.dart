@@ -470,6 +470,49 @@ class AppLocalizationsEn extends AppLocalizations {
   String get listenButtonTooltip => 'Play pronunciation';
 
   @override
+  String get sentenceModeTitle => 'Sentence';
+
+  @override
+  String get classicModeGoal =>
+      'Memorize how words are written in the language you\'re learning.';
+
+  @override
+  String get classicModeHowTo =>
+      'The word to learn is shown. Write it, or draw it if the language uses characters (like Chinese), then submit to check your answer.';
+
+  @override
+  String get reverseModeGoal =>
+      'The same training as Classic mode, but in the other direction.';
+
+  @override
+  String get reverseModeHowTo =>
+      'What\'s normally the answer in Classic mode is shown as the question. Write or draw what was normally the question, then submit to check your answer.';
+
+  @override
+  String get quizModeGoal =>
+      'Quickly recognize a word among several choices, without having to write it.';
+
+  @override
+  String get quizModeHowTo =>
+      'The word to learn is shown. Pick the correct answer among the 4 options.';
+
+  @override
+  String get listeningModeGoal =>
+      'Train your ear to recognize a word spoken aloud.';
+
+  @override
+  String get listeningModeHowTo =>
+      'Tap the speaker to hear the word (replay as many times as you like), then pick the correct answer among the 4 options.';
+
+  @override
+  String get sentenceModeGoal =>
+      'Learn to build correct sentences, not just isolated words.';
+
+  @override
+  String get sentenceModeHowTo =>
+      'The sentence\'s translation is shown. Rebuild the sentence in the language you\'re learning by placing the word blocks in the right order.';
+
+  @override
   String get tutorialSkipButton => 'Skip';
 
   @override
@@ -541,6 +584,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get replayGameTutorialSubtitle => 'Show the game screen hints again';
+
+  @override
+  String get gameGuideSettingsTitle => 'Game modes guide';
+
+  @override
+  String get gameGuideSettingsSubtitle =>
+      'Understand the goal and rules of each game';
+
+  @override
+  String get gameGuideScreenTitle => 'Game guide';
+
+  @override
+  String get gameGuideGoalLabel => 'Goal';
+
+  @override
+  String get gameGuideHowToLabel => 'How to play';
 
   @override
   String get tutorialReplaySnackbar =>
