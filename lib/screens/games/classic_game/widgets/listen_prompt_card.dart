@@ -16,22 +16,13 @@ class ListenPromptCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final word = context.watch<GameProvider>().currentWord;
 
-    final borderRadius = BorderRadius.circular(20);
+    final decoration = AppColors.promptCardDecoration;
+    final borderRadius = decoration.borderRadius as BorderRadius;
 
     return Container(
       width: double.infinity,
       constraints: const BoxConstraints(maxWidth: 500),
-      decoration: BoxDecoration(
-        gradient: AppColors.primaryGradient,
-        borderRadius: borderRadius,
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primary.withValues(alpha: 0.3),
-            blurRadius: 15,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
+      decoration: decoration,
       child: Material(
         color: Colors.transparent,
         child: InkWell(

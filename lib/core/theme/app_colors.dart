@@ -29,17 +29,22 @@ class AppColors {
   static const Color silver = Color(0xFFC0C0C0);
   static const Color bronze = Color(0xFFCD7F32);
 
-  // Couleurs de la roue
-  static const List<Color> wheelColors = [
-    Color(0xFFE91E63), Color(0xFF9C27B0), Color(0xFF673AB7),
-    Color(0xFF3F51B5), Color(0xFF2196F3), Color(0xFF00BCD4),
-    Color(0xFF009688), Color(0xFF4CAF50), Color(0xFFFF9800),
-    Color(0xFFFF5722),
-  ];
-  
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [Color(0xFF6200EA), Color(0xFF9C27B0)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+
+  /// Shared gradient-card look for the game screen's word/listen prompt.
+  static BoxDecoration get promptCardDecoration => BoxDecoration(
+        gradient: primaryGradient,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: primary.withValues(alpha: 0.3),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      );
 }

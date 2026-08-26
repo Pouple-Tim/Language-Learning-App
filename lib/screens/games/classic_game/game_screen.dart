@@ -162,23 +162,7 @@ class _GameScreenState extends State<GameScreen> {
                                   ),
                                 )
                               else if (gameProvider.currentWord == null && gameProvider.currentSentence == null)
-                                Expanded(
-                                  child: Builder(
-                                    builder: (context) {
-                                      // No wheel to spin anymore -- pick the
-                                      // first word/sentence automatically as
-                                      // soon as we detect there isn't one yet.
-                                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                                        if (mounted &&
-                                            gameProvider.currentWord == null &&
-                                            gameProvider.currentSentence == null) {
-                                          gameProvider.spinWheel();
-                                        }
-                                      });
-                                      return const Center(child: CircularProgressIndicator());
-                                    },
-                                  ),
-                                )
+                                _buildAutoAdvance(gameProvider)
                               else ...[
                                 _buildWordDisplay(context, gameProvider),
                                 const Spacer(),
@@ -199,6 +183,17 @@ class _GameScreenState extends State<GameScreen> {
         ),
       ),
     );
+  }
+
+  /// No wheel to spin anymore -- pick the first word/sentence automatically
+  /// as soon as we detect there isn't one yet.
+  Widget _buildAutoAdvance(GameProvider gameProvider) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && gameProvider.currentWord == null && gameProvider.currentSentence == null) {
+        gameProvider.spinWheel();
+      }
+    });
+    return const Expanded(child: Center(child: CircularProgressIndicator()));
   }
 
   Widget _buildGameInputArea(BuildContext context, GameProvider gameProvider) {
@@ -231,17 +226,7 @@ class _GameScreenState extends State<GameScreen> {
             width: double.infinity,
             constraints: const BoxConstraints(maxWidth: 500),
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
-            decoration: BoxDecoration(
-              gradient: AppColors.primaryGradient,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.primary.withValues(alpha: 0.3),
-                  blurRadius: 15,
-                  offset: const Offset(0, 8),
-                ),
-              ],
-            ),
+            decoration: AppColors.promptCardDecoration,
             child: Column(
               children: [
                 FittedBox(
