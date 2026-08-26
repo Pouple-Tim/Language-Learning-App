@@ -19,36 +19,26 @@ List<GameMode> _buildGameModes(AppLocalizations l10n) {
       type: GameType.classic,
       title: l10n.classicModeTitle,
       description: l10n.classicModeDesc,
-      icon: Icons.school_rounded,
-      color: AppColors.primary,
     ),
     GameMode(
       type: GameType.reverse,
       title: l10n.reverseModeTitle,
       description: l10n.reverseModeDesc,
-      icon: Icons.swap_horiz_rounded,
-      color: AppColors.secondary,
     ),
     GameMode(
       type: GameType.quiz,
       title: l10n.quizModeTitle,
       description: l10n.quizModeDesc,
-      icon: Icons.quiz_rounded,
-      color: Colors.orange,
     ),
     GameMode(
       type: GameType.listening,
       title: l10n.listeningModeTitle,
       description: l10n.listeningModeDesc,
-      icon: Icons.headphones_rounded,
-      color: Colors.teal,
     ),
     GameMode(
       type: GameType.sentence,
       title: "Phrase",
       description: "Reconstitue la phrase correcte.",
-      icon: Icons.segment_rounded,
-      color: Colors.purple,
     ),
   ];
 }
@@ -440,13 +430,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: mode.color.withValues(alpha: 0.1),
+                          color: mode.type.color.withValues(alpha: 0.1),
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
-                          mode.icon,
+                          mode.type.icon,
                           size: 20,
-                          color: mode.color,
+                          color: mode.type.color,
                         ),
                       ),
                     ],
