@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'core/analytics/analytics_service.dart';
 import 'core/utils/storage_helper.dart';
 import 'core/config/supabase_config.dart';
 import 'core/config/sentry_config.dart';
@@ -26,6 +28,7 @@ void main() async {
       url: SupabaseConfig.url,
       publishableKey: SupabaseConfig.anonKey,
     );
+    unawaited(AnalyticsService.logEvent('app_opened'));
   } catch (e) {
     debugPrint('❌ Erreur initialisation Supabase (probablement hors-ligne): $e');
   }

@@ -253,6 +253,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clearAll => 'Clear all';
 
   @override
+  String get helpSectionTitle => 'Help';
+
+  @override
+  String get sendFeedbackTitle => 'Report an issue or give feedback';
+
+  @override
+  String get sendFeedbackSubtitle => 'Your feedback helps me improve the app';
+
+  @override
+  String get feedbackMailError => 'Couldn\'t open a mail app';
+
+  @override
   String get about => 'About';
 
   @override

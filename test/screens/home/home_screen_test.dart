@@ -7,12 +7,16 @@ import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/screens/home/home_screen.dart';
 import '../../support/pump_tutorial.dart';
 
 Widget _wrap(Widget child) {
-  return ChangeNotifierProvider(
-    create: (_) => DeckProvider(),
+  return MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => DeckProvider()),
+      ChangeNotifierProvider(create: (_) => StatisticsProvider()),
+    ],
     child: MaterialApp(
       locale: const Locale('en'),
       localizationsDelegates: const [

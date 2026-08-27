@@ -10,6 +10,7 @@ import 'package:language_learning_app/core/extensions/strings_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
 import 'package:language_learning_app/core/tutorial/tutorial_coach_mark_helper.dart';
 
@@ -131,6 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         actions: [
+          _buildStreakBadge(context, l10n),
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: IconButton(
@@ -205,6 +207,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 40),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStreakBadge(BuildContext context, AppLocalizations l10n) {
+    final streak = context.watch<StatisticsProvider>().getCurrentStreak();
+
+    return Tooltip(
+      message: l10n.currentStreak,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          decoration: BoxDecoration(
+            color: Colors.orange.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.local_fire_department, color: Colors.orange, size: 20),
+              const SizedBox(width: 4),
+              Text(
+                '$streak',
+                style: const TextStyle(
+                  color: Colors.orange,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+            ],
           ),
         ),
       ),

@@ -86,6 +86,11 @@
   "clearDataWarning": "Esta acción eliminará:\n• Todos tus mazos personalizados\n• Todo tu progreso\n• Todos tus ajustes\n\n¡Esta acción es IRREVERSIBLE!",
   "clearAll": "Borrar todo",
   
+  "helpSectionTitle": "Ayuda",
+  "sendFeedbackTitle": "Informar de un problema o dar tu opinión",
+  "sendFeedbackSubtitle": "Tus comentarios me ayudan a mejorar la app",
+  "feedbackMailError": "No se pudo abrir una aplicación de correo",
+
   "about": "Acerca de",
   "version": "Versión",
   "description": "Aplicación de repaso de idiomas con una rueda interactiva.\n\n¡Aprende nuevas palabras cada día y mejora tu vocabulario!",

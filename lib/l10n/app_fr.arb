@@ -86,6 +86,11 @@
   "clearDataWarning": "Cette action va supprimer :\n• Tous tes decks personnalisés\n• Toute ta progression\n• Tous tes paramètres\n\nCette action est IRRÉVERSIBLE !",
   "clearAll": "Tout effacer",
   
+  "helpSectionTitle": "Aide",
+  "sendFeedbackTitle": "Signaler un problème ou donner un avis",
+  "sendFeedbackSubtitle": "Ton retour m'aide à améliorer l'appli",
+  "feedbackMailError": "Impossible d'ouvrir une application mail",
+
   "about": "À propos",
   "version": "Version",
   "description": "Application de révision de langues avec roue interactive.\n\nApprends de nouveaux mots chaque jour et améliore ton vocabulaire !",

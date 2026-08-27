@@ -135,6 +135,11 @@
   "clearDataWarning": "This action will delete:\n• All your custom decks\n• All your progress\n• All your settings\n\nThis action is IRREVERSIBLE!",
   "clearAll": "Clear all",
   
+  "helpSectionTitle": "Help",
+  "sendFeedbackTitle": "Report an issue or give feedback",
+  "sendFeedbackSubtitle": "Your feedback helps me improve the app",
+  "feedbackMailError": "Couldn't open a mail app",
+
   "about": "About",
   "version": "Version",
   "description": "Language learning app with interactive wheel.\n\nLearn new words every day and improve your vocabulary!",
