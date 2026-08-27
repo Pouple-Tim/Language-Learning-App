@@ -278,6 +278,25 @@ class AppLocalizationsFr extends AppLocalizations {
   String get madeWithLove => 'Fait avec passion';
 
   @override
+  String get whatsNewTitle => 'Nouveautés';
+
+  @override
+  String get newsListeningMode =>
+      'Nouveau mode de jeu : Écoute (entraîne ton oreille)';
+
+  @override
+  String get newsOnboarding =>
+      'Nouvel écran d\'introduction et guide des modes de jeu';
+
+  @override
+  String get newsFeedback =>
+      'Un bouton pour signaler un problème ou donner ton avis';
+
+  @override
+  String get newsStreak =>
+      'Ta série de jours consécutifs est maintenant visible sur l\'accueil';
+
+  @override
   String deckSelected(String name) {
     return 'Deck \"$name\" sélectionné';
   }

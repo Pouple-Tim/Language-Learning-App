@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:language_learning_app/core/analytics/analytics_service.dart';
@@ -169,9 +170,15 @@ class SettingsScreen extends StatelessWidget {
                 
                 // Version en bas de page
                 Center(
-                  child: Text(
-                    'v1.0.0',
-                    style: TextStyle(color: Colors.grey.shade400, fontSize: 12),
+                  child: FutureBuilder<PackageInfo>(
+                    future: PackageInfo.fromPlatform(),
+                    builder: (context, snapshot) {
+                      final version = snapshot.data?.version;
+                      return Text(
+                        version == null ? '' : 'v$version',
+                        style: TextStyle(color: Colors.grey.shade400, fontSize: 12),
+                      );
+                    },
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -382,9 +389,9 @@ class SettingsScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Nouveautés", // Tu peux mettre l10n.whatsNew ici
+                  l10n.whatsNewTitle,
                   style: TextStyle(
-                    fontSize: 16, 
+                    fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: Colors.grey.shade800
                   ),
@@ -392,11 +399,10 @@ class SettingsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              // Liste des fonctionnalités demandées
-              _buildFeatureItem(Icons.segment_rounded, "Nouveau mode de jeu : Phrase"),
-              _buildFeatureItem(Icons.restart_alt, "Réinitialisation de la progression par mode de jeu"),
-              _buildFeatureItem(Icons.cloud_download_outlined, "App allégée : les decks se téléchargent à la demande"),
-              _buildFeatureItem(Icons.bug_report_outlined, "Nombreuses corrections de fiabilité et de stabilité"),
+              _buildFeatureItem(Icons.hearing, l10n.newsListeningMode),
+              _buildFeatureItem(Icons.waving_hand_outlined, l10n.newsOnboarding),
+              _buildFeatureItem(Icons.mail_outline, l10n.newsFeedback),
+              _buildFeatureItem(Icons.local_fire_department, l10n.newsStreak),
 
               // --- Footer existant ---
               const SizedBox(height: 24),

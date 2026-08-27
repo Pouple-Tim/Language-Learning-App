@@ -144,6 +144,11 @@
   "version": "Version",
   "description": "Language learning app with interactive wheel.\n\nLearn new words every day and improve your vocabulary!",
   "madeWithLove": "Made with passion",
+  "whatsNewTitle": "What's new",
+  "newsListeningMode": "New game mode: Listening (train your ear)",
+  "newsOnboarding": "New intro screen and game modes guide",
+  "newsFeedback": "A button to report an issue or give feedback",
+  "newsStreak": "Your day streak is now visible on the home screen",
   
   "deckSelected": "Deck \"{name}\" selected",
   "@deckSelected": {
