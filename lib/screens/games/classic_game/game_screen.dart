@@ -5,8 +5,6 @@ import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
-import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
-import 'package:language_learning_app/core/tutorial/tutorial_coach_mark_helper.dart';
 
 // Imports des widgets d'input
 import 'widgets/text_input_widget.dart';
@@ -30,63 +28,6 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  final GlobalKey _remainingWordsKey = GlobalKey();
-  final GlobalKey _gameHeaderKey = GlobalKey();
-  VoidCallback? _gameLoadListener;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowGameTour());
-  }
-
-  @override
-  void dispose() {
-    final listener = _gameLoadListener;
-    if (listener != null) {
-      context.read<GameProvider>().removeListener(listener);
-    }
-    super.dispose();
-  }
-
-  void _maybeShowGameTour() {
-    if (!mounted || TutorialService.hasSeenGame()) return;
-
-    final gameProvider = context.read<GameProvider>();
-    if (gameProvider.currentDeck == null) {
-      _gameLoadListener = () {
-        if (gameProvider.currentDeck != null) {
-          gameProvider.removeListener(_gameLoadListener!);
-          _gameLoadListener = null;
-          _maybeShowGameTour();
-        }
-      };
-      gameProvider.addListener(_gameLoadListener!);
-      return;
-    }
-
-    final l10n = AppLocalizations.of(context)!;
-    TutorialService.markGameSeen();
-    showTutorial(
-      context: context,
-      skipLabel: l10n.tutorialSkipButton,
-      targets: [
-        buildTutorialTarget(
-          identify: 'game_remaining',
-          keyTarget: _remainingWordsKey,
-          title: l10n.tutorialGameRemainingTitle,
-          description: l10n.tutorialGameRemainingDesc,
-        ),
-        buildTutorialTarget(
-          identify: 'game_play',
-          keyTarget: _gameHeaderKey,
-          title: l10n.tutorialGamePlayTitle,
-          description: l10n.tutorialGamePlayDesc,
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -101,7 +42,6 @@ class _GameScreenState extends State<GameScreen> {
           Consumer<GameProvider>(
             builder: (context, gameProvider, _) {
               return IconButton(
-                key: _remainingWordsKey,
                 icon: Badge(
                   label: Text('${gameProvider.remainingWords}'),
                   isLabelVisible: gameProvider.remainingWords > 0,
@@ -137,7 +77,6 @@ class _GameScreenState extends State<GameScreen> {
                             children: [
                               const SizedBox(height: 12),
                               GameHeader(
-                                key: _gameHeaderKey,
                                 deck: gameProvider.currentDeck!,
                                 badgeLabel: gameProvider.currentGameType?.badgeLabel ?? '',
                               ),

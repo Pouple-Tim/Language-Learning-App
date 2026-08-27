@@ -10,8 +10,8 @@ import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/locale_provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/data/models/deck.dart';
-import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
+import 'package:language_learning_app/screens/onboarding/onboarding_screen.dart';
 import 'package:language_learning_app/screens/stats/statistics_screen.dart';
 import 'game_guide_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
@@ -119,36 +119,13 @@ class SettingsScreen extends StatelessWidget {
                   icon: Icons.school_outlined,
                   children: [
                     SettingsTile(
-                      title: l10n.replayWelcomeTutorialTitle,
-                      subtitle: l10n.replayWelcomeTutorialSubtitle,
+                      title: l10n.replayOnboardingTitle,
+                      subtitle: l10n.replayOnboardingSubtitle,
                       icon: Icons.waving_hand_outlined,
                       iconColor: AppColors.primary,
-                      onTap: () => _replayTutorial(
+                      onTap: () => Navigator.push(
                         context,
-                        TutorialService.resetAll,
-                        l10n.tutorialReplayWelcomeSnackbar,
-                      ),
-                    ),
-                    SettingsTile(
-                      title: l10n.replayDecksTutorialTitle,
-                      subtitle: l10n.replayDecksTutorialSubtitle,
-                      icon: Icons.library_books_outlined,
-                      iconColor: AppColors.primary,
-                      onTap: () => _replayTutorial(
-                        context,
-                        TutorialService.resetDecks,
-                        l10n.tutorialReplaySnackbar,
-                      ),
-                    ),
-                    SettingsTile(
-                      title: l10n.replayGameTutorialTitle,
-                      subtitle: l10n.replayGameTutorialSubtitle,
-                      icon: Icons.videogame_asset_outlined,
-                      iconColor: AppColors.primary,
-                      onTap: () => _replayTutorial(
-                        context,
-                        TutorialService.resetGame,
-                        l10n.tutorialReplaySnackbar,
+                        MaterialPageRoute(builder: (_) => const OnboardingScreen()),
                       ),
                     ),
                     SettingsTile(
@@ -225,19 +202,6 @@ class SettingsScreen extends StatelessWidget {
         SnackBar(content: Text(l10n.feedbackMailError)),
       );
     }
-  }
-
-  Future<void> _replayTutorial(
-    BuildContext context,
-    Future<void> Function() reset,
-    String message,
-  ) async {
-    await reset();
-    if (!context.mounted) return;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
   }
 
   Widget _buildThemeSwitch(BuildContext context, AppLocalizations l10n) {

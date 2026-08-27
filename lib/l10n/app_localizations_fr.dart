@@ -525,80 +525,50 @@ class AppLocalizationsFr extends AppLocalizations {
       'La traduction de la phrase s\'affiche. Reconstruis la phrase dans la langue apprise en plaçant les blocs de mots dans le bon ordre.';
 
   @override
-  String get tutorialSkipButton => 'Passer';
+  String get onboardingSkip => 'Passer';
 
   @override
-  String get tutorialWelcomeDeckTitle => 'Ton deck';
+  String get onboardingNext => 'Suivant';
 
   @override
-  String get tutorialWelcomeDeckDesc =>
-      'Ceci affiche le deck que tu es en train de réviser. Appuie dessus pour parcourir ou gérer tes decks.';
+  String get onboardingStart => 'Commencer';
 
   @override
-  String get tutorialWelcomeGamesTitle => 'Modes de jeu';
+  String get onboardingSlide1Title => 'Choisis un deck';
 
   @override
-  String get tutorialWelcomeGamesDesc =>
-      'Choisis comment t\'entraîner : classique, inversé, quiz, ou reconstitue la phrase.';
+  String get onboardingSlide1Desc =>
+      'Les decks sont regroupés par langue et catégorie. Sélectionnes-en un : il sera utilisé partout, et les decks de base se téléchargent automatiquement à la première sélection.';
 
   @override
-  String get tutorialWelcomeSettingsTitle => 'Réglages';
+  String get onboardingSlide2Title => '5 modes de jeu';
 
   @override
-  String get tutorialWelcomeSettingsDesc =>
-      'Change le thème, la langue de l\'appli, ou réinitialise ta progression ici.';
+  String get onboardingSlide2Desc =>
+      'Entraîne-toi comme tu veux : classique, inversé, quiz, écoute, ou reconstitue la phrase.';
 
   @override
-  String get tutorialDecksSelectTitle => 'Choisis un deck';
+  String get onboardingSlide3Title => 'Suis ta progression';
 
   @override
-  String get tutorialDecksSelectDesc =>
-      'Les decks sont regroupés par langue et catégorie — appuie sur une catégorie pour l\'ouvrir, puis sur un deck pour le sélectionner (il sera utilisé partout). Les decks de base se téléchargent automatiquement dès leur première sélection.';
+  String get onboardingSlide3Desc =>
+      'Le nombre de mots restants, ta série de jours consécutifs et tes statistiques détaillées t\'aident à voir tes progrès.';
 
   @override
-  String get tutorialDecksCreateTitle => 'Crée le tien';
+  String get onboardingSlide4Title => 'Personnalise l\'appli';
 
   @override
-  String get tutorialDecksCreateDesc =>
-      'Appuie ici pour créer un deck personnalisé avec tes propres mots et phrases.';
-
-  @override
-  String get tutorialGameRemainingTitle => 'Suis ta progression';
-
-  @override
-  String get tutorialGameRemainingDesc =>
-      'Ceci indique combien de mots il reste à réviser dans cette session.';
-
-  @override
-  String get tutorialGamePlayTitle => 'Ton deck et ton mode';
-
-  @override
-  String get tutorialGamePlayDesc =>
-      'Ceci indique le deck que tu révises et le mode de jeu en cours.';
+  String get onboardingSlide4Desc =>
+      'Change le thème, la langue, crée tes propres decks, ou réinitialise ta progression depuis les Réglages.';
 
   @override
   String get settingsTutorialsSectionTitle => 'Tutoriels';
 
   @override
-  String get replayWelcomeTutorialTitle => 'Revoir la visite guidée';
+  String get replayOnboardingTitle => 'Revoir l\'introduction';
 
   @override
-  String get replayWelcomeTutorialSubtitle =>
-      'Réafficher la visite de l\'accueil';
-
-  @override
-  String get replayDecksTutorialTitle => 'Revoir le tutoriel des decks';
-
-  @override
-  String get replayDecksTutorialSubtitle =>
-      'Réafficher les astuces de l\'écran decks';
-
-  @override
-  String get replayGameTutorialTitle => 'Revoir le tutoriel du jeu';
-
-  @override
-  String get replayGameTutorialSubtitle =>
-      'Réafficher les astuces de l\'écran de jeu';
+  String get replayOnboardingSubtitle => 'Revoir les explications de démarrage';
 
   @override
   String get gameGuideSettingsTitle => 'Guide des modes de jeu';
@@ -615,12 +585,4 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get gameGuideHowToLabel => 'Comment jouer';
-
-  @override
-  String get tutorialReplaySnackbar =>
-      'Tu la reverras la prochaine fois que tu ouvriras cet écran';
-
-  @override
-  String get tutorialReplayWelcomeSnackbar =>
-      'Tu la reverras la prochaine fois que tu ouvriras l\'application';
 }

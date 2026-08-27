@@ -9,7 +9,7 @@ import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/screens/home/home_screen.dart';
-import '../../support/pump_tutorial.dart';
+import 'package:language_learning_app/screens/onboarding/onboarding_screen.dart';
 
 Widget _wrap(Widget child) {
   return MultiProvider(
@@ -37,20 +37,26 @@ void main() {
     await StorageHelper.init();
   });
 
-  testWidgets('shows the welcome tour on first open and marks it seen', (tester) async {
+  testWidgets('shows onboarding on first open and marks it seen', (tester) async {
     await tester.pumpWidget(_wrap(const HomeScreen()));
-    await pumpTutorial(tester);
+    await tester.pumpAndSettle();
 
-    expect(find.text('Your deck'), findsOneWidget);
-    expect(TutorialService.hasSeenWelcome(), isTrue);
+    expect(find.byType(OnboardingScreen), findsOneWidget);
+    expect(find.text('Choose a deck'), findsOneWidget);
+
+    await tester.tap(find.text('Skip'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(OnboardingScreen), findsNothing);
+    expect(TutorialService.hasSeenOnboarding(), isTrue);
   });
 
-  testWidgets('does not show the welcome tour once it has already been seen', (tester) async {
-    await TutorialService.markWelcomeSeen();
+  testWidgets('does not show onboarding once it has already been seen', (tester) async {
+    await TutorialService.markOnboardingSeen();
 
     await tester.pumpWidget(_wrap(const HomeScreen()));
     await tester.pumpAndSettle();
 
-    expect(find.text('Your deck'), findsNothing);
+    expect(find.byType(OnboardingScreen), findsNothing);
   });
 }

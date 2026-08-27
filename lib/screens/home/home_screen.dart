@@ -12,7 +12,7 @@ import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
-import 'package:language_learning_app/core/tutorial/tutorial_coach_mark_helper.dart';
+import 'package:language_learning_app/screens/onboarding/onboarding_screen.dart';
 
 List<GameMode> _buildGameModes(AppLocalizations l10n) {
   return [
@@ -52,44 +52,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey _deckBannerKey = GlobalKey();
-  final GlobalKey _gameModesKey = GlobalKey();
-  final GlobalKey _settingsKey = GlobalKey();
-
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowWelcomeTour());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowOnboarding());
   }
 
-  void _maybeShowWelcomeTour() {
-    if (!mounted || TutorialService.hasSeenWelcome()) return;
+  void _maybeShowOnboarding() {
+    if (!mounted || TutorialService.hasSeenOnboarding()) return;
 
-    final l10n = AppLocalizations.of(context)!;
-    TutorialService.markWelcomeSeen();
-    showTutorial(
-      context: context,
-      skipLabel: l10n.tutorialSkipButton,
-      targets: [
-        buildTutorialTarget(
-          identify: 'welcome_deck',
-          keyTarget: _deckBannerKey,
-          title: l10n.tutorialWelcomeDeckTitle,
-          description: l10n.tutorialWelcomeDeckDesc,
-        ),
-        buildTutorialTarget(
-          identify: 'welcome_games',
-          keyTarget: _gameModesKey,
-          title: l10n.tutorialWelcomeGamesTitle,
-          description: l10n.tutorialWelcomeGamesDesc,
-        ),
-        buildTutorialTarget(
-          identify: 'welcome_settings',
-          keyTarget: _settingsKey,
-          title: l10n.tutorialWelcomeSettingsTitle,
-          description: l10n.tutorialWelcomeSettingsDesc,
-        ),
-      ],
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const OnboardingScreen()),
     );
   }
 
@@ -136,17 +110,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: IconButton(
-              key: _settingsKey,
               iconSize: 32,
-              icon: Icon(Icons.settings_outlined, 
+              icon: Icon(Icons.settings_outlined,
                   color: theme.iconTheme.color),
-              onPressed: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SettingsScreen()),
-                );
-                _maybeShowWelcomeTour();
-              },
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              ),
             ),
           ),
         ],
@@ -159,15 +129,11 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  key: _deckBannerKey,
-                  child: _buildDeckManagementBanner(context, l10n),
-                ),
+                _buildDeckManagementBanner(context, l10n),
 
                 const SizedBox(height: 32),
 
                 Column(
-                  key: _gameModesKey,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(

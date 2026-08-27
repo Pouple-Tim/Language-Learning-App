@@ -527,80 +527,51 @@ class AppLocalizationsIt extends AppLocalizations {
       'Viene mostrata la traduzione della frase. Ricostruisci la frase nella lingua che stai imparando posizionando i blocchi di parole nell\'ordine giusto.';
 
   @override
-  String get tutorialSkipButton => 'Salta';
+  String get onboardingSkip => 'Salta';
 
   @override
-  String get tutorialWelcomeDeckTitle => 'Il tuo mazzo';
+  String get onboardingNext => 'Avanti';
 
   @override
-  String get tutorialWelcomeDeckDesc =>
-      'Qui viene mostrato il mazzo che stai ripassando. Toccalo per sfogliare o gestire i tuoi mazzi.';
+  String get onboardingStart => 'Inizia';
 
   @override
-  String get tutorialWelcomeGamesTitle => 'Modalità di gioco';
+  String get onboardingSlide1Title => 'Scegli un mazzo';
 
   @override
-  String get tutorialWelcomeGamesDesc =>
-      'Scegli come vuoi allenarti: classica, inversa, quiz o costruzione della frase.';
+  String get onboardingSlide1Desc =>
+      'I mazzi sono raggruppati per lingua e categoria. Scegline uno: verrà usato ovunque, e i mazzi base si scaricano automaticamente alla prima selezione.';
 
   @override
-  String get tutorialWelcomeSettingsTitle => 'Impostazioni';
+  String get onboardingSlide2Title => '5 modalità di gioco';
 
   @override
-  String get tutorialWelcomeSettingsDesc =>
-      'Cambia il tema, la lingua dell\'app o azzera i tuoi progressi da qui.';
+  String get onboardingSlide2Desc =>
+      'Allenati come preferisci: classica, inversa, quiz, ascolto o costruzione della frase.';
 
   @override
-  String get tutorialDecksSelectTitle => 'Scegli un mazzo';
+  String get onboardingSlide3Title => 'Segui i tuoi progressi';
 
   @override
-  String get tutorialDecksSelectDesc =>
-      'I mazzi sono raggruppati per lingua e categoria — tocca una categoria per aprirla, poi un mazzo per selezionarlo (verrà usato ovunque). I mazzi base si scaricano automaticamente alla prima selezione.';
+  String get onboardingSlide3Desc =>
+      'Le parole restanti, la tua serie di giorni e le statistiche dettagliate ti aiutano a vedere i tuoi progressi.';
 
   @override
-  String get tutorialDecksCreateTitle => 'Crea il tuo';
+  String get onboardingSlide4Title => 'Personalizzala';
 
   @override
-  String get tutorialDecksCreateDesc =>
-      'Tocca qui per creare un mazzo personalizzato con le tue parole e frasi.';
-
-  @override
-  String get tutorialGameRemainingTitle => 'Segui i tuoi progressi';
-
-  @override
-  String get tutorialGameRemainingDesc =>
-      'Mostra quante parole restano da ripassare in questa sessione.';
-
-  @override
-  String get tutorialGamePlayTitle => 'Il tuo mazzo e modalità';
-
-  @override
-  String get tutorialGamePlayDesc =>
-      'Mostra il mazzo che stai ripassando e la modalità di gioco attuale.';
+  String get onboardingSlide4Desc =>
+      'Cambia il tema, la lingua dell\'app, crea i tuoi mazzi o azzera i tuoi progressi dalle Impostazioni.';
 
   @override
   String get settingsTutorialsSectionTitle => 'Tutorial';
 
   @override
-  String get replayWelcomeTutorialTitle => 'Rivedi il tour di benvenuto';
+  String get replayOnboardingTitle => 'Rivedi l\'introduzione';
 
   @override
-  String get replayWelcomeTutorialSubtitle =>
-      'Mostra di nuovo il tour della home';
-
-  @override
-  String get replayDecksTutorialTitle => 'Rivedi il tutorial dei mazzi';
-
-  @override
-  String get replayDecksTutorialSubtitle =>
-      'Mostra di nuovo i suggerimenti della schermata mazzi';
-
-  @override
-  String get replayGameTutorialTitle => 'Rivedi il tutorial del gioco';
-
-  @override
-  String get replayGameTutorialSubtitle =>
-      'Mostra di nuovo i suggerimenti della schermata di gioco';
+  String get replayOnboardingSubtitle =>
+      'Mostra di nuovo le schermate di avvio';
 
   @override
   String get gameGuideSettingsTitle => 'Guida alle modalità di gioco';
@@ -617,12 +588,4 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get gameGuideHowToLabel => 'Come si gioca';
-
-  @override
-  String get tutorialReplaySnackbar =>
-      'La rivedrai la prossima volta che aprirai quella schermata';
-
-  @override
-  String get tutorialReplayWelcomeSnackbar =>
-      'La rivedrai la prossima volta che aprirai l\'app';
 }
