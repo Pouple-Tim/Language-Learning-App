@@ -525,77 +525,51 @@ class AppLocalizationsEn extends AppLocalizations {
       'The sentence\'s translation is shown. Rebuild the sentence in the language you\'re learning by placing the word blocks in the right order.';
 
   @override
-  String get tutorialSkipButton => 'Skip';
+  String get onboardingSkip => 'Skip';
 
   @override
-  String get tutorialWelcomeDeckTitle => 'Your deck';
+  String get onboardingNext => 'Next';
 
   @override
-  String get tutorialWelcomeDeckDesc =>
-      'This shows the deck you\'re currently reviewing. Tap it to browse or manage your decks.';
+  String get onboardingStart => 'Get started';
 
   @override
-  String get tutorialWelcomeGamesTitle => 'Game modes';
+  String get onboardingSlide1Title => 'Choose a deck';
 
   @override
-  String get tutorialWelcomeGamesDesc =>
-      'Pick how you want to practice: classic, reverse, quiz, or build the sentence.';
+  String get onboardingSlide1Desc =>
+      'Decks are grouped by language and category. Pick one — it becomes the deck used everywhere, and base decks download automatically the first time you select them.';
 
   @override
-  String get tutorialWelcomeSettingsTitle => 'Settings';
+  String get onboardingSlide2Title => '5 game modes';
 
   @override
-  String get tutorialWelcomeSettingsDesc =>
-      'Change the theme, app language, or reset your progress from here.';
+  String get onboardingSlide2Desc =>
+      'Practice however you like: classic, reverse, quiz, listening, or build the sentence.';
 
   @override
-  String get tutorialDecksSelectTitle => 'Choose a deck';
+  String get onboardingSlide3Title => 'Track your progress';
 
   @override
-  String get tutorialDecksSelectDesc =>
-      'Decks are grouped by language and category — tap a category to open it, then tap any deck to select it (it becomes the deck used everywhere). Base decks download automatically the first time you pick them.';
+  String get onboardingSlide3Desc =>
+      'Remaining words, your day streak, and detailed stats help you see how far you\'ve come.';
 
   @override
-  String get tutorialDecksCreateTitle => 'Create your own';
+  String get onboardingSlide4Title => 'Make it yours';
 
   @override
-  String get tutorialDecksCreateDesc =>
-      'Tap here to build a custom deck with your own words and sentences.';
-
-  @override
-  String get tutorialGameRemainingTitle => 'Track your progress';
-
-  @override
-  String get tutorialGameRemainingDesc =>
-      'This shows how many words are left to review in this session.';
-
-  @override
-  String get tutorialGamePlayTitle => 'Your deck & mode';
-
-  @override
-  String get tutorialGamePlayDesc =>
-      'This shows the deck you\'re reviewing and which game mode you\'re in.';
+  String get onboardingSlide4Desc =>
+      'Change the theme, the app language, build your own decks, or reset your progress from Settings.';
 
   @override
   String get settingsTutorialsSectionTitle => 'Tutorials';
 
   @override
-  String get replayWelcomeTutorialTitle => 'Replay welcome tour';
+  String get replayOnboardingTitle => 'Replay the intro';
 
   @override
-  String get replayWelcomeTutorialSubtitle => 'Show the home screen tour again';
-
-  @override
-  String get replayDecksTutorialTitle => 'Replay decks tutorial';
-
-  @override
-  String get replayDecksTutorialSubtitle => 'Show the deck screen hints again';
-
-  @override
-  String get replayGameTutorialTitle => 'Replay game tutorial';
-
-  @override
-  String get replayGameTutorialSubtitle => 'Show the game screen hints again';
+  String get replayOnboardingSubtitle =>
+      'Show the getting-started screens again';
 
   @override
   String get gameGuideSettingsTitle => 'Game modes guide';
@@ -612,12 +586,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get gameGuideHowToLabel => 'How to play';
-
-  @override
-  String get tutorialReplaySnackbar =>
-      'You\'ll see it again next time you open that screen';
-
-  @override
-  String get tutorialReplayWelcomeSnackbar =>
-      'You\'ll see it again next time you open the app';
 }

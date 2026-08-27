@@ -1044,95 +1044,71 @@ abstract class AppLocalizations {
   /// **'The sentence\'s translation is shown. Rebuild the sentence in the language you\'re learning by placing the word blocks in the right order.'**
   String get sentenceModeHowTo;
 
-  /// No description provided for @tutorialSkipButton.
+  /// No description provided for @onboardingSkip.
   ///
   /// In en, this message translates to:
   /// **'Skip'**
-  String get tutorialSkipButton;
+  String get onboardingSkip;
 
-  /// No description provided for @tutorialWelcomeDeckTitle.
+  /// No description provided for @onboardingNext.
   ///
   /// In en, this message translates to:
-  /// **'Your deck'**
-  String get tutorialWelcomeDeckTitle;
+  /// **'Next'**
+  String get onboardingNext;
 
-  /// No description provided for @tutorialWelcomeDeckDesc.
+  /// No description provided for @onboardingStart.
   ///
   /// In en, this message translates to:
-  /// **'This shows the deck you\'re currently reviewing. Tap it to browse or manage your decks.'**
-  String get tutorialWelcomeDeckDesc;
+  /// **'Get started'**
+  String get onboardingStart;
 
-  /// No description provided for @tutorialWelcomeGamesTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Game modes'**
-  String get tutorialWelcomeGamesTitle;
-
-  /// No description provided for @tutorialWelcomeGamesDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Pick how you want to practice: classic, reverse, quiz, or build the sentence.'**
-  String get tutorialWelcomeGamesDesc;
-
-  /// No description provided for @tutorialWelcomeSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get tutorialWelcomeSettingsTitle;
-
-  /// No description provided for @tutorialWelcomeSettingsDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Change the theme, app language, or reset your progress from here.'**
-  String get tutorialWelcomeSettingsDesc;
-
-  /// No description provided for @tutorialDecksSelectTitle.
+  /// No description provided for @onboardingSlide1Title.
   ///
   /// In en, this message translates to:
   /// **'Choose a deck'**
-  String get tutorialDecksSelectTitle;
+  String get onboardingSlide1Title;
 
-  /// No description provided for @tutorialDecksSelectDesc.
+  /// No description provided for @onboardingSlide1Desc.
   ///
   /// In en, this message translates to:
-  /// **'Decks are grouped by language and category — tap a category to open it, then tap any deck to select it (it becomes the deck used everywhere). Base decks download automatically the first time you pick them.'**
-  String get tutorialDecksSelectDesc;
+  /// **'Decks are grouped by language and category. Pick one — it becomes the deck used everywhere, and base decks download automatically the first time you select them.'**
+  String get onboardingSlide1Desc;
 
-  /// No description provided for @tutorialDecksCreateTitle.
+  /// No description provided for @onboardingSlide2Title.
   ///
   /// In en, this message translates to:
-  /// **'Create your own'**
-  String get tutorialDecksCreateTitle;
+  /// **'5 game modes'**
+  String get onboardingSlide2Title;
 
-  /// No description provided for @tutorialDecksCreateDesc.
+  /// No description provided for @onboardingSlide2Desc.
   ///
   /// In en, this message translates to:
-  /// **'Tap here to build a custom deck with your own words and sentences.'**
-  String get tutorialDecksCreateDesc;
+  /// **'Practice however you like: classic, reverse, quiz, listening, or build the sentence.'**
+  String get onboardingSlide2Desc;
 
-  /// No description provided for @tutorialGameRemainingTitle.
+  /// No description provided for @onboardingSlide3Title.
   ///
   /// In en, this message translates to:
   /// **'Track your progress'**
-  String get tutorialGameRemainingTitle;
+  String get onboardingSlide3Title;
 
-  /// No description provided for @tutorialGameRemainingDesc.
+  /// No description provided for @onboardingSlide3Desc.
   ///
   /// In en, this message translates to:
-  /// **'This shows how many words are left to review in this session.'**
-  String get tutorialGameRemainingDesc;
+  /// **'Remaining words, your day streak, and detailed stats help you see how far you\'ve come.'**
+  String get onboardingSlide3Desc;
 
-  /// No description provided for @tutorialGamePlayTitle.
+  /// No description provided for @onboardingSlide4Title.
   ///
   /// In en, this message translates to:
-  /// **'Your deck & mode'**
-  String get tutorialGamePlayTitle;
+  /// **'Make it yours'**
+  String get onboardingSlide4Title;
 
-  /// No description provided for @tutorialGamePlayDesc.
+  /// No description provided for @onboardingSlide4Desc.
   ///
   /// In en, this message translates to:
-  /// **'This shows the deck you\'re reviewing and which game mode you\'re in.'**
-  String get tutorialGamePlayDesc;
+  /// **'Change the theme, the app language, build your own decks, or reset your progress from Settings.'**
+  String get onboardingSlide4Desc;
 
   /// No description provided for @settingsTutorialsSectionTitle.
   ///
@@ -1140,41 +1116,17 @@ abstract class AppLocalizations {
   /// **'Tutorials'**
   String get settingsTutorialsSectionTitle;
 
-  /// No description provided for @replayWelcomeTutorialTitle.
+  /// No description provided for @replayOnboardingTitle.
   ///
   /// In en, this message translates to:
-  /// **'Replay welcome tour'**
-  String get replayWelcomeTutorialTitle;
+  /// **'Replay the intro'**
+  String get replayOnboardingTitle;
 
-  /// No description provided for @replayWelcomeTutorialSubtitle.
+  /// No description provided for @replayOnboardingSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Show the home screen tour again'**
-  String get replayWelcomeTutorialSubtitle;
-
-  /// No description provided for @replayDecksTutorialTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Replay decks tutorial'**
-  String get replayDecksTutorialTitle;
-
-  /// No description provided for @replayDecksTutorialSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Show the deck screen hints again'**
-  String get replayDecksTutorialSubtitle;
-
-  /// No description provided for @replayGameTutorialTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Replay game tutorial'**
-  String get replayGameTutorialTitle;
-
-  /// No description provided for @replayGameTutorialSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Show the game screen hints again'**
-  String get replayGameTutorialSubtitle;
+  /// **'Show the getting-started screens again'**
+  String get replayOnboardingSubtitle;
 
   /// No description provided for @gameGuideSettingsTitle.
   ///
@@ -1205,18 +1157,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'How to play'**
   String get gameGuideHowToLabel;
-
-  /// No description provided for @tutorialReplaySnackbar.
-  ///
-  /// In en, this message translates to:
-  /// **'You\'ll see it again next time you open that screen'**
-  String get tutorialReplaySnackbar;
-
-  /// No description provided for @tutorialReplayWelcomeSnackbar.
-  ///
-  /// In en, this message translates to:
-  /// **'You\'ll see it again next time you open the app'**
-  String get tutorialReplayWelcomeSnackbar;
 }
 
 class _AppLocalizationsDelegate

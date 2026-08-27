@@ -11,49 +11,12 @@ void main() {
       await StorageHelper.init();
     });
 
-    test('welcome tour is unseen by default, then seen after marking', () async {
-      expect(TutorialService.hasSeenWelcome(), isFalse);
+    test('onboarding is unseen by default, then seen after marking', () async {
+      expect(TutorialService.hasSeenOnboarding(), isFalse);
 
-      await TutorialService.markWelcomeSeen();
+      await TutorialService.markOnboardingSeen();
 
-      expect(TutorialService.hasSeenWelcome(), isTrue);
-    });
-
-    test('resetWelcome makes the welcome tour unseen again', () async {
-      await TutorialService.markWelcomeSeen();
-      await TutorialService.resetWelcome();
-
-      expect(TutorialService.hasSeenWelcome(), isFalse);
-    });
-
-    test('decks tour flag is independent from welcome and game', () async {
-      await TutorialService.markDecksSeen();
-
-      expect(TutorialService.hasSeenDecks(), isTrue);
-      expect(TutorialService.hasSeenWelcome(), isFalse);
-      expect(TutorialService.hasSeenGame(), isFalse);
-    });
-
-    test('game tour is unseen by default, then seen after marking, then reset', () async {
-      expect(TutorialService.hasSeenGame(), isFalse);
-
-      await TutorialService.markGameSeen();
-      expect(TutorialService.hasSeenGame(), isTrue);
-
-      await TutorialService.resetGame();
-      expect(TutorialService.hasSeenGame(), isFalse);
-    });
-
-    test('resetAll resets every tutorial\'s seen flag', () async {
-      await TutorialService.markWelcomeSeen();
-      await TutorialService.markDecksSeen();
-      await TutorialService.markGameSeen();
-
-      await TutorialService.resetAll();
-
-      expect(TutorialService.hasSeenWelcome(), isFalse);
-      expect(TutorialService.hasSeenDecks(), isFalse);
-      expect(TutorialService.hasSeenGame(), isFalse);
+      expect(TutorialService.hasSeenOnboarding(), isTrue);
     });
   });
 }
