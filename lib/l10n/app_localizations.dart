@@ -558,6 +558,30 @@ abstract class AppLocalizations {
   /// **'Clear all'**
   String get clearAll;
 
+  /// No description provided for @helpSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get helpSectionTitle;
+
+  /// No description provided for @sendFeedbackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report an issue or give feedback'**
+  String get sendFeedbackTitle;
+
+  /// No description provided for @sendFeedbackSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your feedback helps me improve the app'**
+  String get sendFeedbackSubtitle;
+
+  /// No description provided for @feedbackMailError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open a mail app'**
+  String get feedbackMailError;
+
   /// No description provided for @about.
   ///
   /// In en, this message translates to:

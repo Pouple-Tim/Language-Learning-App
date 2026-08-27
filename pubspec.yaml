@@ -48,6 +48,9 @@ dependencies:
   # Audio (jeu d'écoute)
   flutter_tts: ^4.2.5
 
+  # Ouverture de liens (mailto feedback)
+  url_launcher: ^6.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

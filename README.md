@@ -5,7 +5,7 @@
 
 # Language Learning App
 
-Application mobile Flutter de révision de vocabulaire, avec une roue interactive, plusieurs modes de jeu et un suivi de progression. Apprends de nouveaux mots chaque jour et améliore ton vocabulaire en chinois, japonais, espagnol ou anglais.
+Application mobile Flutter de révision de vocabulaire, avec une roue interactive, plusieurs modes de jeu et un suivi de progression. Apprends de nouveaux mots chaque jour et améliore ton vocabulaire en chinois (HSK1-HSK2) ou en anglais (A2).
 
 <p align="center">
   <img src="docs/screenshots/home.png" width="45%" alt="Écran d'accueil" />
@@ -14,8 +14,8 @@ Application mobile Flutter de révision de vocabulaire, avec une roue interactiv
 
 ## Fonctionnalités
 
-- **4 modes de jeu** : Classique (roue + saisie), Inversé, Quiz rapide, et Phrase (reconstitution de phrases mot par mot)
-- **44 decks** répartis sur plusieurs langues (chinois HSK1, japonais Hiragana, espagnol, anglais A2) et niveaux de difficulté
+- **5 modes de jeu** : Classique (roue + saisie), Inversé, Quiz rapide, Écoute (audio), et Phrase (reconstitution de phrases mot par mot)
+- **61 decks** répartis sur le chinois (HSK1-HSK2) et l'anglais (A2), classés par niveau de difficulté
 - **Decks personnalisés** : crée et édite tes propres listes de mots
 - **Suivi de progression** : statistiques détaillées, séries de révisions, historique par mode de jeu
 - **Réinitialisation ciblée** : remets à zéro la progression d'un mode précis ou de tout un deck

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:language_learning_app/core/config/feedback_config.dart';
 import 'package:language_learning_app/providers/theme_provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
@@ -163,6 +165,24 @@ class SettingsScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
+                // --- AIDE ---
+                SettingsSection(
+                  title: l10n.helpSectionTitle,
+                  icon: Icons.help_outline,
+                  children: [
+                    SettingsTile(
+                      title: l10n.sendFeedbackTitle,
+                      subtitle: l10n.sendFeedbackSubtitle,
+                      icon: Icons.mail_outline,
+                      iconColor: AppColors.primary,
+                      showDivider: false,
+                      onTap: () => _sendFeedback(context, l10n),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 24),
+
                 // --- À PROPOS ---
                 _buildAboutSection(context, l10n),
                 
@@ -187,6 +207,21 @@ class SettingsScreen extends StatelessWidget {
   // ---------------------------------------------------------------------------
   // WIDGETS DE CONTENU
   // ---------------------------------------------------------------------------
+
+  Future<void> _sendFeedback(BuildContext context, AppLocalizations l10n) async {
+    final uri = Uri(
+      scheme: 'mailto',
+      path: FeedbackConfig.email,
+      query: 'subject=${Uri.encodeComponent('Feedback - ${l10n.appName}')}',
+    );
+
+    final launched = await launchUrl(uri);
+    if (!launched && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.feedbackMailError)),
+      );
+    }
+  }
 
   Future<void> _replayTutorial(
     BuildContext context,
