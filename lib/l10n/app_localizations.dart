@@ -606,6 +606,36 @@ abstract class AppLocalizations {
   /// **'Made with passion'**
   String get madeWithLove;
 
+  /// No description provided for @whatsNewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s new'**
+  String get whatsNewTitle;
+
+  /// No description provided for @newsListeningMode.
+  ///
+  /// In en, this message translates to:
+  /// **'New game mode: Listening (train your ear)'**
+  String get newsListeningMode;
+
+  /// No description provided for @newsOnboarding.
+  ///
+  /// In en, this message translates to:
+  /// **'New intro screen and game modes guide'**
+  String get newsOnboarding;
+
+  /// No description provided for @newsFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'A button to report an issue or give feedback'**
+  String get newsFeedback;
+
+  /// No description provided for @newsStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Your day streak is now visible on the home screen'**
+  String get newsStreak;
+
   /// No description provided for @deckSelected.
   ///
   /// In en, this message translates to:

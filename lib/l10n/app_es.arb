@@ -95,6 +95,11 @@
   "version": "Versión",
   "description": "Aplicación de repaso de idiomas con una rueda interactiva.\n\n¡Aprende nuevas palabras cada día y mejora tu vocabulario!",
   "madeWithLove": "Hecho con pasión",
+  "whatsNewTitle": "Novedades",
+  "newsListeningMode": "Nuevo modo de juego: Escucha (entrena tu oído)",
+  "newsOnboarding": "Nueva pantalla de introducción y guía de modos de juego",
+  "newsFeedback": "Un botón para informar de un problema o dar tu opinión",
+  "newsStreak": "Tu racha de días ahora es visible en la pantalla de inicio",
   
   "deckSelected": "Mazo \"{name}\" seleccionado",
   "deckDownloadFailed": "No se pudo descargar este mazo. Comprueba tu conexión e inténtalo de nuevo.",

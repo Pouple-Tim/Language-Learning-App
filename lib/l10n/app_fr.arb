@@ -95,6 +95,11 @@
   "version": "Version",
   "description": "Application de révision de langues avec roue interactive.\n\nApprends de nouveaux mots chaque jour et améliore ton vocabulaire !",
   "madeWithLove": "Fait avec passion",
+  "whatsNewTitle": "Nouveautés",
+  "newsListeningMode": "Nouveau mode de jeu : Écoute (entraîne ton oreille)",
+  "newsOnboarding": "Nouvel écran d'introduction et guide des modes de jeu",
+  "newsFeedback": "Un bouton pour signaler un problème ou donner ton avis",
+  "newsStreak": "Ta série de jours consécutifs est maintenant visible sur l'accueil",
   
   "deckSelected": "Deck \"{name}\" sélectionné",
   "deckDownloadFailed": "Impossible de télécharger ce deck. Vérifie ta connexion et réessaie.",

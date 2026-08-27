@@ -21,6 +21,7 @@ Application mobile Flutter de révision de vocabulaire, avec une roue interactiv
 - **Réinitialisation ciblée** : remets à zéro la progression d'un mode précis ou de tout un deck
 - **Contenu à la demande** : les decks se téléchargent au premier usage puis restent disponibles hors-ligne (backend [Supabase](https://supabase.com))
 - **Multilingue** : interface disponible en français, anglais, espagnol et italien
+- **Feedback intégré** : signale un problème ou donne ton avis directement depuis Réglages
 
 ## Stack technique
 
@@ -31,6 +32,8 @@ Application mobile Flutter de révision de vocabulaire, avec une roue interactiv
 | Backend | [Supabase](https://supabase.com) (contenu des decks, lecture publique) |
 | Stockage local | `SharedPreferences` (progression, decks personnalisés, réglages) |
 | Sérialisation | `json_serializable` / `build_runner` |
+| Crash reporting | [Sentry](https://sentry.io) |
+| Analytics | Événements anonymes minimaux (aucun compte, aucune donnée personnelle) vers une table Supabase dédiée |
 | CI | GitHub Actions (analyse + tests + build APK à chaque push sur `main`) |
 
 ## Démarrage

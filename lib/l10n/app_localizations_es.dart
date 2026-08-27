@@ -279,6 +279,25 @@ class AppLocalizationsEs extends AppLocalizations {
   String get madeWithLove => 'Hecho con pasión';
 
   @override
+  String get whatsNewTitle => 'Novedades';
+
+  @override
+  String get newsListeningMode =>
+      'Nuevo modo de juego: Escucha (entrena tu oído)';
+
+  @override
+  String get newsOnboarding =>
+      'Nueva pantalla de introducción y guía de modos de juego';
+
+  @override
+  String get newsFeedback =>
+      'Un botón para informar de un problema o dar tu opinión';
+
+  @override
+  String get newsStreak =>
+      'Tu racha de días ahora es visible en la pantalla de inicio';
+
+  @override
   String deckSelected(String name) {
     return 'Mazo \"$name\" seleccionado';
   }

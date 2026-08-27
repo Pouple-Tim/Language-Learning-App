@@ -95,6 +95,11 @@
   "version": "Versione",
   "description": "Applicazione per ripassare le lingue con una ruota interattiva.\n\nImpara nuove parole ogni giorno e migliora il tuo vocabolario!",
   "madeWithLove": "Creato con passione",
+  "whatsNewTitle": "Novità",
+  "newsListeningMode": "Nuova modalità di gioco: Ascolto (allena il tuo orecchio)",
+  "newsOnboarding": "Nuova schermata introduttiva e guida alle modalità di gioco",
+  "newsFeedback": "Un pulsante per segnalare un problema o lasciare un feedback",
+  "newsStreak": "La tua serie di giorni ora è visibile nella schermata home",
   
   "deckSelected": "Mazzo \"{name}\" selezionato",
   "deckDownloadFailed": "Impossibile scaricare questo mazzo. Controlla la connessione e riprova.",
