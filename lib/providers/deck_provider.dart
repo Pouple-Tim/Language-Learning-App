@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:language_learning_app/core/analytics/analytics_service.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
 
@@ -75,6 +77,7 @@ class DeckProvider extends ChangeNotifier {
       _selectedDeck = deck;
       await _repository.saveSelectedDeckId(deck.id);
       debugPrint('✅ Deck sélectionné: ${deck.name}');
+      unawaited(AnalyticsService.logEvent('deck_selected', {'deck_id': deck.id}));
       notifyListeners();
       return;
     }
@@ -90,6 +93,7 @@ class DeckProvider extends ChangeNotifier {
       _selectedDeck = populated;
       await _repository.saveSelectedDeckId(populated.id);
       debugPrint('✅ Deck téléchargé et sélectionné: ${populated.name}');
+      unawaited(AnalyticsService.logEvent('deck_selected', {'deck_id': populated.id}));
     } catch (e) {
       _downloadError = e.toString();
       debugPrint('❌ Erreur téléchargement deck ${deck.id}: $e');

@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:language_learning_app/core/analytics/analytics_service.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/word.dart';
 import 'package:language_learning_app/data/models/sentence.dart';
@@ -169,6 +171,10 @@ class GameProvider extends ChangeNotifier {
     // Reset des pointeurs
     _currentWord = null;
     _currentSentence = null;
+    unawaited(AnalyticsService.logEvent('game_started', {
+      'deck_id': baseDeck.id,
+      'game_mode': gameMode.storageId,
+    }));
     notifyListeners();
   }
 
@@ -251,6 +257,7 @@ class GameProvider extends ChangeNotifier {
     if (isCorrect) {
       _currentSentence!.completed = true;
       await _saveProgress();
+      _logIfDeckCompleted();
 
       debugPrint('✅ Phrase correcte !');
       notifyListeners();
@@ -297,6 +304,7 @@ class GameProvider extends ChangeNotifier {
     if (isCorrect) {
       _currentWord!.removed = true;
       await _saveProgress();
+      _logIfDeckCompleted();
       debugPrint('✅ Bonne réponse !');
       notifyListeners();
       return true;
@@ -312,6 +320,7 @@ class GameProvider extends ChangeNotifier {
 
     _currentWord!.removed = true;
     await _saveProgress();
+    _logIfDeckCompleted();
     debugPrint('✅ Dessin validé !');
     notifyListeners();
   }
@@ -391,6 +400,14 @@ class GameProvider extends ChangeNotifier {
       debugPrint('📅 Reset quotidien déclenché');
       await resetDeck();
     }
+  }
+
+  void _logIfDeckCompleted() {
+    if (!isCompleted || _currentDeckId == null || _currentGameType == null) return;
+    unawaited(AnalyticsService.logEvent('deck_completed', {
+      'deck_id': _currentDeckId,
+      'game_mode': _currentGameType!.storageId,
+    }));
   }
 
   Future<void> _saveProgress() async {

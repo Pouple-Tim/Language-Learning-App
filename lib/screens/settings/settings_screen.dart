@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:language_learning_app/core/analytics/analytics_service.dart';
 import 'package:language_learning_app/core/config/feedback_config.dart';
 import 'package:language_learning_app/providers/theme_provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
@@ -209,6 +211,8 @@ class SettingsScreen extends StatelessWidget {
   // ---------------------------------------------------------------------------
 
   Future<void> _sendFeedback(BuildContext context, AppLocalizations l10n) async {
+    unawaited(AnalyticsService.logEvent('feedback_tapped'));
+
     final uri = Uri(
       scheme: 'mailto',
       path: FeedbackConfig.email,
