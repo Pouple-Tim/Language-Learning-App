@@ -607,4 +607,28 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get gameGuideHowToLabel => 'Come si gioca';
+
+  @override
+  String get reminderSectionTitle => 'Promemoria';
+
+  @override
+  String get reminderToggleTitle => 'Promemoria giornaliero';
+
+  @override
+  String get reminderToggleSubtitle =>
+      'Un promemoria per allenarti nei giorni in cui non l\'hai ancora fatto';
+
+  @override
+  String get reminderTimeTitle => 'Ora del promemoria';
+
+  @override
+  String get reminderPermissionDenied =>
+      'Le notifiche sono disattivate per l\'app. Attivale nelle impostazioni del telefono.';
+
+  @override
+  String get reminderNotificationTitle => 'È ora di allenarti 🔥';
+
+  @override
+  String get reminderNotificationBody =>
+      'Pochi minuti oggi per non perdere la serie.';
 }

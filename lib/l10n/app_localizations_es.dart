@@ -606,4 +606,27 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get gameGuideHowToLabel => 'Cómo jugar';
+
+  @override
+  String get reminderSectionTitle => 'Recordatorios';
+
+  @override
+  String get reminderToggleTitle => 'Recordatorio diario';
+
+  @override
+  String get reminderToggleSubtitle =>
+      'Un aviso para practicar los días que aún no lo has hecho';
+
+  @override
+  String get reminderTimeTitle => 'Hora del recordatorio';
+
+  @override
+  String get reminderPermissionDenied =>
+      'Las notificaciones están desactivadas para la app. Actívalas en los ajustes del teléfono.';
+
+  @override
+  String get reminderNotificationTitle => 'Hora de practicar 🔥';
+
+  @override
+  String get reminderNotificationBody => 'Unos minutos hoy mantienen tu racha.';
 }

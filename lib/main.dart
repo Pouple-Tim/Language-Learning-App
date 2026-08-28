@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/analytics/analytics_service.dart';
+import 'core/notifications/notification_service.dart';
 import 'core/utils/storage_helper.dart';
 import 'core/config/supabase_config.dart';
 import 'core/config/sentry_config.dart';
@@ -11,6 +12,7 @@ import 'providers/theme_provider.dart';
 import 'providers/game_provider.dart';
 import 'providers/deck_provider.dart';
 import 'providers/locale_provider.dart';
+import 'providers/reminder_provider.dart';
 import 'providers/statistics_provider.dart';
 import 'app.dart';
 
@@ -22,6 +24,8 @@ void main() async {
   } catch (e) {
     debugPrint('❌ Erreur initialisation StorageHelper: $e');
   }
+
+  await NotificationService.init();
 
   try {
     await Supabase.initialize(
@@ -46,6 +50,7 @@ void main() async {
           ChangeNotifierProvider(create: (_) => ThemeProvider()),
           ChangeNotifierProvider(create: (_) => DeckProvider()),
           ChangeNotifierProvider(create: (_) => LocaleProvider()),
+          ChangeNotifierProvider(create: (_) => ReminderProvider()..load()),
           ChangeNotifierProvider(
             create: (_) => StatisticsProvider()..loadHistory(),
           ),

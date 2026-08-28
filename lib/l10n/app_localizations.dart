@@ -1187,6 +1187,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'How to play'**
   String get gameGuideHowToLabel;
+
+  /// No description provided for @reminderSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get reminderSectionTitle;
+
+  /// No description provided for @reminderToggleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily reminder'**
+  String get reminderToggleTitle;
+
+  /// No description provided for @reminderToggleSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A nudge to practice on days you haven\'t yet'**
+  String get reminderToggleSubtitle;
+
+  /// No description provided for @reminderTimeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder time'**
+  String get reminderTimeTitle;
+
+  /// No description provided for @reminderPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are turned off for this app. Enable them in your device settings.'**
+  String get reminderPermissionDenied;
+
+  /// No description provided for @reminderNotificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Time to practice 🔥'**
+  String get reminderNotificationTitle;
+
+  /// No description provided for @reminderNotificationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A few minutes today keeps your streak going.'**
+  String get reminderNotificationBody;
 }
 
 class _AppLocalizationsDelegate

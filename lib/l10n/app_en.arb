@@ -310,5 +310,12 @@
   "gameGuideSettingsSubtitle": "Understand the goal and rules of each game",
   "gameGuideScreenTitle": "Game guide",
   "gameGuideGoalLabel": "Goal",
-  "gameGuideHowToLabel": "How to play"
+  "gameGuideHowToLabel": "How to play",
+  "reminderSectionTitle": "Reminders",
+  "reminderToggleTitle": "Daily reminder",
+  "reminderToggleSubtitle": "A nudge to practice on days you haven't yet",
+  "reminderTimeTitle": "Reminder time",
+  "reminderPermissionDenied": "Notifications are turned off for this app. Enable them in your device settings.",
+  "reminderNotificationTitle": "Time to practice 🔥",
+  "reminderNotificationBody": "A few minutes today keeps your streak going."
 }

@@ -601,4 +601,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get gameGuideHowToLabel => 'How to play';
+
+  @override
+  String get reminderSectionTitle => 'Reminders';
+
+  @override
+  String get reminderToggleTitle => 'Daily reminder';
+
+  @override
+  String get reminderToggleSubtitle =>
+      'A nudge to practice on days you haven\'t yet';
+
+  @override
+  String get reminderTimeTitle => 'Reminder time';
+
+  @override
+  String get reminderPermissionDenied =>
+      'Notifications are turned off for this app. Enable them in your device settings.';
+
+  @override
+  String get reminderNotificationTitle => 'Time to practice 🔥';
+
+  @override
+  String get reminderNotificationBody =>
+      'A few minutes today keeps your streak going.';
 }

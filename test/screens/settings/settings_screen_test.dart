@@ -8,6 +8,8 @@ import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/locale_provider.dart';
+import 'package:language_learning_app/providers/reminder_provider.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/providers/theme_provider.dart';
 import 'package:language_learning_app/screens/onboarding/onboarding_screen.dart';
 import 'package:language_learning_app/screens/settings/settings_screen.dart';
@@ -19,6 +21,8 @@ Widget _wrap(Widget child) {
       ChangeNotifierProvider(create: (_) => DeckProvider()),
       ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ChangeNotifierProvider(create: (_) => GameProvider()),
+      ChangeNotifierProvider(create: (_) => StatisticsProvider()),
+      ChangeNotifierProvider(create: (_) => ReminderProvider()),
     ],
     child: MaterialApp(
       locale: const Locale('en'),

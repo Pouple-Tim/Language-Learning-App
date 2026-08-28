@@ -202,5 +202,12 @@
   "gameGuideSettingsSubtitle": "Comprendre le but et les règles de chaque jeu",
   "gameGuideScreenTitle": "Guide des jeux",
   "gameGuideGoalLabel": "Objectif",
-  "gameGuideHowToLabel": "Comment jouer"
+  "gameGuideHowToLabel": "Comment jouer",
+  "reminderSectionTitle": "Rappels",
+  "reminderToggleTitle": "Rappel quotidien",
+  "reminderToggleSubtitle": "Un petit rappel les jours où tu n'as pas encore révisé",
+  "reminderTimeTitle": "Heure du rappel",
+  "reminderPermissionDenied": "Les notifications sont désactivées pour l'appli. Active-les dans les réglages de ton téléphone.",
+  "reminderNotificationTitle": "C'est l'heure de réviser 🔥",
+  "reminderNotificationBody": "Quelques minutes aujourd'hui pour garder ta série."
 }
