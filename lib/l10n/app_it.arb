@@ -202,5 +202,12 @@
   "gameGuideSettingsSubtitle": "Scopri l'obiettivo e le regole di ogni gioco",
   "gameGuideScreenTitle": "Guida ai giochi",
   "gameGuideGoalLabel": "Obiettivo",
-  "gameGuideHowToLabel": "Come si gioca"
+  "gameGuideHowToLabel": "Come si gioca",
+  "reminderSectionTitle": "Promemoria",
+  "reminderToggleTitle": "Promemoria giornaliero",
+  "reminderToggleSubtitle": "Un promemoria per allenarti nei giorni in cui non l'hai ancora fatto",
+  "reminderTimeTitle": "Ora del promemoria",
+  "reminderPermissionDenied": "Le notifiche sono disattivate per l'app. Attivale nelle impostazioni del telefono.",
+  "reminderNotificationTitle": "È ora di allenarti 🔥",
+  "reminderNotificationBody": "Pochi minuti oggi per non perdere la serie."
 }

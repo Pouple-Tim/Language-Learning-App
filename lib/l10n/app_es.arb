@@ -202,5 +202,12 @@
   "gameGuideSettingsSubtitle": "Entiende el objetivo y las reglas de cada juego",
   "gameGuideScreenTitle": "Guía de juegos",
   "gameGuideGoalLabel": "Objetivo",
-  "gameGuideHowToLabel": "Cómo jugar"
+  "gameGuideHowToLabel": "Cómo jugar",
+  "reminderSectionTitle": "Recordatorios",
+  "reminderToggleTitle": "Recordatorio diario",
+  "reminderToggleSubtitle": "Un aviso para practicar los días que aún no lo has hecho",
+  "reminderTimeTitle": "Hora del recordatorio",
+  "reminderPermissionDenied": "Las notificaciones están desactivadas para la app. Actívalas en los ajustes del teléfono.",
+  "reminderNotificationTitle": "Hora de practicar 🔥",
+  "reminderNotificationBody": "Unos minutos hoy mantienen tu racha."
 }

@@ -160,6 +160,10 @@ class StatisticsProvider extends ChangeNotifier {
     return sorted.take(5).toList();
   }
 
+  /// Vrai si au moins une révision a été enregistrée aujourd'hui.
+  bool hasPracticedToday() =>
+      _history.getReviewsForDay(DateTime.now()).isNotEmpty;
+
   /// Série actuelle (jours consécutifs)
   int getCurrentStreak() {
     if (_history.entries.isEmpty) return 0;

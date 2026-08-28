@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
+import 'package:language_learning_app/providers/reminder_provider.dart';
 import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
 import 'package:language_learning_app/screens/onboarding/onboarding_screen.dart';
 
@@ -51,11 +52,26 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowOnboarding());
+    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _maybeShowOnboarding();
+      _refreshReminder();
+    });
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) _refreshReminder();
   }
 
   void _maybeShowOnboarding() {
@@ -65,6 +81,18 @@ class _HomeScreenState extends State<HomeScreen> {
       context,
       MaterialPageRoute(builder: (_) => const OnboardingScreen()),
     );
+  }
+
+  /// Re-arms the rolling daily-reminder window (skips today if already
+  /// practiced). Cheap no-op when the reminder is off.
+  void _refreshReminder() {
+    if (!mounted) return;
+    final l10n = AppLocalizations.of(context)!;
+    context.read<ReminderProvider>().refresh(
+          practicedToday: context.read<StatisticsProvider>().hasPracticedToday(),
+          title: l10n.reminderNotificationTitle,
+          body: l10n.reminderNotificationBody,
+        );
   }
 
   @override

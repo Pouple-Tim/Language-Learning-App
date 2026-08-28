@@ -604,4 +604,28 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get gameGuideHowToLabel => 'Comment jouer';
+
+  @override
+  String get reminderSectionTitle => 'Rappels';
+
+  @override
+  String get reminderToggleTitle => 'Rappel quotidien';
+
+  @override
+  String get reminderToggleSubtitle =>
+      'Un petit rappel les jours où tu n\'as pas encore révisé';
+
+  @override
+  String get reminderTimeTitle => 'Heure du rappel';
+
+  @override
+  String get reminderPermissionDenied =>
+      'Les notifications sont désactivées pour l\'appli. Active-les dans les réglages de ton téléphone.';
+
+  @override
+  String get reminderNotificationTitle => 'C\'est l\'heure de réviser 🔥';
+
+  @override
+  String get reminderNotificationBody =>
+      'Quelques minutes aujourd\'hui pour garder ta série.';
 }
