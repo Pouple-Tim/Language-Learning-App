@@ -16,13 +16,17 @@ create policy "Public read access" on public.decks
 -- denies those by default. This must stay insert-only: the anon key is
 -- public (embedded client-side, public repo), so a read policy here would
 -- let anyone read every user's events.
+-- Size caps: the anon key is public, so anyone can POST rows here. These
+-- bound a single abusive insert; they do not stop volume (set a Supabase
+-- spend alert for that). ponytail: size CHECK only, add an event_name
+-- allowlist trigger if abuse actually shows up.
 create table if not exists public.app_events (
   id bigint generated always as identity primary key,
   created_at timestamptz not null default now(),
-  event_name text not null,
-  event_props jsonb not null default '{}'::jsonb,
+  event_name text not null check (char_length(event_name) <= 64),
+  event_props jsonb not null default '{}'::jsonb check (pg_column_size(event_props) <= 2048),
   anon_device_id uuid not null,
-  app_version text
+  app_version text check (app_version is null or char_length(app_version) <= 32)
 );
 
 alter table public.app_events enable row level security;
