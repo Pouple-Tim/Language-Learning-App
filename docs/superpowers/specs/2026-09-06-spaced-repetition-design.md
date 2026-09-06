@@ -33,7 +33,9 @@ add via a pre-session filter.
 | Granularity | **Per `wordId`, mode-agnostic.** A word graded in quiz advances its due date for classic too. |
 | Daily reset | **Removed.** `checkDailyReset` / `resetWords`-per-day / the "Nouveau jour" SnackBar all go. SM-2 due dates are the only scheduler. |
 | Migration | **Fresh start.** Everyone begins with an empty SM-2 store (all words "new"). `ReviewHistory` is not replayed. |
-| Scope | **Words only.** Sentence mode is excluded from SM-2 and from the pre-session filter in v1 (see §8, open item). |
+| Scope | **Words and sentences.** Sentence mode is scheduled too, using the same SM-2 core keyed by a composite `<deckId>::<sentenceId>` (bare `sentenceId` collides across decks). See §7bis. |
+| "Réinitialiser le deck actuel" | Now wipes the SM-2 cards for that deck's word ids **and** sentence keys — every item becomes "new" again. |
+| CompletedCard | Gains a "prochaine session" line (§6bis) — in v1. |
 
 ---
 
@@ -123,21 +125,27 @@ q2 is the only interval reset.
 `lib/providers/srs_provider.dart` — `class SrsProvider extends ChangeNotifier`,
 registered in `main.dart` after `GoalProvider` (`SrsProvider()..load()`).
 
+Every method takes a **`srsKey` string**, not a raw id:
+- word → `word.id` (already globally unique: `<deckId>_wN`)
+- sentence → `'<deckId>::<sentenceId>'` (bare `sentenceId` is `s1`, `s2`… and
+  collides across decks). `GameProvider` builds the key; `SrsProvider` is
+  agnostic to what a key means.
+
 - **Store:** one SharedPreferences key `srs_state`, a JSON object
-  `{ "<wordId>": {"reps":N,"ef":F,"interval":D,"due":"YYYY-MM-DD"} }`, loaded
+  `{ "<srsKey>": {"reps":N,"ef":F,"interval":D,"due":"YYYY-MM-DD"} }`, loaded
   into an in-memory `Map<String, SrsCard>` on `load()`. Written whole on every
   `grade`. (Same one-blob approach as `review_history`; realistic size is a few
-  hundred entries — only words the user has actually answered.)
+  hundred entries — only items the user has actually answered.)
 - **API:**
   ```dart
-  SrsCard? cardFor(String wordId);              // null = never reviewed
-  Future<void> grade(String wordId, int quality); // reviewCard + persist + notifyListeners
-  bool isDue(String wordId, DateTime now);      // cardFor == null || card.due <= dateOnly(now)
-  bool isNew(String wordId);                    // cardFor == null
-  bool isDifficult(String wordId);              // card != null && card.ef < 2.0
-  /// Counts for the pre-session screen, over a given set of word ids.
-  ({int all, int due, int fresh, int hard}) counts(Iterable<String> wordIds, DateTime now);
-  Future<void> resetDeck(Iterable<String> wordIds); // drop SM-2 state for those ids (Settings "réinitialiser")
+  SrsCard? cardFor(String srsKey);               // null = never reviewed
+  Future<void> grade(String srsKey, int quality);  // reviewCard + persist + notifyListeners
+  bool isDue(String srsKey, DateTime now);       // cardFor == null || card.due <= dateOnly(now)
+  bool isNew(String srsKey);                     // cardFor == null
+  bool isDifficult(String srsKey);               // card != null && card.ef < 2.0
+  /// Counts for the pre-session screen, over a given set of keys.
+  ({int all, int due, int fresh, int hard}) counts(Iterable<String> srsKeys, DateTime now);
+  Future<void> resetKeys(Iterable<String> srsKeys); // drop SM-2 state (Settings "réinitialiser")
   ```
 - No coupling to `StatisticsProvider` — `grade` is called by `GameProvider`
   with a quality it computed. `ReviewHistory` logging stays exactly as it is
@@ -149,16 +157,18 @@ registered in `main.dart` after `GoalProvider` (`SrsProvider()..load()`).
 
 `enum SessionFilter { all, due, fresh, hard }`
 
-| filter | l10n label | predicate over the deck's word ids | notes |
+| filter | l10n label | predicate over the session's srsKeys | notes |
 |---|---|---|---|
-| `all` | "Réviser tout" | every word | ignores SM-2 entirely — the escape hatch |
-| `due` | "À réviser aujourd'hui" | `SrsProvider.isDue(id, now)` (includes never-seen) | the default |
-| `fresh` | "Nouveaux mots" | `SrsProvider.isNew(id)` | strict subset of `due` |
-| `hard` | "Mots difficiles" | `SrsProvider.isDifficult(id)` | ef < 2.0 (repeatedly lapsed) |
+| `all` | "Réviser tout" | every item | ignores SM-2 entirely — the escape hatch |
+| `due` | "À réviser aujourd'hui" | `SrsProvider.isDue(key, now)` (includes never-seen) | the default |
+| `fresh` | "Nouveaux mots" | `SrsProvider.isNew(key)` | strict subset of `due` |
+| `hard` | "Mots difficiles" | `SrsProvider.isDifficult(key)` | ef < 2.0 (repeatedly lapsed) |
 
-The pre-session screen shows all four with a live count each (from
-`SrsProvider.counts`). A filter with count 0 is shown greyed / disabled except
-`all` (never 0 for a non-empty deck).
+"the session's srsKeys" = the word ids for a word mode, or the
+`<deckId>::<sentenceId>` keys for sentence mode. The pre-session screen shows
+all four with a live count each (from `SrsProvider.counts`). A filter with
+count 0 is shown greyed / disabled except `all` (never 0 for a non-empty
+deck/mode).
 
 **Edge:** if `due` resolves to 0 words (everything scheduled ahead), the screen
 still lets you pick `all` / `fresh` / `hard`. The default selection falls back
@@ -168,13 +178,13 @@ to the first non-empty option in order `due → fresh → hard → all`.
 
 ## 4. Quality score — auto-derived
 
-The score is computed **once per word, when it is first answered correctly in
-the session** (in classic/quiz/listening you keep going until right, so there
-is exactly one "completed" moment per word per session). Input: the word's
-wrong-submission count for this session, already tracked in
-`GameProvider._sessionMistakes[wordId]`.
+The score is computed **once per item (word or sentence), when it is first
+answered correctly in the session**. Input: the item's wrong-submission count
+for this session, already tracked in `GameProvider._sessionMistakes[itemId]`
+(keyed by the bare `wordId` / `sentenceId` — the composite srsKey is only for
+`SrsProvider`).
 
-| session mistakes for this word | quality | meaning |
+| session mistakes for this item | quality | meaning |
 |---|---|---|
 | 0 | **5** | first try |
 | 1 | **4** | one slip |
@@ -202,21 +212,26 @@ method.)
   all words un-removed. `_saveProgress` stops writing word `removed` (it may
   keep writing the blob harmlessly, or word-progress persistence is dropped
   entirely — plan's call). SM-2 `srs_state` is the persistence now.
-- **`spinWheel()`** picks from
-  `_currentProgressDeck.words.where((w) => !w.removed && _matchesFilter(w.id))`
-  instead of `activeWords`. `_matchesFilter` switches on `_sessionFilter` using
-  `SrsProvider` (injected the same way `statisticsProvider` is — via
-  `ChangeNotifierProxyProvider` in `main.dart`). Distractor generation
-  (`_generateQuizOptions`) keeps using `_currentProgressDeck.words` (all words)
-  — already does, so a small filtered pool still yields 4-option quizzes.
-- **On the "completed correctly" branch** of `checkAnswer` (and the drawing
-  `markCurrentWordAsCorrect`): after `_sessionCompleted.add(id)` and
-  `_currentWord!.removed = true`, compute the quality from
-  `_sessionMistakes[id]` per §4 and call `srsProvider?.grade(id, quality)`.
+- **`spinWheel()` / `_loadNextSentence()`** pick from the filtered pool:
+  `words.where((w) => !w.removed && _matchesFilter(srsKeyForWord(w)))`
+  / `sentences.where((s) => !s.completed && _matchesFilter(srsKeyForSentence(s)))`
+  instead of `activeWords` / `activeSentences`. `_matchesFilter` switches on
+  `_sessionFilter` using `SrsProvider` (injected the same way
+  `statisticsProvider` is — via `ChangeNotifierProxyProvider` in `main.dart`).
+  `srsKeyForWord(w) = w.id`; `srsKeyForSentence(s) = '${_currentDeckId}::${s.id}'`.
+  Distractor generation (`_generateQuizOptions`) keeps using
+  `_currentProgressDeck.words` (all words) — already does, so a small filtered
+  pool still yields 4-option quizzes.
+- **On the "completed correctly" branch** of `checkAnswer` /
+  `checkSentenceConstruction` / drawing `markCurrentWordAsCorrect`: after
+  `_sessionCompleted.add(id)` and setting `removed`/`completed`, compute the
+  quality from `_sessionMistakes[id]` per §4 and call
+  `srsProvider?.grade(srsKey, quality)` (word or sentence key as above).
   Fire-and-forget is fine (the write is cheap and local).
 - **`isCompleted`** = the filtered pool is exhausted
-  (`words.where(!removed && matchesFilter).isEmpty`). The CompletedCard shows
-  when the *chosen filter's* words are done, not when the whole deck is done.
+  (`words.where(!removed && matchesFilter).isEmpty`, or the sentence
+  equivalent). The CompletedCard shows when the *chosen filter's* items are
+  done, not when the whole deck is done.
 - **`resetDeck()`** (CompletedCard "Recommencer" button, `resetModeProgress`,
   `resetAllModesProgress`): re-populates the session pool from the current
   filter (clear `removed`, clear session counters, re-spin). It **does not**
@@ -237,23 +252,52 @@ is selected / downloads content if needed → `gameProvider.setDeck(deck, gameMo
 
 New flow: … deck ready → `Navigator.push(PreSessionScreen(deck: deck, mode: mode.type, title: mode.title))`.
 The pre-session screen:
-- reads `SrsProvider` + the deck's word ids, computes the 4 counts.
+- reads `SrsProvider` + the deck's srsKeys for this mode (word ids for a word
+  mode, `<deckId>::<sentenceId>` for sentence mode), computes the 4 counts.
 - shows 4 large tappable rows: label + count + short subtitle; the last-used
   filter for this deck (persisted, see below) is pre-highlighted, or the
   default fallback (§3).
 - on tap: persist the choice, `gameProvider.setDeck(deck, gameMode: mode, filter: chosen)`,
   `Navigator.pushReplacement(GameScreen(gameTitle: title))`.
-- **Sentence mode** (`GameType.sentence`): the pre-session screen is skipped
-  entirely — go straight to `GameScreen` (sentence mode is not SR-scheduled in
-  v1). See §8.
-- **Last-used filter per deck:** a small SharedPreferences map
-  `session_filter_by_deck` `{ deckId: "due" }`, owned by `SrsProvider` or a
-  tiny helper. Not the `Settings` model.
+- **Sentence mode** goes through the pre-session screen too — the counts are
+  over the deck's `<deckId>::<sentenceId>` keys. Labels can stay generic
+  ("Nouveaux mots" reads fine for sentences; l10n may add a mode-aware variant
+  later — not v1).
+- **Last-used filter per (deck, mode):** a small SharedPreferences map
+  `session_filter_by_deck` `{ "<deckId>_<gameMode>": "due" }`, owned by
+  `SrsProvider` or a tiny helper. Not the `Settings` model.
 
 `GameScreen` itself is unchanged except that it now trusts `GameProvider` to
 have a filter set.
 
+## 6bis. CompletedCard "prochaine session" line
+
+Below the existing session-summary block and goal ring, add one line:
+`l10n.nextReviewLine(dueTomorrow)` → e.g. "Prochaine session : 8 mots demain".
+`dueTomorrow` = count of this deck+mode's srsKeys whose `card.due` is exactly
+tomorrow (`SrsProvider` gains `int dueOn(Iterable<String> keys, DateTime day)`
+or the card list is filtered inline). If 0, show "Rien de prévu demain" /
+hide the line. Kept deliberately minimal — one line, no breakdown by day.
+`CompletedCard` already `context.watch<GameProvider>()`; it reads the deck's
+keys from there and `SrsProvider` for the due dates.
+
 ---
+
+## 7bis. Sentence-mode scheduling
+
+Same SM-2 core, no separate algorithm. Differences from word mode:
+
+- **Key:** `'<deckId>::<sentenceId>'` (built in `GameProvider`).
+- **Quality:** `checkSentenceConstruction` has no "keep trying until right"
+  loop the way text input does, but `_sessionMistakes[sentenceId]` already
+  counts each wrong `checkSentenceConstruction` call this session, so the §4
+  table applies unchanged (0 wrong → q5, 1 → q4, 2 → q3, ≥3 → q2).
+- **Pool:** `_loadNextSentence()` filters `sentences.where((s) => !s.completed
+  && _matchesFilter('<deckId>::<s.id>'))`.
+- **`completed`** becomes pure in-memory session state (like `removed` for
+  words) — no longer persisted in `progress_<deck>_sentence`. Every sentence
+  session starts fresh; the filter + due dates decide the pool.
+- Sentence decks are small (10–20), so even `all` is a short session.
 
 ## 7. Removing the daily reset — ripple
 
@@ -274,31 +318,24 @@ have a filter set.
 
 ---
 
-## 8. Non-goals / open items for spec review
+## 8. Non-goals / accepted trade-offs
 
-1. **Sentence mode is out of scope for SM-2 in v1.** Rationale: `Sentence.id`
-   is only unique per deck (`s1`, `s2`…), sentence decks are small (10–20),
-   and it's a construction task, not recall. **Proposed v1 behaviour:** sentence
-   mode skips the pre-session screen; its session pool is all sentences with
-   `completed` as pure in-memory session state (every entry replays all
-   sentences); no persistence, no daily reset needed. **Confirm at spec
-   review** — the alternative is a Leitner-lite on `(deckId, sentenceId)` which
-   is more work.
-2. **"Réinitialiser le deck actuel"** (Settings → Données). Today it wipes
-   `progress_<deck>_*`. **Proposed:** it now calls
-   `SrsProvider.resetDeck(deckWordIds)` — drops the SM-2 cards for that deck so
-   every word is "new" again. Confirm the wording / that this is the desired
-   meaning.
-3. **CompletedCard "next review" line** — optionally show "12 mots revus ·
-   prochaine session : 8 mots demain". Nice-to-have, can be a follow-up; not in
-   the v1 plan unless cheap.
+1. **Grade buttons** — no manual "Again / Good / Easy". Quality is auto-derived
+   (§4). Revisitable later if the auto-mapping proves too coarse.
+2. **New-word daily quota** — none. Volume is a filter choice, not a gate.
+3. **Cross-deck-variant unification** — a word in `chinese_hsk1_part1` and the
+   same word in `chinese_hsk1_all` are independent cards. Studying one doesn't
+   advance the other. Accepted: the realistic user picks one variant.
 4. **Daily goal (#7) interaction** — the goal counts `reviewsToday()` (raw
-   answer submissions), unchanged. If `due` has only 8 words and the goal is
+   answer submissions), unchanged. If `due` has only 8 items and the goal is
    20, the user won't hit it without also doing `fresh` / `all`. Deemed
    acceptable (nudges more study); no coupling added.
 5. **Timezone / midnight** — due dates are date-only in local time, same
-   naive model as the current `DateHelper.isToday`. A word due "today" stays
+   naive model as the current `DateHelper.isToday`. An item due "today" stays
    due until answered or the local date rolls. No change.
+6. **Seeding SM-2 from `ReviewHistory`** — not done. Fresh start for everyone.
+7. **`GameType.memory`** — still unimplemented; SR ignores it (it's not a
+   reachable mode).
 
 ---
 
@@ -313,21 +350,25 @@ have a filter set.
 - `lib/main.dart` — register `SrsProvider`; inject into `GameProvider` via the
   proxy provider.
 - `lib/providers/game_provider.dart` — `SessionFilter`, `filter` param on
-  `setDeck`, filtered `spinWheel`, `grade` call on completion, `removed` no
-  longer restored from save, `checkDailyReset` deleted, drawing `addReview`
-  fix.
-- `lib/screens/home/home_screen.dart` — route through `PreSessionScreen`
-  (except sentence mode).
+  `setDeck`, `srsKeyForWord` / `srsKeyForSentence` helpers, filtered
+  `spinWheel` / `_loadNextSentence`, `grade` call on word + sentence
+  completion, `removed` / `completed` no longer restored from save,
+  `checkDailyReset` deleted, drawing `addReview` fix.
+- `lib/screens/home/home_screen.dart` — route through `PreSessionScreen` for
+  every mode.
+- `lib/screens/games/classic_game/widgets/completed_card.dart` — "prochaine
+  session" line (§6bis).
 - `lib/app.dart` — strip the daily-reset block.
 - `lib/data/repositories/settings_repository.dart` — drop `needsDailyReset`,
   the `loadSettings` side effect, `updateLastReset`.
 - `lib/data/models/settings.dart` — comment `lastReset` as unused (no field
   removal).
 - `lib/core/constants/app_constants.dart` — remove dead `keyLastReset`.
-- `lib/l10n/app_{en,fr,es,it}.arb` — filter labels + subtitles + the
-  pre-session screen title (~9 keys × 4 locales).
-- `lib/screens/settings/settings_screen.dart` — "Réinitialiser le deck" now
-  hits `SrsProvider.resetDeck` (pending open item #2).
+- `lib/l10n/app_{en,fr,es,it}.arb` — filter labels + subtitles, pre-session
+  screen title, "prochaine session" line (~10 keys × 4 locales).
+- `lib/screens/settings/settings_screen.dart` — "Réinitialiser le deck actuel"
+  now calls `SrsProvider.resetKeys(deckWordIds + deckSentenceKeys)` so every
+  item in that deck becomes "new" again (confirmed).
 
 ---
 
@@ -337,16 +378,19 @@ have a filter set.
 - **`srs_provider_test.dart`** — `SharedPreferences.setMockInitialValues({})` +
   `StorageHelper.init()` setUp (existing pattern). Covers: `cardFor` null for
   unseen; `grade` persists and a fresh provider reads it back; `isDue` /
-  `isNew` / `isDifficult` predicates; `counts` over a word-id set; `resetDeck`
-  drops the right ids.
+  `isNew` / `isDifficult` predicates; `counts` over a key set (mix of word ids
+  and `deck::sN` keys); `resetKeys` drops the right keys; last-filter map
+  round-trips.
 - **`game_provider_test.dart`** — extend: `setDeck(filter: due)` limits
   `spinWheel` to due/new words; answering a word calls `grade` with the
   quality matching its session mistake count (inject a fake/real `SrsProvider`,
-  or assert via a spy); `isCompleted` true when the filtered pool is exhausted
-  even if other deck words remain; `resetDeck` re-opens the filtered pool
-  without touching `srs_state`.
-- **UI** (`PreSessionScreen`, `GameScreen` wiring) — no widget test, per the
-  project bar (`flutter analyze` + `flutter test`). Manual phone smoke: start
-  each filter, confirm counts, confirm a session ends when the filter's words
-  are done, reopen the app and confirm graded words dropped out of "due".
+  or assert via a spy); the sentence path grades `<deckId>::<sentenceId>`;
+  `isCompleted` true when the filtered pool is exhausted even if other deck
+  items remain; `resetDeck` re-opens the filtered pool without touching
+  `srs_state`.
+- **UI** (`PreSessionScreen`, `GameScreen` wiring, CompletedCard line) — no
+  widget test, per the project bar (`flutter analyze` + `flutter test`).
+  Manual phone smoke: start each filter, confirm counts, confirm a session
+  ends when the filter's items are done, confirm the "prochaine session"
+  line, reopen the app and confirm graded items dropped out of "due".
 - Bar: `flutter analyze` clean, `flutter test` green.
