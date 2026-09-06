@@ -6,6 +6,8 @@ import 'package:language_learning_app/data/models/sentence.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/providers/srs_provider.dart';
+import 'package:language_learning_app/core/srs/sm2.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
 
 Deck _buildDeck({int wordCount = 3, List<Sentence> sentences = const []}) {
@@ -262,6 +264,85 @@ void main() {
       expect(provider.sessionToReviewCount, 1);
       expect(provider.sessionWordsToReview,
           [(prompt: 'Bonjour', answer: 'nihao')]);
+    });
+  });
+
+  group('GameProvider - SM-2 integration', () {
+    test('filter=fresh limits spinWheel to never-seen words', () async {
+      final srs = SrsProvider()..load();
+      await srs.grade('w0', 5); // w0 now seen
+
+      final provider = GameProvider(srsProvider: srs);
+      await provider.setDeck(
+        _buildDeck(wordCount: 3),
+        gameMode: GameType.classic,
+        filter: SessionFilter.fresh,
+      );
+      // repeatedly spin; w0 must never come up
+      for (var i = 0; i < 30; i++) {
+        await provider.spinWheel();
+        expect(provider.currentWord!.id, isNot('w0'));
+      }
+    });
+
+    test('answering a word grades it with quality from the session mistake count', () async {
+      final srs = SrsProvider()..load();
+      final provider = GameProvider(srsProvider: srs);
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic,
+          filter: SessionFilter.all);
+      await provider.spinWheel();
+
+      await provider.checkAnswer('nope');
+      await provider.checkAnswer('nope');
+      await provider.checkAnswer('one'); // 2 mistakes → quality 3
+
+      final card = srs.cardFor('w0');
+      expect(card, isNotNull);
+      expect(card!.reps, 1);
+      // q3 lowers ef below the q5 value
+      expect(card.ef, lessThan(2.5));
+    });
+
+    test('first-try correct grades quality 5', () async {
+      final srs = SrsProvider()..load();
+      final provider = GameProvider(srsProvider: srs);
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic,
+          filter: SessionFilter.all);
+      await provider.spinWheel();
+      await provider.checkAnswer('one');
+
+      expect(srs.cardFor('w0')!.ef, closeTo(2.6, 1e-9));
+    });
+
+    test('sentence completion grades the composite key', () async {
+      final srs = SrsProvider()..load();
+      final provider = GameProvider(srsProvider: srs);
+      final deck = _buildDeck(sentences: [
+        Sentence(id: 's1', original: 'Bonjour', translation: 'nihao', blocks: ['ni', 'hao', 'bu']),
+      ]);
+      await provider.setDeck(deck, gameMode: GameType.sentence,
+          filter: SessionFilter.all);
+      await provider.spinWheel();
+      provider.addBlockToSentence('ni');
+      provider.addBlockToSentence('hao');
+      await provider.checkSentenceConstruction();
+
+      expect(srs.cardFor('deck1::s1'), isNotNull);
+    });
+
+    test('isCompleted is true when the filtered pool is exhausted, not the whole deck', () async {
+      final srs = SrsProvider()..load();
+      await srs.grade('w1', 5);
+      await srs.grade('w2', 5); // only w0 is "fresh"
+
+      final provider = GameProvider(srsProvider: srs);
+      await provider.setDeck(_buildDeck(wordCount: 3), gameMode: GameType.classic,
+          filter: SessionFilter.fresh);
+      await provider.spinWheel();
+      expect(provider.currentWord!.id, 'w0');
+      await provider.checkAnswer('answer0');
+
+      expect(provider.isCompleted, isTrue); // w1/w2 remain in the deck but aren't in the filter
     });
   });
 

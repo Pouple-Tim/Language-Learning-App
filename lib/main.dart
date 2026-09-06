@@ -58,12 +58,13 @@ void main() async {
           ChangeNotifierProvider(
             create: (_) => StatisticsProvider()..loadHistory(),
           ),
-          ChangeNotifierProxyProvider<StatisticsProvider, GameProvider>(
+          ChangeNotifierProxyProvider2<StatisticsProvider, SrsProvider, GameProvider>(
             create: (context) => GameProvider(
               statisticsProvider: context.read<StatisticsProvider>(),
+              srsProvider: context.read<SrsProvider>(),
             ),
-            update: (context, stats, previous) =>
-              previous ?? GameProvider(statisticsProvider: stats),
+            update: (context, stats, srs, previous) =>
+                previous ?? GameProvider(statisticsProvider: stats, srsProvider: srs),
           ),
         ],
         child: const MyApp(),
