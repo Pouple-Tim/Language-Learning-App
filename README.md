@@ -155,6 +155,28 @@ Flutter + [Provider](https://pub.dev/packages/provider). Séparation en couches 
 logique pure (`lib/core`), état applicatif (`lib/providers`), accès données
 (`lib/data`), UI (`lib/screens`).
 
+### Vue d'exécution
+
+[![Architecture d'exécution](docs/architecture/runtime-arch.png)](docs/architecture/runtime-arch.html)
+
+Composants d'exécution, chemin principal (boucle de révision, en vert), dépendances
+externes et frontières de confiance. Version interactive (pan/zoom, vues guidées,
+liens vers le code) : [`docs/architecture/runtime-arch.html`](docs/architecture/runtime-arch.html)
+— source du diagramme : [`runtime-arch.json`](docs/architecture/runtime-arch.json)
+(généré avec [archify](https://github.com/tt-a1i/archify)).
+
+- **Chemin principal** — l'UI soumet une réponse à `GameProvider`, qui note l'élément
+  via `SrsProvider.grade()` (SM-2 pur, `core/srs/sm2.dart`), journalise la révision
+  dans `StatisticsProvider`, puis persiste dans `SharedPreferences`.
+- **Chargement des decks** — `DeckProvider` → `DeckRepository` → table Supabase
+  `decks` (lecture anonyme), mis en cache localement à la première sélection.
+- **Sorties de l'appareil** — `AnalyticsService` insère des événements anonymes dans
+  `app_events` (fire-and-forget) ; `Sentry` reçoit les erreurs non gérées ; les
+  `Wrappers plateforme` appellent l'`AlarmManager` et le moteur TTS d'Android.
+- **Frontières de confiance** — toute la progression reste sur l'appareil (aucun
+  compte, aucune donnée personnelle) ; la clé Supabase est publique et bornée par
+  RLS (`decks` en lecture seule, `app_events` en insertion seule).
+
 ### Providers (`ChangeNotifier`)
 
 | Provider | Rôle | Persistance |
