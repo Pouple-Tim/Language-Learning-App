@@ -134,7 +134,7 @@ class _CompletedCardState extends State<CompletedCard> {
                 onTap: () =>
                     setState(() => _reviewExpanded = !_reviewExpanded),
               )
-            else
+            else if (firstTry == learned)
               chip(l10n.sessionSummaryPerfect),
           ],
         ),
