@@ -13,6 +13,7 @@ import 'providers/game_provider.dart';
 import 'providers/deck_provider.dart';
 import 'providers/locale_provider.dart';
 import 'providers/reminder_provider.dart';
+import 'providers/goal_provider.dart';
 import 'providers/statistics_provider.dart';
 import 'app.dart';
 
@@ -51,6 +52,7 @@ void main() async {
           ChangeNotifierProvider(create: (_) => DeckProvider()),
           ChangeNotifierProvider(create: (_) => LocaleProvider()),
           ChangeNotifierProvider(create: (_) => ReminderProvider()..load()),
+          ChangeNotifierProvider(create: (_) => GoalProvider()..load()),
           ChangeNotifierProvider(
             create: (_) => StatisticsProvider()..loadHistory(),
           ),
