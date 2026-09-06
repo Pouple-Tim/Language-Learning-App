@@ -1283,6 +1283,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =1{1 day} other{{count} days}}'**
   String dayCount(int count);
+
+  /// No description provided for @sessionSummaryLearned.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} learned'**
+  String sessionSummaryLearned(int count);
+
+  /// No description provided for @sessionSummaryFirstTry.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} first try'**
+  String sessionSummaryFirstTry(int count);
+
+  /// No description provided for @sessionSummaryToReview.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} to review'**
+  String sessionSummaryToReview(int count);
+
+  /// No description provided for @sessionSummaryPerfect.
+  ///
+  /// In en, this message translates to:
+  /// **'Flawless 🎯'**
+  String get sessionSummaryPerfect;
 }
 
 class _AppLocalizationsDelegate

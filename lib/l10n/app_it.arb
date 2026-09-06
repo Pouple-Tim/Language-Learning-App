@@ -218,5 +218,9 @@
   "dailyGoalTodayTitle": "Oggi",
   "dailyGoalReviewsToday": "{done} / {target} ripassi oggi",
   "dailyGoalReached": "Obiettivo del giorno raggiunto 🎯",
-  "dayCount": "{count, plural, =1{1 giorno} other{{count} giorni}}"
+  "dayCount": "{count, plural, =1{1 giorno} other{{count} giorni}}",
+  "sessionSummaryLearned": "{count} imparate",
+  "sessionSummaryFirstTry": "{count} al primo colpo",
+  "sessionSummaryToReview": "{count} da rivedere",
+  "sessionSummaryPerfect": "Senza errori 🎯"
 }

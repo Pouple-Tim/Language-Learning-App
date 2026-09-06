@@ -348,5 +348,18 @@
     "placeholders": {
       "count": { "type": "int" }
     }
-  }
+  },
+  "sessionSummaryLearned": "{count} learned",
+  "@sessionSummaryLearned": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "sessionSummaryFirstTry": "{count} first try",
+  "@sessionSummaryFirstTry": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "sessionSummaryToReview": "{count} to review",
+  "@sessionSummaryToReview": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "sessionSummaryPerfect": "Flawless 🎯"
 }
