@@ -667,4 +667,22 @@ class AppLocalizationsFr extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String sessionSummaryLearned(int count) {
+    return '$count appris';
+  }
+
+  @override
+  String sessionSummaryFirstTry(int count) {
+    return '$count du premier coup';
+  }
+
+  @override
+  String sessionSummaryToReview(int count) {
+    return '$count à revoir';
+  }
+
+  @override
+  String get sessionSummaryPerfect => 'Sans faute 🎯';
 }
