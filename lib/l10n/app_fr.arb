@@ -209,5 +209,13 @@
   "reminderTimeTitle": "Heure du rappel",
   "reminderPermissionDenied": "Les notifications sont désactivées pour l'appli. Active-les dans les réglages de ton téléphone.",
   "reminderNotificationTitle": "C'est l'heure de réviser 🔥",
-  "reminderNotificationBody": "Quelques minutes aujourd'hui pour garder ta série."
+  "reminderNotificationBody": "Quelques minutes aujourd'hui pour garder ta série.",
+  "dailyGoalSectionTitle": "Objectif quotidien",
+  "dailyGoalLight": "Léger",
+  "dailyGoalNormal": "Normal",
+  "dailyGoalIntense": "Intense",
+  "dailyGoalPerDay": "{count} révisions par jour",
+  "dailyGoalTodayTitle": "Aujourd'hui",
+  "dailyGoalReviewsToday": "{done} / {target} révisions aujourd'hui",
+  "dailyGoalReached": "Objectif du jour atteint 🎯"
 }

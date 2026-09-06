@@ -628,4 +628,32 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get reminderNotificationBody =>
       'Quelques minutes aujourd\'hui pour garder ta série.';
+
+  @override
+  String get dailyGoalSectionTitle => 'Objectif quotidien';
+
+  @override
+  String get dailyGoalLight => 'Léger';
+
+  @override
+  String get dailyGoalNormal => 'Normal';
+
+  @override
+  String get dailyGoalIntense => 'Intense';
+
+  @override
+  String dailyGoalPerDay(int count) {
+    return '$count révisions par jour';
+  }
+
+  @override
+  String get dailyGoalTodayTitle => 'Aujourd\'hui';
+
+  @override
+  String dailyGoalReviewsToday(int done, int target) {
+    return '$done / $target révisions aujourd\'hui';
+  }
+
+  @override
+  String get dailyGoalReached => 'Objectif du jour atteint 🎯';
 }
