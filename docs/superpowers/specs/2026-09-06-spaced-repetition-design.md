@@ -30,7 +30,7 @@ add via a pre-session filter.
 | New-word handling | **No daily quota.** All deck words are eligible from day one; volume is controlled by the pre-session filter, not by gating introduction. |
 | Pre-session screen | **Always shown** before every game. 4 filter options with live counts. Last choice pre-selected per deck. |
 | Card identity | **`Word.id`** (deck-scoped, `<deckId>_wN`). No content-based unification across deck variants. Same hanzi in `chinese_hsk1_part1` and `chinese_hsk1_all` = two independent SM-2 cards. |
-| Granularity | **Per `wordId`, mode-agnostic.** A word graded in quiz advances its due date for classic too. |
+| Granularity | **Per `(item, game mode)`.** One SM-2 track per GameType (classic / reverse / quiz / listening / sentence) — writing, recognition and listening are separate skills. A word graded in quiz does NOT advance its classic track. |
 | Daily reset | **Removed.** `checkDailyReset` / `resetWords`-per-day / the "Nouveau jour" SnackBar all go. SM-2 due dates are the only scheduler. |
 | Migration | **Fresh start.** Everyone begins with an empty SM-2 store (all words "new"). `ReviewHistory` is not replayed. |
 | Scope | **Words and sentences.** Sentence mode is scheduled too, using the same SM-2 core keyed by a composite `<deckId>::<sentenceId>` (bare `sentenceId` collides across decks). See §7bis. |
@@ -50,6 +50,19 @@ add via a pre-session filter.
 - **New settings** follow the `GoalProvider` / `ReminderProvider` pattern: a dedicated `ChangeNotifier` with its own raw SharedPreferences keys, **not** the codegen `Settings` model.
 
 ---
+
+## Revision 2026-09-06 (post first on-device test)
+
+Two changes after the user tried the branch:
+- **Per-mode tracks:** the srsKey gains a `::<gameType.storageId>` suffix
+  (`<wordId>::classic`, `<deckId>::<sentenceId>::sentence`). Writing / recognition
+  / listening a word are separate skills and each mode schedules independently.
+  `ResetDeckDialog` therefore wipes every `GameType` variant of a deck's keys.
+- **`hard` = last review was quality < 4**, not `ef < 2.0`. Missing a word twice
+  in one session (q3) only drops ef to ~2.36, so the old threshold never caught
+  "I struggled with this yesterday". `SrsCard` gains `int lastQuality`
+  (stamped by `reviewCard`, default 5 on `SrsCard.initial` / a missing json
+  field); `isDifficult(key) = card != null && card.lastQuality < 4`.
 
 ## 1. SM-2 core — `lib/core/srs/sm2.dart` (pure Dart, unit-tested)
 
@@ -142,7 +155,7 @@ Every method takes a **`srsKey` string**, not a raw id:
   Future<void> grade(String srsKey, int quality);  // reviewCard + persist + notifyListeners
   bool isDue(String srsKey, DateTime now);       // cardFor == null || card.due <= dateOnly(now)
   bool isNew(String srsKey);                     // cardFor == null
-  bool isDifficult(String srsKey);               // card != null && card.ef < 2.0
+  bool isDifficult(String srsKey);               // card != null && card.lastQuality < 4
   /// Counts for the pre-session screen, over a given set of keys.
   ({int all, int due, int fresh, int hard}) counts(Iterable<String> srsKeys, DateTime now);
   Future<void> resetKeys(Iterable<String> srsKeys); // drop SM-2 state (Settings "réinitialiser")
@@ -162,7 +175,7 @@ Every method takes a **`srsKey` string**, not a raw id:
 | `all` | "Réviser tout" | every item | ignores SM-2 entirely — the escape hatch |
 | `due` | "À réviser aujourd'hui" | `SrsProvider.isDue(key, now)` (includes never-seen) | the default |
 | `fresh` | "Nouveaux mots" | `SrsProvider.isNew(key)` | strict subset of `due` |
-| `hard` | "Mots difficiles" | `SrsProvider.isDifficult(key)` | ef < 2.0 (repeatedly lapsed) |
+| `hard` | "Mots difficiles" | `SrsProvider.isDifficult(key)` | last review was quality < 4 (missed or laboured) |
 
 "the session's srsKeys" = the word ids for a word mode, or the
 `<deckId>::<sentenceId>` keys for sentence mode. The pre-session screen shows
@@ -218,7 +231,8 @@ method.)
   instead of `activeWords` / `activeSentences`. `_matchesFilter` switches on
   `_sessionFilter` using `SrsProvider` (injected the same way
   `statisticsProvider` is — via `ChangeNotifierProxyProvider` in `main.dart`).
-  `srsKeyForWord(w) = w.id`; `srsKeyForSentence(s) = '${_currentDeckId}::${s.id}'`.
+  `srsKeyForWord(w) = '${w.id}::${_currentGameType!.storageId}'`;
+  `srsKeyForSentence(s) = '${_currentDeckId}::${s.id}::${_currentGameType!.storageId}'`.
   Distractor generation (`_generateQuizOptions`) keeps using
   `_currentProgressDeck.words` (all words) — already does, so a small filtered
   pool still yields 4-option quizzes.
