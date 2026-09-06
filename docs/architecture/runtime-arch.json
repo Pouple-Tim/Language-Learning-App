@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Architecture d'exécution — Language Learning App",
+    "output": "runtime-arch.html",
+    "quality_profile": "showcase",
+    "viewBox": [1150, 1096],
+    "repository": {
+      "url": "https://github.com/Pouple-Tim/Language-Learning-App",
+      "revision": "ad53fc212ba007d895d664789392d6b11d73da23"
+    },
+    "views": [
+      { "id": "review-loop", "label": "Boucle de révision", "focus": ["ui", "game", "srs", "stats", "prefs"], "note": "Le chemin principal : une réponse notée par SM-2 et journalisée, puis persistée sur l'appareil." },
+      { "id": "decks", "label": "Chargement des decks", "focus": ["ui", "deck", "deckRepo", "supabase", "prefs"], "note": "Catalogue embarqué, contenu récupéré depuis Supabase à la demande puis mis en cache." },
+      { "id": "boundaries", "label": "Frontières de confiance", "focus": ["analytics", "supabase", "sentry", "platform", "androidOs"], "note": "Tout ce qui quitte l'appareil : logs anonymes, crash reports, services système." }
+    ]
+  },
+  "components": [
+    {
+      "id": "sentry",
+      "type": "external",
+      "label": "Sentry",
+      "sublabel": "rapports de crash / erreur",
+      "pos": [120, 36], "size": [190, 94]
+    },
+    {
+      "id": "supabase",
+      "type": "cloud",
+      "label": "Supabase Postgres",
+      "sublabel": "decks (lecture) · app_events (insert)",
+      "tag": "clé anon · RLS",
+      "pos": [636, 32], "size": [370, 104]
+    },
+    {
+      "id": "deck",
+      "type": "backend",
+      "label": "DeckProvider",
+      "sublabel": "catalogue · deck choisi",
+      "pos": [448, 244], "size": [176, 94],
+      "sources": [{ "path": "lib/providers/deck_provider.dart" }]
+    },
+    {
+      "id": "deckRepo",
+      "type": "backend",
+      "label": "DeckRepository",
+      "sublabel": "manifeste + contenu decks",
+      "pos": [712, 244], "size": [182, 94],
+      "sources": [{ "path": "lib/data/repositories/deck_repository.dart" }]
+    },
+    {
+      "id": "analytics",
+      "type": "backend",
+      "label": "AnalyticsService",
+      "sublabel": "événements anonymes",
+      "pos": [912, 244], "size": [170, 94],
+      "sources": [{ "path": "lib/core/analytics/analytics_service.dart" }]
+    },
+    {
+      "id": "ui",
+      "type": "frontend",
+      "label": "Interface Flutter",
+      "sublabel": "screens/ · widgets Consumer",
+      "pos": [40, 432], "size": [172, 104],
+      "sources": [{ "path": "lib/app.dart" }, { "path": "lib/screens/home/home_screen.dart" }]
+    },
+    {
+      "id": "game",
+      "type": "backend",
+      "label": "GameProvider",
+      "sublabel": "session : pool · tirage · notation",
+      "tag": "point d'accroche unique",
+      "pos": [312, 424], "size": [192, 118],
+      "sources": [{ "path": "lib/providers/game_provider.dart" }]
+    },
+    {
+      "id": "srs",
+      "type": "backend",
+      "label": "SrsProvider",
+      "sublabel": "planning SM-2 · SrsCard/srsKey",
+      "pos": [628, 432], "size": [184, 96],
+      "sources": [{ "path": "lib/providers/srs_provider.dart" }, { "path": "lib/core/srs/sm2.dart", "label": "SM-2 pur" }]
+    },
+    {
+      "id": "stats",
+      "type": "backend",
+      "label": "StatisticsProvider",
+      "sublabel": "ReviewHistory · streak",
+      "pos": [300, 636], "size": [190, 96],
+      "sources": [{ "path": "lib/providers/statistics_provider.dart" }]
+    },
+    {
+      "id": "prefs",
+      "type": "database",
+      "label": "SharedPreferences",
+      "sublabel": "blobs JSON (StorageHelper)",
+      "pos": [616, 624], "size": [198, 118],
+      "sources": [{ "path": "lib/core/utils/storage_helper.dart" }]
+    },
+    {
+      "id": "platform",
+      "type": "backend",
+      "label": "Wrappers plateforme",
+      "sublabel": "TtsService · NotificationService",
+      "pos": [40, 792], "size": [202, 96],
+      "sources": [{ "path": "lib/core/audio/tts_service.dart" }, { "path": "lib/core/notifications/notification_service.dart" }]
+    },
+    {
+      "id": "androidOs",
+      "type": "external",
+      "label": "Système Android",
+      "sublabel": "AlarmManager · TTS zh-CN",
+      "pos": [40, 936], "size": [202, 96]
+    }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Sur l'appareil — aucun compte, aucune donnée personnelle", "wraps": ["ui", "game", "deck", "srs", "stats", "deckRepo", "prefs", "platform", "analytics"] },
+    { "kind": "security-group", "label": "Projet Supabase (clé anon · RLS)", "wraps": ["supabase"] },
+    { "kind": "region", "label": "Sentry", "wraps": ["sentry"] },
+    { "kind": "region", "label": "Système Android", "wraps": ["androidOs"] }
+  ],
+  "connections": [
+    { "id": "ui-game", "from": "ui", "to": "game", "label": "réponse soumise", "variant": "emphasis" },
+    { "id": "game-srs", "from": "game", "to": "srs", "label": "grade(qualité 2–5)", "variant": "emphasis" },
+    { "id": "srs-prefs", "from": "srs", "to": "prefs", "label": "écrit srs_state", "variant": "emphasis", "fromSide": "bottom", "toSide": "top" },
+    { "id": "game-stats", "from": "game", "to": "stats", "label": "addReview()", "fromSide": "bottom", "toSide": "top" },
+    { "id": "stats-prefs", "from": "stats", "to": "prefs", "label": "review_history", "fromSide": "right", "toSide": "left", "labelDx": 52 },
+    { "id": "ui-deck", "from": "ui", "to": "deck", "label": "choisir un deck", "fromSide": "top", "toSide": "left" },
+    { "id": "deck-deckrepo", "from": "deck", "to": "deckRepo", "label": "loadDecks()" },
+    { "id": "deckrepo-supabase", "from": "deckRepo", "to": "supabase", "label": "contenu deck", "fromSide": "top", "toSide": "bottom" },
+    { "id": "ui-sentry", "from": "ui", "to": "sentry", "label": "erreurs non gérées", "variant": "dashed", "fromSide": "top", "toSide": "bottom" },
+    { "id": "analytics-supabase", "from": "analytics", "to": "supabase", "label": "insert app_events", "variant": "dashed", "fromSide": "top", "toSide": "bottom" },
+    { "id": "ui-platform", "from": "ui", "to": "platform", "label": "TTS · rappels", "fromSide": "bottom", "toSide": "top" },
+    { "id": "platform-android", "from": "platform", "to": "androidOs", "label": "AlarmManager · TTS", "fromSide": "bottom", "toSide": "top", "labelAt": [141, 912] }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Boucle de révision (chemin principal)",
+      "items": [
+        "UI → GameProvider.checkAnswer() / checkSentenceConstruction()",
+        "Notation SM-2 : SrsProvider.grade() → core/srs/sm2.dart (pur, sans Flutter, testé unitairement)",
+        "Qualité dérivée des fautes de session : 0→5, 1→4, 2→3, 3+→2",
+        "Même réponse journalisée dans StatisticsProvider (ReviewHistory) ; notifyListeners() reconstruit l'UI",
+        "Pool de session = words.where(!removed && SrsProvider.matches(filtre, srsKey)) ; isCompleted = même prédicat"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Providers & stockage local",
+      "items": [
+        "8 ChangeNotifier ; GameProvider reçoit Stats + Srs via ChangeNotifierProxyProvider2 (état de partie volatil)",
+        "Theme / Locale / Goal / Reminder : non montrés, chacun ses clés SharedPreferences brutes",
+        "Pas de base locale — blobs JSON : srs_state, review_history (purge 90 j), progress_<deck>_<mode>, custom_decks…",
+        "AnalyticsService.logEvent() : fire-and-forget depuis GameProvider / DeckProvider"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Decks & frontières de confiance",
+      "items": [
+        "Catalogue manifest.json embarqué (61 decks) ; contenu récupéré de Supabase à la 1re sélection puis mis en cache",
+        "Appareil : toute la progression, aucun compte, aucune donnée personnelle",
+        "Supabase : clé anon + RLS — decks en lecture seule, app_events en insertion seule",
+        "Sentry : crash/erreur uniquement, DSN-gated ; Android : AlarmManager + TTS système (zh-CN)"
+      ]
+    }
+  ]
+}
