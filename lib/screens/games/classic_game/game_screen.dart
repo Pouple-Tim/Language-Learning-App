@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:language_learning_app/core/analytics/analytics_service.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
+import 'package:language_learning_app/providers/goal_provider.dart';
+import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
@@ -28,6 +33,40 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
+  StatisticsProvider? _stats;
+
+  @override
+  void initState() {
+    super.initState();
+    _stats = context.read<StatisticsProvider>();
+    _stats!.addListener(_maybeCelebrateGoal);
+  }
+
+  @override
+  void dispose() {
+    _stats?.removeListener(_maybeCelebrateGoal);
+    super.dispose();
+  }
+
+  /// Fires once per day, the first time today's review count reaches the goal.
+  void _maybeCelebrateGoal() {
+    if (!mounted) return;
+    final reviewsToday = context.read<StatisticsProvider>().reviewsToday();
+    if (!context.read<GoalProvider>().consumeCelebration(reviewsToday)) return;
+
+    final goal = context.read<GoalProvider>().target;
+    final l10n = AppLocalizations.of(context)!;
+    unawaited(
+        AnalyticsService.logEvent('daily_goal_reached', {'goal': goal}));
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.dailyGoalReached)),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;

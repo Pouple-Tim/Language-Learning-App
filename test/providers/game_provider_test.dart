@@ -128,6 +128,147 @@ void main() {
     });
   });
 
+  group('GameProvider - session summary', () {
+    test('fresh session has zero counts and an empty review list', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_buildDeck(), gameMode: GameType.classic);
+
+      expect(provider.sessionLearnedCount, 0);
+      expect(provider.sessionFirstTryCount, 0);
+      expect(provider.sessionToReviewCount, 0);
+      expect(provider.sessionWordsToReview, isEmpty);
+    });
+
+    test('a word solved on the first try counts as learned + first-try', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
+      await provider.spinWheel();
+
+      await provider.checkAnswer('one');
+
+      expect(provider.sessionLearnedCount, 1);
+      expect(provider.sessionFirstTryCount, 1);
+      expect(provider.sessionToReviewCount, 0);
+    });
+
+    test('one mistake then correct: learned, not first-try, not to-review', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
+      await provider.spinWheel();
+
+      await provider.checkAnswer('nope');
+      await provider.checkAnswer('one');
+
+      expect(provider.sessionLearnedCount, 1);
+      expect(provider.sessionFirstTryCount, 0);
+      expect(provider.sessionToReviewCount, 0);
+      expect(provider.sessionWordsToReview, isEmpty);
+    });
+
+    test('two mistakes then correct: item enters the review list with its pair', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
+      await provider.spinWheel();
+
+      await provider.checkAnswer('nope');
+      await provider.checkAnswer('nope');
+      await provider.checkAnswer('one');
+
+      expect(provider.sessionToReviewCount, 1);
+      expect(provider.sessionWordsToReview, [(prompt: 'un', answer: 'one')]);
+    });
+
+    test('two words: one clean, one missed twice', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_buildDeck(wordCount: 2), gameMode: GameType.classic);
+
+      await provider.spinWheel();
+      final first = provider.currentWord!;
+      await provider.checkAnswer('x');
+      await provider.checkAnswer('x');
+      await provider.checkAnswer(first.answer);
+
+      await provider.spinWheel();
+      final second = provider.currentWord!;
+      await provider.checkAnswer(second.answer);
+
+      expect(provider.sessionLearnedCount, 2);
+      expect(provider.sessionFirstTryCount, 1);
+      expect(provider.sessionToReviewCount, 1);
+      expect(provider.sessionWordsToReview,
+          [(prompt: first.prompt, answer: first.answer)]);
+    });
+
+    test('setDeck clears the session counters', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
+      await provider.spinWheel();
+      await provider.checkAnswer('one');
+      expect(provider.sessionLearnedCount, 1);
+
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
+      expect(provider.sessionLearnedCount, 0);
+      expect(provider.sessionWordsToReview, isEmpty);
+    });
+
+    test('resetDeck clears the session counters', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
+      await provider.spinWheel();
+      await provider.checkAnswer('nope');
+      await provider.checkAnswer('nope');
+      await provider.checkAnswer('one');
+      expect(provider.sessionToReviewCount, 1);
+
+      await provider.resetDeck();
+      expect(provider.sessionLearnedCount, 0);
+      expect(provider.sessionToReviewCount, 0);
+      expect(provider.sessionWordsToReview, isEmpty);
+    });
+
+    test('recordMistakeForCurrentWord bumps the mistake count for the current word', () async {
+      final provider = GameProvider();
+      await provider.setDeck(_oneWordDeck(), gameMode: GameType.classic);
+      await provider.spinWheel();
+
+      provider.recordMistakeForCurrentWord();
+      provider.recordMistakeForCurrentWord();
+      await provider.checkAnswer('one');
+
+      expect(provider.sessionToReviewCount, 1);
+      expect(provider.sessionWordsToReview, [(prompt: 'un', answer: 'one')]);
+    });
+
+    test('sentence mode: two wrong then correct enters the review list with original -> translation', () async {
+      final provider = GameProvider();
+      final deck = _buildDeck(sentences: [
+        Sentence(id: 's1', original: 'Bonjour', translation: 'nihao', blocks: ['ni', 'hao', 'bu']),
+      ]);
+      await provider.setDeck(deck, gameMode: GameType.sentence);
+      await provider.spinWheel();
+
+      provider.addBlockToSentence('hao');
+      provider.addBlockToSentence('ni');
+      await provider.checkSentenceConstruction(); // wrong
+
+      provider.removeBlockFromSentence('hao');
+      provider.removeBlockFromSentence('ni');
+      provider.addBlockToSentence('bu');
+      provider.addBlockToSentence('hao');
+      await provider.checkSentenceConstruction(); // wrong
+
+      provider.removeBlockFromSentence('bu');
+      provider.removeBlockFromSentence('hao');
+      provider.addBlockToSentence('ni');
+      provider.addBlockToSentence('hao');
+      await provider.checkSentenceConstruction(); // correct
+
+      expect(provider.sessionToReviewCount, 1);
+      expect(provider.sessionWordsToReview,
+          [(prompt: 'Bonjour', answer: 'nihao')]);
+    });
+  });
+
   group('GameProvider - sentence mode', () {
     Sentence buildSentence() => Sentence(
           id: 's1',

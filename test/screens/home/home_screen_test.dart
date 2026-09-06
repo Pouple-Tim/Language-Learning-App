@@ -7,6 +7,7 @@ import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
 import 'package:language_learning_app/core/utils/storage_helper.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
+import 'package:language_learning_app/providers/goal_provider.dart';
 import 'package:language_learning_app/providers/reminder_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/screens/home/home_screen.dart';
@@ -18,6 +19,7 @@ Widget _wrap(Widget child) {
       ChangeNotifierProvider(create: (_) => DeckProvider()),
       ChangeNotifierProvider(create: (_) => StatisticsProvider()),
       ChangeNotifierProvider(create: (_) => ReminderProvider()),
+      ChangeNotifierProvider(create: (_) => GoalProvider()..load()),
     ],
     child: MaterialApp(
       locale: const Locale('en'),

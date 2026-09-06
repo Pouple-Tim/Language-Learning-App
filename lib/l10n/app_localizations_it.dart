@@ -631,4 +631,61 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get reminderNotificationBody =>
       'Pochi minuti oggi per non perdere la serie.';
+
+  @override
+  String get dailyGoalSectionTitle => 'Obiettivo giornaliero';
+
+  @override
+  String get dailyGoalLight => 'Leggero';
+
+  @override
+  String get dailyGoalNormal => 'Normale';
+
+  @override
+  String get dailyGoalIntense => 'Intenso';
+
+  @override
+  String dailyGoalPerDay(int count) {
+    return '$count ripassi al giorno';
+  }
+
+  @override
+  String get dailyGoalTodayTitle => 'Oggi';
+
+  @override
+  String dailyGoalReviewsToday(int done, int target) {
+    return '$done / $target ripassi oggi';
+  }
+
+  @override
+  String get dailyGoalReached => 'Obiettivo del giorno raggiunto 🎯';
+
+  @override
+  String dayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count giorni',
+      one: '1 giorno',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String sessionSummaryLearned(int count) {
+    return '$count imparate';
+  }
+
+  @override
+  String sessionSummaryFirstTry(int count) {
+    return '$count al primo colpo';
+  }
+
+  @override
+  String sessionSummaryToReview(int count) {
+    return '$count da rivedere';
+  }
+
+  @override
+  String get sessionSummaryPerfect => 'Senza errori 🎯';
 }

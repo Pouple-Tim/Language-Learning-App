@@ -19,6 +19,11 @@ class GameProvider extends ChangeNotifier {
   GameType? _currentGameType;
   Deck? _currentProgressDeck;
 
+  // Suivi de la session courante (transitoire, jamais persisté).
+  // Vidé dans setDeck() et resetDeck().
+  final Set<String> _sessionCompleted = {};
+  final Map<String, int> _sessionMistakes = {};
+
   // État Mode Mots (Classic/Reverse/Quiz)
   Word? _currentWord;
 
@@ -80,6 +85,60 @@ class GameProvider extends ChangeNotifier {
   /// Jeu terminé ?
   bool get isCompleted => remainingWords == 0;
 
+  /// Éléments (mots ou phrases) complétés pendant cette session.
+  int get sessionLearnedCount => _sessionCompleted.length;
+
+  /// Parmi les complétés, ceux réussis sans aucune faute.
+  int get sessionFirstTryCount =>
+      _sessionCompleted.where((id) => (_sessionMistakes[id] ?? 0) == 0).length;
+
+  /// Parmi les complétés, ceux ratés au moins 2 fois cette session.
+  int get sessionToReviewCount =>
+      _sessionCompleted.where((id) => (_sessionMistakes[id] ?? 0) >= 2).length;
+
+  /// Les éléments "à revoir" (>= 2 fautes), les plus ratés d'abord.
+  /// Paire canonique prompt -> réponse (phrases : original -> traduction),
+  /// quel que soit le mode de jeu.
+  List<({String prompt, String answer})> get sessionWordsToReview {
+    final deck = _currentProgressDeck;
+    if (deck == null) return const [];
+
+    final ids = _sessionCompleted
+        .where((id) => (_sessionMistakes[id] ?? 0) >= 2)
+        .toList()
+      ..sort((a, b) =>
+          (_sessionMistakes[b] ?? 0).compareTo(_sessionMistakes[a] ?? 0));
+
+    final result = <({String prompt, String answer})>[];
+    for (final id in ids) {
+      Word? word;
+      for (final w in deck.words) {
+        if (w.id == id) {
+          word = w;
+          break;
+        }
+      }
+      if (word != null) {
+        result.add((prompt: word.prompt, answer: word.answer));
+        continue;
+      }
+      for (final s in deck.sentences) {
+        if (s.id == id) {
+          result.add((prompt: s.original, answer: s.translation));
+          break;
+        }
+      }
+    }
+    return result;
+  }
+
+  /// Enregistre une faute manuelle (mode dessin : bouton "non").
+  void recordMistakeForCurrentWord() {
+    final id = _currentWord?.id;
+    if (id == null) return;
+    _sessionMistakes[id] = (_sessionMistakes[id] ?? 0) + 1;
+  }
+
   /// Texte de la question à afficher
   String get currentQuestionText {
     if (_currentGameType == GameType.sentence && _currentSentence != null) {
@@ -104,6 +163,8 @@ class GameProvider extends ChangeNotifier {
   Future<void> setDeck(Deck baseDeck, {GameType gameMode = GameType.classic}) async {
     _currentDeckId = baseDeck.id;
     _currentGameType = gameMode;
+    _sessionCompleted.clear();
+    _sessionMistakes.clear();
 
     debugPrint('🎮 Initialisation du jeu');
     debugPrint('   Deck: ${baseDeck.name} (${baseDeck.id})');
@@ -255,6 +316,7 @@ class GameProvider extends ChangeNotifier {
     }
 
     if (isCorrect) {
+      _sessionCompleted.add(_currentSentence!.id);
       _currentSentence!.completed = true;
       await _saveProgress();
       _logIfDeckCompleted();
@@ -264,6 +326,8 @@ class GameProvider extends ChangeNotifier {
       return true;
     }
 
+    _sessionMistakes[_currentSentence!.id] =
+        (_sessionMistakes[_currentSentence!.id] ?? 0) + 1;
     debugPrint('❌ Phrase incorrecte.');
     return false;
   }
@@ -302,6 +366,7 @@ class GameProvider extends ChangeNotifier {
     );
 
     if (isCorrect) {
+      _sessionCompleted.add(_currentWord!.id);
       _currentWord!.removed = true;
       await _saveProgress();
       _logIfDeckCompleted();
@@ -310,6 +375,8 @@ class GameProvider extends ChangeNotifier {
       return true;
     }
 
+    _sessionMistakes[_currentWord!.id] =
+        (_sessionMistakes[_currentWord!.id] ?? 0) + 1;
     debugPrint('❌ Mauvaise réponse');
     return false;
   }
@@ -318,6 +385,7 @@ class GameProvider extends ChangeNotifier {
   Future<void> markCurrentWordAsCorrect() async {
     if (_currentWord == null || _currentProgressDeck == null) return;
 
+    _sessionCompleted.add(_currentWord!.id);
     _currentWord!.removed = true;
     await _saveProgress();
     _logIfDeckCompleted();
@@ -358,6 +426,9 @@ class GameProvider extends ChangeNotifier {
 
   Future<void> resetDeck() async {
     if (_currentProgressDeck == null || _currentDeckId == null || _currentGameType == null) return;
+
+    _sessionCompleted.clear();
+    _sessionMistakes.clear();
 
     _currentProgressDeck!.resetWords();
 

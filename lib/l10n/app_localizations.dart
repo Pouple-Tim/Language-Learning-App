@@ -1229,6 +1229,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A few minutes today keeps your streak going.'**
   String get reminderNotificationBody;
+
+  /// No description provided for @dailyGoalSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily goal'**
+  String get dailyGoalSectionTitle;
+
+  /// No description provided for @dailyGoalLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get dailyGoalLight;
+
+  /// No description provided for @dailyGoalNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get dailyGoalNormal;
+
+  /// No description provided for @dailyGoalIntense.
+  ///
+  /// In en, this message translates to:
+  /// **'Intense'**
+  String get dailyGoalIntense;
+
+  /// No description provided for @dailyGoalPerDay.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} reviews per day'**
+  String dailyGoalPerDay(int count);
+
+  /// No description provided for @dailyGoalTodayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get dailyGoalTodayTitle;
+
+  /// No description provided for @dailyGoalReviewsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {target} reviews today'**
+  String dailyGoalReviewsToday(int done, int target);
+
+  /// No description provided for @dailyGoalReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily goal reached 🎯'**
+  String get dailyGoalReached;
+
+  /// No description provided for @dayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day} other{{count} days}}'**
+  String dayCount(int count);
+
+  /// No description provided for @sessionSummaryLearned.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} learned'**
+  String sessionSummaryLearned(int count);
+
+  /// No description provided for @sessionSummaryFirstTry.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} first try'**
+  String sessionSummaryFirstTry(int count);
+
+  /// No description provided for @sessionSummaryToReview.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} to review'**
+  String sessionSummaryToReview(int count);
+
+  /// No description provided for @sessionSummaryPerfect.
+  ///
+  /// In en, this message translates to:
+  /// **'Flawless 🎯'**
+  String get sessionSummaryPerfect;
 }
 
 class _AppLocalizationsDelegate

@@ -11,6 +11,8 @@ import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/locale_provider.dart';
 import 'package:language_learning_app/providers/reminder_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
+import 'package:language_learning_app/providers/goal_provider.dart';
+import 'package:language_learning_app/core/goal/daily_goal.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
@@ -24,6 +26,7 @@ import 'widgets/settings_tile.dart';
 import 'widgets/clear_data_dialog.dart';
 import 'widgets/reset_deck_dialog.dart';
 import 'widgets/language_bottom_sheet.dart';
+import 'widgets/goal_bottom_sheet.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -71,23 +74,7 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: 24),
 
                 // --- STATISTIQUES ---
-                SettingsSection(
-                  title: l10n.statistics,
-                  icon: Icons.bar_chart,
-                  children: [
-                    SettingsTile(
-                      title: l10n.viewStatistics,
-                      subtitle: l10n.trackYourProgress,
-                      icon: Icons.trending_up,
-                      iconColor: Colors.blue,
-                      showDivider: false,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const StatisticsScreen()),
-                      ),
-                    ),
-                  ],
-                ),
+                _buildStatisticsSection(context, l10n),
 
                 const SizedBox(height: 24),
 
@@ -216,6 +203,43 @@ class SettingsScreen extends StatelessWidget {
         SnackBar(content: Text(l10n.feedbackMailError)),
       );
     }
+  }
+
+  Widget _buildStatisticsSection(BuildContext context, AppLocalizations l10n) {
+    return Consumer<GoalProvider>(
+      builder: (context, goal, _) {
+        final levelName = switch (goal.level) {
+          DailyGoalLevel.light => l10n.dailyGoalLight,
+          DailyGoalLevel.normal => l10n.dailyGoalNormal,
+          DailyGoalLevel.intense => l10n.dailyGoalIntense,
+        };
+
+        return SettingsSection(
+          title: l10n.statistics,
+          icon: Icons.bar_chart,
+          children: [
+            SettingsTile(
+              title: l10n.dailyGoalSectionTitle,
+              subtitle: '$levelName · ${l10n.dailyGoalPerDay(goal.target)}',
+              icon: Icons.flag_outlined,
+              iconColor: AppColors.primary,
+              onTap: () => GoalBottomSheet.show(context, goal),
+            ),
+            SettingsTile(
+              title: l10n.viewStatistics,
+              subtitle: l10n.trackYourProgress,
+              icon: Icons.trending_up,
+              iconColor: Colors.blue,
+              showDivider: false,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const StatisticsScreen()),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Widget _buildReminderSection(BuildContext context, AppLocalizations l10n) {

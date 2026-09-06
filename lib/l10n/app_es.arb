@@ -209,5 +209,18 @@
   "reminderTimeTitle": "Hora del recordatorio",
   "reminderPermissionDenied": "Las notificaciones están desactivadas para la app. Actívalas en los ajustes del teléfono.",
   "reminderNotificationTitle": "Hora de practicar 🔥",
-  "reminderNotificationBody": "Unos minutos hoy mantienen tu racha."
+  "reminderNotificationBody": "Unos minutos hoy mantienen tu racha.",
+  "dailyGoalSectionTitle": "Objetivo diario",
+  "dailyGoalLight": "Ligero",
+  "dailyGoalNormal": "Normal",
+  "dailyGoalIntense": "Intenso",
+  "dailyGoalPerDay": "{count} repasos por día",
+  "dailyGoalTodayTitle": "Hoy",
+  "dailyGoalReviewsToday": "{done} / {target} repasos hoy",
+  "dailyGoalReached": "¡Objetivo diario alcanzado 🎯!",
+  "dayCount": "{count, plural, =1{1 día} other{{count} días}}",
+  "sessionSummaryLearned": "{count} aprendidas",
+  "sessionSummaryFirstTry": "{count} a la primera",
+  "sessionSummaryToReview": "{count} para repasar",
+  "sessionSummaryPerfect": "Sin fallos 🎯"
 }

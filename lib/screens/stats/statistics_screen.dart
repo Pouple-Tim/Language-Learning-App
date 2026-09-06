@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
+import 'package:language_learning_app/providers/goal_provider.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'widgets/line_chart_widget.dart';
@@ -28,8 +29,8 @@ class StatisticsScreen extends StatelessWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 600),
-            child: Consumer2<StatisticsProvider, DeckProvider>(
-              builder: (context, statsProvider, deckProvider, _) {
+            child: Consumer3<StatisticsProvider, DeckProvider, GoalProvider>(
+              builder: (context, statsProvider, deckProvider, goalProvider, _) {
                 if (statsProvider.isLoading) {
                   return const Center(child: CircularProgressIndicator());
                 }
@@ -44,9 +45,18 @@ class StatisticsScreen extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   padding: const EdgeInsets.all(16),
                   children: [
-                    // Cartes de statistiques principales
-                    _buildStatsCards(context, statsProvider, l10n),
-                    
+                    _buildTodayBlock(context, statsProvider, goalProvider, l10n),
+
+                    const SizedBox(height: 16),
+
+                    StatsCard(
+                      title: l10n.wordsLearned,
+                      value: '${statsProvider.getTotalWordsLearned()}',
+                      subtitle: l10n.learned,
+                      icon: Icons.school,
+                      color: AppColors.primary,
+                    ),
+
                     const SizedBox(height: 24),
 
                     // Graphique linéaire - 7 derniers jours
@@ -148,33 +158,82 @@ class StatisticsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatsCards(
+  Widget _buildTodayBlock(
     BuildContext context,
-    StatisticsProvider provider,
+    StatisticsProvider stats,
+    GoalProvider goal,
     AppLocalizations l10n,
   ) {
-    return Row(
-      children: [
-        Expanded(
-          child: StatsCard(
-            title: l10n.currentStreak,
-            value: '${provider.getCurrentStreak()}',
-            subtitle: l10n.days,
-            icon: Icons.local_fire_department,
-            color: Colors.orange,
+    final done = stats.reviewsToday();
+    final target = goal.target;
+    final streak = stats.getCurrentStreak();
+    final ratio = target == 0 ? 1.0 : (done / target).clamp(0.0, 1.0);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: isDark ? Colors.grey[850] : Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
           ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: StatsCard(
-            title: l10n.wordsLearned,
-            value: '${provider.getTotalWordsLearned()}',
-            subtitle: l10n.learned,
-            icon: Icons.school,
-            color: AppColors.primary,
+        ],
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            height: 72,
+            width: 72,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox.expand(
+                  child: CircularProgressIndicator(
+                    value: ratio,
+                    strokeWidth: 7,
+                    backgroundColor: AppColors.primary.withValues(alpha: 0.15),
+                    valueColor:
+                        const AlwaysStoppedAnimation<Color>(AppColors.primary),
+                  ),
+                ),
+                Text('$done/$target',
+                    style: const TextStyle(
+                        fontSize: 13, fontWeight: FontWeight.bold)),
+              ],
+            ),
           ),
-        ),
-      ],
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(l10n.dailyGoalTodayTitle,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 4),
+                Text(l10n.dailyGoalReviewsToday(done, target),
+                    style: TextStyle(
+                        fontSize: 13, color: Colors.grey.shade600)),
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    const Icon(Icons.local_fire_department,
+                        color: Colors.orange, size: 18),
+                    const SizedBox(width: 4),
+                    Text(l10n.dayCount(streak),
+                        style: const TextStyle(
+                            fontSize: 13, fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 

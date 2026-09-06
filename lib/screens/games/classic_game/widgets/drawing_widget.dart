@@ -99,6 +99,10 @@ class _DrawingWidgetState extends State<DrawingWidget> {
       gameMode: gameProvider.currentGameMode ?? GameType.classic.storageId,
     );
 
+    if (!isCorrect) {
+      gameProvider.recordMistakeForCurrentWord();
+    }
+
     if (isCorrect) {
       await gameProvider.markCurrentWordAsCorrect();
       

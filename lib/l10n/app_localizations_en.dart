@@ -625,4 +625,61 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get reminderNotificationBody =>
       'A few minutes today keeps your streak going.';
+
+  @override
+  String get dailyGoalSectionTitle => 'Daily goal';
+
+  @override
+  String get dailyGoalLight => 'Light';
+
+  @override
+  String get dailyGoalNormal => 'Normal';
+
+  @override
+  String get dailyGoalIntense => 'Intense';
+
+  @override
+  String dailyGoalPerDay(int count) {
+    return '$count reviews per day';
+  }
+
+  @override
+  String get dailyGoalTodayTitle => 'Today';
+
+  @override
+  String dailyGoalReviewsToday(int done, int target) {
+    return '$done / $target reviews today';
+  }
+
+  @override
+  String get dailyGoalReached => 'Daily goal reached 🎯';
+
+  @override
+  String dayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days',
+      one: '1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String sessionSummaryLearned(int count) {
+    return '$count learned';
+  }
+
+  @override
+  String sessionSummaryFirstTry(int count) {
+    return '$count first try';
+  }
+
+  @override
+  String sessionSummaryToReview(int count) {
+    return '$count to review';
+  }
+
+  @override
+  String get sessionSummaryPerfect => 'Flawless 🎯';
 }
