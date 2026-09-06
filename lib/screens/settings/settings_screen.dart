@@ -26,6 +26,7 @@ import 'widgets/settings_tile.dart';
 import 'widgets/clear_data_dialog.dart';
 import 'widgets/reset_deck_dialog.dart';
 import 'widgets/language_bottom_sheet.dart';
+import 'widgets/goal_bottom_sheet.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -73,23 +74,7 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: 24),
 
                 // --- STATISTIQUES ---
-                SettingsSection(
-                  title: l10n.statistics,
-                  icon: Icons.bar_chart,
-                  children: [
-                    SettingsTile(
-                      title: l10n.viewStatistics,
-                      subtitle: l10n.trackYourProgress,
-                      icon: Icons.trending_up,
-                      iconColor: Colors.blue,
-                      showDivider: false,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const StatisticsScreen()),
-                      ),
-                    ),
-                  ],
-                ),
+                _buildStatisticsSection(context, l10n),
 
                 const SizedBox(height: 24),
 
@@ -146,11 +131,6 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
-                const SizedBox(height: 24),
-
-                // --- OBJECTIF QUOTIDIEN ---
-                _buildGoalSection(context, l10n),
 
                 const SizedBox(height: 24),
 
@@ -225,42 +205,35 @@ class SettingsScreen extends StatelessWidget {
     }
   }
 
-  Widget _buildGoalSection(BuildContext context, AppLocalizations l10n) {
+  Widget _buildStatisticsSection(BuildContext context, AppLocalizations l10n) {
     return Consumer<GoalProvider>(
       builder: (context, goal, _) {
-        String label(DailyGoalLevel level) => switch (level) {
-              DailyGoalLevel.light => l10n.dailyGoalLight,
-              DailyGoalLevel.normal => l10n.dailyGoalNormal,
-              DailyGoalLevel.intense => l10n.dailyGoalIntense,
-            };
+        final levelName = switch (goal.level) {
+          DailyGoalLevel.light => l10n.dailyGoalLight,
+          DailyGoalLevel.normal => l10n.dailyGoalNormal,
+          DailyGoalLevel.intense => l10n.dailyGoalIntense,
+        };
 
         return SettingsSection(
-          title: l10n.dailyGoalSectionTitle,
-          icon: Icons.flag_outlined,
+          title: l10n.statistics,
+          icon: Icons.bar_chart,
           children: [
-            RadioGroup<DailyGoalLevel>(
-              groupValue: goal.level,
-              onChanged: (picked) {
-                if (picked != null) goal.setLevel(picked);
-              },
-              child: Column(
-                children: [
-                  for (final level in DailyGoalLevel.values)
-                    RadioListTile<DailyGoalLevel>(
-                      title: Text(
-                        label(level),
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 16),
-                      ),
-                      subtitle: Text(
-                        l10n.dailyGoalPerDay(goalTarget(level)),
-                        style: TextStyle(
-                            fontSize: 13, color: Colors.grey.shade600),
-                      ),
-                      value: level,
-                      activeColor: AppColors.primary,
-                    ),
-                ],
+            SettingsTile(
+              title: l10n.dailyGoalSectionTitle,
+              subtitle: '$levelName · ${l10n.dailyGoalPerDay(goal.target)}',
+              icon: Icons.flag_outlined,
+              iconColor: AppColors.primary,
+              onTap: () => GoalBottomSheet.show(context, goal),
+            ),
+            SettingsTile(
+              title: l10n.viewStatistics,
+              subtitle: l10n.trackYourProgress,
+              icon: Icons.trending_up,
+              iconColor: Colors.blue,
+              showDivider: false,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const StatisticsScreen()),
               ),
             ),
           ],
