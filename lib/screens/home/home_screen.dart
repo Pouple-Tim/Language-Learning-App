@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
 import 'package:language_learning_app/screens/settings/settings_screen.dart';
+import 'package:language_learning_app/screens/stats/statistics_screen.dart';
 import 'package:language_learning_app/screens/games/classic_game/game_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
@@ -214,26 +215,36 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       message: l10n.currentStreak,
       child: Padding(
         padding: const EdgeInsets.only(left: 8.0),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-          decoration: BoxDecoration(
-            color: Colors.orange.withValues(alpha: 0.12),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
             borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.local_fire_department, color: Colors.orange, size: 20),
-              const SizedBox(width: 4),
-              Text(
-                '$streak',
-                style: const TextStyle(
-                  color: Colors.orange,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const StatisticsScreen()),
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              decoration: BoxDecoration(
+                color: Colors.orange.withValues(alpha: 0.12),
+                borderRadius: BorderRadius.circular(20),
               ),
-            ],
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.local_fire_department, color: Colors.orange, size: 20),
+                  const SizedBox(width: 4),
+                  Text(
+                    '$streak',
+                    style: const TextStyle(
+                      color: Colors.orange,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
