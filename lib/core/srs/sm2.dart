@@ -64,6 +64,9 @@ SrsCard reviewCard(SrsCard c, int quality, DateTime now) {
     reps: reps,
     ef: ef,
     intervalDays: interval,
-    due: today.add(Duration(days: interval)),
+    due: dateOnly(today.add(Duration(days: interval))),
   );
 }
+
+/// Which items a session pulls from. Chosen on the pre-session screen.
+enum SessionFilter { all, due, fresh, hard }
