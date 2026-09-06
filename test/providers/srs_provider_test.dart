@@ -33,14 +33,12 @@ void main() {
     expect(b.isDue('w1', today.add(const Duration(days: 1))), isTrue);
   });
 
-  test('isDifficult true once ef drops below 2.0', () async {
+  test('isDifficult tracks the last review quality', () async {
     final p = SrsProvider()..load();
-    await p.grade('w1', 5);
-    await p.grade('w1', 5);
-    await p.grade('w1', 2); // lapse, ef 2.7→2.38
-    await p.grade('w1', 2); // 2.38→2.06
-    await p.grade('w1', 2); // 2.06→1.74
+    await p.grade('w1', 3);
     expect(p.isDifficult('w1'), isTrue);
+    await p.grade('w1', 5);
+    expect(p.isDifficult('w1'), isFalse);
   });
 
   test('counts over a mixed key set', () async {

@@ -43,8 +43,9 @@ class GameProvider extends ChangeNotifier {
   SessionFilter _sessionFilter = SessionFilter.due;
   SessionFilter get sessionFilter => _sessionFilter;
 
-  String srsKeyForWord(Word w) => w.id;
-  String srsKeyForSentence(Sentence s) => '$_currentDeckId::${s.id}';
+  String srsKeyForWord(Word w) => '${w.id}::${_currentGameType!.storageId}';
+  String srsKeyForSentence(Sentence s) =>
+      '$_currentDeckId::${s.id}::${_currentGameType!.storageId}';
 
   bool _passesFilter(String srsKey) =>
       srsProvider == null ||

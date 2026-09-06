@@ -194,11 +194,14 @@ class _CompletedCardState extends State<CompletedCard> {
     final game = context.watch<GameProvider>();
     final srs = context.watch<SrsProvider>();
     final deck = game.currentDeck;
-    if (deck == null) return const SizedBox.shrink();
+    if (deck == null || game.currentGameType == null) {
+      return const SizedBox.shrink();
+    }
 
+    final modeId = game.currentGameType!.storageId;
     final keys = game.currentGameType == GameType.sentence
-        ? deck.sentences.map((s) => '${deck.id}::${s.id}').toList()
-        : deck.words.map((w) => w.id).toList();
+        ? deck.sentences.map((s) => '${deck.id}::${s.id}::$modeId').toList()
+        : deck.words.map((w) => '${w.id}::$modeId').toList();
 
     final tomorrow = DateTime.now().add(const Duration(days: 1));
     final n = srs.dueOn(keys, tomorrow);

@@ -270,7 +270,7 @@ void main() {
   group('GameProvider - SM-2 integration', () {
     test('filter=fresh limits spinWheel to never-seen words', () async {
       final srs = SrsProvider()..load();
-      await srs.grade('w0', 5); // w0 now seen
+      await srs.grade('w0::classic', 5); // w0 now seen
 
       final provider = GameProvider(srsProvider: srs);
       await provider.setDeck(
@@ -296,7 +296,7 @@ void main() {
       await provider.checkAnswer('nope');
       await provider.checkAnswer('one'); // 2 mistakes → quality 3
 
-      final card = srs.cardFor('w0');
+      final card = srs.cardFor('w0::classic');
       expect(card, isNotNull);
       expect(card!.reps, 1);
       // q3 lowers ef below the q5 value
@@ -311,7 +311,7 @@ void main() {
       await provider.spinWheel();
       await provider.checkAnswer('one');
 
-      expect(srs.cardFor('w0')!.ef, closeTo(2.6, 1e-9));
+      expect(srs.cardFor('w0::classic')!.ef, closeTo(2.6, 1e-9));
     });
 
     test('sentence completion grades the composite key', () async {
@@ -327,13 +327,13 @@ void main() {
       provider.addBlockToSentence('hao');
       await provider.checkSentenceConstruction();
 
-      expect(srs.cardFor('deck1::s1'), isNotNull);
+      expect(srs.cardFor('deck1::s1::sentence'), isNotNull);
     });
 
     test('isCompleted is true when the filtered pool is exhausted, not the whole deck', () async {
       final srs = SrsProvider()..load();
-      await srs.grade('w1', 5);
-      await srs.grade('w2', 5); // only w0 is "fresh"
+      await srs.grade('w1::classic', 5);
+      await srs.grade('w2::classic', 5); // only w0 is "fresh"
 
       final provider = GameProvider(srsProvider: srs);
       await provider.setDeck(_buildDeck(wordCount: 3), gameMode: GameType.classic,

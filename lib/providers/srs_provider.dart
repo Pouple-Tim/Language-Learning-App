@@ -54,7 +54,7 @@ class SrsProvider extends ChangeNotifier {
 
   bool isDifficult(String srsKey) {
     final c = _cards[srsKey];
-    return c != null && c.ef < 2.0;
+    return c != null && c.lastQuality < 4;
   }
 
   bool matches(SessionFilter f, String srsKey, DateTime now) => switch (f) {

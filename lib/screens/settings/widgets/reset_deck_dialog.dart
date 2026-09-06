@@ -98,8 +98,11 @@ class ResetDeckDialog {
                 await gameProvider.resetAllModesProgress(deck.id);
                 final srsDeck = gameProvider.currentDeck ?? deck;
                 await srsProvider.resetKeys(<String>[
-                  ...srsDeck.words.map((w) => w.id),
-                  ...srsDeck.sentences.map((s) => '${srsDeck.id}::${s.id}'),
+                  for (final m in GameType.values) ...[
+                    ...srsDeck.words.map((w) => '${w.id}::${m.storageId}'),
+                    ...srsDeck.sentences
+                        .map((s) => '${srsDeck.id}::${s.id}::${m.storageId}'),
+                  ],
                 ]);
                 await deckProvider.refreshSelectedDeck();
                 if (context.mounted) {

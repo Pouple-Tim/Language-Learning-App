@@ -18,6 +18,7 @@ void main() {
       expect(c.ef, 2.5);
       expect(c.intervalDays, 0);
       expect(c.due, today);
+      expect(c.lastQuality, 5);
     });
   });
 
@@ -75,6 +76,12 @@ void main() {
       expect(c.ef, closeTo(before - 0.32, 1e-9));
     });
 
+    test('stamps lastQuality with the review quality', () {
+      final init = SrsCard.initial(now);
+      expect(reviewCard(init, 3, now).lastQuality, 3);
+      expect(reviewCard(init, 5, now).lastQuality, 5);
+    });
+
     test('ef never drops below 1.3', () {
       var c = SrsCard.initial(now);
       for (var i = 0; i < 20; i++) {
@@ -92,6 +99,7 @@ void main() {
       expect(back.ef, c.ef);
       expect(back.intervalDays, c.intervalDays);
       expect(back.due, c.due);
+      expect(back.lastQuality, c.lastQuality);
     });
   });
 }

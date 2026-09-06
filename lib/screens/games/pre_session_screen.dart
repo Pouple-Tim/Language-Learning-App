@@ -22,8 +22,10 @@ class PreSessionScreen extends StatelessWidget {
   });
 
   List<String> _srsKeys() => mode == GameType.sentence
-      ? deck.sentences.map((s) => '${deck.id}::${s.id}').toList()
-      : deck.words.map((w) => w.id).toList();
+      ? deck.sentences
+          .map((s) => '${deck.id}::${s.id}::${mode.storageId}')
+          .toList()
+      : deck.words.map((w) => '${w.id}::${mode.storageId}').toList();
 
   @override
   Widget build(BuildContext context) {
