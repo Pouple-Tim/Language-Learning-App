@@ -521,10 +521,11 @@ class SettingsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              _buildFeatureItem(Icons.hearing, l10n.newsListeningMode),
-              _buildFeatureItem(Icons.waving_hand_outlined, l10n.newsOnboarding),
-              _buildFeatureItem(Icons.mail_outline, l10n.newsFeedback),
-              _buildFeatureItem(Icons.local_fire_department, l10n.newsStreak),
+              _buildFeatureItem(Icons.repeat, l10n.newsSpacedRepetition),
+              _buildFeatureItem(Icons.flag_outlined, l10n.newsDailyGoal),
+              _buildFeatureItem(Icons.checklist_rtl, l10n.newsSessionSummary),
+              _buildFeatureItem(
+                  Icons.notifications_active_outlined, l10n.newsReminders),
 
               // --- Footer existant ---
               const SizedBox(height: 24),

@@ -1,5 +1,5 @@
 name: language_learning_app
-description: Application de révision de langues avec roue interactive
+description: Apprentissage du vocabulaire avec révision espacée (SM-2), 5 modes de jeu et suivi de progression.
 
 # 📝 Scripts disponibles :
 # - Générer le manifest des decks : dart run tool/generate_deck_manifest.dart

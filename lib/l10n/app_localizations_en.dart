@@ -272,7 +272,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get description =>
-      'Language learning app with interactive wheel.\n\nLearn new words every day and improve your vocabulary!';
+      'Vocabulary learning with spaced repetition.\n\nLearn new words every day and progress at your own pace!';
 
   @override
   String get madeWithLove => 'Made with passion';
@@ -281,16 +281,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get whatsNewTitle => 'What\'s new';
 
   @override
-  String get newsListeningMode => 'New game mode: Listening (train your ear)';
+  String get newsSpacedRepetition =>
+      'Spaced repetition: each word comes back at the right moment, based on your answers';
 
   @override
-  String get newsOnboarding => 'New intro screen and game modes guide';
+  String get newsDailyGoal => 'Daily goal and day streak';
 
   @override
-  String get newsFeedback => 'A button to report an issue or give feedback';
+  String get newsSessionSummary =>
+      'End-of-session summary with the words to review';
 
   @override
-  String get newsStreak => 'Your day streak is now visible on the home screen';
+  String get newsReminders => 'Optional daily reminders at a time you choose';
 
   @override
   String deckSelected(String name) {

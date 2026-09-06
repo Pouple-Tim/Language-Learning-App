@@ -142,13 +142,13 @@
 
   "about": "About",
   "version": "Version",
-  "description": "Language learning app with interactive wheel.\n\nLearn new words every day and improve your vocabulary!",
+  "description": "Vocabulary learning with spaced repetition.\n\nLearn new words every day and progress at your own pace!",
   "madeWithLove": "Made with passion",
   "whatsNewTitle": "What's new",
-  "newsListeningMode": "New game mode: Listening (train your ear)",
-  "newsOnboarding": "New intro screen and game modes guide",
-  "newsFeedback": "A button to report an issue or give feedback",
-  "newsStreak": "Your day streak is now visible on the home screen",
+  "newsSpacedRepetition": "Spaced repetition: each word comes back at the right moment, based on your answers",
+  "newsDailyGoal": "Daily goal and day streak",
+  "newsSessionSummary": "End-of-session summary with the words to review",
+  "newsReminders": "Optional daily reminders at a time you choose",
   
   "deckSelected": "Deck \"{name}\" selected",
   "@deckSelected": {

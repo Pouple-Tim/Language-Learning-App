@@ -93,13 +93,13 @@
 
   "about": "À propos",
   "version": "Version",
-  "description": "Application de révision de langues avec roue interactive.\n\nApprends de nouveaux mots chaque jour et améliore ton vocabulaire !",
+  "description": "Apprentissage du vocabulaire avec révision espacée.\n\nApprends de nouveaux mots chaque jour et progresse à ton rythme !",
   "madeWithLove": "Fait avec passion",
   "whatsNewTitle": "Nouveautés",
-  "newsListeningMode": "Nouveau mode de jeu : Écoute (entraîne ton oreille)",
-  "newsOnboarding": "Nouvel écran d'introduction et guide des modes de jeu",
-  "newsFeedback": "Un bouton pour signaler un problème ou donner ton avis",
-  "newsStreak": "Ta série de jours consécutifs est maintenant visible sur l'accueil",
+  "newsSpacedRepetition": "Révision espacée : chaque mot revient au bon moment selon tes réponses",
+  "newsDailyGoal": "Objectif quotidien et série de jours consécutifs",
+  "newsSessionSummary": "Résumé de fin de partie avec les mots à revoir",
+  "newsReminders": "Rappels quotidiens optionnels à l'heure de ton choix",
   
   "deckSelected": "Deck \"{name}\" sélectionné",
   "deckDownloadFailed": "Impossible de télécharger ce deck. Vérifie ta connexion et réessaie.",

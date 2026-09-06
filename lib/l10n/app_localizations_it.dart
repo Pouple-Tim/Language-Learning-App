@@ -273,7 +273,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get description =>
-      'Applicazione per ripassare le lingue con una ruota interattiva.\n\nImpara nuove parole ogni giorno e migliora il tuo vocabolario!';
+      'Apprendimento del vocabolario con ripetizione dilazionata.\n\nImpara nuove parole ogni giorno e avanza al tuo ritmo!';
 
   @override
   String get madeWithLove => 'Creato con passione';
@@ -282,20 +282,19 @@ class AppLocalizationsIt extends AppLocalizations {
   String get whatsNewTitle => 'Novità';
 
   @override
-  String get newsListeningMode =>
-      'Nuova modalità di gioco: Ascolto (allena il tuo orecchio)';
+  String get newsSpacedRepetition =>
+      'Ripetizione dilazionata: ogni parola torna al momento giusto, in base alle tue risposte';
 
   @override
-  String get newsOnboarding =>
-      'Nuova schermata introduttiva e guida alle modalità di gioco';
+  String get newsDailyGoal => 'Obiettivo giornaliero e serie di giorni';
 
   @override
-  String get newsFeedback =>
-      'Un pulsante per segnalare un problema o lasciare un feedback';
+  String get newsSessionSummary =>
+      'Riepilogo di fine sessione con le parole da rivedere';
 
   @override
-  String get newsStreak =>
-      'La tua serie di giorni ora è visibile nella schermata home';
+  String get newsReminders =>
+      'Promemoria giornalieri opzionali all\'ora che scegli';
 
   @override
   String deckSelected(String name) {

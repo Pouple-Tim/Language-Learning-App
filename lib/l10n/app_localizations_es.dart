@@ -273,7 +273,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get description =>
-      'Aplicación de repaso de idiomas con una rueda interactiva.\n\n¡Aprende nuevas palabras cada día y mejora tu vocabulario!';
+      'Aprendizaje de vocabulario con repaso espaciado.\n\n¡Aprende nuevas palabras cada día y avanza a tu ritmo!';
 
   @override
   String get madeWithLove => 'Hecho con pasión';
@@ -282,20 +282,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get whatsNewTitle => 'Novedades';
 
   @override
-  String get newsListeningMode =>
-      'Nuevo modo de juego: Escucha (entrena tu oído)';
+  String get newsSpacedRepetition =>
+      'Repaso espaciado: cada palabra vuelve en el momento justo, según tus respuestas';
 
   @override
-  String get newsOnboarding =>
-      'Nueva pantalla de introducción y guía de modos de juego';
+  String get newsDailyGoal => 'Objetivo diario y racha de días';
 
   @override
-  String get newsFeedback =>
-      'Un botón para informar de un problema o dar tu opinión';
+  String get newsSessionSummary =>
+      'Resumen de fin de sesión con las palabras para repasar';
 
   @override
-  String get newsStreak =>
-      'Tu racha de días ahora es visible en la pantalla de inicio';
+  String get newsReminders =>
+      'Recordatorios diarios opcionales a la hora que elijas';
 
   @override
   String deckSelected(String name) {

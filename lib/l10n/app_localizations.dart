@@ -597,7 +597,7 @@ abstract class AppLocalizations {
   /// No description provided for @description.
   ///
   /// In en, this message translates to:
-  /// **'Language learning app with interactive wheel.\n\nLearn new words every day and improve your vocabulary!'**
+  /// **'Vocabulary learning with spaced repetition.\n\nLearn new words every day and progress at your own pace!'**
   String get description;
 
   /// No description provided for @madeWithLove.
@@ -612,29 +612,29 @@ abstract class AppLocalizations {
   /// **'What\'s new'**
   String get whatsNewTitle;
 
-  /// No description provided for @newsListeningMode.
+  /// No description provided for @newsSpacedRepetition.
   ///
   /// In en, this message translates to:
-  /// **'New game mode: Listening (train your ear)'**
-  String get newsListeningMode;
+  /// **'Spaced repetition: each word comes back at the right moment, based on your answers'**
+  String get newsSpacedRepetition;
 
-  /// No description provided for @newsOnboarding.
+  /// No description provided for @newsDailyGoal.
   ///
   /// In en, this message translates to:
-  /// **'New intro screen and game modes guide'**
-  String get newsOnboarding;
+  /// **'Daily goal and day streak'**
+  String get newsDailyGoal;
 
-  /// No description provided for @newsFeedback.
+  /// No description provided for @newsSessionSummary.
   ///
   /// In en, this message translates to:
-  /// **'A button to report an issue or give feedback'**
-  String get newsFeedback;
+  /// **'End-of-session summary with the words to review'**
+  String get newsSessionSummary;
 
-  /// No description provided for @newsStreak.
+  /// No description provided for @newsReminders.
   ///
   /// In en, this message translates to:
-  /// **'Your day streak is now visible on the home screen'**
-  String get newsStreak;
+  /// **'Optional daily reminders at a time you choose'**
+  String get newsReminders;
 
   /// No description provided for @deckSelected.
   ///
