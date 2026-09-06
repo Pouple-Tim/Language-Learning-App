@@ -136,7 +136,7 @@ class _GameScreenState extends State<GameScreen> {
                               else if (gameProvider.isCompleted)
                                 Expanded(
                                   child: Center(
-                                    child: CompletedCard(onRestart: gameProvider.resetDeck),
+                                    child: CompletedCard(onRestart: () => Navigator.pop(context)),
                                   ),
                                 )
                               else if (gameProvider.currentWord == null && gameProvider.currentSentence == null)

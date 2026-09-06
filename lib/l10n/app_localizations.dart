@@ -1307,6 +1307,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Flawless 🎯'**
   String get sessionSummaryPerfect;
+
+  /// No description provided for @preSessionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What to review'**
+  String get preSessionTitle;
+
+  /// No description provided for @srsFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Review everything'**
+  String get srsFilterAll;
+
+  /// No description provided for @srsFilterAllDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Every item in the deck'**
+  String get srsFilterAllDesc;
+
+  /// No description provided for @srsFilterDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Due today'**
+  String get srsFilterDue;
+
+  /// No description provided for @srsFilterDueDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Scheduled items plus anything new'**
+  String get srsFilterDueDesc;
+
+  /// No description provided for @srsFilterFresh.
+  ///
+  /// In en, this message translates to:
+  /// **'New items'**
+  String get srsFilterFresh;
+
+  /// No description provided for @srsFilterFreshDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Never studied before'**
+  String get srsFilterFreshDesc;
+
+  /// No description provided for @srsFilterHard.
+  ///
+  /// In en, this message translates to:
+  /// **'Hard items'**
+  String get srsFilterHard;
+
+  /// No description provided for @srsFilterHardDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Items you keep missing'**
+  String get srsFilterHardDesc;
+
+  /// No description provided for @srsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items'**
+  String srsCount(int count);
+
+  /// No description provided for @nextReviewLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing due tomorrow} =1{1 item due tomorrow} other{{count} items due tomorrow}}'**
+  String nextReviewLine(int count);
 }
 
 class _AppLocalizationsDelegate

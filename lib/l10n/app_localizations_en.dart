@@ -682,4 +682,48 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sessionSummaryPerfect => 'Flawless 🎯';
+
+  @override
+  String get preSessionTitle => 'What to review';
+
+  @override
+  String get srsFilterAll => 'Review everything';
+
+  @override
+  String get srsFilterAllDesc => 'Every item in the deck';
+
+  @override
+  String get srsFilterDue => 'Due today';
+
+  @override
+  String get srsFilterDueDesc => 'Scheduled items plus anything new';
+
+  @override
+  String get srsFilterFresh => 'New items';
+
+  @override
+  String get srsFilterFreshDesc => 'Never studied before';
+
+  @override
+  String get srsFilterHard => 'Hard items';
+
+  @override
+  String get srsFilterHardDesc => 'Items you keep missing';
+
+  @override
+  String srsCount(int count) {
+    return '$count items';
+  }
+
+  @override
+  String nextReviewLine(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items due tomorrow',
+      one: '1 item due tomorrow',
+      zero: 'Nothing due tomorrow',
+    );
+    return '$_temp0';
+  }
 }

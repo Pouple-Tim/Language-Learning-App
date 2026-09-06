@@ -361,5 +361,22 @@
   "@sessionSummaryToReview": {
     "placeholders": { "count": { "type": "int" } }
   },
-  "sessionSummaryPerfect": "Flawless 🎯"
+  "sessionSummaryPerfect": "Flawless 🎯",
+  "preSessionTitle": "What to review",
+  "srsFilterAll": "Review everything",
+  "srsFilterAllDesc": "Every item in the deck",
+  "srsFilterDue": "Due today",
+  "srsFilterDueDesc": "Scheduled items plus anything new",
+  "srsFilterFresh": "New items",
+  "srsFilterFreshDesc": "Never studied before",
+  "srsFilterHard": "Hard items",
+  "srsFilterHardDesc": "Items you keep missing",
+  "srsCount": "{count} items",
+  "@srsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "nextReviewLine": "{count, plural, =0{Nothing due tomorrow} =1{1 item due tomorrow} other{{count} items due tomorrow}}",
+  "@nextReviewLine": {
+    "placeholders": { "count": { "type": "int" } }
+  }
 }

@@ -222,5 +222,16 @@
   "sessionSummaryLearned": "{count} aprendidas",
   "sessionSummaryFirstTry": "{count} a la primera",
   "sessionSummaryToReview": "{count} para repasar",
-  "sessionSummaryPerfect": "Sin fallos 🎯"
+  "sessionSummaryPerfect": "Sin fallos 🎯",
+  "preSessionTitle": "¿Qué repasar?",
+  "srsFilterAll": "Repasar todo",
+  "srsFilterAllDesc": "Todos los elementos del mazo",
+  "srsFilterDue": "Para hoy",
+  "srsFilterDueDesc": "Elementos programados y novedades",
+  "srsFilterFresh": "Palabras nuevas",
+  "srsFilterFreshDesc": "Nunca estudiados",
+  "srsFilterHard": "Palabras difíciles",
+  "srsFilterHardDesc": "Los que fallas a menudo",
+  "srsCount": "{count} elementos",
+  "nextReviewLine": "{count, plural, =0{Nada para mañana} =1{1 elemento mañana} other{{count} elementos mañana}}"
 }

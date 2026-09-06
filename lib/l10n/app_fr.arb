@@ -222,5 +222,16 @@
   "sessionSummaryLearned": "{count} appris",
   "sessionSummaryFirstTry": "{count} du premier coup",
   "sessionSummaryToReview": "{count} à revoir",
-  "sessionSummaryPerfect": "Sans faute 🎯"
+  "sessionSummaryPerfect": "Sans faute 🎯",
+  "preSessionTitle": "Que réviser ?",
+  "srsFilterAll": "Réviser tout",
+  "srsFilterAllDesc": "Tous les éléments du deck",
+  "srsFilterDue": "À réviser aujourd'hui",
+  "srsFilterDueDesc": "Éléments programmés plus les nouveautés",
+  "srsFilterFresh": "Nouveaux mots",
+  "srsFilterFreshDesc": "Jamais étudiés",
+  "srsFilterHard": "Mots difficiles",
+  "srsFilterHardDesc": "Ceux que tu rates souvent",
+  "srsCount": "{count} éléments",
+  "nextReviewLine": "{count, plural, =0{Rien de prévu demain} =1{1 élément demain} other{{count} éléments demain}}"
 }

@@ -14,6 +14,7 @@ import 'providers/deck_provider.dart';
 import 'providers/locale_provider.dart';
 import 'providers/reminder_provider.dart';
 import 'providers/goal_provider.dart';
+import 'providers/srs_provider.dart';
 import 'providers/statistics_provider.dart';
 import 'app.dart';
 
@@ -53,15 +54,17 @@ void main() async {
           ChangeNotifierProvider(create: (_) => LocaleProvider()),
           ChangeNotifierProvider(create: (_) => ReminderProvider()..load()),
           ChangeNotifierProvider(create: (_) => GoalProvider()..load()),
+          ChangeNotifierProvider(create: (_) => SrsProvider()..load()),
           ChangeNotifierProvider(
             create: (_) => StatisticsProvider()..loadHistory(),
           ),
-          ChangeNotifierProxyProvider<StatisticsProvider, GameProvider>(
+          ChangeNotifierProxyProvider2<StatisticsProvider, SrsProvider, GameProvider>(
             create: (context) => GameProvider(
               statisticsProvider: context.read<StatisticsProvider>(),
+              srsProvider: context.read<SrsProvider>(),
             ),
-            update: (context, stats, previous) =>
-              previous ?? GameProvider(statisticsProvider: stats),
+            update: (context, stats, srs, previous) =>
+                previous ?? GameProvider(statisticsProvider: stats, srsProvider: srs),
           ),
         ],
         child: const MyApp(),

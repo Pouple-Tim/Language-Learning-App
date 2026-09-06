@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
+import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/providers/goal_provider.dart';
+import 'package:language_learning_app/providers/srs_provider.dart';
 
 class CompletedCard extends StatefulWidget {
   final VoidCallback onRestart;
@@ -53,6 +55,7 @@ class _CompletedCardState extends State<CompletedCard> {
             const SizedBox(height: 20),
             _buildSessionSummary(context),
             _buildGoalProgress(context),
+            _buildNextReview(context),
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
@@ -183,6 +186,33 @@ class _CompletedCardState extends State<CompletedCard> {
         ),
         const SizedBox(height: 20),
       ],
+    );
+  }
+
+  Widget _buildNextReview(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final game = context.watch<GameProvider>();
+    final srs = context.watch<SrsProvider>();
+    final deck = game.currentDeck;
+    if (deck == null || game.currentGameType == null) {
+      return const SizedBox.shrink();
+    }
+
+    final modeId = game.currentGameType!.storageId;
+    final keys = game.currentGameType == GameType.sentence
+        ? deck.sentences.map((s) => '${deck.id}::${s.id}::$modeId').toList()
+        : deck.words.map((w) => '${w.id}::$modeId').toList();
+
+    final tomorrow = DateTime.now().add(const Duration(days: 1));
+    final n = srs.dueOn(keys, tomorrow);
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: Text(
+        l10n.nextReviewLine(n),
+        style: Theme.of(context).textTheme.bodySmall,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 

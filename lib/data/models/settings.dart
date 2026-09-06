@@ -7,6 +7,8 @@ class Settings {
   bool isDarkMode;
   String currentDeckId;
   
+  // Unused since #8 (spaced repetition). Kept to avoid a build_runner
+  // regen + a migration on existing app_settings blobs.
   @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
   DateTime lastReset;
 

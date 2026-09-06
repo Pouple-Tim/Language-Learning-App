@@ -4,6 +4,7 @@ import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
+import 'package:language_learning_app/providers/srs_provider.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 
 class ResetDeckDialog {
@@ -11,6 +12,7 @@ class ResetDeckDialog {
     final l10n = AppLocalizations.of(context)!;
     final gameProvider = context.read<GameProvider>();
     final deckProvider = context.read<DeckProvider>();
+    final srsProvider = context.read<SrsProvider>();
     final theme = Theme.of(context);
     final deck = deckProvider.selectedDeck;
     if (deck == null) return;
@@ -94,6 +96,14 @@ class ResetDeckDialog {
             TextButton(
               onPressed: () async {
                 await gameProvider.resetAllModesProgress(deck.id);
+                final srsDeck = gameProvider.currentDeck ?? deck;
+                await srsProvider.resetKeys(<String>[
+                  for (final m in GameType.values) ...[
+                    ...srsDeck.words.map((w) => '${w.id}::${m.storageId}'),
+                    ...srsDeck.sentences
+                        .map((s) => '${srsDeck.id}::${s.id}::${m.storageId}'),
+                  ],
+                ]);
                 await deckProvider.refreshSelectedDeck();
                 if (context.mounted) {
                   Navigator.pop(context);

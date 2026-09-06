@@ -91,15 +91,15 @@ class _DrawingWidgetState extends State<DrawingWidget> {
       _isCorrect = isCorrect; 
     });
 
-    await statsProvider.addReview(
-      wordId: gameProvider.currentWord!.id,
-      deckId: gameProvider.currentDeck!.id,
-      wasCorrect: isCorrect,
-      inputType: 'draw',
-      gameMode: gameProvider.currentGameMode ?? GameType.classic.storageId,
-    );
-
     if (!isCorrect) {
+      // The correct branch logs its review inside markCurrentWordAsCorrect().
+      await statsProvider.addReview(
+        wordId: gameProvider.currentWord!.id,
+        deckId: gameProvider.currentDeck!.id,
+        wasCorrect: false,
+        inputType: 'draw',
+        gameMode: gameProvider.currentGameMode ?? GameType.classic.storageId,
+      );
       gameProvider.recordMistakeForCurrentWord();
     }
 

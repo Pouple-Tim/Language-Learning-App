@@ -2,17 +2,19 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/core/analytics/analytics_service.dart';
+import 'package:language_learning_app/core/srs/sm2.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/data/models/word.dart';
 import 'package:language_learning_app/data/models/sentence.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
-import 'package:language_learning_app/core/utils/date_helper.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
+import 'package:language_learning_app/providers/srs_provider.dart';
 
 class GameProvider extends ChangeNotifier {
   final DeckRepository _repository = DeckRepository();
   final StatisticsProvider? statisticsProvider;
+  final SrsProvider? srsProvider;
 
   // État du jeu en cours
   String? _currentDeckId;
@@ -36,7 +38,30 @@ class GameProvider extends ChangeNotifier {
   List<String> _quizOptions = [];
   List<String> get quizOptions => _quizOptions;
 
-  GameProvider({this.statisticsProvider});
+  GameProvider({this.statisticsProvider, this.srsProvider});
+
+  SessionFilter _sessionFilter = SessionFilter.due;
+  SessionFilter get sessionFilter => _sessionFilter;
+
+  String srsKeyForWord(Word w) => '${w.id}::${_currentGameType!.storageId}';
+  String srsKeyForSentence(Sentence s) =>
+      '$_currentDeckId::${s.id}::${_currentGameType!.storageId}';
+
+  bool _passesFilter(String srsKey) =>
+      srsProvider == null ||
+      srsProvider!.matches(_sessionFilter, srsKey, DateTime.now());
+
+  int _qualityFromMistakes(int mistakes) => switch (mistakes) {
+        0 => 5,
+        1 => 4,
+        2 => 3,
+        _ => 2,
+      };
+
+  void _gradeItem(String bareId, String srsKey) {
+    final q = _qualityFromMistakes(_sessionMistakes[bareId] ?? 0);
+    srsProvider?.grade(srsKey, q); // fire-and-forget
+  }
 
   // ===========================================================================
   // GETTERS (Calculs dynamiques selon le mode)
@@ -83,7 +108,15 @@ class GameProvider extends ChangeNotifier {
   }
 
   /// Jeu terminé ?
-  bool get isCompleted => remainingWords == 0;
+  bool get isCompleted {
+    if (_currentProgressDeck == null) return false;
+    if (_currentGameType == GameType.sentence) {
+      return !_currentProgressDeck!.sentences
+          .any((s) => !s.completed && _passesFilter(srsKeyForSentence(s)));
+    }
+    return !_currentProgressDeck!.words
+        .any((w) => !w.removed && _passesFilter(srsKeyForWord(w)));
+  }
 
   /// Éléments (mots ou phrases) complétés pendant cette session.
   int get sessionLearnedCount => _sessionCompleted.length;
@@ -157,20 +190,21 @@ class GameProvider extends ChangeNotifier {
   }
 
   // ===========================================================================
-  // INITIALISATION (SetDeck avec Merge)
+  // INITIALISATION (SetDeck)
   // ===========================================================================
 
-  Future<void> setDeck(Deck baseDeck, {GameType gameMode = GameType.classic}) async {
+  Future<void> setDeck(Deck baseDeck,
+      {GameType gameMode = GameType.classic,
+      SessionFilter filter = SessionFilter.due}) async {
     _currentDeckId = baseDeck.id;
     _currentGameType = gameMode;
+    _sessionFilter = filter;
     _sessionCompleted.clear();
     _sessionMistakes.clear();
 
     debugPrint('🎮 Initialisation du jeu');
     debugPrint('   Deck: ${baseDeck.name} (${baseDeck.id})');
     debugPrint('   Mode: ${gameMode.storageId}');
-
-    final savedProgress = await _repository.loadProgress(baseDeck.id, gameMode.storageId);
 
     // Copie profonde des phrases : chaque partie doit avoir ses propres
     // instances de Sentence, indépendantes du deck en cache dans
@@ -183,51 +217,12 @@ class GameProvider extends ChangeNotifier {
           completed: false,
         )).toList();
 
-    if (savedProgress != null) {
-      debugPrint('   ✅ Progression existante détectée. Fusion des données...');
-
-      // STRATÉGIE DE FUSION :
-      // On prend le deck "frais" (JSON) pour avoir le contenu à jour.
-      // On applique les états "removed" (mots) et "completed" (phrases)
-      // depuis la sauvegarde, en faisant correspondre par id stable
-      // (et non plus par contenu, qui casse silencieusement si le texte
-      // d'un mot change entre deux révisions du deck).
-
-      final freshDeck = baseDeck.copyWith(
-        words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
-        sentences: freshSentences(),
-      );
-
-      // A. Restauration des mots appris (match par id)
-      for (final savedWord in savedProgress.words) {
-        if (!savedWord.removed) continue;
-        for (final freshWord in freshDeck.words) {
-          if (freshWord.id == savedWord.id) {
-            freshWord.removed = true;
-            break;
-          }
-        }
-      }
-
-      // B. Restauration des phrases complétées (match par id)
-      for (final savedSentence in savedProgress.sentences) {
-        if (!savedSentence.completed) continue;
-        for (final freshSentence in freshDeck.sentences) {
-          if (freshSentence.id == savedSentence.id) {
-            freshSentence.completed = true;
-            break;
-          }
-        }
-      }
-
-      _currentProgressDeck = freshDeck;
-    } else {
-      debugPrint('   🆕 Nouvelle partie créée');
-      _currentProgressDeck = baseDeck.copyWith(
-        words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
-        sentences: freshSentences(),
-      );
-    }
+    // Plus de fusion avec la progression sauvegardée : chaque session repart
+    // d'un deck entièrement actif. Le filtrage (SM-2) se fera en amont.
+    _currentProgressDeck = baseDeck.copyWith(
+      words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
+      sentences: freshSentences(),
+    );
 
     // Reset des pointeurs
     _currentWord = null;
@@ -253,13 +248,17 @@ class GameProvider extends ChangeNotifier {
     }
 
     final activeWords = _currentProgressDeck!.activeWords;
-    if (activeWords.isEmpty) {
-      debugPrint('⚠️ Aucun mot actif disponible');
+    final pool = activeWords
+        .where((w) => _passesFilter(srsKeyForWord(w)))
+        .toList();
+    if (pool.isEmpty) {
+      _currentWord = null;
+      notifyListeners();
       return;
     }
 
     final random = Random();
-    _currentWord = activeWords[random.nextInt(activeWords.length)];
+    _currentWord = pool[random.nextInt(pool.length)];
 
     if (_currentGameType == GameType.quiz || _currentGameType == GameType.listening) {
       _generateQuizOptions(activeWords);
@@ -273,7 +272,10 @@ class GameProvider extends ChangeNotifier {
   // ===========================================================================
 
   void _loadNextSentence() {
-    final activeSentences = _currentProgressDeck?.sentences.where((s) => !s.completed).toList() ?? [];
+    final activeSentences = _currentProgressDeck?.sentences
+            .where((s) => !s.completed && _passesFilter(srsKeyForSentence(s)))
+            .toList() ??
+        [];
 
     if (activeSentences.isNotEmpty) {
       final random = Random();
@@ -316,7 +318,9 @@ class GameProvider extends ChangeNotifier {
     }
 
     if (isCorrect) {
-      _sessionCompleted.add(_currentSentence!.id);
+      if (_sessionCompleted.add(_currentSentence!.id)) {
+        _gradeItem(_currentSentence!.id, srsKeyForSentence(_currentSentence!));
+      }
       _currentSentence!.completed = true;
       await _saveProgress();
       _logIfDeckCompleted();
@@ -366,7 +370,9 @@ class GameProvider extends ChangeNotifier {
     );
 
     if (isCorrect) {
-      _sessionCompleted.add(_currentWord!.id);
+      if (_sessionCompleted.add(_currentWord!.id)) {
+        _gradeItem(_currentWord!.id, srsKeyForWord(_currentWord!));
+      }
       _currentWord!.removed = true;
       await _saveProgress();
       _logIfDeckCompleted();
@@ -385,7 +391,18 @@ class GameProvider extends ChangeNotifier {
   Future<void> markCurrentWordAsCorrect() async {
     if (_currentWord == null || _currentProgressDeck == null) return;
 
-    _sessionCompleted.add(_currentWord!.id);
+    final newlyCompleted = _sessionCompleted.add(_currentWord!.id);
+    unawaited(statisticsProvider?.addReview(
+          wordId: _currentWord!.id,
+          deckId: _currentProgressDeck!.id,
+          wasCorrect: true,
+          inputType: 'draw',
+          gameMode: _currentGameType!.storageId,
+        ) ??
+        Future.value());
+    if (newlyCompleted) {
+      _gradeItem(_currentWord!.id, srsKeyForWord(_currentWord!));
+    }
     _currentWord!.removed = true;
     await _saveProgress();
     _logIfDeckCompleted();
@@ -460,15 +477,6 @@ class GameProvider extends ChangeNotifier {
   Future<void> resetAllModesProgress(String deckId) async {
     await _repository.resetAllProgressForDeck(deckId);
     if (deckId == _currentDeckId) {
-      await resetDeck();
-    }
-  }
-
-  Future<void> checkDailyReset(DateTime lastReset) async {
-    if (_currentProgressDeck == null) return;
-
-    if (DateHelper.needsReset(lastReset)) {
-      debugPrint('📅 Reset quotidien déclenché');
       await resetDeck();
     }
   }

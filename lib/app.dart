@@ -47,24 +47,6 @@ class _MyAppState extends State<MyApp> {
 
     if (deckProvider.selectedDeck != null) {
       await gameProvider.setDeck(deckProvider.selectedDeck!);
-      await gameProvider.checkDailyReset(settings.lastReset);
-      
-      // ✅ FIX: Stocker le résultat avant le await
-      final needsReset = await _settingsRepository.needsDailyReset();
-      
-      if (needsReset) {
-        await _settingsRepository.updateLastReset(DateTime.now());
-        
-        // ✅ FIX: Vérifier mounted après tous les awaits
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('✨ Nouveau jour ! Deck réinitialisé.'),
-              duration: Duration(seconds: 3),
-            ),
-          );
-        }
-      }
     }
   }
 

@@ -686,4 +686,48 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sessionSummaryPerfect => 'Sin fallos 🎯';
+
+  @override
+  String get preSessionTitle => '¿Qué repasar?';
+
+  @override
+  String get srsFilterAll => 'Repasar todo';
+
+  @override
+  String get srsFilterAllDesc => 'Todos los elementos del mazo';
+
+  @override
+  String get srsFilterDue => 'Para hoy';
+
+  @override
+  String get srsFilterDueDesc => 'Elementos programados y novedades';
+
+  @override
+  String get srsFilterFresh => 'Palabras nuevas';
+
+  @override
+  String get srsFilterFreshDesc => 'Nunca estudiados';
+
+  @override
+  String get srsFilterHard => 'Palabras difíciles';
+
+  @override
+  String get srsFilterHardDesc => 'Los que fallas a menudo';
+
+  @override
+  String srsCount(int count) {
+    return '$count elementos';
+  }
+
+  @override
+  String nextReviewLine(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count elementos mañana',
+      one: '1 elemento mañana',
+      zero: 'Nada para mañana',
+    );
+    return '$_temp0';
+  }
 }
