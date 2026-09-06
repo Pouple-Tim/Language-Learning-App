@@ -342,5 +342,11 @@
       }
     }
   },
-  "dailyGoalReached": "Daily goal reached 🎯"
+  "dailyGoalReached": "Daily goal reached 🎯",
+  "dayCount": "{count, plural, =1{1 day} other{{count} days}}",
+  "@dayCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  }
 }

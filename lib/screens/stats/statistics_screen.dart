@@ -224,7 +224,7 @@ class StatisticsScreen extends StatelessWidget {
                     const Icon(Icons.local_fire_department,
                         color: Colors.orange, size: 18),
                     const SizedBox(width: 4),
-                    Text('$streak ${l10n.days}',
+                    Text(l10n.dayCount(streak),
                         style: const TextStyle(
                             fontSize: 13, fontWeight: FontWeight.w600)),
                   ],

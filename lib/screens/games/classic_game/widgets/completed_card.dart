@@ -119,7 +119,7 @@ class CompletedCard extends StatelessWidget {
             const Icon(Icons.local_fire_department,
                 color: Colors.orange, size: 18),
             const SizedBox(width: 4),
-            Text('$streak ${l10n.days}',
+            Text(l10n.dayCount(streak),
                 style: Theme.of(context).textTheme.bodySmall),
           ],
         ),

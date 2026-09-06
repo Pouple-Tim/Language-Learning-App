@@ -657,4 +657,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get dailyGoalReached => '¡Objetivo diario alcanzado 🎯!';
+
+  @override
+  String dayCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count días',
+      one: '1 día',
+    );
+    return '$_temp0';
+  }
 }

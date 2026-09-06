@@ -1277,6 +1277,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Daily goal reached 🎯'**
   String get dailyGoalReached;
+
+  /// No description provided for @dayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day} other{{count} days}}'**
+  String dayCount(int count);
 }
 
 class _AppLocalizationsDelegate

@@ -217,5 +217,6 @@
   "dailyGoalPerDay": "{count} révisions par jour",
   "dailyGoalTodayTitle": "Aujourd'hui",
   "dailyGoalReviewsToday": "{done} / {target} révisions aujourd'hui",
-  "dailyGoalReached": "Objectif du jour atteint 🎯"
+  "dailyGoalReached": "Objectif du jour atteint 🎯",
+  "dayCount": "{count, plural, =1{1 jour} other{{count} jours}}"
 }
