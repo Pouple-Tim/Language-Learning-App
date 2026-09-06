@@ -317,5 +317,36 @@
   "reminderTimeTitle": "Reminder time",
   "reminderPermissionDenied": "Notifications are turned off for this app. Enable them in your device settings.",
   "reminderNotificationTitle": "Time to practice 🔥",
-  "reminderNotificationBody": "A few minutes today keeps your streak going."
+  "reminderNotificationBody": "A few minutes today keeps your streak going.",
+  "dailyGoalSectionTitle": "Daily goal",
+  "dailyGoalLight": "Light",
+  "dailyGoalNormal": "Normal",
+  "dailyGoalIntense": "Intense",
+  "dailyGoalPerDay": "{count} reviews per day",
+  "@dailyGoalPerDay": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyGoalTodayTitle": "Today",
+  "dailyGoalReviewsToday": "{done} / {target} reviews today",
+  "@dailyGoalReviewsToday": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyGoalReached": "Daily goal reached 🎯",
+  "dayCount": "{count, plural, =1{1 day} other{{count} days}}",
+  "@dayCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  }
 }

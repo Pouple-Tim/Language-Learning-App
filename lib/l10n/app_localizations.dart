@@ -1229,6 +1229,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A few minutes today keeps your streak going.'**
   String get reminderNotificationBody;
+
+  /// No description provided for @dailyGoalSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily goal'**
+  String get dailyGoalSectionTitle;
+
+  /// No description provided for @dailyGoalLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get dailyGoalLight;
+
+  /// No description provided for @dailyGoalNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get dailyGoalNormal;
+
+  /// No description provided for @dailyGoalIntense.
+  ///
+  /// In en, this message translates to:
+  /// **'Intense'**
+  String get dailyGoalIntense;
+
+  /// No description provided for @dailyGoalPerDay.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} reviews per day'**
+  String dailyGoalPerDay(int count);
+
+  /// No description provided for @dailyGoalTodayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get dailyGoalTodayTitle;
+
+  /// No description provided for @dailyGoalReviewsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {target} reviews today'**
+  String dailyGoalReviewsToday(int done, int target);
+
+  /// No description provided for @dailyGoalReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily goal reached 🎯'**
+  String get dailyGoalReached;
+
+  /// No description provided for @dayCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day} other{{count} days}}'**
+  String dayCount(int count);
 }
 
 class _AppLocalizationsDelegate

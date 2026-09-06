@@ -164,6 +164,10 @@ class StatisticsProvider extends ChangeNotifier {
   bool hasPracticedToday() =>
       _history.getReviewsForDay(DateTime.now()).isNotEmpty;
 
+  /// Number of reviews recorded today (every answer, correct or not). Drives
+  /// the daily-goal progress. See lib/core/goal/daily_goal.dart.
+  int reviewsToday() => _history.getReviewsForDay(DateTime.now()).length;
+
   /// Série actuelle (jours consécutifs)
   int getCurrentStreak() {
     if (_history.entries.isEmpty) return 0;

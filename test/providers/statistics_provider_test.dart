@@ -84,5 +84,23 @@ void main() {
       expect(provider.history.entries, isEmpty);
       expect(provider.getSuccessRate(), 0.0);
     });
+
+    test('reviewsToday counts every entry dated today, wrong answers included',
+        () async {
+      final provider = StatisticsProvider();
+      await provider.loadHistory();
+
+      expect(provider.reviewsToday(), 0);
+
+      await provider.addReview(
+          wordId: 'w1', deckId: 'd1', wasCorrect: true, inputType: 'text', gameMode: 'classic');
+      await provider.addReview(
+          wordId: 'w1', deckId: 'd1', wasCorrect: false, inputType: 'text', gameMode: 'classic');
+      await provider.addReview(
+          wordId: 'w2', deckId: 'd1', wasCorrect: true, inputType: 'text', gameMode: 'classic');
+
+      // 3 answers even though only 2 distinct words.
+      expect(provider.reviewsToday(), 3);
+    });
   });
 }

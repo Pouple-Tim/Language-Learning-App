@@ -11,6 +11,8 @@ import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/locale_provider.dart';
 import 'package:language_learning_app/providers/reminder_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
+import 'package:language_learning_app/providers/goal_provider.dart';
+import 'package:language_learning_app/core/goal/daily_goal.dart';
 import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
@@ -147,6 +149,11 @@ class SettingsScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
+                // --- OBJECTIF QUOTIDIEN ---
+                _buildGoalSection(context, l10n),
+
+                const SizedBox(height: 24),
+
                 // --- RAPPELS ---
                 _buildReminderSection(context, l10n),
 
@@ -216,6 +223,50 @@ class SettingsScreen extends StatelessWidget {
         SnackBar(content: Text(l10n.feedbackMailError)),
       );
     }
+  }
+
+  Widget _buildGoalSection(BuildContext context, AppLocalizations l10n) {
+    return Consumer<GoalProvider>(
+      builder: (context, goal, _) {
+        String label(DailyGoalLevel level) => switch (level) {
+              DailyGoalLevel.light => l10n.dailyGoalLight,
+              DailyGoalLevel.normal => l10n.dailyGoalNormal,
+              DailyGoalLevel.intense => l10n.dailyGoalIntense,
+            };
+
+        return SettingsSection(
+          title: l10n.dailyGoalSectionTitle,
+          icon: Icons.flag_outlined,
+          children: [
+            RadioGroup<DailyGoalLevel>(
+              groupValue: goal.level,
+              onChanged: (picked) {
+                if (picked != null) goal.setLevel(picked);
+              },
+              child: Column(
+                children: [
+                  for (final level in DailyGoalLevel.values)
+                    RadioListTile<DailyGoalLevel>(
+                      title: Text(
+                        label(level),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 16),
+                      ),
+                      subtitle: Text(
+                        l10n.dailyGoalPerDay(goalTarget(level)),
+                        style: TextStyle(
+                            fontSize: 13, color: Colors.grey.shade600),
+                      ),
+                      value: level,
+                      activeColor: AppColors.primary,
+                    ),
+                ],
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Widget _buildReminderSection(BuildContext context, AppLocalizations l10n) {

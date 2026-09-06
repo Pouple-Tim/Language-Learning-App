@@ -209,5 +209,14 @@
   "reminderTimeTitle": "Ora del promemoria",
   "reminderPermissionDenied": "Le notifiche sono disattivate per l'app. Attivale nelle impostazioni del telefono.",
   "reminderNotificationTitle": "È ora di allenarti 🔥",
-  "reminderNotificationBody": "Pochi minuti oggi per non perdere la serie."
+  "reminderNotificationBody": "Pochi minuti oggi per non perdere la serie.",
+  "dailyGoalSectionTitle": "Obiettivo giornaliero",
+  "dailyGoalLight": "Leggero",
+  "dailyGoalNormal": "Normale",
+  "dailyGoalIntense": "Intenso",
+  "dailyGoalPerDay": "{count} ripassi al giorno",
+  "dailyGoalTodayTitle": "Oggi",
+  "dailyGoalReviewsToday": "{done} / {target} ripassi oggi",
+  "dailyGoalReached": "Obiettivo del giorno raggiunto 🎯",
+  "dayCount": "{count, plural, =1{1 giorno} other{{count} giorni}}"
 }
