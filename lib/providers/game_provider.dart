@@ -317,8 +317,9 @@ class GameProvider extends ChangeNotifier {
     }
 
     if (isCorrect) {
-      _sessionCompleted.add(_currentSentence!.id);
-      _gradeItem(_currentSentence!.id, srsKeyForSentence(_currentSentence!));
+      if (_sessionCompleted.add(_currentSentence!.id)) {
+        _gradeItem(_currentSentence!.id, srsKeyForSentence(_currentSentence!));
+      }
       _currentSentence!.completed = true;
       await _saveProgress();
       _logIfDeckCompleted();
@@ -368,8 +369,9 @@ class GameProvider extends ChangeNotifier {
     );
 
     if (isCorrect) {
-      _sessionCompleted.add(_currentWord!.id);
-      _gradeItem(_currentWord!.id, srsKeyForWord(_currentWord!));
+      if (_sessionCompleted.add(_currentWord!.id)) {
+        _gradeItem(_currentWord!.id, srsKeyForWord(_currentWord!));
+      }
       _currentWord!.removed = true;
       await _saveProgress();
       _logIfDeckCompleted();
@@ -388,7 +390,7 @@ class GameProvider extends ChangeNotifier {
   Future<void> markCurrentWordAsCorrect() async {
     if (_currentWord == null || _currentProgressDeck == null) return;
 
-    _sessionCompleted.add(_currentWord!.id);
+    final newlyCompleted = _sessionCompleted.add(_currentWord!.id);
     unawaited(statisticsProvider?.addReview(
           wordId: _currentWord!.id,
           deckId: _currentProgressDeck!.id,
@@ -397,7 +399,9 @@ class GameProvider extends ChangeNotifier {
           gameMode: _currentGameType!.storageId,
         ) ??
         Future.value());
-    _gradeItem(_currentWord!.id, srsKeyForWord(_currentWord!));
+    if (newlyCompleted) {
+      _gradeItem(_currentWord!.id, srsKeyForWord(_currentWord!));
+    }
     _currentWord!.removed = true;
     await _saveProgress();
     _logIfDeckCompleted();

@@ -76,7 +76,7 @@ class PreSessionScreen extends StatelessWidget {
     await srs.setFilterFor(deck.id, mode, filter);
     await game.setDeck(deck, gameMode: mode, filter: filter);
     if (!context.mounted) return;
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (_) => GameScreen(gameTitle: title)),
     );
