@@ -726,17 +726,17 @@ git commit -m "refactor: remove the daily-reset mechanism (SM-2 replaces it)"
 
 - [ ] **Step 1: Write the failing tests**
 
-Add to `test/providers/game_provider_test.dart` a new group (after `GameProvider - session summary`). Uses a real `SrsProvider` injected into `GameProvider`.
+Add to `test/providers/game_provider_test.dart` a new group (after `GameProvider - session summary`). Uses a real `SrsProvider` injected into `GameProvider`. **`_buildDeck` gives words the ids `w0` / `w1` / `w2`** (not `<deckId>_wN`); `srsKeyForWord` returns `w.id` verbatim, so the tests key on `w0`/`w1`/`w2` and stay consistent. Imports to add to the test file: `package:language_learning_app/providers/srs_provider.dart`, `package:language_learning_app/core/srs/sm2.dart`.
 
 ```dart
   group('GameProvider - SM-2 integration', () {
     test('filter=fresh limits spinWheel to never-seen words', () async {
       final srs = SrsProvider()..load();
-      await srs.grade('deck1_w0', 5); // w0 now seen
+      await srs.grade('w0', 5); // w0 now seen
 
       final provider = GameProvider(srsProvider: srs);
       await provider.setDeck(
-        _buildDeck(wordCount: 3), // ids deck1_w0.. no — _buildDeck uses 'w0'.. see note
+        _buildDeck(wordCount: 3),
         gameMode: GameType.classic,
         filter: SessionFilter.fresh,
       );
@@ -808,13 +808,6 @@ Add to `test/providers/game_provider_test.dart` a new group (after `GameProvider
     });
   });
 ```
-
-> **Note for the implementer:** `_buildDeck` creates word ids `w0`, `w1`, `w2`
-> (not `deck1_w0`). The first test's comment is wrong — use `srs.grade('w0', 5)`
-> and assert `isNot('w0')`. Fix the test to match `_buildDeck`'s ids before
-> running. Real decks use `<deckId>_wN` but the test helper does not, and
-> `srsKeyForWord` just returns `w.id` verbatim, so the tests are consistent as
-> long as you key on the helper's ids.
 
 - [ ] **Step 2: Run to verify they fail**
 
@@ -1182,8 +1175,9 @@ git commit -m "feat: pre-session filter screen (all / due / new / hard)"
 
 `CompletedCard` is a `StatefulWidget` that already
 `context.watch<GameProvider>()` and reads `StatisticsProvider` / `GoalProvider`.
-Add a method and call it between `_buildGoalProgress(context)` and the restart
-button:
+Add this method to `_CompletedCardState` and call `_buildNextReview(context)`
+between `_buildGoalProgress(context)` and the restart button (with a
+`SizedBox` gap consistent with the surrounding spacing):
 
 ```dart
   Widget _buildNextReview(BuildContext context) {
@@ -1194,7 +1188,7 @@ button:
     if (deck == null) return const SizedBox.shrink();
 
     final keys = game.currentGameType == GameType.sentence
-        ? deck.sentences.map((s) => srs /* key */ => 0).isEmpty ? <String>[] : deck.sentences.map((s) => '${deck.id}::${s.id}').toList()
+        ? deck.sentences.map((s) => '${deck.id}::${s.id}').toList()
         : deck.words.map((w) => w.id).toList();
 
     final tomorrow = DateTime.now().add(const Duration(days: 1));
@@ -1210,13 +1204,6 @@ button:
     );
   }
 ```
-
-> Clean the key-list expression up when implementing — it should be simply:
-> ```dart
-> final keys = game.currentGameType == GameType.sentence
->     ? deck.sentences.map((s) => '${deck.id}::${s.id}').toList()
->     : deck.words.map((w) => w.id).toList();
-> ```
 
 Add imports for `srs_provider.dart` and `game_mode.dart` if not present.
 `nextReviewLine` handles the 0 case (`=0{...}` plural branch), so no
@@ -1319,10 +1306,11 @@ Screenshot read-only; do not drive the phone.
 
 No gaps.
 
-**2. Placeholder scan:** Task 5 Step 1 and Task 7 Step 1 contain deliberately-flagged
-"clean this up" notes with the corrected code shown immediately after — the
-implementer has the exact final form. All other steps are literal. No "TBD" /
-"similar to Task N" / bare "add error handling".
+**2. Placeholder scan:** all steps are literal final code. No "TBD" /
+"similar to Task N" / bare "add error handling". Task 4 Step 3 and Task 7
+Step 2 say "find where X is done" for `ResetDeckDialog` internals the plan
+author did not read — the implementer opens that one file and follows the
+described addition; the code to add is given verbatim.
 
 **3. Type consistency:**
 - `SessionFilter` — defined in `sm2.dart` (Task 2 Step 1), imported by
