@@ -7,7 +7,6 @@ import 'package:language_learning_app/data/models/word.dart';
 import 'package:language_learning_app/data/models/sentence.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/data/repositories/deck_repository.dart';
-import 'package:language_learning_app/core/utils/date_helper.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 
 class GameProvider extends ChangeNotifier {
@@ -170,8 +169,6 @@ class GameProvider extends ChangeNotifier {
     debugPrint('   Deck: ${baseDeck.name} (${baseDeck.id})');
     debugPrint('   Mode: ${gameMode.storageId}');
 
-    final savedProgress = await _repository.loadProgress(baseDeck.id, gameMode.storageId);
-
     // Copie profonde des phrases : chaque partie doit avoir ses propres
     // instances de Sentence, indépendantes du deck en cache dans
     // DeckProvider (sinon compléter une phrase muterait le deck partagé).
@@ -183,51 +180,12 @@ class GameProvider extends ChangeNotifier {
           completed: false,
         )).toList();
 
-    if (savedProgress != null) {
-      debugPrint('   ✅ Progression existante détectée. Fusion des données...');
-
-      // STRATÉGIE DE FUSION :
-      // On prend le deck "frais" (JSON) pour avoir le contenu à jour.
-      // On applique les états "removed" (mots) et "completed" (phrases)
-      // depuis la sauvegarde, en faisant correspondre par id stable
-      // (et non plus par contenu, qui casse silencieusement si le texte
-      // d'un mot change entre deux révisions du deck).
-
-      final freshDeck = baseDeck.copyWith(
-        words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
-        sentences: freshSentences(),
-      );
-
-      // A. Restauration des mots appris (match par id)
-      for (final savedWord in savedProgress.words) {
-        if (!savedWord.removed) continue;
-        for (final freshWord in freshDeck.words) {
-          if (freshWord.id == savedWord.id) {
-            freshWord.removed = true;
-            break;
-          }
-        }
-      }
-
-      // B. Restauration des phrases complétées (match par id)
-      for (final savedSentence in savedProgress.sentences) {
-        if (!savedSentence.completed) continue;
-        for (final freshSentence in freshDeck.sentences) {
-          if (freshSentence.id == savedSentence.id) {
-            freshSentence.completed = true;
-            break;
-          }
-        }
-      }
-
-      _currentProgressDeck = freshDeck;
-    } else {
-      debugPrint('   🆕 Nouvelle partie créée');
-      _currentProgressDeck = baseDeck.copyWith(
-        words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
-        sentences: freshSentences(),
-      );
-    }
+    // Plus de fusion avec la progression sauvegardée : chaque session repart
+    // d'un deck entièrement actif. Le filtrage (SM-2) se fera en amont.
+    _currentProgressDeck = baseDeck.copyWith(
+      words: baseDeck.words.map((w) => w.copyWith(removed: false)).toList(),
+      sentences: freshSentences(),
+    );
 
     // Reset des pointeurs
     _currentWord = null;
@@ -460,15 +418,6 @@ class GameProvider extends ChangeNotifier {
   Future<void> resetAllModesProgress(String deckId) async {
     await _repository.resetAllProgressForDeck(deckId);
     if (deckId == _currentDeckId) {
-      await resetDeck();
-    }
-  }
-
-  Future<void> checkDailyReset(DateTime lastReset) async {
-    if (_currentProgressDeck == null) return;
-
-    if (DateHelper.needsReset(lastReset)) {
-      debugPrint('📅 Reset quotidien déclenché');
       await resetDeck();
     }
   }

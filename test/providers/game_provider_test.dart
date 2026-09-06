@@ -63,23 +63,19 @@ void main() {
       expect(classicProvider.isReverseMode, isFalse);
     });
 
-    test('restores removed words from saved progress by matching id, even if prompt/answer text changed', () async {
+    test('ignores saved removed flags — every session starts fully active', () async {
       final repo = DeckRepository();
       final saved = _buildDeck()..words.first.removed = true;
       await repo.saveProgress('deck1', GameType.classic.storageId, saved);
 
-      // Simulate a deck JSON revision that changed word text but kept the same id.
-      final revisedDeck = _buildDeck();
-      revisedDeck.words[0] = Word(id: 'w0', prompt: 'renamed prompt', answer: 'renamed answer', removed: false);
-
       final provider = GameProvider();
-      await provider.setDeck(revisedDeck, gameMode: GameType.classic);
+      await provider.setDeck(_buildDeck(), gameMode: GameType.classic);
 
-      expect(provider.currentDeck!.words.first.removed, isTrue);
-      expect(provider.remainingWords, 2);
+      expect(provider.currentDeck!.words.every((w) => !w.removed), isTrue);
+      expect(provider.remainingWords, 3);
     });
 
-    test('does not restore, and does not throw, when a saved word id no longer exists in the fresh deck', () async {
+    test('setDeck completes cleanly even with unrelated saved progress present', () async {
       final repo = DeckRepository();
       final saved = _buildDeck();
       saved.words.add(Word(id: 'deleted_word', prompt: 'x', answer: 'y', removed: true));
