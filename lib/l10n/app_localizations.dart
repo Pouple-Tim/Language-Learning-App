@@ -597,7 +597,7 @@ abstract class AppLocalizations {
   /// No description provided for @description.
   ///
   /// In en, this message translates to:
-  /// **'Language learning app with interactive wheel.\n\nLearn new words every day and improve your vocabulary!'**
+  /// **'Vocabulary learning with spaced repetition.\n\nLearn new words every day and progress at your own pace!'**
   String get description;
 
   /// No description provided for @madeWithLove.
@@ -612,29 +612,29 @@ abstract class AppLocalizations {
   /// **'What\'s new'**
   String get whatsNewTitle;
 
-  /// No description provided for @newsListeningMode.
+  /// No description provided for @newsSpacedRepetition.
   ///
   /// In en, this message translates to:
-  /// **'New game mode: Listening (train your ear)'**
-  String get newsListeningMode;
+  /// **'Spaced repetition: each word comes back at the right moment, based on your answers'**
+  String get newsSpacedRepetition;
 
-  /// No description provided for @newsOnboarding.
+  /// No description provided for @newsDailyGoal.
   ///
   /// In en, this message translates to:
-  /// **'New intro screen and game modes guide'**
-  String get newsOnboarding;
+  /// **'Daily goal and day streak'**
+  String get newsDailyGoal;
 
-  /// No description provided for @newsFeedback.
+  /// No description provided for @newsSessionSummary.
   ///
   /// In en, this message translates to:
-  /// **'A button to report an issue or give feedback'**
-  String get newsFeedback;
+  /// **'End-of-session summary with the words to review'**
+  String get newsSessionSummary;
 
-  /// No description provided for @newsStreak.
+  /// No description provided for @newsReminders.
   ///
   /// In en, this message translates to:
-  /// **'Your day streak is now visible on the home screen'**
-  String get newsStreak;
+  /// **'Optional daily reminders at a time you choose'**
+  String get newsReminders;
 
   /// No description provided for @deckSelected.
   ///
@@ -1307,6 +1307,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Flawless 🎯'**
   String get sessionSummaryPerfect;
+
+  /// No description provided for @preSessionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What to review'**
+  String get preSessionTitle;
+
+  /// No description provided for @srsFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Review everything'**
+  String get srsFilterAll;
+
+  /// No description provided for @srsFilterAllDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Every item in the deck'**
+  String get srsFilterAllDesc;
+
+  /// No description provided for @srsFilterDue.
+  ///
+  /// In en, this message translates to:
+  /// **'Due today'**
+  String get srsFilterDue;
+
+  /// No description provided for @srsFilterDueDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Scheduled items plus anything new'**
+  String get srsFilterDueDesc;
+
+  /// No description provided for @srsFilterFresh.
+  ///
+  /// In en, this message translates to:
+  /// **'New items'**
+  String get srsFilterFresh;
+
+  /// No description provided for @srsFilterFreshDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Never studied before'**
+  String get srsFilterFreshDesc;
+
+  /// No description provided for @srsFilterHard.
+  ///
+  /// In en, this message translates to:
+  /// **'Hard items'**
+  String get srsFilterHard;
+
+  /// No description provided for @srsFilterHardDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Items you keep missing'**
+  String get srsFilterHardDesc;
+
+  /// No description provided for @srsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items'**
+  String srsCount(int count);
+
+  /// No description provided for @nextReviewLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Nothing due tomorrow} =1{1 item due tomorrow} other{{count} items due tomorrow}}'**
+  String nextReviewLine(int count);
 }
 
 class _AppLocalizationsDelegate

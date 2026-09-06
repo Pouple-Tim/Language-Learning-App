@@ -3,14 +3,13 @@ import 'package:language_learning_app/core/theme/app_colors.dart';
 import 'package:language_learning_app/screens/decks/decks_screen.dart';
 import 'package:language_learning_app/screens/settings/settings_screen.dart';
 import 'package:language_learning_app/screens/stats/statistics_screen.dart';
-import 'package:language_learning_app/screens/games/classic_game/game_screen.dart';
+import 'package:language_learning_app/screens/games/pre_session_screen.dart';
 import 'package:language_learning_app/l10n/app_localizations.dart';
 import 'package:language_learning_app/data/models/game_mode.dart';
 import 'package:language_learning_app/data/models/deck.dart';
 import 'package:language_learning_app/core/extensions/strings_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:language_learning_app/providers/deck_provider.dart';
-import 'package:language_learning_app/providers/game_provider.dart';
 import 'package:language_learning_app/providers/statistics_provider.dart';
 import 'package:language_learning_app/providers/reminder_provider.dart';
 import 'package:language_learning_app/core/tutorial/tutorial_service.dart';
@@ -394,7 +393,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           child: InkWell(
             onTap: () async {
               final deckProvider = context.read<DeckProvider>();
-              final gameProvider = context.read<GameProvider>();
               final l10n = AppLocalizations.of(context)!;
 
               if (deckProvider.selectedDeck == null) {
@@ -442,16 +440,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 deck = deckProvider.selectedDeck!;
               }
 
-              gameProvider.setDeck(
-                deck,
-                gameMode: mode.type,
-              );
-
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => GameScreen(
-                    gameTitle: mode.title,
+                  builder: (_) => PreSessionScreen(
+                    deck: deck,
+                    mode: mode.type,
+                    title: mode.title,
                   ),
                 ),
               );

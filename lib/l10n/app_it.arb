@@ -93,13 +93,13 @@
 
   "about": "Informazioni",
   "version": "Versione",
-  "description": "Applicazione per ripassare le lingue con una ruota interattiva.\n\nImpara nuove parole ogni giorno e migliora il tuo vocabolario!",
+  "description": "Apprendimento del vocabolario con ripetizione dilazionata.\n\nImpara nuove parole ogni giorno e avanza al tuo ritmo!",
   "madeWithLove": "Creato con passione",
   "whatsNewTitle": "Novità",
-  "newsListeningMode": "Nuova modalità di gioco: Ascolto (allena il tuo orecchio)",
-  "newsOnboarding": "Nuova schermata introduttiva e guida alle modalità di gioco",
-  "newsFeedback": "Un pulsante per segnalare un problema o lasciare un feedback",
-  "newsStreak": "La tua serie di giorni ora è visibile nella schermata home",
+  "newsSpacedRepetition": "Ripetizione dilazionata: ogni parola torna al momento giusto, in base alle tue risposte",
+  "newsDailyGoal": "Obiettivo giornaliero e serie di giorni",
+  "newsSessionSummary": "Riepilogo di fine sessione con le parole da rivedere",
+  "newsReminders": "Promemoria giornalieri opzionali all'ora che scegli",
   
   "deckSelected": "Mazzo \"{name}\" selezionato",
   "deckDownloadFailed": "Impossibile scaricare questo mazzo. Controlla la connessione e riprova.",
@@ -222,5 +222,16 @@
   "sessionSummaryLearned": "{count} imparate",
   "sessionSummaryFirstTry": "{count} al primo colpo",
   "sessionSummaryToReview": "{count} da rivedere",
-  "sessionSummaryPerfect": "Senza errori 🎯"
+  "sessionSummaryPerfect": "Senza errori 🎯",
+  "preSessionTitle": "Cosa ripassare?",
+  "srsFilterAll": "Ripassa tutto",
+  "srsFilterAllDesc": "Tutti gli elementi del mazzo",
+  "srsFilterDue": "Da ripassare oggi",
+  "srsFilterDueDesc": "Elementi programmati e novità",
+  "srsFilterFresh": "Parole nuove",
+  "srsFilterFreshDesc": "Mai studiati",
+  "srsFilterHard": "Parole difficili",
+  "srsFilterHardDesc": "Quelli che sbagli spesso",
+  "srsCount": "{count} elementi",
+  "nextReviewLine": "{count, plural, =0{Niente per domani} =1{1 elemento domani} other{{count} elementi domani}}"
 }

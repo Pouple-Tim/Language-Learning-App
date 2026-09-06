@@ -273,7 +273,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get description =>
-      'Aplicación de repaso de idiomas con una rueda interactiva.\n\n¡Aprende nuevas palabras cada día y mejora tu vocabulario!';
+      'Aprendizaje de vocabulario con repaso espaciado.\n\n¡Aprende nuevas palabras cada día y avanza a tu ritmo!';
 
   @override
   String get madeWithLove => 'Hecho con pasión';
@@ -282,20 +282,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get whatsNewTitle => 'Novedades';
 
   @override
-  String get newsListeningMode =>
-      'Nuevo modo de juego: Escucha (entrena tu oído)';
+  String get newsSpacedRepetition =>
+      'Repaso espaciado: cada palabra vuelve en el momento justo, según tus respuestas';
 
   @override
-  String get newsOnboarding =>
-      'Nueva pantalla de introducción y guía de modos de juego';
+  String get newsDailyGoal => 'Objetivo diario y racha de días';
 
   @override
-  String get newsFeedback =>
-      'Un botón para informar de un problema o dar tu opinión';
+  String get newsSessionSummary =>
+      'Resumen de fin de sesión con las palabras para repasar';
 
   @override
-  String get newsStreak =>
-      'Tu racha de días ahora es visible en la pantalla de inicio';
+  String get newsReminders =>
+      'Recordatorios diarios opcionales a la hora que elijas';
 
   @override
   String deckSelected(String name) {
@@ -686,4 +685,48 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sessionSummaryPerfect => 'Sin fallos 🎯';
+
+  @override
+  String get preSessionTitle => '¿Qué repasar?';
+
+  @override
+  String get srsFilterAll => 'Repasar todo';
+
+  @override
+  String get srsFilterAllDesc => 'Todos los elementos del mazo';
+
+  @override
+  String get srsFilterDue => 'Para hoy';
+
+  @override
+  String get srsFilterDueDesc => 'Elementos programados y novedades';
+
+  @override
+  String get srsFilterFresh => 'Palabras nuevas';
+
+  @override
+  String get srsFilterFreshDesc => 'Nunca estudiados';
+
+  @override
+  String get srsFilterHard => 'Palabras difíciles';
+
+  @override
+  String get srsFilterHardDesc => 'Los que fallas a menudo';
+
+  @override
+  String srsCount(int count) {
+    return '$count elementos';
+  }
+
+  @override
+  String nextReviewLine(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count elementos mañana',
+      one: '1 elemento mañana',
+      zero: 'Nada para mañana',
+    );
+    return '$_temp0';
+  }
 }

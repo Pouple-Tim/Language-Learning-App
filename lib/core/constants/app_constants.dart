@@ -125,29 +125,7 @@ class AppConstants {
   /// - [DeckProvider.selectedDeck]
   /// - [GameProvider.setDeck]
   static const String keyCurrentDeck = 'current_deck';
-  
-  /// Clé pour stocker la date du dernier reset quotidien (format ISO 8601).
-  ///
-  /// Utilisée pour détecter le changement de jour et réinitialiser
-  /// automatiquement le deck quotidien.
-  ///
-  /// **Format :** `"2025-11-19T00:00:00.000Z"`
-  ///
-  /// **Utilisation :**
-  /// ```dart
-  /// final lastResetStr = prefs.getString(AppConstants.keyLastReset);
-  /// final lastReset = DateTime.parse(lastResetStr);
-  ///
-  /// if (DateTime.now().day != lastReset.day) {
-  ///   await gameProvider.resetDailyProgress();
-  /// }
-  /// ```
-  ///
-  /// **Voir aussi :**
-  /// - [GameProvider.checkDailyReset]
-  /// - [SettingsRepository.needsDailyReset]
-  static const String keyLastReset = 'last_reset_date';
-  
+
   // ═══════════════════════════════════════════════════════════════════════════
   // Identifiants des decks de base (préinstallés)
   // ═══════════════════════════════════════════════════════════════════════════
