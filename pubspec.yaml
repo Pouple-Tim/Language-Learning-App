@@ -6,7 +6,7 @@ description: Apprentissage du vocabulaire avec révision espacée (SM-2), 5 mode
 # - Ou utiliser le Makefile : make generate-manifest
 
 publish_to: 'none'
-version: 1.0.0+1
+version: 3.0.0+3
 
 environment:
   sdk: '>=3.8.0 <4.0.0' 
